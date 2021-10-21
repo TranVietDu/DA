@@ -36,6 +36,9 @@ Route::get('/lienhe', function () {
 Route::get('/vechungtoi', function () {
     return view('vechungtoi');
 });
+Route::get('admin/home', function () {
+    return view('admin.index');
+});
 
 
 
