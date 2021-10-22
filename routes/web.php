@@ -28,6 +28,14 @@ Route::get('/vieclam', function () {
 Route::get('/chi-tiet-viec-lam', function () {
     return view('chi-tiet-viec-lam');
 });
+// Blogs
+Route::get('/blogs', function () {
+    return view('blogs.blogs');
+});
+// Chi tiet Blogs
+Route::get('/chi-tiet-blog', function () {
+    return view('blogs.chi-tiet-blog');
+});
 // Lien he
 Route::get('/lienhe', function () {
     return view('lienhe');
@@ -36,6 +44,15 @@ Route::get('/lienhe', function () {
 Route::get('/vechungtoi', function () {
     return view('vechungtoi');
 });
+
+
+
+
+
+
+
+
+// admin
 Route::get('admin/home', function () {
     return view('admin.index');
 });

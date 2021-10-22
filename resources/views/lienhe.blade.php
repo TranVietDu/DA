@@ -8,7 +8,7 @@
         <div class="col-md-12">
           <div class="text-content">
             <h4>Lorem ipsum dolor</h4>
-            <h2>Contact Us</h2>
+            <h2>Về Chúng Tôi</h2>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Our Location on Maps</h2>
+            <h2>Địa chỉ của chúng tôi trên Maps</h2>
           </div>
         </div>
         <div class="col-md-8">
@@ -57,7 +57,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Send us a Message</h2>
+            <h2>Gửi lại lời nhắn cho chúng tôi</h2>
           </div>
         </div>
         <div class="col-md-8">
@@ -66,27 +66,27 @@
               <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Họ và Tên" required="">
                   </fieldset>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                    <input name="email" type="text" class="form-control" id="email" placeholder="Địa chỉ Email" required="">
                   </fieldset>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
-                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required="">
+                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Tiêu đề" required="">
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Lời nhắn của bạn..." required=""></textarea>
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
                   <fieldset>
-                    <button type="submit" id="form-submit" class="filled-button">Send Message</button>
+                    <button type="submit" id="form-submit" class="filled-button">Gửi</button>
                   </fieldset>
                 </div>
               </div>
