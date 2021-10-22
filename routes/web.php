@@ -45,6 +45,13 @@ Route::get('admin/user', function () {
 Route::get('admin/user/adduser', function () {
     return view('admin.user.adduser');
 });
+Route::get('dangnhap', function () {
+    return view('dangnhap');
+});
+Route::get('dangki', function () {
+    return view('dangki');
+});
+
 
 
 
