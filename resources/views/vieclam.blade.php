@@ -21,13 +21,13 @@
             <div class="col-md-3">
                <div class="contact-form">
                   <form action="#">
-                   <h5 style="margin-bottom: 15px">Type</h5>
+                   <h5 style="margin-bottom: 15px">Loại</h5>
 
                    <div>
                         <label>
                              <input type="checkbox">
 
-                             <small>Contract (5)</small>
+                             <small>Bán Thời Gian (5)</small>
                         </label>
                    </div>
 
@@ -35,7 +35,27 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Full time (5)</small>
+                             <small>Toàn Thời Gian (5)</small>
+                        </label>
+                   </div>
+
+                   <div>
+                        <label>
+                            <input type="checkbox">
+
+                            <small>Thực Tập (5)</small>
+                        </label>
+                    </div>
+
+                   <br>
+
+                   <h5 style="margin-bottom: 15px">Giới Tính</h5>
+
+                   <div>
+                        <label>
+                             <input type="checkbox">
+
+                             <small>Nam</small>
                         </label>
                    </div>
 
@@ -43,19 +63,19 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Internship (5)</small>
+                             <small>Nữ</small>
                         </label>
                    </div>
 
                    <br>
 
-                   <h5 style="margin-bottom: 15px">Category</h5>
+                   <h5 style="margin-bottom: 15px">Địa Điểm</h5>
 
                    <div>
                         <label>
                              <input type="checkbox">
 
-                             <small>Accounting / Finance / Insurance Jobs (5)</small>
+                             <small>Hải Châu (5)</small>
                         </label>
                    </div>
 
@@ -63,7 +83,7 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Accounting / Finance / Insurance Jobs (5)</small>
+                             <small>Thanh Khê (5)</small>
                         </label>
                    </div>
 
@@ -71,19 +91,43 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Accounting / Finance / Insurance Jobs (5)</small>
+                             <small>Ngũ Hành Sơn (5)</small>
                         </label>
                    </div>
+
+                   <div>
+                        <label>
+                            <input type="checkbox">
+
+                            <small>Sơn Trà (5)</small>
+                        </label>
+                    </div>
+
+                    <div>
+                        <label>
+                             <input type="checkbox">
+
+                             <small>Cẩm Lệ (5)</small>
+                        </label>
+                   </div>
+
+                   <div>
+                        <label>
+                            <input type="checkbox">
+
+                            <small>Hòa Vang (5)</small>
+                        </label>
+                    </div>
 
                    <br>
 
-                   <h5 style="margin-bottom: 15px">Career levels</h5>
+                   <h5 style="margin-bottom: 15px">Ngành Nghề</h5>
 
                    <div>
                         <label>
                              <input type="checkbox">
 
-                             <small>Entry Level (5)</small>
+                             <small>Phục Vụ (5)</small>
                         </label>
                    </div>
 
@@ -91,7 +135,7 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Entry Level (5)</small>
+                             <small>Bán Hàng (5)</small>
                         </label>
                    </div>
 
@@ -99,48 +143,20 @@
                         <label>
                              <input type="checkbox">
 
-                             <small>Entry Level (5)</small>
-                        </label>
-                   </div>
-
-                   <br>
-
-                   <h5 style="margin-bottom: 15px">Education levels</h5>
-
-                   <div>
-                        <label>
-                             <input type="checkbox">
-
-                             <small>Associate Degree (5)</small>
-                        </label>
-                   </div>
-
-                   <div>
-                        <label>
-                             <input type="checkbox">
-
-                             <small>Associate Degree (5)</small>
-                        </label>
-                   </div>
-
-                   <div>
-                        <label>
-                             <input type="checkbox">
-
-                             <small>Associate Degree (5)</small>
+                             <small>Gia sư (5)</small>
                         </label>
                    </div>
 
                    <br>
 
 
-                   <h5 style="margin-bottom: 15px">Years of experience</h5>
+                   <h5 style="margin-bottom: 15px">Mức Lương</h5>
 
                    <div>
                         <label>
                              <input type="checkbox">
 
-                              <small>&lt; 1 (5)</small>
+                              <small>1tr - 2tr</small>
                         </label>
                    </div>
 
@@ -148,7 +164,7 @@
                         <label>
                              <input type="checkbox">
 
-                              <small>&lt; 1 (5)</small>
+                              <small>2tr - 3tr</small>
                         </label>
                    </div>
 
@@ -156,7 +172,7 @@
                         <label>
                              <input type="checkbox">
 
-                              <small>&lt; 1 (5)</small>
+                              <small>3tr - 4tr</small>
                         </label>
                    </div>
               </form>
@@ -167,113 +183,18 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <a href="chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                     <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                      <a href="chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
 
-                      <h6>$60 000</h6>
+                    <h6>{Ten quan}</h6>
 
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
 
                       <small>
                            <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
-                    <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                      <h6>$60 000</h6>
-
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                      <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
-                    <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                      <h6>$60 000</h6>
-
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                      <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-4-370x270.jpg" alt=""></a>
-                    <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                      <h6>$60 000</h6>
-
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                      <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-5-370x270.jpg" alt=""></a>
-                    <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                      <h6>$60 000</h6>
-
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                      <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
-                  <div class="product-item">
-                    <a href="job-details.html"><img src="assets/images/product-6-370x270.jpg" alt=""></a>
-                    <div class="down-content">
-                      <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
-
-                      <h6>$60 000</h6>
-
-                      <h4><small><i class="fa fa-briefcase"></i> Medical / Health Jobs <br> <strong><i class="fa fa-building"></i> BMI Kings Park Hospital</strong></small></h4>
-
-                      <small>
-                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Type"><i class="fa fa-file"></i> Contract</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                           <strong title="Location"><i class="fa fa-map-marker"></i> London</strong>
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
                       </small>
                     </div>
                   </div>
