@@ -94,8 +94,6 @@
 
                                 <!-- Already Registered -->
                             </div>
-                        </form>
-                    </div>
                 </div>
             </div>
 
