@@ -24,6 +24,10 @@ Route::get('/tao-cv', function () {
 Route::get('/vieclam', function () {
     return view('vieclam');
 });
+// Chi Tiet Viec lam
+Route::get('/chi-tiet-viec-lam', function () {
+    return view('chi-tiet-viec-lam');
+});
 // Lien he
 Route::get('/lienhe', function () {
     return view('lienhe');
