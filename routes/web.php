@@ -16,38 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-// CV phuc vu
-Route::prefix('cv_mau')->group(function () {
-    Route::get('/phucvu', function () {
-        return view('cv_mau.phucvu');
-    });
-    // Tao CV
-Route::prefix('tao_cv')->group(function () {
-    Route::get('/cv', function () {
-        return view('tao_cv.cv');
-    });
+// Tao CV
+Route::get('/tao-cv', function () {
+        return view('tao-cv');
 });
+// Viec lam
+Route::get('/vieclam', function () {
+    return view('vieclam');
 });
-
-// Cong viec theo ca
-Route::prefix('theoca')->group(function () {
-    Route::get('/sang', function () {
-        return view('theoca.sang');
-    });
-});
-
-// Cong viec theo nghe
-Route::prefix('theonghe')->group(function () {
-    Route::get('/phucvu', function () {
-        return view('theonghe.phucvu');
-    });
-});
-
-// Cong viec theo vung
-Route::prefix('theovung')->group(function () {
-    Route::get('/haichau', function () {
-        return view('theovung.haichau');
-    });
+// Lien he
+Route::get('/lienhe', function () {
+    return view('lienhe');
 });
 // Ve chung toi
 Route::get('/vechungtoi', function () {
