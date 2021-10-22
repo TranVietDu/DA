@@ -39,6 +39,12 @@ Route::get('/vechungtoi', function () {
 Route::get('admin/home', function () {
     return view('admin.index');
 });
+Route::get('admin/user', function () {
+    return view('admin.user.user');
+});
+Route::get('admin/user/adduser', function () {
+    return view('admin.user.adduser');
+});
 
 
 
