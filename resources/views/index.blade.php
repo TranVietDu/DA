@@ -5,28 +5,49 @@
     <!-- Banner Starts Here -->
     <div class="banner header-text">
         <div class="owl-banner owl-carousel">
-          <div class="banner-item-01">
-            <div class="text-content">
-              <h4>Find your car today!</h4>
-              <h2>Lorem ipsum dolor sit amet</h2>
+            <div class="banner-item-02">
+                <div class="text-content">
+                  <h4>Fugiat Aspernatur</h4>
+                  <h2>Laboriosam reprehenderit ducimus</h2>
+                </div>
             </div>
-          </div>
-          <div class="banner-item-02">
-            <div class="text-content">
-              <h4>Fugiat Aspernatur</h4>
-              <h2>Laboriosam reprehenderit ducimus</h2>
+            <div class="banner-item-03">
+                <div class="text-content">
+                  <h4>Saepe Omnis</h4>
+                  <h2>Quaerat suscipit unde minus dicta</h2>
+                </div>
+              </div>
+           <div class="banner-item-01">
+                <div class="text-content">
+                <h4>Find your car today!</h4>
+                <h2>Lorem ipsum dolor sit amet</h2>
+                </div>
             </div>
-          </div>
-          <div class="banner-item-03">
-            <div class="text-content">
-              <h4>Saepe Omnis</h4>
-              <h2>Quaerat suscipit unde minus dicta</h2>
+        </div>
+      </div>
+      <!-- Banner Ends Here -->
+      {{-- Đăng tin  --}}
+
+      <div class="call-to-action">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="inner-content">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                  </div>
+                  <div class="col-lg-4 col-md-6 text-right">
+                    <a href="contact.html" class="filled-button">Tạo Tin Tuyển Dụng</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Banner Ends Here -->
-
+      {{--  --}}
       <div class="latest-products">
         <div class="container">
           <div class="row">
@@ -64,7 +85,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="section-heading">
-                <h2>About Us</h2>
+                <h2>Về Chúng Tôi</h2>
               </div>
             </div>
             <div class="col-md-6">
@@ -92,10 +113,10 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <div class="section-heading">
-                <h2>Latest blog posts</h2>
+                <div class="section-heading">
+                    <h2 style="color:black">Blogs Mới Nhất</h2>
 
-                <a href="blog.html">read more <i class="fa fa-angle-right"></i></a>
+                <a href="testimonials.html">xem thêm <i class="fa fa-angle-right"></i></a>
               </div>
             </div>
 
@@ -141,9 +162,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="section-heading">
-                <h2>Happy Clients</h2>
+                <h2>Đánh Giá</h2>
 
-                <a href="testimonials.html">read more <i class="fa fa-angle-right"></i></a>
+                <a href="testimonials.html">xem thêm <i class="fa fa-angle-right"></i></a>
               </div>
             </div>
             <div class="col-md-12">
@@ -205,27 +226,6 @@
                   <div class="down-content">
                     <h4>Antony Davis</h4>
                     <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="call-to-action">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="inner-content">
-                <div class="row">
-                  <div class="col-md-8">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
-                  </div>
-                  <div class="col-lg-4 col-md-6 text-right">
-                    <a href="contact.html" class="filled-button">Contact Us</a>
                   </div>
                 </div>
               </div>
