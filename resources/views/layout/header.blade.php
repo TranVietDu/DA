@@ -16,9 +16,9 @@
 
               <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
 
-              <li class="nav-item"><a class="nav-link" href="tao-cv">Tạo CV</a></li>
+              <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
 
-              <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
+              <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
 
               <li class="nav-item"><a class="nav-link" href="lienhe">Liên Hệ</a></li>
 
@@ -26,7 +26,7 @@
                 <div class="input-group">
                     <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="example-search-input">
                     <span class="input-group-append">
-                        <button class="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="button">
+                        <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </span>
