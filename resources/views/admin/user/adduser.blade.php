@@ -92,6 +92,10 @@
                             <!-- Social Login -->
 
                             <!-- Already Registered -->
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
                         </div>
                     </form>
                 </div>
