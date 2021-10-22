@@ -92,7 +92,6 @@
                             <!-- Social Login -->
 
                             <!-- Already Registered -->
-
                         </div>
                     </form>
                 </div>
