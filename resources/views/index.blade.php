@@ -97,7 +97,7 @@
                   <li><a href="#">It aquecorporis nulla aspernatur</a></li>
                   <li><a href="#">Corporis, omnis doloremque</a></li>
                 </ul>
-                <a href="about-us.html" class="filled-button">Read More</a>
+                <a href="about-us.html" class="filled-button">Xem thêm</a>
               </div>
             </div>
             <div class="col-md-6">

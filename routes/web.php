@@ -22,18 +22,18 @@ Route::get('/tao-cv', function () {
 });
 // Viec lam
 Route::get('/vieclam', function () {
-    return view('vieclam');
+    return view('vieclam.vieclam');
 });
 // Chi Tiet Viec lam
-Route::get('/chi-tiet-viec-lam', function () {
-    return view('chi-tiet-viec-lam');
+Route::get('/vieclam/chi-tiet-viec-lam', function () {
+    return view('vieclam.chi-tiet-viec-lam');
 });
 // Blogs
 Route::get('/blogs', function () {
     return view('blogs.blogs');
 });
 // Chi tiet Blogs
-Route::get('/chi-tiet-blog', function () {
+Route::get('/blog/chi-tiet-blog', function () {
     return view('blogs.chi-tiet-blog');
 });
 // Lien he

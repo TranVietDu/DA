@@ -183,9 +183,9 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="product-item">
-                    <a href="chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                     <div class="down-content">
-                      <a href="chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
 
                     <h6>{Ten quan}</h6>
 
