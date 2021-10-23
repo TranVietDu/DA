@@ -8,7 +8,8 @@
         <meta name="author" content="" />
         <title>@yield('title')</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
+        <link href="{{asset('css/styles.css')}}" rel="stylesheet"/>
+        <link rel="shortcut icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/906/906343.png"/>
         <link href="{{asset('css/adduser.css')}}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

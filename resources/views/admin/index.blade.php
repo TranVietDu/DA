@@ -5,9 +5,9 @@
 
 @section('content')
 <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                <main style="padding: 25px;background-color: rgb(237, 241, 245);">
+                    <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
+                        <h1 class="mt-4">Home</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
@@ -71,5 +71,5 @@
                         </div>
                     </div>
                 </main>
-            </div>
+</div>
 @endsection
