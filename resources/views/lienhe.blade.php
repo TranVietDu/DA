@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="text-content">
-            <h4>Lorem ipsum dolor</h4>
+            <h4>Try to take advantage of every opportunity that comes you way.</h4>
             <h2>Về Chúng Tôi</h2>
           </div>
         </div>

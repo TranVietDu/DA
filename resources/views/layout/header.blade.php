@@ -8,13 +8,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
-              <li class="nav-item">
-                  <a class="nav-link active" href="/">Trang Chủ
-=======
               <li class="nav-item active">
                   <a class="nav-link" href="/">Trang Chủ
->>>>>>> main
                     <span class="sr-only">(current)</span>
                   </a>
               </li>
