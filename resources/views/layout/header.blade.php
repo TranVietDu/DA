@@ -8,8 +8,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a class="nav-link active" href="/">Trang Chủ
+              <li class="nav-item active">
+                  <a class="nav-link" href="/">Trang Chủ
                     <span class="sr-only">(current)</span>
                   </a>
               </li>
@@ -33,7 +33,7 @@
              </div>
             </li>
             <li class="nav-item">
-                <a  href="#!" type="button"
+                <a  href="/dangnhap" type="button"
                     class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign in</a>
             </li>
           </ul>

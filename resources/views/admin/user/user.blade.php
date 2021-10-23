@@ -34,7 +34,7 @@
                     Người Dùng
                 </div>
                 <div class="card-header">
-                    <a style="float: right;" href=""><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add User</button></a>
+                    <a style="float: right;" href="/admin/user/add"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm</button></a>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">

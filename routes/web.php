@@ -49,24 +49,28 @@ Route::get('/vechungtoi', function () {
 
 
 
-
-
-
-// admin
-Route::get('admin/home', function () {
-    return view('admin.index');
-});
-Route::get('admin/user', function () {
-    return view('admin.user.user');
-});
-Route::get('admin/user/adduser', function () {
-    return view('admin.user.adduser');
-});
+//Đăng kí, đăng nhập
 Route::get('dangnhap', function () {
     return view('dangnhap');
 });
 Route::get('dangki', function () {
     return view('dangki');
+});
+
+// Admin
+Route::get('admin/home', function () {
+    return view('admin.index');
+});
+// user
+Route::get('admin/user', function () {
+    return view('admin.user.user');
+});
+Route::get('admin/user/add', function () {
+    return view('admin.user.adduser');
+});
+// blog
+Route::get('admin/blogs', function () {
+    return view('admin.blogs.blog');
 });
 
 
