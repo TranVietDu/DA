@@ -7,6 +7,7 @@
           <div class="row">
               <div class="col-md-12">
                 <div class="add" style="margin: 20px 0">
+                    <button type="button" class="btn btn-danger" id="deleteall">Delete Selected </button>
                 </div>
                   <table class="table">
                      <thead>
@@ -81,4 +82,33 @@
           </div>
       </div>
     </div>
+    <script>
+        $(function(e) {
+            $("#chkCheckAll").click(function() {
+                $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+            });
+
+            $("#deleteall").click(function(e){
+                e.preventDefault();
+                var allids= [];
+                $("input:checkbox[name=ids]:checked").each(function(){
+                    allids.push($(this).val());
+                });
+                $.ajax({
+                    url:"{{route('tintuyendung.destroyall')}}",
+                    type:'GET',
+                    data:{
+                        ids:allids,
+                        _token:$("input[name=_token]").val()
+                    },
+                    success:function(response)
+                    {
+                        $.each(allids,function(key,val){
+                            $('#sid'+val).remove();
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

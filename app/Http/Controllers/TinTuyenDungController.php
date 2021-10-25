@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TinTuyenDung;
 use App\Http\Requests\TaoTinTuyenDungRequest;
 use App\Http\Requests\CapNhatTinTuyenDungRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class TinTuyenDungController extends Controller
@@ -49,6 +50,13 @@ class TinTuyenDungController extends Controller
     public function destroy($id)
     {
         TinTuyenDung::find($id)->delete();
+        return redirect()->route('tintuyendung.list');
+    }
+    //xoa nhieu
+    public function destroyall(Request $request)
+    {
+        $ids = $request->ids;
+        TinTuyenDung::whereIn('id', $ids)->delete();
         return redirect()->route('tintuyendung.list');
     }
 
