@@ -8,19 +8,19 @@
             <div class="banner-item-02">
                 <div class="text-content">
                   <h4>Fugiat Aspernatur</h4>
-                  <h2>Laboriosam reprehenderit ducimus</h2>
+                  <h2>Try to take advantage of every opportunity that comes you way.</h2>
                 </div>
             </div>
             <div class="banner-item-03">
                 <div class="text-content">
                   <h4>Saepe Omnis</h4>
-                  <h2>Quaerat suscipit unde minus dicta</h2>
+                  <h2>Try to take advantage of every opportunity that comes you way.</h2>
                 </div>
               </div>
            <div class="banner-item-01">
                 <div class="text-content">
                 <h4>Find your car today!</h4>
-                <h2>Lorem ipsum dolor sit amet</h2>
+                <h2>Try to take advantage of every opportunity that comes you way.</h2>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
                   </div>
                   <div class="col-lg-4 col-md-6 text-right">
-                    <a href="contact.html" class="filled-button">Tạo Tin Tuyển Dụng</a>
+                    <a href="tintuyendung/tao-tin-tuyen-dung" class="filled-button">Tạo Tin Tuyển Dụng</a>
                   </div>
                 </div>
               </div>
@@ -97,7 +97,7 @@
                   <li><a href="#">It aquecorporis nulla aspernatur</a></li>
                   <li><a href="#">Corporis, omnis doloremque</a></li>
                 </ul>
-                <a href="about-us.html" class="filled-button">Read More</a>
+                <a href="about-us.html" class="filled-button">Xem thêm</a>
               </div>
             </div>
             <div class="col-md-6">

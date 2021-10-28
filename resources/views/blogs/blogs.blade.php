@@ -22,10 +22,10 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="service-item">
-                    <a href="/chi-tiet-blog" class="services-item-image"><img src="{{ asset('assets/images/blog-1-370x270.jpg')}}" class="img-fluid" alt=""></a>
+                    <a href="/blog/chi-tiet-blog" class="services-item-image"><img src="{{ asset('assets/images/blog-1-370x270.jpg')}}" class="img-fluid" alt=""></a>
 
                     <div class="down-content">
-                      <h4><a href="/chi-tiet-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
+                      <h4><a href="/blog/chi-tiet-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
 
                       <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;</p>
                     </div>

@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::middleware('auth:api')->group(function () {
+    Route::resource('tintuyendung', App\Http\Controllers\TinTuyenDung::class);
+    Route::resource('tintimviec', API\GradeController::class);
+});
