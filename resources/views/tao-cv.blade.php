@@ -2,9 +2,9 @@
 
 @section('content')
      <!-- content -->
-  <div class="container-fluid content" style="text-align: justify;">
-    <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
-    <div class="container" id="content">
+  <div class="page-heading contact-heading">
+    <div class="container" style="background-color: white; padding: 30px 15px">
+        <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
       <div class="row mt-4">
         <div class="col-md-10 text-center" id="tren">
           <div id="image-grid">
@@ -140,26 +140,25 @@
   <div class="container text-right mt-5 mb-5">
     <button class="btn btn-danger" id="download"> Tải xuống</button>
   </div>
-  <hr>
-  <div class="row mb-2" style="background-color: rgb(212, 214, 105); padding: 20px 5px;">
-    <div class="col-md-2">
-
-    </div>
-    <div class="col-md-8 text-center">
-      <h4>Đăng ký nhận email việc làm mới nhất</h4>
-      <p>Hàng trăm người đã có việc làm sau khi để lại email tại đây</p>
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="nhthuong@gmail.com">
-        <div class="input-group-append">
-          <button class="btn btn-outline-success" type="button">Đăng ký ngay</button>
+  <div class="call-to-action">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="inner-content">
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+              </div>
+              <div class="col-lg-4 col-md-6 text-right">
+                <a href="cv-mau" class="filled-button">Tham khảo cách viết CV chuẩn nhất.</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <p>Bằng cách đăng ký qua gmail, bạn đồng ý với <span style="color: blue;">Điều khoản sử dụng</span> và <span
-          style="color: blue;">Chính sách Bảo Mật</span> của chúng TN123. Bạn có thể hủy thông báo qua email bất cứ lúc
-        nào.</p>
-    </div>
-    <div class="col-md-2">
-
     </div>
   </div>
+  <hr>
+
 @endsection

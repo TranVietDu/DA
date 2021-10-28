@@ -13,9 +13,9 @@ use App\Http\Controllers\TinTuyenDung;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+
+Route::get('/', 'App\Http\Controllers\ViecLamController@index')->name('home');
+
 // Tao CV
 Route::get('/tao-cv', function () {
     return view('tao-cv');
@@ -28,17 +28,19 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@update')->name('update');
     Route::get('/xoa-tin-tuyen-dung/{id}', 'TinTuyenDungController@destroy')->name('destroy');
+    Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // Tao tin tim viec
-Route::group(['prefix' => 'tintimviec'], function () {
-    Route::get('/tao-tin-tim-viec', function ()    {
-        return view('tintimviec.tao-tin-tim-viec');
-    });
-
-    Route::get('/quan-li-tin', function ()    {
-        return view('tintimviec.quan-li-tin');
-    });
+Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec.'], function () {
+    Route::get('/danhsach', 'TinTimViecController@index')->name('list');
+    Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
+    Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
+    Route::get('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@edit')->name('edit');
+    Route::put('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@update')->name('update');
+    Route::get('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
+    Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
+    Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
 // Viec lam
 Route::get('/vieclam', function () {
@@ -57,12 +59,10 @@ Route::get('/blog/chi-tiet-blog', function () {
     return view('blogs.chi-tiet-blog');
 });
 // Lien he
-Route::get('/lienhe', function () {
-    return view('lienhe');
-});
-// Ve chung toi
-Route::get('/vechungtoi', function () {
-    return view('vechungtoi');
+Route::get('/lienhe','App\Http\Controllers\LienHeController@index');
+// Cv mau
+Route::get('/cv-mau', function () {
+    return view('cv_mau.phucvu');
 });
 
 

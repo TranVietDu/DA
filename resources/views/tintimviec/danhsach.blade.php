@@ -3,7 +3,7 @@
 @section('content')
     <div class="content" style="background-color:white; padding: 130px 0px 130px 0px; text-align: center">
         <div class="container-fluid">
-        <h3>Quản lí tin tuyển dụng</h3>
+        <h3>Quản lí tin tìm việc</h3>
           <div class="row">
               <div class="col-md-12">
                 <div class="add" style="margin: 20px 0">
@@ -14,54 +14,42 @@
                          <tr>
                             <th><input type="checkbox" id="chkCheckAll" /></th>
                             <th>STT</th>
-                            <th>Tiêu đề</th>
-                            <th>Địa chỉ</th>
-                            <th>Kinh nghiệm</th>
-                            <th>Số lượng</th>
+                            <th>Tên</th>
                             <th>Giới tính</th>
-                            <th>Tên quán</th>
-                            <th>Mức lương</th>
-                            <th>Ngành nghề</th>
-                            <th>Thời gian</th>
-                            <th>Ảnh về quán</th>
+                            <th>Ngày sinh</th>
+                            <th>Email</th>
+                            <th>Ảnh bản thân</th>
+                            <th>Số ĐT</th>
+                            <th>Ngành nghề mong muốn</th>
+                            <th>Kinh nghiệm</th>
+                            <th>Thời gian mong muốn</th>
+                            <th>Mức lương mong muốn</th>
                             <th>Mô tả</th>
                             <th colspan="2">Action</th>
                          </tr>
                      </thead>
                      <tbody>
-                         @foreach($tintuyendungs as $al)
+                         @foreach($tintimviecs as $al)
                          <tr id="sid{{$al->id}}">
                             <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
                             <td>
                                {{$al->id}}
                             </td>
-                             <td>{{$al->tieude}}</td>
-                             <td>{{$al->diachi}}</td>
-                             <td>
-                                 @if (isset($al->kinhnghiem))
-                                 {{$al->kinhnghiem}}
-                                 @else
-                                 {{'Không cần thiết'}}
-                                 @endif
-                             </td>
-                             <td>{{$al->soluong}}</td>
+                             <td>{{$al->ten}}</td>
                              <td>{{$al->gioitinh}}</td>
-                             <td>{{$al->tenquan}}</td>
                              <td>
-                                @if (isset($al->luong))
-                                {{$al->luong}}
-                                @else
-                                {{'Thương lượng'}}
-                                @endif
+                                 {{$al->ngaysinh}}
                              </td>
-                             <td>{{$al->nganhnghe}}</td>
+                             <td>{{$al->email}}</td>
+                             <td>{{$al->anh}}</td>
+                             <td>{{$al->dienthoai}}</td>
+                             <td>
+                                {{$al->nganhnghe}}
+                             </td>
+                             <td>{{$al->kinhnghiem}}</td>
                              <td>{{$al->thoigian}}</td>
                              <td>
-                                @if (isset($al->anh))
-                                {{$al->anh}}
-                                @else
-                                {{'...'}}
-                                @endif
+                                {{$al->mucluong}}
                              </td>
                              <td>
                                 @if (isset($al->mota))
@@ -70,12 +58,12 @@
                                 {{'...'}}
                                 @endif
                              </td>
-                             <td><a href="{{ route('tintuyendung.destroy', $al->id)}}">Xóa</a></td>
-                             <td><a href="{{ route('tintuyendung.edit', $al->id) }}">Cập nhật</a></td>
+                             <td><a href="{{ route('tintimviec.destroy', $al->id)}}">Xóa</a></td>
+                             <td><a href="{{ route('tintimviec.edit', $al->id) }}">Cập nhật</a></td>
                          </tr>
 
                          @endforeach
-                         <a href="{{ route('tintuyendung.restore')}}">Khôi phục các tin đã xóa</a>
+                         <a href="{{ route('tintimviec.restore')}}">Khôi phục các tin đã xóa</a>
                      </tbody>
                  </table>
               </div>

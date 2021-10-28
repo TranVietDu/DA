@@ -2,28 +2,13 @@
 
 @section('content')
      <!-- content -->
-  <div class="container-fluid" style="margin-top: 170px;">
-    <div class="container" style="text-align: justify;">
+     <div class="content" style="background-color:white; padding: 130px 0px 130px 0px; text-align: center">
+        <div class="container-fluid">
       <div class="row">
         <div class="col-md-1">
         </div>
         <div class="col-md-10">
-          <!-- Nút like -->
-          <div id="main-content" class="mh-content" role="main" itemprop="mainContentOfPage"
-            style="height: auto !important;">
-            <h1 style="text-align: center; margin-top: 50px;">Cách viết CV xin việc phục vụ</h1>
-            <div style="text-align: center;" data-href="#" data-width="" data-layout="button_count" data-action="like"
-              data-size="small" data-show-faces="true" data-share="true" fb-xfbml-state="rendered"
-              fb-iframe-plugin-query="action=like&amp;app_id=312146086085533&amp;container_width=0&amp;href=https%3A%2F%2Fhotelcareers.vn%2Fmau-cv-xin-viec-phuc-vu.html&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small&amp;width=">
-              <span style="vertical-align: bottom; width: 150px; height: 28px;"><iframe name="f1dd8a9a7f03334"
-                  width="1000px" height="1000px" data-testid="fb:like Facebook Social Plugin"
-                  title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true"
-                  scrolling="no" allow="encrypted-media"
-                  src="https://www.facebook.com/v9.0/plugins/like.php?action=like&amp;app_id=312146086085533&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2da865a98f85ec%26domain%3Dhotelcareers.vn%26origin%3Dhttps%253A%252F%252Fhotelcareers.vn%252Ff30b8323656b96%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fhotelcareers.vn%2Fmau-cv-xin-viec-phuc-vu.html&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small&amp;width="
-                  style="border: none; visibility: visible; width: 150px; height: 28px;" class=""></iframe></span>
-            </div>
-          </div>
-          <!-- Hết -->
+            <h1 style="text-align: center">Cách viết CV xin việc phục vụ</h1>
           <p><b>Nhân viên phục vụ có thể không phải là một vị trí yêu cầu bằng cấp chuyên nghiệp, phù hợp với nhiều
               người dù không học đúng chuyên ngành hay có kinh nghiệm làm việc. Tuy nhiên, bạn vẫn sẽ cần phải dành thời
               gian để tạo CV xin việc nhân viên phục vụ thật đúng chuẩn trước khi ứng tuyển.</b></p>
@@ -240,7 +225,7 @@
         <div class="col-md-1">
         </div>
       </div>
-    </div>
+        </div>
   </div>
   <!-- nút tạo cv -->
   <div class="hotline-phone-ring-wrap">

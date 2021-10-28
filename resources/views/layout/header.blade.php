@@ -12,7 +12,7 @@
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
            <li class="nav-item active">
-             <a class="nav-link" href="/index">Trang Chủ
+             <a class="nav-link" href="/">Trang Chủ
                <span class="sr-only">(current)</span>
              </a>
            </li>
@@ -23,7 +23,7 @@
 
            <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
 
-           <li class="nav-item"><a class="nav-link" href="lienhe">Liên Hệ</a></li>
+           <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
 
            <li class="nav-item">
              <div class="input-group">
