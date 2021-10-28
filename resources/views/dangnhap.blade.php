@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('login/css/style.css')}}">
+
 </head>
+
 <body>
 
     <div class="main">
@@ -27,21 +30,32 @@
 
                     <div class="signin-form">
                         <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="form-title">Đăng Nhập</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        @if (session('thongbao1'))
+                        <div class="alert">
+                            <p style="color: green;">{{session('thongbao1')}}</p>
+                        </div>
+                        @endif
+                        <form method="POST" action="{{route('login')}}" class="register-form" id="login-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Email"/>
+                                <input type="email" required="" name="email" id="your_name" value="{{old('email')}}" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Mật Khẩu"/>
+                                <input type="password" required="" name="password" id="your_pass" placeholder="Mật Khẩu" />
                             </div>
+                            @if (session('thongbao'))
+                            <div class="alert">
+                                <p style="color: red;">{{session('thongbao')}}</p>
+                            </div>
+                            @endif
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                             </div>
                         </form>
                         <div class="social-login">
@@ -63,4 +77,5 @@
     <script src="{{asset('login/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('login/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
