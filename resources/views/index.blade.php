@@ -104,28 +104,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-item">
-                <a href="#" class="services-item-image"><img src="assets/images/blog-2-370x270.jpg" class="img-fluid" alt=""></a>
-
-                <div class="down-content">
-                  <h4><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit</a></h4>
-
-                  <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="service-item">
-                <a href="#" class="services-item-image"><img src="assets/images/blog-3-370x270.jpg" class="img-fluid" alt=""></a>
-
-                <div class="down-content">
-                  <h4><a href="#">Aperiam modi voluptatum fuga officiis cumque</a></h4>
-
-                  <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
