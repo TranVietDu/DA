@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Add User')
+@section('title', 'Update User')
 
 
 @section('content')
@@ -8,7 +8,7 @@
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding-top: 20px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Người Dùng</hq>
-            <h4 class="text-center" style="background-color: blue; color: white; padding: 20px ;border-radius: 20px;">Thêm Người Dùng</h4>
+            <h4 class="text-center" style="background-color: blue; color: white; padding: 20px ;border-radius: 20px;">Sửa Người Dùng</h4>
             <!--important link source from "https://bootstrapious.com/p/bootstrap-registration-page"-->
             <!-- Navbar-->
             <header class="header">
@@ -30,22 +30,21 @@
                     </div>
 
                     <!-- Registeration Form -->
-                    <div class="col-md-7 col-lg-6 ml-auto">
-                        <form action="{{route('user.store')}}" method="post">
+                    <div class="col-md-7 col-lg-6 ml-auto"> 
+                        <form action="{{route('user.update',[$user->id])}}" method="post">
                             @csrf
+                            {{method_field('put')}}
                             <div class="row">
-
                                 <!-- First Name -->
                                 <div class="input-group col-lg-6 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="text" name="name" placeholder="Họ Và Tên" class="form-control bg-white border-left-0 border-md">
+                                    <input style="border-radius: 10px;" value="{{$user->name}}" required="" type="text" name="name" placeholder="Họ Và Tên" class="form-control bg-white border-left-0 border-md">
                                 </div>
                                 <div class="input-group col-lg-12 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                                    <input style="border-radius: 10px;" value="{{$user->email}}" required="" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                                 </div>
 
-
                                 <div class="input-group col-lg-12 mb-4">
-                                    <select name="role" required="" class="form-control browser-default custom-select">
+                                    <select name="role"  required="" class="form-control browser-default custom-select">
                                         <option class="hidden" selected disabled>Role</option>
                                         <option value="1">Admin</option>
                                         <option value="2">Nhà Tuyển Dụng</option>
@@ -54,14 +53,6 @@
                                 </div>
 
                                 <!-- Password -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
-                                </div>
-
-                                <!-- Password Confirmation -->
-                                <div class="input-group col-lg-6 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="password" name="repassword" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
-                                </div>
                                 <ul class="alert text-danger">
                                 @foreach ($errors->all() as $error)
                                 <li style="color: red;font-family:monospace">{{ $error }}</li>
@@ -69,7 +60,7 @@
                                 </ul>
                                 <!-- Submit Button -->
                                 <div class="form-group col-lg-12 mx-auto mb-0 text-center">
-                                    <button class="btn btn-primary" type="submit">Create your account</button>
+                                    <button class="btn btn-primary" type="submit">Update</button>
                                 </div>
 
                                 <!-- Divider Text -->

@@ -13,10 +13,12 @@ use App\Http\Controllers\TinTuyenDung;
 |
 */
 
+
 Route::get('/', 'App\Http\Controllers\ViecLamController@index');
+
 // Tao CV
 Route::get('/tao-cv', function () {
-        return view('tao-cv');
+    return view('tao-cv');
 });
 // Tao tin tuyen dung
 Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung.'], function () {
@@ -30,7 +32,6 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // Tao tin tim viec
-// Tao tin tuyen dung
 Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec.'], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
@@ -65,33 +66,32 @@ Route::get('/cv-mau', function () {
 });
 
 
-
-
-
-//Đăng kí, đăng nhập
-Route::get('dangnhap', function () {
-    return view('dangnhap');
-});
-Route::get('dangki', function () {
-    return view('dangki');
-});
-
-// Admin
+// admin
 Route::get('admin/home', function () {
     return view('admin.index');
 });
-// user
-Route::get('admin/user', function () {
-    return view('admin.user.user');
-});
-Route::get('admin/user/add', function () {
+Route::get('admin/user/adduser', function () {
     return view('admin.user.adduser');
 });
-// blog
-Route::get('admin/blogs', function () {
-    return view('admin.blogs.blog');
+
+
+//dang nhap
+Route::namespace('App\Http\Controllers')->group(function () {
+    Route::get('dangki', function () {
+        return view('dangki');
+    });
+    Route::post('dangki', 'Authcontroller@register')->name('dangki');
+    Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
+    Route::post('dangnhap', 'Authcontroller@login')->name('login');
+    Route::get('logout', 'Authcontroller@logout')->name('logout');
+    Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
 });
-
-
-
-
+// Admin
+    Route::namespace('App\Http\Controllers\Admin')->group(function () {
+        Route::get('admin/user', 'UserController@index')->name('user.index');
+        Route::delete('admin/user/{user}', 'UserController@destroy')->name('user.destroy');
+        Route::get('admin/user/create', 'UserController@create')->name('user.create');
+        Route::post('admin/user', 'UserController@store')->name('user.store');
+        Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
+        Route::put('admin/{user}','UserController@update')->name('user.update');
+    });
