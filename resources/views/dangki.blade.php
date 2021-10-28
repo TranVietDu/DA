@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,55 +13,63 @@
     <!-- Main css -->
     <link rel="stylesheet" href="{{asset('login/css/style.css')}}">
 </head>
-<body>
 
+<body>
     <div class="main">
         <!-- Sign up form -->
         <section class="signup">
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2  style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="form-title">Đăng Kí</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="form-title">Đăng Kí</h2>
+                        <form method="POST" action="{{route('dangki')}}" class="register-form" id="register-form">
+                            @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Họ Và Tên"/>
+                                <input type="text" name="name" required="" value="{{old('name')}}" id="name" placeholder="Họ Và Tên" />
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Email"/>
+                                <input type="email" name="email" required="" value="{{old('email')}}" id="email" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Mật Khẩu"/>
+                                <input type="password" name="password" required="" id="pass" placeholder="Mật Khẩu" />
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Nhập Lại Mật Khẩu"/>
+                                <input type="password" name="repassword" required="" id="re_pass" placeholder="Nhập Lại Mật Khẩu" />
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                            </div>
+                            <p style="color: black;">Bạn Là:</p>
+                                <select name="role" class="form-control browser-default custom-select">
+                                    <option selected value="2">Nhà Tuyển Dụng</option>
+                                    <option  value="3">Người Tìm Việc</option>
+                                </select>
+                            <ul class="alert text-danger">
+                                @foreach ($errors->all() as $error)
+                                <li style="color: red;font-family:monospace">{{ $error }}</li>
+                                @endforeach
+                            </ul>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Đăng Kí"/>
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Đăng Kí" />
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                         <figure><img src="{{asset('login/images/signup-image.jpg')}}" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">I am already member</a>
+                        <a href="{{route('login')}}" class="signup-image-link">I am already member</a>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Sing in  Form -->
-
     </div>
 
     <!-- JS -->
     <script src="{{asset('login/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('login/js/main.js')}}"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+
 </html>
+
