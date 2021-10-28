@@ -43,9 +43,7 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
 // Viec lam
-Route::get('/vieclam', function () {
-    return view('vieclam.vieclam');
-});
+Route::get('/vieclam','App\Http\Controllers\ViecLamController@index');
 // Chi Tiet Viec lam
 Route::get('/vieclam/chi-tiet-viec-lam', function () {
     return view('vieclam.chi-tiet-viec-lam');

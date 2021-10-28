@@ -33,7 +33,7 @@ class Authcontroller extends Controller
             if($role==1){
                 return redirect()->route('adminhome');
             }
-        } 
+        }
         else {
             return back()->withInput(
                 $request->only('email')
