@@ -14,7 +14,7 @@ use App\Http\Controllers\TinTuyenDung;
 */
 
 
-Route::get('/', 'App\Http\Controllers\ViecLamController@index');
+Route::get('/', 'App\Http\Controllers\ViecLamController@index')->name('home');
 
 // Tao CV
 Route::get('/tao-cv', function () {
