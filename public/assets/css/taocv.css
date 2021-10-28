@@ -1,0 +1,74 @@
+
+    /* CV */
+    .tieude{
+      background-color: rgb(177, 155, 34);
+      padding: 10px;
+      margin-bottom: 20px;
+      border-right: 5px double black;
+      color: white;
+    }
+    #output{
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      background-color: rgb(150, 146, 141);
+      position: relative;
+      border: 2px dashed yellow;
+    }
+    #thongtin,h3,p{
+      padding: 8px;
+    }
+    #lienhe ul li{
+      margin-top: 10px;
+    }
+    .lable{
+      cursor: pointer;
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      margin-top: 0px;
+      margin-left: -201px;
+    }
+    #tren{
+      margin-right: auto;
+      margin-left: auto;
+      background-color: rgb(177, 155, 34);
+      color: white;
+    }
+    #trai{
+      background-color: rgb(177, 155, 34);
+      border-right: 5px double black;
+      padding: 15px;
+    }
+    #phai{
+      padding: 15px;
+    }
+    .tieude1{
+      color: white;
+    }
+    /* hết ====================================================== */
+
+    @media(min-width:1200px){
+      .content{
+        margin-top: 140px;
+    }
+    .range{
+      width: 80%;
+    }
+    }
+    @media(min-width:740px) and (max-width:1199px){
+      .content{
+        margin-top: 180px;
+    }
+    .range{
+      width: 80%;
+    }
+    }
+    @media(max-width:740px){
+      .content{
+        margin-top: 200px;
+    }
+    .range{
+      width: 90%;
+    }
+    }

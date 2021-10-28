@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class Lienhe extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('lienhe', function (Blueprint $table) {
+            $table->id();
+            $table->string('diachi');
+            $table->string('tieude');
+            $table->string('gioithieu');
+            $table->timestamps();
+            $table->softDeletes(); // add
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('lienhe', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+    }
+}

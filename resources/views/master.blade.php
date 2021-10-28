@@ -23,11 +23,12 @@
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/css/cvmau.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/taocv.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/search.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.css')}}">
-
   </head>
 
   <body>

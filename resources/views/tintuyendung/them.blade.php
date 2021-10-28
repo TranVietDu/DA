@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tên quán *" value="" name="tenquan"/>
+                                        <input type="text" class="form-control" placeholder="Tên quán/cty *" value="" name="tenquan"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Lương" value="" name="luong"/>
@@ -96,7 +96,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea id="w3review" name="mota" rows="4" cols="75">
+                                            <textarea name="mota" rows="4" cols="75">
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Đăng"/>
                                     </div>
