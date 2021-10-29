@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<div class="page-heading contact-heading header-text">
+<div class="services">
     <div class="container">
 <div class="container register">
         <div class="row">

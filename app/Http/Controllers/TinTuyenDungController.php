@@ -29,7 +29,7 @@ class TinTuyenDungController extends Controller
         if(TinTuyenDung::create($data)){
             return redirect('/tintuyendung/danhsach');
         }else{
-            return back()->withInput()->with('thongbao1',"Mật khẩu và xác nhận mật khẩu không giống nhau.");
+            return back()->withInput();
         }
     }
 

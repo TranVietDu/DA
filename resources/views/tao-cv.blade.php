@@ -2,9 +2,10 @@
 
 @section('content')
      <!-- content -->
-  <div class="page-heading contact-heading">
+  <div class="services">
+    <div class="content1">
     <div class="container" style="background-color: white; padding: 30px 15px">
-        <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
+            <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
       <div class="row mt-4">
         <div class="col-md-10 text-center" id="tren">
           <div id="image-grid">
@@ -135,8 +136,8 @@
         </div>
         <div class="col-md-1"></div>
       </div>
+        </div>
     </div>
-  </div>
   <div class="container text-right mt-5 mb-5">
     <button class="btn btn-danger" id="download"> Tải xuống</button>
   </div>
@@ -160,5 +161,5 @@
     </div>
   </div>
   <hr>
-
+  <script src="{{ asset('assets/js/download.js')}}"></script>
 @endsection
