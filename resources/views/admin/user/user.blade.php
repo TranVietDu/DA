@@ -58,7 +58,15 @@
                                 <td>{{$i++}}</td>
                                 <td>{{$al->name}}</td>
                                 <td>{{$al->email}}</td>
-                                <td>{{$al->role}}</td>
+                                @if($al->role==1)
+                                <td>Admin</td>
+                                @endif
+                                @if($al->role==2)
+                                <td>Nhà tuyển dụng</td>
+                                @endif
+                                @if($al->role==3)
+                                <td>Người tìm việc</td>
+                                @endif
                                 <td><a href="{{route('user.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('user.destroy',[$al->id])}}" method="post">

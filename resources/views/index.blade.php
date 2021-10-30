@@ -27,23 +27,9 @@
       </div>
       <!-- Banner Ends Here -->
       {{-- Đăng tin  --}}
-
       <div class="call-to-action">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
-              <div class="inner-content">
-                <div class="row">
-                  <div class="col-md-8">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
-                  </div>
-                  <div class="col-lg-4 col-md-6 text-right">
-                    <a href="tintimviec/tao-tin-tim-viec" class="filled-button">Tạo Tin Tìm Kiếm Việc Làm</a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -82,6 +68,40 @@
         </div>
       </div>
 
+      <!-- Tin tim viec -->
+      <div class="latest-products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <h2>Tin Tim Viec</h2>
+                <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+            @foreach ($vieclams as $vl)
+                <div class="col-md-4">
+                    <div class="product-item">
+                    <a href="vieclam/chi-tiet-viec-lam"><img src="{{ $vl->anh }}" alt=""></a>
+                    <div class="down-content">
+                        <a href="vieclam/chi-tiet-viec-lam"><h4>{{ $vl->tieude }}</h4></a>
+
+                        <h6>${{$vl->luong }}</h6>
+
+                        <h4><small><i class="fa fa-briefcase"></i> {{ $vl->nganhnghe}} <br> <strong><i class="fa fa-building"></i>{{ $vl->tenquan}}</strong></small></h4>
+
+                        <small>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> {{ $vl->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Type"><i class="fa fa-file"></i> {{$vl->gioitinh}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Location"><i class="fa fa-map-marker"></i> {{$vl->diachi }}</strong>
+                        </small>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+
+          </div>
+        </div>
+      </div>
       <div class="services" style="background-image: url(asset('assets/images/other-image-fullscren-1-1920x900.jpg'));" >
         <div class="container">
           <div class="row">

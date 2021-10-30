@@ -46,9 +46,9 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Ảnh</th>
-                                <th>Tiêu Đề</th>
-                                <th>Ngành Nghề</th>
-                                <th>Số lượng</th>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Ngành nghề</th>
                                 <th>Xem Chi Tiết</th>
                                 <th>Sửa</th>
                                 <th>Xóa</th>
@@ -62,13 +62,13 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
-                                <td>{{$al->tieude}}</td>
+                                <td>{{$al->ten}}</td>
+                                <td>{{$al->mota}}</td>
                                 <td>{{$al->nganhnghe}}</td>
-                                <td>{{$al->soluong}}</td>
                                 <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                                 <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
-                                    <form action="{{route('tintuyendung.destroy',[$al->id])}}" method="post">
+                                    <form action="{{route('tintimviec.destroy',[$al->id])}}" method="post">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash"></i></button>

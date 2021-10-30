@@ -27,7 +27,7 @@ class Authcontroller extends Controller
             // Authentication passed...
             $username = Auth::user();
             $role = Auth::user()->role;
-            if($role==2){
+            if($role==2 || $role==3){
                 return redirect()->route('home');
             }
             if($role==1){

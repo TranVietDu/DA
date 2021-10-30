@@ -103,4 +103,5 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
         // Tintimviec
         Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
+        Route::delete('admin/tintimviec/{tinTimViec}','TimViecController@destroy')->name('tintimviec.destroy');
     });
