@@ -6,6 +6,7 @@ use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class ViecLamController extends Controller
 {
@@ -16,8 +17,10 @@ class ViecLamController extends Controller
      */
     public function index()
     {
-        $vieclams = TinTuyenDung::limit(6)->get();
-        return View::make('index', compact('vieclams'));
+        $vieclams = TinTuyenDung::all();
+        $username=Auth::user();
+        return view('index', compact('vieclams'),['username'=>$username]);
+
     }
     public function vieclam()
     {

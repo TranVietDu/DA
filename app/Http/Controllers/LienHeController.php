@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LienHe;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class LienHeController extends Controller
 {
@@ -11,6 +12,7 @@ class LienHeController extends Controller
     public function index()
     {
         $lienhes = LienHe::all();
-        return View::make('lienhe', compact('lienhes'));
+        $username=Auth::user();
+        return View::make('lienhe', compact('lienhes'),['username'=>$username]);
     }
 }

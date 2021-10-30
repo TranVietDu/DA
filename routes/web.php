@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TinTuyenDung;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,9 +48,11 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
 Route::get('/tim-kiem','App\Http\Controllers\ViecLamController@search');
 
 // Viec lam
-Route::get('/','App\Http\Controllers\ViecLamController@index');
+Route::get('/vieclam', function () {
+    $username=Auth::user();
+    return view('vieclam.vieclam',['username'=>$username]);
+});
 
-Route::get('/vieclam', 'App\Http\Controllers\ViecLamController@vieclam');
 // Chi Tiet Viec lam
 Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
 
@@ -98,10 +102,16 @@ Route::namespace('App\Http\Controllers')->group(function () {
 });
 // Admin
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
+        // User
         Route::get('admin/user', 'UserController@index')->name('user.index');
         Route::delete('admin/user/{user}', 'UserController@destroy')->name('user.destroy');
         Route::get('admin/user/create', 'UserController@create')->name('user.create');
         Route::post('admin/user', 'UserController@store')->name('user.store');
         Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
         Route::put('admin/{user}','UserController@update')->name('user.update');
+        // Tintuyendung
+        Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
+        Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
+        // Tintimviec
+        Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
     });

@@ -7,6 +7,7 @@ use App\Http\Requests\TaoTinTimViecRequest;
 use App\Http\Requests\CapNhatTinTimViecRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class TinTimViecController extends Controller
 {
@@ -37,7 +38,8 @@ class TinTimViecController extends Controller
     public function edit($id)
     {
         $tintimviec = TinTimViec::find($id);
-        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
+        $username=Auth::user();
+        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'),['username'=>$username]);
     }
     //cap nhat
     public function update(CapNhatTinTimViecRequest $request, $id)

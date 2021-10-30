@@ -11,17 +11,21 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
-           <li class="nav-item active">
+           <li class="nav-item">
              <a class="nav-link" href="/">Trang Chủ
                <span class="sr-only">(current)</span>
              </a>
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
-
-           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
-
-           <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+              @if(Auth::user()->role==3)
+           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tìm Việc</a></li>
+              @endif
+              @if(Auth::user()->role==2)
+          <li class="nav-item"><a class="nav-link" href="/tao-cv">Tuyển Dụng</a></li>
+              @endif
+           <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
+          
 
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
 
@@ -36,25 +40,33 @@
              </form>
            </li>
            @if(Auth::check())
-            <li>
+           <li>
              <div class="dropdown">
                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <i class="fas fa-user"><?=$username->name?></i>
+                 <i class="fas fa-user"><?= $username->name ?></i>
                </button>
                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                 @if(Auth::user()->role==1)
+                  <a class="dropdown-item" href="/admin/home">Admin</a>
+                  @endif
                  <a class="dropdown-item" href="#">Setting</a>
                  <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                </div>
              </div>
            </li>
-            @else
-              <li class="nav-item">
-              <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign in</a>
+           @else
+           <li class="nav-item">
+             <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign in</a>
            </li>
            @endif
          </ul>
        </div>
      </div>
    </nav>
- </header>
+<script>
+    $(function() {
+   $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+});
+</script>
 
+ </header>

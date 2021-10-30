@@ -77,6 +77,21 @@
                   <button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button>
                 </div>
               </div>
+
+              <div>
+                <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid wc-image">
+              </div>
+
+              <br>
+              <ul class="social-icons text-center">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              </ul>
+
+              <br>
+              <br>
             </div>
           </div>
         </div>
