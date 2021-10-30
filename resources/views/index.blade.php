@@ -74,7 +74,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="section-heading">
-                <h2>Tin Tim Viec</h2>
+                <h2>Tin Tìm Việc Mới Nhất</h2>
                 <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
               </div>
             </div>

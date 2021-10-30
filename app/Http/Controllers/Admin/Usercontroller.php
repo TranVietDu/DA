@@ -18,6 +18,11 @@ class Usercontroller extends Controller
      * @return \Illuminate\Http\Response
      *
      */
+    public function __construct()
+    {
+        $username=Auth::user();
+        view()->share('username',$username);    
+    }
     public function index()
     {
         $all=User::all();
@@ -84,10 +89,6 @@ class Usercontroller extends Controller
      */
     public function update(UpdateUser $request, User $user)
     {
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->role=$request->role;
-        $user->save();
         return redirect()->route('user.index');
     }
 

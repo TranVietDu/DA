@@ -101,7 +101,13 @@ Route::namespace('App\Http\Controllers')->group(function () {
         // Tintuyendung
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
+        Route::get('admin/tintuyendung/{tintuyendung}/edit','TuyenDungController@edit')->name('tintuyendung.edit');
         // Tintimviec
         Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
         Route::delete('admin/tintimviec/{tinTimViec}','TimViecController@destroy')->name('tintimviec.destroy');
+        // Blogs
+        Route::get('admin/blog','BlogController@index')->name('blog.index');
+        Route::delete('admin/blog/{blog}','BlogController@destroy')->name('blog.destroy');
+        // SLider
+        Route::get('admin/slider','SliderController@index')->name('slider.index');
     });

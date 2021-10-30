@@ -24,12 +24,11 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></i></div>
                     Tin Tìm Việc
                 </a>
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="/admin/blog">
                     <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></i></div>
                     Blog
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
-                <a class="nav-link collapsed" href="">
+                <a class="nav-link collapsed" href="/admin/slider">
                     <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></i></div>
                     Giao Diện
 
