@@ -1,9 +1,9 @@
 @extends('master')
 
 @section('content')
-    <div class="content" style="background-color:white; padding: 130px 0px 130px 0px; text-align: center">
+    <div class="services">
         <div class="container-fluid">
-        <h3>Quản lí tin tuyển dụng</h3>
+        <h3 style="text-align: center">Quản lí tin tuyển dụng</h3>
           <div class="row">
               <div class="col-md-12">
                 <div class="add" style="margin: 20px 0">

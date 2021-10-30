@@ -44,22 +44,34 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
+//tim kiem
+Route::get('/tim-kiem','App\Http\Controllers\ViecLamController@search');
+
 // Viec lam
 Route::get('/vieclam', function () {
     $username=Auth::user();
     return view('vieclam.vieclam',['username'=>$username]);
 });
+
 // Chi Tiet Viec lam
-Route::get('/vieclam/chi-tiet-viec-lam', function () {
-    return view('vieclam.chi-tiet-viec-lam');
-});
-// Blogs
-Route::get('/blogs', function () {
-    return view('blogs.blogs');
+Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
+
+Route::get('/blog', 'App\Http\Controllers\BLogController@blog');
+
+// blog
+Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog.'], function () {
+    Route::get('/danhsach', 'BlogController@index')->name('list');
+    Route::get('/viet-blog', 'BlogController@create')->name('create');
+    Route::post('/viet-blog', 'BlogController@store')->name('store');
+    Route::get('/cap-nhat-blog/{id}', 'BlogController@edit')->name('edit');
+    Route::put('/cap-nhat-blog/{id}', 'BlogController@update')->name('update');
+    Route::get('/xoa-blog/{id}', 'BlogController@destroy')->name('destroy');
+    Route::get('/xoa-nhieu-blog', 'BlogController@destroyall')->name('destroyall');
+    Route::get('/khoi-phuc-blog', 'BlogController@restore')->name('restore');
 });
 // Chi tiet Blogs
 Route::get('/blog/chi-tiet-blog', function () {
-    return view('blogs.chi-tiet-blog');
+    return view('blog.chi-tiet-blog');
 });
 // Lien he
 Route::get('/lienhe','App\Http\Controllers\LienHeController@index');
@@ -67,7 +79,6 @@ Route::get('/lienhe','App\Http\Controllers\LienHeController@index');
 Route::get('/cv-mau', function () {
     return view('cv_mau.phucvu');
 });
-
 
 // admin
 Route::get('admin/home', function () {

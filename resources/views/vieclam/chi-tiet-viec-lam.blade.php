@@ -19,38 +19,65 @@
       <div class="products">
         <div class="container">
           <div class="row">
-            <div class="col-md-9 col-sm-8">
+            <div class="col-md-8 col-sm-7">
                 <p class="lead">
-                     <i class="fa fa-map-marker"></i> London &nbsp;&nbsp;
-                     <i class="fa fa-calendar"></i> 20-06-2020 &nbsp;&nbsp;
-                     <i class="fa fa-user"></i> Số Lượng: 3
+                     <i class="fa fa-map-marker"></i> {{$vieclam->diachi}} &nbsp;&nbsp;
+                     <i class="fa fa-calendar"></i> {{$vieclam->created_at}} &nbsp;&nbsp;
+                     <i class="fa fa-user"></i> Số Lượng: {{$vieclam->soluong}}
                 </p>
 
                 <br>
                 <br>
 
                 <div class="form-group">
-                  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+                  <h5>{{$vieclam->tieude}}</h5>
                 </div>
-                  <h6>- Mô Tả:</h6>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, delectus totam non est excepturi expedita, illum vitae vel dolore exercitationem nobis quasi dicta illo id  quas. Error commodi, modi minus. <br><br>
-                    Perferendis, quidem, facilis. Aspernatur alias numquam saepe deleniti dolorem quos repudiandae eaque ad eligendi quam, ratione, error minima culpa suscipit nostrum magni omnis est. Suscipit dolor sint aut maiores eius, id nemo, optio, quos tempora cum est quas. At recusandae obcaecati consequatur ipsa dignissimos, eius commodi qui quae exercitationem fugiat, voluptatem, nesciunt!
-                  </p>
+                    @if (isset($vieclam->mota))
+                        <p><b>- Mô Tả:</b>
+                            {{$vieclam->mota}}
+                        </p>
+                    @endif
+                    @if (isset($vieclam->gioitinh))
+                        <p><b>- Giới Tính:</b> <span> {{$vieclam->gioitinh}}</span></p>
+                    @endif
+                    @if (isset($vieclam->yeucau))
+                        <p><b>- Yêu Cầu:</b> <span></span></p>
+                    @endif
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem voluptatem vero culpa rerum similique labore, nisi minus voluptatum numquam fugiat. <br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat fugit sint reiciendis quas temporibus quam maxime nulla vitae consectetur perferendis, fugiat assumenda ex dicta molestias soluta est quo totam cum?</p>
-                  <h6>- Giới Tính: <span> <p> Chi đó</p></span></h6>
-                  <h6>- Yêu Cầu: <span> <p> Chi đó</p></span></h6>
-                  <h6>- Loại Công Việc: <span> <p> Chi đó</p></span></h6>
+                        <p><b>- Thời gian làm việc:</b><span>
+                        {{$vieclam->thoigian}}</span></p>
+
+                    @if (isset($vieclam->kinhnghiem))
+                        <p><b>- Yêu cầu kinh nghiệm:</b><span>
+                        {{$vieclam->kinhnghiem}}</span></p>
+                    @endif
+                    @if (isset($vieclam->luong))
+                        <p><b>- Lương cơ bản:</b><span>
+                        {{$vieclam->luong}}</span></p>
+                    @endif
+
+                    <p><b>- Thuộc ngành nghề:</b><span>
+                        {{$vieclam->nganhnghe}}</span></p>
+
+
                 <br>
                 <br>
             </div>
 
-            <div class="col-md-3 col-sm-4">
+            <div class="col-md-4 col-sm-5">
+              <div>
+                  <br>
+                  <h6 style="text-align:center">Ảnh về chúng tôi</h6>
+                  <br>
+                <img src="https://i.ytimg.com/vi/kGz9cHL9LFc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmiRNWDNbhb4ZbyO2JXVYYlua2HQ" alt="" class="img-fluid wc-image">
+              </div>
+              <br>
               <div class="contact-form">
                 <div class="form-group">
                   <button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button>
                 </div>
               </div>
+
               <div>
                 <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid wc-image">
               </div>
@@ -75,16 +102,18 @@
           <div class="row">
             <div class="col-md-9">
               <div class="section-heading">
-                <h2>About Cannon Guards Security ltd</h2>
+                <h2>Giới thiệu về chúng tôi</h2>
               </div>
 
               <p class="lead">
-                     <i class="fa fa-map-marker"></i> London
+                     <i class="fas fa-store"></i>
+                     @if (isset($vieclam->tenquan))
+                         {{$vieclam->tenquan}}
+                         <p>
+                             {{$vieclam->mota}}
+                         </p>
+                     @endif
                 </p>
-
-              <p>Looking to improve the security at your place of business? If so, we will provide you with the trained security officers and professionally licensed personnel needed for any business. From a security guard for construction site security to private event security, you can be sure to get the very best from our staff. Alternatively we provide tailor-made security guard training for your existing security staff.</p>
-              <br>
-              <p>Looking to improve the security at your place of business? If so, we will provide you with the trained security officers and professionally licensed personnel needed for any business. From a security guard for construction site security to private event security, you can be sure to get the very best from our staff. Alternatively we provide tailor-made security guard training for your existing security staff.</p>
             </div>
 
             <div class="col-md-3">

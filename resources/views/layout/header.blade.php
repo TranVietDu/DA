@@ -26,18 +26,18 @@
               @endif
            <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
           
+
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
 
            <li class="nav-item">
-             <div class="input-group">
-               <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="example-search-input">
-               <span class="input-group-append">
-                 <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="button">
-                   <i class="fa fa-search"></i>
-                 </button>
-               </span>
-             </div>
-
+             <form action="/tim-kiem" method="get" autocomplete="off">
+                <div class="input-group">
+                    <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit">
+                      <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
+                        <i class="fa fa-search"></i>
+                      </button>
+                  </div>
+             </form>
            </li>
            @if(Auth::check())
            <li>

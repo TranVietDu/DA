@@ -7,8 +7,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4>Lorem ipsum dolor sit amet</h4>
                 <h2>Blog</h2>
+                <h4><a href="blog/viet-blog">Viết Blog</a></h4>
               </div>
             </div>
           </div>
@@ -20,17 +20,19 @@
           <div class="row">
             <div class="col-md-8">
               <div class="row">
+                @foreach ($blogs as $val)
                 <div class="col-md-6">
-                  <div class="service-item">
-                    <a href="/blog/chi-tiet-blog" class="services-item-image"><img src="{{ asset('assets/images/blog-1-370x270.jpg')}}" class="img-fluid" alt=""></a>
+                    <div class="service-item">
+                      <a href="/blog/chi-tiet-blog" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
 
-                    <div class="down-content">
-                      <h4><a href="/blog/chi-tiet-blog">Lorem ipsum dolor sit amet, consectetur adipisicing elit hic</a></h4>
+                      <div class="down-content">
+                        <h4><a href="/blog/chi-tiet-blog">{{$val->tieude}}</a></h4>
 
-                      <p style="margin: 0;"> John Doe &nbsp;&nbsp;|&nbsp;&nbsp; 12/06/2020 10:30 &nbsp;&nbsp;</p>
+                        <p style="margin: 0;"> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->created_at}} &nbsp;&nbsp;</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                @endforeach
                 <div class="col-md-12">
                   <ul class="pages">
                     <li><a href="#">1</a></li>

@@ -13,6 +13,6 @@ class Blog extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'Blog';
     protected $fillable = [
-        'id', 'tieude', 'anh', 'noidung',
+        'id', 'tieude','tennguoiviet', 'anh', 'noidung',
     ];
 }
