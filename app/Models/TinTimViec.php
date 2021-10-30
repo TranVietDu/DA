@@ -13,6 +13,6 @@ class TinTimViec extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'TinTimViec';
     protected $fillable = [
-        'id', 'ten', 'gioitinh', 'ngaysinh', 'email', 'anh', 'dienthoai', 'nganhnghe', 'kinhnghiem', 'thoigian', 'mucluong', 'mota'
+        'id','user_id', 'ten', 'gioitinh', 'ngaysinh', 'email', 'anh', 'dienthoai', 'nganhnghe', 'kinhnghiem', 'thoigian', 'mucluong', 'mota'
     ];
 }
