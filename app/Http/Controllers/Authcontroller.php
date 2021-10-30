@@ -28,7 +28,7 @@ class Authcontroller extends Controller
             $username = Auth::user();
             $role = Auth::user()->role;
             if($role==2){
-                return view('index', ['username' => $username]);
+                return redirect()->route('home');
             }
             if($role==1){
                 return redirect()->route('adminhome');

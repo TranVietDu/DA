@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 class ViecLamController extends Controller
 {
@@ -16,6 +17,7 @@ class ViecLamController extends Controller
     public function index()
     {
         $vieclams = TinTuyenDung::all();
-        return View::make('index', compact('vieclams'));
+        $username=Auth::user();
+        return view('index', compact('vieclams'),['username'=>$username]);
     }
 }
