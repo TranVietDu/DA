@@ -24,7 +24,6 @@ class Usercontroller extends Controller
         $username=Auth::user();
         return view('admin.user.user',compact('all'),['username' => $username]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
