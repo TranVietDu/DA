@@ -12,8 +12,8 @@ class TinTuyenDung extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-    protected $table = 'TinTuyenDung';
+    protected $table = 'tintuyendung';
     protected $fillable = [
-        'id', 'tieude', 'diachi', 'kinhnghiem', 'soluong', 'gioitinh', 'tenquan', 'luong', 'nganhnghe', 'thoigian', 'anh', 'mota'
+        'id','user_id', 'tieude', 'diachi', 'kinhnghiem', 'soluong', 'gioitinh', 'tenquan', 'luong', 'nganhnghe', 'thoigian', 'anh', 'mota'
     ];
 }

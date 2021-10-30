@@ -7,70 +7,20 @@
         <div class="owl-banner owl-carousel">
             <div class="banner-item-02">
                 <div class="text-content">
-                    <div class="s009">
-                        <form action="/tim-kiem" method="get" autocomplete="off">
-                            <div class="inner-form">
-                            <div class="basic-search">
-                              <div class="input-field">
-                                <input id="search" type="text" placeholder="Nhập từ khóa cần tìm..." id="keywords" name="keywords_submit"/>
-                                <div class="icon-wrap">
-                                  <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
-                                      <i class="fa fa-search" aria-hidden="true"></i>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                        </form>
-                        <form>
-                            <div class="advance-search">
-                              <span class="desc">Tìm kiếm nâng cao</span>
-                              <div class="row">
-                                <div class="input-field">
-                                  <div class="input-select">
-                                    <select data-trigger="" name="thoigian">
-                                      <option placeholder="" value="">Thời gian</option>
-                                      <option>Ca sáng</option>
-                                      <option>Ca chiều</option>
-                                      <option>Ca tối</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="input-field">
-                                  <div class="input-select">
-                                    <select data-trigger="" name="diachi">
-                                      <option placeholder="" value="">Địa chỉ</option>
-                                      <option>Hải Châu</option>
-                                      <option>Sơn Trà</option>
-                                      <option>Ngũ Hành Sơn</option>
-                                      <option>Cẩm Lệ</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="input-field">
-                                  <div class="input-select">
-                                    <select data-trigger="" name="luong">
-                                      <option placeholder="" value="">Mức lương</option>
-                                      <option>1tr - 2tr</option>
-                                      <option>2tr - 3tr</option>
-                                      <option>3tr - 4tr</option>
-                                      <option>Trên 4tr</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row third">
-                                <div class="input-field">
-                                  <div class="result-count"></div>
-                                  <div class="group-btn">
-                                    <button class="btn-delete" id="delete">LÀM MỚI</button>
-                                    <button class="btn-search" type="submit">TÌM</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
+                  <h4>Fugiat Aspernatur</h4>
+                  <h2>Try to take advantage of every opportunity that comes you way.</h2>
+                </div>
+            </div>
+            <div class="banner-item-03">
+                <div class="text-content">
+                  <h4>Saepe Omnis</h4>
+                  <h2>Try to take advantage of every opportunity that comes you way.</h2>
+                </div>
+              </div>
+           <div class="banner-item-01">
+                <div class="text-content">
+                <h4>Find your car today!</h4>
+                <h2>Try to take advantage of every opportunity that comes you way.</h2>
                 </div>
             </div>
         </div>

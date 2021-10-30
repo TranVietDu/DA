@@ -15,6 +15,7 @@ class Binhluan extends Migration
     {
         Schema::create('binhluan', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('ten');
             $table->string('email');
             $table->string('noidung');

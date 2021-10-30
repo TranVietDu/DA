@@ -14,18 +14,14 @@ class Tintimviec extends Migration
     public function up()
     {
         Schema::create('tintimviec', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('user_id');
             $table->string('ten');
             $table->string('gioitinh');
             $table->string('ngaysinh');
-            $table->string('email')->nullable();
-            $table->string('anh');
-            $table->string('dienthoai');
-            $table->string('nganhnghe');
-            $table->string('kinhnghiem');
-            $table->string('thoigian');
-            $table->string('mucluong');
-            $table->string('mota')->nullable();
+            $table->string('lienhe')->nullable();
+            $table->string('anh')->nullable();
+            $table->text('mota');
             $table->timestamps();
             $table->softDeletes(); // add
         });

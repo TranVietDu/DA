@@ -18,14 +18,8 @@
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
-              @if(Auth::user()->role==3)
-           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tìm Việc</a></li>
-              @endif
-              @if(Auth::user()->role==2)
-          <li class="nav-item"><a class="nav-link" href="/tao-cv">Tuyển Dụng</a></li>
-              @endif
            <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
-          
+
 
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
 

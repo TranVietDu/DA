@@ -174,7 +174,7 @@
 
             <div class="col-md-9">
               <div class="row">
-                @foreach ($vieclams as $vl)
+                @foreach ($all as $vl)
                 <div class="col-md-4">
                     <div class="product-item">
                       <a href="/vieclam/chi-tiet-viec-lam/{{$vl->id}}"><img src="{{$vl->anh}}" alt=""></a>
@@ -192,7 +192,6 @@
                         </small>
                       </div>
                     </div>
-                        {{ $vieclams -> links() }}
                   </div>
                 @endforeach
               </div>
