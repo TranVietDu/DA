@@ -36,15 +36,17 @@
            @if(Auth::user())
            <li>
              <div class="dropdown">
-               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <i class="fas fa-user">{{Auth::user()->name}}</i>
+               <button class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="fas fa-user"></i>
                </button>
-               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+               <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                <b>{{Auth::user()->name}}</b>
+                <hr>
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 <a class="dropdown-item" href="#">Setting</a>
-                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                 <a class="dropdown-item" href="#">Cài đặt</a>
+                 <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
              </div>
            </li>

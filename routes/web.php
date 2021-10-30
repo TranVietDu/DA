@@ -66,8 +66,7 @@ Route::get('vieclam', 'App\Http\Controllers\ViecLamController@vieclam');
 Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
 
 //Blog
-Route::get('/blog', 'App\Http\Controllers\BLogController@blog');
-
+Route::get('blog', 'App\Http\Controllers\BlogController@blog');
 //Chi tiet Blog
 Route::get('/blog/chi-tiet-blog/{id}', 'App\Http\Controllers\BLogController@chitietblog');
 

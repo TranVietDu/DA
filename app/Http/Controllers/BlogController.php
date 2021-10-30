@@ -19,16 +19,12 @@ class BlogController extends Controller
          $blogs = DB::table('Blog')->where('user_id','=', $username->id)->get();
          return View::make('blog.danhsach', compact('blogs'));
      }
-     public function blog()
-     {
-         $blogs = Blog::all();
-         return View::make('blog.blogs', compact('blogs'));
-     }
-     public function blog1()
-     {
-         $blogs = Blog::all();
-         return View::make('index', compact('blogs'));
-     }
+
+    public function blog()
+    {
+        $blogs = BLog::all();
+        return View::make('blog.blogs', compact('blogs'));
+    }
      public function chitietblog($id)
     {
         $blog = BLog::find($id);
