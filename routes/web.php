@@ -53,8 +53,7 @@ Route::get('/vieclam', 'App\Http\Controllers\ViecLamController@vieclam');
 Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
 
 Route::get('/blog', 'App\Http\Controllers\BLogController@blog');
-//index
-Route::get('/', 'App\Http\Controllers\BLogController@blog1');
+
 // blog
 Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog.'], function () {
     Route::get('/danhsach', 'BlogController@index')->name('list');

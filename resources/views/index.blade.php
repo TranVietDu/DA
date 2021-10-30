@@ -248,19 +248,18 @@
               </div>
             </div>
 
-            @foreach ($blogs as $val)
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                  <a href="#" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
+                  <a href="#" class="services-item-image"><img src="" class="img-fluid" alt=""></a>
 
                   <div class="down-content">
-                    <h4><a href="#">{{$val->tieude}}</a></h4>
+                    <h4><a href="#"></a></h4>
 
-                    <p style="margin: 0;"> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->created_at}} &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                    <p style="margin: 0;">  &nbsp;&nbsp;|&nbsp;&nbsp;  &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
                   </div>
                 </div>
               </div>
-            @endforeach
+
           </div>
         </div>
       </div>
