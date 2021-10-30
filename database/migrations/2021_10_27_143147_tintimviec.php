@@ -15,6 +15,7 @@ class Tintimviec extends Migration
     {
         Schema::create('tintimviec', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('ten');
             $table->string('gioitinh');
             $table->string('ngaysinh');

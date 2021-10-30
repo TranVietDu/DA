@@ -17,7 +17,7 @@ class TimViecController extends Controller
     public function index()
     {
         $username=Auth::user();
-        return view('admin.tintimviec.tintimviec',['username'=>$username]);
+        return view('admin.tintimviec.tintimviec');
     }
     /**
      * Show the form for creating a new resource.

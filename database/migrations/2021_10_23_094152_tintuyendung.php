@@ -15,6 +15,7 @@ class Tintuyendung extends Migration
     {
         Schema::create('tintuyendung', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('tieude');
             $table->string('diachi');
             $table->string('kinhnghiem')->nullable();

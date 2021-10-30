@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TaoBlogRequest;
 use App\Http\Requests\CapNhatBlogRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
-
 use App\Models\Blog;
+use Illuminate\Support\Facades\DB;
+
 class BlogController extends Controller
 {
      //select all
      public function index()
      {
-         $blogs = Blog::all();
+        $username=Auth::user();
+         $blogs = DB::table('Blog')->where('user_id','=', $username->id)->get();
          return View::make('blog.danhsach', compact('blogs'));
      }
      public function blog()
@@ -26,6 +29,11 @@ class BlogController extends Controller
          $blogs = Blog::all();
          return View::make('index', compact('blogs'));
      }
+     public function chitietblog($id)
+    {
+        $blog = BLog::find($id);
+        return View::make('blog.chi-tiet-blog', compact('blog'));
+    }
      //form luu
      public function create()
      {

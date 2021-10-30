@@ -39,7 +39,7 @@ class TinTimViecController extends Controller
     {
         $tintimviec = TinTimViec::find($id);
         $username=Auth::user();
-        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'),['username'=>$username]);
+        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
     }
     //cap nhat
     public function update(CapNhatTinTimViecRequest $request, $id)

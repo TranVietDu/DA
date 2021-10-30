@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('/', 'App\Http\Controllers\ViecLamController@index')->name('home');
 
 // Tao CV
 Route::get('/tao-cv', function () {
     return view('tao-cv');
 });
-// Tao tin tuyen dung
+
+//tim kiem
+Route::get('/tim-kiem','App\Http\Controllers\ViecLamController@search');
+
+// QUAN LI TIN TUYEN DUNG
 Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung.'], function () {
     Route::get('/danhsach', 'TinTuyenDungController@index')->name('list');
     Route::get('/tao-tin-tuyen-dung', 'TinTuyenDungController@create')->name('create');
@@ -33,7 +35,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
-// Tao tin tim viec
+// QUAN LI TIN TIM VIEC
 Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec.'], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
@@ -44,21 +46,8 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
-//tim kiem
-Route::get('/tim-kiem','App\Http\Controllers\ViecLamController@search');
 
-// Viec lam
-Route::get('/vieclam', function () {
-    $username=Auth::user();
-    return view('vieclam.vieclam',['username'=>$username]);
-});
-
-// Chi Tiet Viec lam
-Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
-
-Route::get('/blog', 'App\Http\Controllers\BLogController@blog');
-
-// blog
+// QUAN LI BLOG
 Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog.'], function () {
     Route::get('/danhsach', 'BlogController@index')->name('list');
     Route::get('/viet-blog', 'BlogController@create')->name('create');
@@ -69,16 +58,28 @@ Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'bl
     Route::get('/xoa-nhieu-blog', 'BlogController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-blog', 'BlogController@restore')->name('restore');
 });
-// Chi tiet Blogs
-Route::get('/blog/chi-tiet-blog', function () {
-    return view('blog.chi-tiet-blog');
-});
+
+// Viec lam
+Route::get('vieclam', 'App\Http\Controllers\ViecLamController@vieclam');
+
+// Chi Tiet Viec lam
+Route::get('vieclam/chi-tiet-viec-lam/{id}', 'App\Http\Controllers\ViecLamController@chitietvieclam');
+
+//Blog
+Route::get('/blog', 'App\Http\Controllers\BLogController@blog');
+
+//Chi tiet Blog
+Route::get('/blog/chi-tiet-blog/{id}', 'App\Http\Controllers\BLogController@chitietblog');
+
 // Lien he
 Route::get('/lienhe','App\Http\Controllers\LienHeController@index');
 // Cv mau
 Route::get('/cv-mau', function () {
     return view('cv_mau.phucvu');
 });
+
+
+
 
 // admin
 Route::get('admin/home', function () {
@@ -94,9 +95,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
     });
-    Route::post('dangki', 'Authcontroller@register')->name('dangki');
+
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'Authcontroller@login')->name('login');
+    Route::post('dangki', 'Authcontroller@register')->name('dangki');
     Route::get('logout', 'Authcontroller@logout')->name('logout');
     Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
 });

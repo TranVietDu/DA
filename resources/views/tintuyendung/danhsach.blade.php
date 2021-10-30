@@ -29,11 +29,14 @@
                          </tr>
                      </thead>
                      <tbody>
+                         @php
+                             $i=1;
+                         @endphp
                          @foreach($tintuyendungs as $al)
                          <tr id="sid{{$al->id}}">
                             <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
                             <td>
-                               {{$al->id}}
+                               {{$i++}}
                             </td>
                              <td>{{$al->tieude}}</td>
                              <td>{{$al->diachi}}</td>
@@ -56,7 +59,7 @@
                              </td>
                              <td>{{$al->nganhnghe}}</td>
                              <td>{{$al->thoigian}}</td>
-                             <td>
+                             <td width="100px" class="img-flush" alt="">
                                 @if (isset($al->anh))
                                 {{$al->anh}}
                                 @else

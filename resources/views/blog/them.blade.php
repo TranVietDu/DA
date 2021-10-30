@@ -43,6 +43,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <input type="hidden" class="form-control" placeholder="id *" value="{{Auth::user()->id}}" name="user_id" />
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Tên người viết *" value="" name="tennguoiviet"/>
                                     </div>
                                 </div>

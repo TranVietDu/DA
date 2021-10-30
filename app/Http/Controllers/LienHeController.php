@@ -13,6 +13,6 @@ class LienHeController extends Controller
     {
         $lienhes = LienHe::all();
         $username=Auth::user();
-        return View::make('lienhe', compact('lienhes'),['username'=>$username]);
+        return View::make('lienhe', compact('lienhes'));
     }
 }

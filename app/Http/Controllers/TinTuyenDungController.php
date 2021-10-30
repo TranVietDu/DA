@@ -8,6 +8,7 @@ use App\Http\Requests\CapNhatTinTuyenDungRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TinTuyenDungController extends Controller
 {
@@ -15,15 +16,15 @@ class TinTuyenDungController extends Controller
     //select all
     public function index()
     {
-        $tintuyendungs = TinTuyenDung::all();
         $username=Auth::user();
-        return View::make('tintuyendung.danhsach', compact('tintuyendungs'),['username'=>$username]);
+        $tintuyendungs = DB::table('TinTuyenDung')->where('user_id','=', $username->id)->get();
+        return View::make('tintuyendung.danhsach', compact('tintuyendungs'));
     }
     //form luu
     public function create()
     {
         $username=Auth::user();
-        return view('tintuyendung.them',['username'=>$username]);
+        return view('tintuyendung.them');
     }
     // Luu
     public function store(TaoTinTuyenDungRequest $request)
@@ -41,7 +42,7 @@ class TinTuyenDungController extends Controller
     {
         $tintuyendung = TinTuyenDung::find($id);
         $username=Auth::user();
-        return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'),['username'=>$username]);
+        return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
     }
     //cap nhat
     public function update(CapNhatTinTuyenDungRequest $request, $id)

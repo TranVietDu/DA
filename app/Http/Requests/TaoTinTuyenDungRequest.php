@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TaoTinTuyenDungRequest extends FormRequest
 {
@@ -24,6 +25,7 @@ class TaoTinTuyenDungRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'tieude' => 'required|string',
             'diachi' => 'required|string',
             'kinhnghiem' => '',

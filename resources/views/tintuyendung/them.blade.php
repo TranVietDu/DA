@@ -71,6 +71,9 @@
                                         <input type="text" class="form-control" placeholder="Tên quán/cty *" value="" name="tenquan"/>
                                     </div>
                                     <div class="form-group">
+                                        <input type="hidden" class="form-control" placeholder="id *" value="{{Auth::user()->id}}" name="user_id" />
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Lương" value="" name="luong"/>
                                     </div>
                                     <div class="form-group">

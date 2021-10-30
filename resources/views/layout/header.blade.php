@@ -33,11 +33,11 @@
                   </div>
              </form>
            </li>
-           @if(Auth::check())
+           @if(Auth::user())
            <li>
              <div class="dropdown">
                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <i class="fas fa-user"><?= $username->name ?></i>
+                 <i class="fas fa-user">{{Auth::user()->name}}</i>
                </button>
                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                  @if(Auth::user()->role==1)

@@ -13,7 +13,7 @@ class Authcontroller extends Controller
 
     public function indexhome(){
         $username = Auth::user();
-        return view('admin.index',['username' => $username]);
+        return view('admin.index');
     }
     public function index()
     {

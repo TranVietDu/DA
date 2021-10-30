@@ -24,6 +24,7 @@ class TaoBlogRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'tennguoiviet' => 'required|string',
             'tieude' => 'required|string',
             'noidung' => 'required|string',

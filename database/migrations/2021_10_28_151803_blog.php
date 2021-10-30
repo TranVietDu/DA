@@ -15,6 +15,7 @@ class Blog extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('tennguoiviet');
             $table->string('tieude');
             $table->string('noidung');
