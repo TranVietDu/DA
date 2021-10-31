@@ -34,7 +34,9 @@
 
                   <br>
 
-                  <p>{{$blog->anh}}</p>
+                  <p>
+                      <img src="{{$blog->anh}}" alt="" width="100%" class="img-responsive">
+                  </p>
                 </div>
               </div>
           </div>

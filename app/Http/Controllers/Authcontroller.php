@@ -24,15 +24,7 @@ class Authcontroller extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            $username = Auth::user();
-            $role = Auth::user()->role;
-            if($role==2){
-                return redirect()->route('home');
-            }
-            if($role==1){
-                return redirect()->route('adminhome');
-            }
+            return redirect('/');
         }
         else {
             return back()->withInput(
@@ -68,6 +60,6 @@ class Authcontroller extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('relogin');
+        return redirect('/');
     }
 }

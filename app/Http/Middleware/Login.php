@@ -28,6 +28,6 @@ class Login
         else{
             return $next($request);
         }
-        
+
     }
 }

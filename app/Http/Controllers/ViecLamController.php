@@ -17,8 +17,7 @@ class ViecLamController extends Controller
      */
     public function index()
     {
-        $vieclams = TinTuyenDung::all();
-        $username=Auth::user();
+        $vieclams = TinTuyenDung::limit('6')->get();
         return view('index', compact('vieclams'));
 
     }
@@ -36,7 +35,6 @@ class ViecLamController extends Controller
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
-        $username=Auth::user();
         $search_vieclam = DB::table('TinTuyenDung')->where('tieude','like','%'.$keywords.'%')->orWhere('luong','like','%'.$keywords.'%')
         ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->orWhere('thoigian','like','%'.$keywords.'%')->get();
 

@@ -3,8 +3,7 @@
 namespace App\Providers;
 
 use App\Models\TinTuyenDung;
-use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Schema; // add
 use Illuminate\Support\ServiceProvider;
 
@@ -29,8 +28,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        $all=TinTuyenDung::all();
-        view()->share('all',$all);
+        $vieclam=TinTuyenDung::all();
+        view()->share('vieclam',$vieclam);
 
+        $blogs=Blog::all();
+        view()->share('blogs',$blogs);
     }
 }

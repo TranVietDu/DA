@@ -23,7 +23,6 @@ class TinTuyenDungController extends Controller
     //form luu
     public function create()
     {
-        $username=Auth::user();
         return view('tintuyendung.them');
     }
     // Luu
@@ -41,7 +40,6 @@ class TinTuyenDungController extends Controller
     public function edit($id)
     {
         $tintuyendung = TinTuyenDung::find($id);
-        $username=Auth::user();
         return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
     }
     //cap nhat

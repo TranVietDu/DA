@@ -3,7 +3,7 @@
 
    <nav class="navbar navbar-expand-lg">
      <div class="container">
-       <a class="navbar-brand" href="index.html">
+       <a class="navbar-brand" href="/">
          <h2>PT<em>JOBS</em></h2>
        </a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,9 @@
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
+           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-
-
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
-
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
                 <div class="input-group">
@@ -45,7 +43,7 @@
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 <a class="dropdown-item" href="#">Cài đặt</a>
+                 <a class="dropdown-item" href="admin/user/{{Auth::user()->id}}/edit">Cài đặt</a>
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
              </div>

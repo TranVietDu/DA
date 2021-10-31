@@ -25,7 +25,7 @@
             </div>
         </div>
               {{-- Đăng tin  --}}
-    @if(Auth::user())
+    @if(Auth::check())
       <div class="call-to-action">
         <div class="container">
           <div class="row">
@@ -145,8 +145,8 @@
             </div>
          </div>
        </div>
-       @else
-       <div class="col-md-12">
+    @else
+    <div class="col-md-12">
         <div class="inner-content">
           <div class="row">
               <div class="col-lg-12">
@@ -256,7 +256,9 @@
                </div>
              </div>
        </div>
+
     @endif
+
 
       <!-- Banner Ends Here -->
       {{-- Công việc mới nhất --}}
@@ -307,21 +309,23 @@
                 <div class="section-heading">
                     <h2 style="color:black">Blogs Mới Nhất</h2>
 
-                <a href="testimonials.html">xem thêm <i class="fa fa-angle-right"></i></a>
+                <a href="/blog">xem thêm <i class="fa fa-angle-right"></i></a>
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                  <a href="#" class="services-item-image"><img src="" class="img-fluid" alt=""></a>
+            @foreach ($blogs as $val)
+                <div class="col-md-4">
+                    <div class="service-item">
+                      <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
 
-                  <div class="down-content">
-                    <h4><a href="#"></a></h4>
+                      <div class="down-content">
+                        <h4><a href="/blog/chi-tiet-blog/{{$val->id}}">{{$val->tieude}}</a></h4>
 
-                    <p style="margin: 0;">  &nbsp;&nbsp;|&nbsp;&nbsp;  &nbsp;&nbsp;|&nbsp;&nbsp; 114</p>
+                        <p style="margin: 0;"> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->created_at}} &nbsp;&nbsp;</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+            @endforeach
 
           </div>
         </div>

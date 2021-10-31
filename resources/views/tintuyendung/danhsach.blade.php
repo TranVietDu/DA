@@ -59,9 +59,9 @@
                              </td>
                              <td>{{$al->nganhnghe}}</td>
                              <td>{{$al->thoigian}}</td>
-                             <td width="100px" class="img-flush" alt="">
+                             <td>
                                 @if (isset($al->anh))
-                                {{$al->anh}}
+                                <img src="{{$al->anh}}" width="100px" class="img-flush" alt="">
                                 @else
                                 {{'...'}}
                                 @endif
