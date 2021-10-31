@@ -13,9 +13,15 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD:database/migrations/2021_10_28_151803_create_blogs_table.php
         Schema::create('blogs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+=======
+        Schema::create('blog', function (Blueprint $table) {
+            $table->id();
+            $table->string('user_id');
+>>>>>>> origin:database/migrations/2021_10_28_151803_blog.php
             $table->string('tennguoiviet');
             $table->string('tieude');
             $table->string('noidung');

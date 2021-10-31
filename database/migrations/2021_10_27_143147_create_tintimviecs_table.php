@@ -13,6 +13,7 @@ class CreateTinTimViecsTable extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD:database/migrations/2021_10_27_143147_create_tintimviecs_table.php
         Schema::create('tintimviecs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
@@ -28,6 +29,17 @@ class CreateTinTimViecsTable extends Migration
             $table->string('mucluong');
             $table->string('mota')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+=======
+        Schema::create('tintimviec', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('ten');
+            $table->string('gioitinh');
+            $table->string('ngaysinh');
+            $table->string('lienhe')->nullable();
+            $table->string('anh')->nullable();
+            $table->text('mota');
+>>>>>>> origin:database/migrations/2021_10_27_143147_tintimviec.php
             $table->timestamps();
             $table->softDeletes(); // add
         });

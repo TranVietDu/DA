@@ -52,9 +52,6 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Số điện thoại *" value="" name="dienthoai"/>
-                                        </div>
-                                        <div class="form-group">
                                             <select class="form-control" name="nganhnghe">
                                                 <option class="hidden"  selected disabled>Ngành nghề mong muốn</option>
                                                 <option>Phục vụ</option>

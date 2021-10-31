@@ -13,9 +13,15 @@ class CreateTinTuyendungsTable extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD:database/migrations/2021_10_23_094152_create_tintuyendungs_table.php
         Schema::create('tintuyendungs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+=======
+        Schema::create('tintuyendung', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+>>>>>>> origin:database/migrations/2021_10_23_094152_tintuyendung.php
             $table->string('tieude');
             $table->string('diachi');
             $table->string('kinhnghiem')->nullable();

@@ -18,8 +18,14 @@
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
+<<<<<<< HEAD
            <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
+=======
+           <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
+
+
+>>>>>>> origin
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
