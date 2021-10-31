@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Binhluan extends Migration
+class CreateBinhluanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,10 @@ class Binhluan extends Migration
     public function up()
     {
         Schema::create('binhluan', function (Blueprint $table) {
-            $table->id();
-            $table->string('ten');
-            $table->string('email');
+            $table->increments('id');
+            $table->integer('blog_id')->unsigned();
             $table->string('noidung');
+            $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add
         });

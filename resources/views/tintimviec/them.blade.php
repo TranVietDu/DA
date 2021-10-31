@@ -66,6 +66,9 @@
                                             <input type="text" class="form-control"  placeholder="Số năm kinh nghiệm *" value="" name="kinhnghiem"/>
                                         </div>
                                         <div class="form-group">
+                                            <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
+                                        </div>
+                                        <div class="form-group">
                                             <select class="form-control" name="thoigian">
                                                 <option class="hidden"  selected disabled>Thời gian mong muốn</option>
                                                 <option>Ca sáng: 7h30-11h30</option>

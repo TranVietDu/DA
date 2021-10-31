@@ -11,8 +11,13 @@ class BinhLuan extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-    protected $table = 'BinhLuan';
+    protected $table = 'binhluan';
     protected $fillable = [
-        'id', 'ten', 'email', 'noidung',
+        'id','blog_id', 'noidung'
     ];
+
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
 }

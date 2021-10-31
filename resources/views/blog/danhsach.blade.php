@@ -3,7 +3,7 @@
 @section('content')
     <div class="services">
         <div class="container-fluid">
-        <h3 style="text-align: center">Quản lí tin tìm việc</h3>
+        <h3 style="text-align: center">Quản lí Blog</h3>
           <div class="row">
               <div class="col-md-12">
                 <div class="add" style="margin: 20px 0">

@@ -49,6 +49,7 @@
         </div>
       </div>
 
+      @if (Auth::check())
       <div class="send-message">
         <div class="container">
           <div class="row">
@@ -61,47 +62,39 @@
               <div class="contact-form">
                 <form id="contact" action="" method="post">
                   <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-12">
                       <fieldset>
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Họ và Tên" required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control" id="email" placeholder="Địa chỉ Email" required="">
+                        <textarea name="noidung" rows="6" class="form-control" id="message" placeholder="Bình luận của bạn..." required=""></textarea>
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Bình luận của bạn..." required=""></textarea>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="filled-button">Submit</button>
+                        <button type="submit" id="form-submit" class="filled-button">Bình Luận</button>
                       </fieldset>
                     </div>
                   </div>
+                  {{csrf_field()}}
                 </form>
               </div>
             </div>
 
             <div class="col-md-4">
-                <div class="left-content">
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur. Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti.</p>
-
-                  <br>
-
-                  <ul class="social-icons">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                  </ul>
+            </div>
+            @foreach ($comments as $cm)
+                <div class="col-md-12" style="margin-top:30px">
+                    <div class="product-item" style="padding:20px">
+                            <strong>{{$cm->ten}}</strong>
+                            <p>{{$cm->created_at}}</p>
+                        <br>
+                        <h6>
+                            <a>{{$cm->noidung}}</a>
+                        </h6>
+                    </div>
                 </div>
-              </div>
+            @endforeach
           </div>
         </div>
       </div>
+      @endif
 @endsection

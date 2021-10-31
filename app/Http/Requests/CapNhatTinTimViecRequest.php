@@ -24,6 +24,7 @@ class CapNhatTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => '',
             'ten' => '',
             'gioitinh' => '',
             'ngaysinh' => '',

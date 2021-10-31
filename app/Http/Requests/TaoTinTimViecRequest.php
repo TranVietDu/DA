@@ -24,6 +24,7 @@ class TaoTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'ten' => 'required|string',
             'gioitinh' => 'required|string',
             'ngaysinh' => 'required|string',

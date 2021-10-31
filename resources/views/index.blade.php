@@ -301,7 +301,45 @@
           </div>
         </div>
       </div>
+      {{-- tin tim viec --}}
+      <div class="latest-products">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <h2>Tin Tìm Việc Mới Nhất</h2>
+                <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
+              </div>
+            </div>
+            @foreach ($timviecs as $val)
+                <div class="col-md-4">
+                    <div class="product-item">
+                    <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}"><img src="{{ $val->anh }}" alt=""></a>
+                    <div class="down-content">
+                        <a href="vieclam/chi-tiet-viec-lam/{{ $val->id}}"><h4>{{ $val->nganhnghe }}</h4></a>
 
+                        <h6>
+                            @if (isset($val->ten))
+                            {{$val->ten }}
+                            @endif
+                        </h6>
+
+                        <h4><small><i class="fa fa-birthday-cake"></i> {{ $val->ngaysinh }} <br> <strong><i class="fa fa-pencil-square-o"></i> {{ $val->kinhnghiem }}</strong></small></h4>
+
+                        <small>
+                            <strong title="Type"><i class="fa fa-male"></i> {{$val->gioitinh}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <strong title="Location"><i class="fa fa-map-marker"></i> {{$val->email }}</strong>
+                        </small>
+                    </div>
+                    </div>
+                </div>
+            @endforeach
+
+          </div>
+        </div>
+      </div>
+
+      {{-- blog --}}
       <div class="services" style="background-image: url(asset('assets/images/other-image-fullscren-1-1920x900.jpg'));" >
         <div class="container">
           <div class="row">

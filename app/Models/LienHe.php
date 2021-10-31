@@ -11,7 +11,7 @@ class LienHe extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-    protected $table = 'LienHe';
+    protected $table = 'lienhe';
     protected $fillable = [
         'id', 'diachi', 'tieude', 'gioithieu',
     ];

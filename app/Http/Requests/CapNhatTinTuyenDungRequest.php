@@ -24,6 +24,7 @@ class CapNhatTinTuyenDungRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => '',
             'tieude' => '',
             'diachi' => '',
             'kinhnghiem' => '',
