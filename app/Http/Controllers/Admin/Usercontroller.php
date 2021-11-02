@@ -108,7 +108,4 @@ class Usercontroller extends Controller
         $user->delete();
         return redirect()->route('user.index')->with('thongbao','Xóa thành công');
     }
-    public function search(){
-        
-    }
 }
