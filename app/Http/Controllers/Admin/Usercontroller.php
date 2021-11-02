@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Register;
 use App\Http\Requests\UpdateUser;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class Usercontroller extends Controller
@@ -89,6 +90,10 @@ class Usercontroller extends Controller
      */
     public function update(UpdateUser $request, User $user)
     {
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role=$request->role;
+        $user->save();
         return redirect()->route('user.index');
     }
 
@@ -101,6 +106,6 @@ class Usercontroller extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('thongbao','Xóa thành công');
     }
 }

@@ -110,4 +110,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::delete('admin/blog/{blog}','BlogController@destroy')->name('blog.destroy');
         // SLider
         Route::get('admin/slider','SliderController@index')->name('slider.index');
+        Route::delete('admin/slider/{slider}','SliderController@destroy')->name('slider.destroy');
+        Route::get('admin/slider/create','SliderController@create')->name('slider.create');
+        Route::post('admin/slider','SliderController@store')->name('slider.store');
+        Route::get('admin/slider/{slider}/edit','SliderController@edit')->name('slider.edit');
+        Route::put('admin/slider/{slider}','SliderController@update')->name('slider.update');
     });

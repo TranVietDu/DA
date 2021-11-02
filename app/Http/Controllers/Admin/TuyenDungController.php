@@ -61,7 +61,7 @@ class TuyenDungController extends Controller
     public function edit(Tintuyendung $tintuyendung)
     {
         $username=Auth::user();
-        return view('admin.tintuyendung.updatetintuyendung',['username'=>$username]);
+        return view('admin.tintuyendung.updatetintuyendung',['username'=>$username],compact('tintuyendung'));
     }
 
     /**

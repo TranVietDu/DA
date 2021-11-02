@@ -181,7 +181,151 @@
 
             <div class="col-md-9">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="product-item">
+                    <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                    <div class="down-content">
+                      <a href="/vieclam/chi-tiet-viec-lam"><h4>{Tên công việc}</h4></a>
+
+                    <h6>{Ten quan}</h6>
+
+                      <h4><small><i class="fa fa-briefcase"></i> { Nganh nghe } / { Phuc vu } <br> <strong><i class="fa fa-money"></i> {Luong}</strong></small></h4>
+
+                      <small>
+                           <strong title="Posted on"><i class="fa fa-calendar"></i> 15-06-2020</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Type"><i class="fa fa-user"></i> {So luong}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                           <strong title="Location"><i class="fa fa-map-marker"></i> Hai Chau</strong>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
                   <div class="product-item">
                     <a href="/vieclam/chi-tiet-viec-lam"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
                     <div class="down-content">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema; // add
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,5 +33,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         $all=TinTuyenDung::all();
         view()->share('all',$all);
+
+        $sliders = DB::table('Slider')->where('trangthai', '1')->get();
+        view()->share('sliders',$sliders);
     }
 }

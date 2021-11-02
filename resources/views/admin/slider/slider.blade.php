@@ -34,6 +34,9 @@
                     Slider
                 </div>
                 <div class="card-header">
+                    <a style="float: right;" href="/admin/slider/create"><button class="btn btn-primary">Add Slider</button></a>
+                </div>
+                <div class="card-header">
                 </div>
                 @if (session('thongbao'))
                 <div class="alert alert-success hide">
@@ -60,13 +63,17 @@
                             @foreach($sliders as $al)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><img src="{{$al->image}}" width="100px" class="img-flush" alt=""></td>
+                                <td><img src="{{ asset('slider/'.$al->image) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->name}}</td>
                                 <td>{{$al->mota}}</td>
-                                <td>{{$al->trangthai}}</td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                @if($al->trangthai==1)
+                                <td class="text-center"><i style="color: green;font-size: larger;" class="fas fa-circle"></i></td>
+                                @else
+                                <td class="text-center"><i style="color: red;font-size: larger;" class="fas fa-circle"></i></td>
+                                @endif
+                                <td><a href="{{route('slider.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
-                                    <form action="" method="post">
+                                    <form action="{{route('slider.destroy',[$al->id])}}" method="post">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash"></i></button>

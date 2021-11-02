@@ -16,10 +16,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::all();
-        $username=Auth::user();
-        return view('admin.slider.slider',compact('sliders'),['username'=>$username]);
-
+        $sliders = Slider::all();
+        $username = Auth::user();
+        return view('admin.slider.slider', compact('sliders'), ['username' => $username]);
     }
 
     /**
@@ -29,7 +28,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        $username = Auth::user();
+        return view('admin.slider.addslider', ['username' => $username]);
     }
 
     /**
@@ -40,7 +40,27 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $get_image = $request->file('anh');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('slider', $new_image);
+
+            $slider = new Slider();
+            $slider->name = $request->ten;
+            $slider->image = $new_image;
+            $slider->mota = $request->mota;
+            $slider->trangthai = $request->status;
+            $slider->save();
+            return redirect()->route('slider.index');
+        }
+        else{
+            return redirect()->route('slider.create');
+        }
     }
 
     /**
@@ -62,7 +82,8 @@ class SliderController extends Controller
      */
     public function edit(slider $slider)
     {
-        //
+        $username = Auth::user();
+        return view('admin.slider.updateslider',compact('slider'),['username' => $username]);
     }
 
     /**
@@ -74,7 +95,11 @@ class SliderController extends Controller
      */
     public function update(Request $request, slider $slider)
     {
-        //
+            $slider->name = $request->ten;
+            $slider->mota = $request->mota;
+            $slider->trangthai = $request->status;
+            $slider->save();
+            return redirect()->route('slider.index');
     }
 
     /**
@@ -85,6 +110,7 @@ class SliderController extends Controller
      */
     public function destroy(slider $slider)
     {
-        //
+        $slider->delete();
+        return redirect()->route('slider.index',)->with('thongbao', 'Xóa Thành Công');
     }
 }

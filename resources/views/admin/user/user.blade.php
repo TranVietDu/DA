@@ -34,7 +34,11 @@
                     Người Dùng
                 </div>
                 <div class="card-header">
-
+                    @if (session('thongbao'))
+                    <div class="alert alert-success hide">
+                        {{session('thongbao')}}
+                    </div>
+                    @endif
                     <a style="float: right;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add User</button></a>
                 </div>
                 <div class="card-body">
