@@ -10,6 +10,7 @@ use App\Http\Requests\Register;
 use App\Http\Requests\UpdateUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\Console\Output\Output;
 
 class Usercontroller extends Controller
 {
@@ -108,4 +109,30 @@ class Usercontroller extends Controller
         $user->delete();
         return redirect()->route('user.index')->with('thongbao','Xóa thành công');
     }
+    public function search(Request $request){
+        if ($request->ajax()) {
+        $output = '';
+        $users=User::where('name','like','%'.$request->search.'%')
+                    ->orwhere('email',$request->search)->get();
+        foreach ($users as $key => $al) {
+                            $i=1;
+                            $output .= '<tr>
+                            <td>'.$al->id.'</td>
+                            <td>'.$al->name.'</td>
+                            <td>'.$al->email.'</td>
+                            <td>'.$al->role.'</td>
+                            <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                            <td><a href="/admin/user/'.$al->id.'/edit"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                            <td>
+                                    <form action="/admin/user/'.$al->id.'" method="post">
+                                        @csrf   
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
+                                    </form>
+                               </td>
+                            </tr>';
+                        }
+                    }
+                    return Response($output);
+                }
 }

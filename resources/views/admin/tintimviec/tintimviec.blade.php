@@ -31,7 +31,11 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Tin Tuyển Dụng
+                    Tin Tìm Việc
+                    <form class="form-inline" action="{{route('user.search')}}" method="get">
+                        <input type="search" name="search" id="">
+                        <button class="btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
                 </div>
                 <div class="card-header">
                 </div>
@@ -40,18 +44,18 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
-                <div class="card-body">
-                    <table id="datatablesSimple">
+                <div style="overflow-x:auto;" class="card-body">
+                    <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Ảnh</th>
-                                <th>Tên</th>
-                                <th>Mô tả</th>
-                                <th>Ngành nghề</th>
-                                <th>Xem Chi Tiết</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
+                            <tr class="bg-info">
+                                <th scope="col">STT</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Ngành nghề</th>
+                                <th scope="col">Xem Chi Tiết</th>
+                                <th scope="col">Sửa</th>
+                                <th scope="col">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -43,17 +43,17 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
-                <div class="card-body">
-                    <table id="datatablesSimple">
+                <div style="overflow-x:auto;" class="card-body">
+                    <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Ảnh</th>
-                                <th>Tên Slider</th>
-                                <th>Mô tả</th>
-                                <th>Trạng Thái</th>
-                                <th>Sửa</th>
-                                <th>Xóa</th>
+                            <tr class="bg-info">
+                                <th scope="col">STT</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Tên Slider</th>
+                                <th scope="col">Mô tả</th>
+                                <th scope="col">Trạng Thái</th>
+                                <th scope="col">Sửa</th>
+                                <th scope="col">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
