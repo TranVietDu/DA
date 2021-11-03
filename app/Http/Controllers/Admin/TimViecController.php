@@ -20,8 +20,8 @@ class TimViecController extends Controller
      */
     public function index()
     {
-        $username=Auth::user();
-        return view('admin.tintimviec.tintimviec');
+        $all=TinTimViec::all();
+        return view('admin.tintimviec.tintimviec',compact('all'));
     }
     /**
      * Show the form for creating a new resource.
@@ -86,6 +86,7 @@ class TimViecController extends Controller
      */
     public function destroy(TinTimViec $tinTimViec)
     {
-        //
+        $tinTimViec->delete();
+        return redirect('/admin/tintimviec')->with('thongbao','Xóa Thành Công');
     }
 }

@@ -20,13 +20,12 @@
                     </div>
                 </nav>
             </header>
-
             <div class="container">
                 <div class="row py-5 mt-4 align-items-center">
                     <!-- For Demo Purpose -->
                     <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
-                        <img src="https://blackrockbusiness.com/wp-content/uploads/2017/05/quickbooks-enterprise-add-user.png" width="300px" alt="" class="img-fluid mb-3 d-none d-md-block">
-                        <h1>Create an Account</h1>
+                        <img src="https://lifeveda.com.my/wp-content/themes/lifeveda-theme/static/img/edit-user.png" width="300px" alt="" class="img-fluid mb-3 d-none d-md-block">
+                        <h1>Update User</h1>
                     </div>
 
                     <!-- Registeration Form -->
@@ -77,6 +76,7 @@
                     </div>
                 </div>
             </div>
-    </main>
+</div>
+        </main>
 </div>
 @endsection

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tintuyendung;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TuyenDungController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,10 @@ class TuyenDungController extends Controller
      */
     public function index()
     {
-        $all=Tintuyendung::all();
-        return view('admin.tintuyendung.tintuyendung',compact('all'));
+        $blogs=Blog::all();
+        return view('admin.blog.blog',compact('blogs'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,10 +44,10 @@ class TuyenDungController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tintuyendung  $tintuyendung
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Tintuyendung $tintuyendung)
+    public function show(Blog $blog)
     {
         //
     }
@@ -54,22 +55,22 @@ class TuyenDungController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tintuyendung  $tintuyendung
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tintuyendung $tintuyendung)
+    public function edit(Blog $blog)
     {
-        return view('admin.tintuyendung.updatetintuyendung',compact('tintuyendung'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tintuyendung  $tintuyendung
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tintuyendung $tintuyendung)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -77,12 +78,12 @@ class TuyenDungController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tintuyendung  $tintuyendung
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tintuyendung $tintuyendung)
+    public function destroy(Blog $blog)
     {
-        $tintuyendung->delete();
-        return redirect()->route('tintuyendung.index')->with('thongbao','Xóa Thành Công');
+        $blog->delete();
+        return redirect()->route('blog.index')->with('thongbao','Xóa Thành Công');
     }
 }

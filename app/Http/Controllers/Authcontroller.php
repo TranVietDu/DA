@@ -12,7 +12,6 @@ class Authcontroller extends Controller
 {
 
     public function indexhome(){
-        $username = Auth::user();
         return view('admin.index');
     }
     public function index()
@@ -24,8 +23,16 @@ class Authcontroller extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('/');
-        }
+            // Authentication passed...
+            $username = Auth::user();
+            $role = Auth::user()->role;
+            if($role==2 || $role==3){
+                return redirect()->route('home');
+            }
+            if($role==1){
+                return redirect()->route('adminhome');
+            }
+        } 
         else {
             return back()->withInput(
                 $request->only('email')
@@ -60,6 +67,6 @@ class Authcontroller extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('relogin');
     }
 }
