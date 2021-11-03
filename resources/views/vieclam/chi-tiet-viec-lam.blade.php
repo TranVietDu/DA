@@ -32,34 +32,28 @@
                 <div class="form-group">
                   <h5>{{$vieclam->tieude}}</h5>
                 </div>
-                    @if (isset($vieclam->mota))
-                        <p><b>- Mô Tả:</b>
-                            {{$vieclam->mota}}
-                        </p>
-                    @endif
-                    @if (isset($vieclam->gioitinh))
-                        <p><b>- Giới Tính:</b> <span> {{$vieclam->gioitinh}}</span></p>
-                    @endif
-                    @if (isset($vieclam->yeucau))
-                        <p><b>- Yêu Cầu:</b> <span></span></p>
-                    @endif
-
                         <p><b>- Thời gian làm việc:</b><span>
                         {{$vieclam->thoigian}}</span></p>
 
-                    @if (isset($vieclam->kinhnghiem))
-                        <p><b>- Yêu cầu kinh nghiệm:</b><span>
-                        {{$vieclam->kinhnghiem}}</span></p>
-                    @endif
-                    @if (isset($vieclam->luong))
-                        <p><b>- Lương cơ bản:</b><span>
-                        {{$vieclam->luong}}</span></p>
-                    @endif
 
                     <p><b>- Thuộc ngành nghề:</b><span>
                         {{$vieclam->nganhnghe}}</span></p>
 
+                        @if (isset($vieclam->mota))
+                        <p><b>- Mô Tả:</b>
+                            {{$vieclam->mota}}
+                        </p>
+                    @endif
 
+                    @if (isset($vieclam->luong))
+                        <p><b>- Mức lương:</b>
+                            {{$vieclam->luong}}
+                        </p>
+                        @else
+                        <p><b>- Mức lương:</b>
+                            {{'Thương lượng'}}
+                        </p>
+                    @endif
                 <br>
                 <br>
             </div>
@@ -127,17 +121,7 @@
 
                   <br>
 
-                  <strong>John Smith</strong>
-                </p>
-
-                <p>
-                  <span>Số Điện Thoại</span>
-
-                  <br>
-
-                  <strong>
-                    <a href="tel:123-456-789">0338742355</a>
-                  </strong>
+                  <strong>{{ $user->name }}</strong>
                 </p>
 
                 <p>
@@ -146,7 +130,7 @@
                   <br>
 
                   <strong>
-                    <a href="mailto:john@carsales.com">john@carsales.com</a>
+                    <a href="mailto:{{$user->email}}">{{$user->email}}</a>
                   </strong>
                 </p>
               </div>

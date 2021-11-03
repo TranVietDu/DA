@@ -24,18 +24,14 @@ class CapNhatTinTuyenDungRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => '',
             'tieude' => '',
-            'diachi' => '',
-            'kinhnghiem' => '',
-            'soluong' => '',
-            'gioitinh' => '',
             'tenquan' => '',
-            'luong' => '',
+            'diachi' => '',
+            'soluong' => '',
             'nganhnghe' => '',
             'thoigian' => '',
+            'mota' => '',
             'anh' => '',
-            'mota' => ''
         ];
     }
 }

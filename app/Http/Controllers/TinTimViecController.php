@@ -31,7 +31,7 @@ class TinTimViecController extends Controller
         if(TinTimViec::create($data)){
             return redirect('/tintimviec/danhsach');
         }else{
-            return back()->withInput()->with('thongbao1',"No success.");
+            return back()->withInput()->with('thongbao',"No success.");
         }
     }
 

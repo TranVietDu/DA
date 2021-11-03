@@ -36,6 +36,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Lien he
     Route::get('/lienhe','LienHeController@index');
 
+    Route::post('/lienhe','LienHeController@postYKien');
+
     //tim kiem viec lam
     Route::get('/tim-kiem','TinTuyenDungController@search');
 
@@ -44,7 +46,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     Route::post('/blog/chi-tiet-blog/{id}', 'BLogController@postComment');
 
-    Route::get('/comment/delete/{id}', 'BLogController@chitietblog')->name('comment.destroy');
 });
 
 // Tao CV
@@ -60,7 +61,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::post('/tao-tin-tuyen-dung', 'TinTuyenDungController@store')->name('store');
     Route::get('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@update')->name('update');
-    Route::get('/xoa-tin-tuyen-dung/{id}', 'TinTuyenDungController@destroy')->name('destroy');
+    Route::delete('/xoa-tin-tuyen-dung/{id}', 'TinTuyenDungController@destroy')->name('destroy');
     Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });

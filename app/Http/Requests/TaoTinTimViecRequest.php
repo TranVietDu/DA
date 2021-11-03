@@ -26,16 +26,14 @@ class TaoTinTimViecRequest extends FormRequest
         return [
             'user_id' => 'required',
             'ten' => 'required|string',
-            'gioitinh' => 'required|string',
             'ngaysinh' => 'required|string',
-            'email' => '',
-            'anh' => '',
-            'dienthoai' => 'required|string',
+            'gioitinh' => 'required|string',
+            'sdt' => 'required|string',
+            'email' => 'required|string',
             'nganhnghe' => 'required|string',
-            'kinhnghiem' => 'required|string',
-            'thoigian' => 'required',
-            'mucluong' => '',
-            'mota' => ''
+            'diachi' => 'required|string',
+            'mota' => '',
+            'anh' => 'required|string',
         ];
     }
     public function messages()

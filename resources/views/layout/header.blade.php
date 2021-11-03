@@ -18,14 +18,10 @@
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
-<<<<<<< HEAD
+
            <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-=======
-           <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
 
-
->>>>>>> origin
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
@@ -49,7 +45,11 @@
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 <a class="dropdown-item" href="admin/user/{{Auth::user()->id}}/edit">Cài đặt</a>
+                 @if (Auth::user()->role==2)
+                 <a class="dropdown-item" href="tintuyendung/danhsach">QL Việc Làm</a>
+                 @elseif (Auth::user()->role==3)
+                 <a class="dropdown-item" href="tintimviec/danhsach">QL Hồ Sơ</a>
+                 @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
              </div>

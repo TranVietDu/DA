@@ -78,22 +78,24 @@ class TinTuyenDungController extends Controller
      }
      public function vieclam()
      {
-         $vieclams = TinTuyenDung::simplePaginate(10);
-         return View::make('vieclam.vieclam', compact('vieclams'));
+            $vieclams = TinTuyenDung::simplePaginate(10);
+        return view('vieclam.vieclam')->with('vieclams', $vieclams);
      }
 
      public function chitietvieclam($id)
      {
-         $vieclam = TinTuyenDung::find($id);
-         return View::make('vieclam.chi-tiet-viec-lam', compact('vieclam'));
+         $data['vieclam'] = TinTuyenDung::find($id);
+         $data['user'] = TinTuyenDung::find($id)->user;
+         return view('vieclam.chi-tiet-viec-lam', $data);
      }
 
      public function search(Request $request)
      {
          $keywords = $request->keywords_submit;
-         $search_vieclam = DB::table('tintuyendungs')->where('tieude','like','%'.$keywords.'%')->orWhere('luong','like','%'.$keywords.'%')
+         $search_vieclam = DB::table('tintuyendungs')->where('tieude','like','%'.$keywords.'%')
          ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->orWhere('thoigian','like','%'.$keywords.'%')->get();
 
          return view('timkiem')->with('search_vieclam',$search_vieclam);
      }
+
 }

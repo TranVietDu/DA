@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class);
     }
+
+    public function ykiennguoidungs()
+    {
+        return $this->hasMany(YKienNguoiDung::class);
+    }
 }

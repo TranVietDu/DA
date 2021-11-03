@@ -17,6 +17,10 @@ class CreateLienheTable extends Migration
             $table->increments('id');
             $table->string('diachi');
             $table->string('tieude');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('in')->nullable();
+            $table->string('be')->nullable();
             $table->string('gioithieu');
             $table->timestamps();
             $table->softDeletes(); // add

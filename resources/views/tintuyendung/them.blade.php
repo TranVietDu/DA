@@ -41,48 +41,18 @@
                                         <input type="text" class="form-control" placeholder="Tiêu đề *" value="" name="tieude"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ *" value="" name="diachi"/>
+                                        <input type="text" class="form-control" placeholder="Tên quán *" value="" name="tenquan"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Kinh nhiệm" value="" name="kinhnghiem"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Số lượng *" value="" name="soluong"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-control" name="gioitinh">Giới tính:
-                                            <label class="radio inline">
-                                                <input type="radio" name="gioitinh" value="Nam">
-                                                <span> Nam </span>
-                                            </label>
-                                            <label class="radio inline">
-                                                <input type="radio" name="gioitinh" value="Nữ">
-                                                <span> Nữ </span>
-                                            </label>
-                                            <label class="radio inline">
-                                                <input type="radio" name="gioitinh" value="Không">
-                                                <span> Không </span>
-                                            </label>
-                                        </div>
+                                        <input type="text" class="form-control" placeholder="Địa chỉ" value="" name="diachi"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tên quán/cty *" value="" name="tenquan"/>
+                                        <input type="text" class="form-control"  placeholder="Số lượng *" value="" name="soluong"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Lương" value="" name="luong"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="form-control" name="nganhnghe">
-                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
-                                            <option>Phục vụ</option>
-                                            <option>Bán hàng</option>
-                                            <option>Gia sư</option>
-                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="thoigian">
@@ -92,11 +62,20 @@
                                             <option>Ca tối: 19h-23h</option>
                                         </select>
                                     </div>
+
                                     <div class="form-group">
-                                        <input type="file" class="form-control" placeholder="" value="" name="anh"/>
+                                        <input type="file" class="form-control" placeholder="" value="" name="anh" style="height:47px"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
+                                    <div class="form-group">
+                                        <select class="form-control" name="nganhnghe">
+                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
+                                            <option>Phục vụ</option>
+                                            <option>Bán hàng</option>
+                                            <option>Gia sư</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" rows="4" cols="75">

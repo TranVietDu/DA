@@ -27,16 +27,13 @@ class TaoTinTuyenDungRequest extends FormRequest
         return [
             'user_id' => 'required',
             'tieude' => 'required|string',
-            'diachi' => 'required|string',
-            'kinhnghiem' => '',
-            'soluong' => 'required|string',
-            'gioitinh' => '',
             'tenquan' => 'required|string',
-            'luong' => '',
+            'diachi' => 'required|string',
+            'soluong' => 'required|string',
             'nganhnghe' => 'required|string',
-            'thoigian' => 'required',
-            'anh' => '',
-            'mota' => ''
+            'thoigian' => 'required|string',
+            'mota' => 'required|string',
+            'anh' => 'required|string',
         ];
     }
 

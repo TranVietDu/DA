@@ -316,19 +316,10 @@
                     <div class="product-item">
                     <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}"><img src="{{ $val->anh }}" alt=""></a>
                     <div class="down-content">
-                        <a href="vieclam/chi-tiet-viec-lam/{{ $val->id}}"><h4>{{ $val->nganhnghe }}</h4></a>
-
-                        <h6>
-                            @if (isset($val->ten))
-                            {{$val->ten }}
-                            @endif
-                        </h6>
-
-                        <h4><small><i class="fa fa-birthday-cake"></i> {{ $val->ngaysinh }} <br> <strong><i class="fa fa-pencil-square-o"></i> {{ $val->kinhnghiem }}</strong></small></h4>
-
+                        <a href="vieclam/chi-tiet-viec-lam/{{ $val->id}}"><h4>{{$val->ten }}</h4></a>
                         <small>
                             <strong title="Type"><i class="fa fa-male"></i> {{$val->gioitinh}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                            <strong title="Location"><i class="fa fa-map-marker"></i> {{$val->email }}</strong>
+                            <strong title="Location"><i class="fa fa-birthday-cake"></i> {{ $val->ngaysinh }}</strong>
                         </small>
                     </div>
                     </div>
@@ -375,71 +366,21 @@
             <div class="col-md-12">
               <div class="section-heading">
                 <h2>Đánh Giá</h2>
-
-                <a href="testimonials.html">xem thêm <i class="fa fa-angle-right"></i></a>
               </div>
             </div>
             <div class="col-md-12">
               <div class="owl-clients owl-carousel text-center">
+                @foreach ($ykiens as $ykien)
                 <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
+                    <div class="icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <div class="down-content">
+                      <h4>{{$ykien->ten}}</h4>
+                      <p><i>"{{$ykien->noidung}}"</i></p>
+                    </div>
                   </div>
-                  <div class="down-content">
-                    <h4>John Doe</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-
-                <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="down-content">
-                    <h4>Jane Smith</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-
-                <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="down-content">
-                    <h4>Antony Davis</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-
-                <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="down-content">
-                    <h4>John Doe</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-
-                <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="down-content">
-                    <h4>Jane Smith</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
-
-                <div class="service-item">
-                  <div class="icon">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="down-content">
-                    <h4>Antony Davis</h4>
-                    <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
