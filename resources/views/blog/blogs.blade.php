@@ -23,25 +23,16 @@
                 @foreach ($blogs as $val)
                 <div class="col-md-6">
                     <div class="service-item">
-                      <a href="/blog/chi-tiet-blog" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
+                      <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
 
                       <div class="down-content">
-                        <h4><a href="/blog/chi-tiet-blog">{{$val->tieude}}</a></h4>
+                        <h4><a href="/blog/chi-tiet-blog/{{$val->id}}">{{$val->tieude}}</a></h4>
 
                         <p style="margin: 0;"> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->created_at}} &nbsp;&nbsp;</p>
                       </div>
                     </div>
                   </div>
                 @endforeach
-                <div class="col-md-12">
-                  <ul class="pages">
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-                </div>
               </div>
             </div>
 
@@ -50,25 +41,22 @@
                 <div class="form-group">
                   <h5>Hãy Thử Tìm Gì Đó !</h5>
                 </div>
-
-                <div class="row">
-                  <div class="col-8">
-                    <input type="text" class="form-control" placeholder="Tìm Kiếm..." aria-label="Search" aria-describedby="basic-addon2">
-                  </div>
-
-                  <div class="col-4">
-                    <button class="filled-button" type="button"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
+                <form action="/tim-kiem-blog" method="get" autocomplete="off">
+                    <div class="input-group">
+                        <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit">
+                          <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
+                            <i class="fa fa-search"></i>
+                          </button>
+                      </div>
+                 </form>
               </div>
 
               <div class="form-group">
                 <h5>Các Blogs gần đây</h5>
               </div>
-
-              <p><a href="blog-details.html">blog1</a></p>
-              <p><a href="blog-details.html">blog2</a></p>
-              <p><a href="blog-details.html">blog3</a></p>
+              @foreach ($blogganday as $bl)
+              <p><a href="/blog/chi-tiet-blog/{{$bl->id}}">{{$bl->tieude}}</a></p>
+              @endforeach
             </div>
           </div>
         </div>

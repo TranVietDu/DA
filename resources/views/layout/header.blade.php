@@ -3,7 +3,7 @@
 
    <nav class="navbar navbar-expand-lg">
      <div class="container">
-       <a class="navbar-brand" href="index.html">
+       <a class="navbar-brand" href="/">
          <h2>PT<em>JOBS</em></h2>
        </a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,11 @@
            </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
-           <li class="nav-item"><a class="nav-link" href="/blogs">Blog</a></li>
 
+           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
+           <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
 
            <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
-
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
                 <div class="input-group">
@@ -33,18 +33,24 @@
                   </div>
              </form>
            </li>
-           @if(Auth::check())
+           @if(Auth::user())
            <li>
              <div class="dropdown">
-               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <i class="fas fa-user"><?= $username->name ?></i>
+               <button class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <i class="fas fa-user"></i>
                </button>
-               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+               <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                <b>{{Auth::user()->name}}</b>
+                <hr>
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 <a class="dropdown-item" href="#">Setting</a>
-                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+                 @if (Auth::user()->role==2)
+                 <a class="dropdown-item" href="tintuyendung/danhsach">QL Việc Làm</a>
+                 @elseif (Auth::user()->role==3)
+                 <a class="dropdown-item" href="tintimviec/danhsach">QL Hồ Sơ</a>
+                 @endif
+                 <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
              </div>
            </li>

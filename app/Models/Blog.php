@@ -11,8 +11,18 @@ class Blog extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-    protected $table = 'Blog';
+    protected $table = 'blogs';
     protected $fillable = [
-        'id', 'tieude','tennguoiviet', 'anh', 'noidung',
+        'user_id','tennguoiviet','tieude','noidung', 'anh',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function binhluan()
+    {
+        return $this->hasMany(BinhLuan::class);
+    }
 }

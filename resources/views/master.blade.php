@@ -65,5 +65,6 @@
     <!-- Additional Scripts -->
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/js/owl.js')}}"></script>
+
   </body>
 </html>

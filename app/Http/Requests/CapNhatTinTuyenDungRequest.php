@@ -25,16 +25,13 @@ class CapNhatTinTuyenDungRequest extends FormRequest
     {
         return [
             'tieude' => '',
-            'diachi' => '',
-            'kinhnghiem' => '',
-            'soluong' => '',
-            'gioitinh' => '',
             'tenquan' => '',
-            'luong' => '',
+            'diachi' => '',
+            'soluong' => '',
             'nganhnghe' => '',
             'thoigian' => '',
+            'mota' => '',
             'anh' => '',
-            'mota' => ''
         ];
     }
 }

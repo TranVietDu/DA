@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\Hash;
 
 class Usercontroller extends Controller
 {
+
+    public function __construct()
+    {
+        if(Auth::check())
+        {
+            view()->share('user',Auth::user());
+        }else{
+        }
+    }
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +31,7 @@ class Usercontroller extends Controller
     {
         $all=User::all();
         $username=Auth::user();
-        return view('admin.user.user',compact('all'),['username' => $username]);
+        return view('admin.user.user',compact('all'));
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +41,7 @@ class Usercontroller extends Controller
     public function create()
     {
         $username=Auth::user();
-        return view('admin.user.adduser',['username' => $username]);
+        return view('admin.user.adduser');
     }
 
     /**
@@ -72,7 +81,7 @@ class Usercontroller extends Controller
     public function edit(User $user)
     {
         $username=Auth::user();
-        return view('admin.user.updateuser',compact('user'),['username'=>$username]);
+        return view('admin.user.updateuser',compact('user'));
     }
 
     /**

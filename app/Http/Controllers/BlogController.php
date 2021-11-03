@@ -5,27 +5,38 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TaoBlogRequest;
 use App\Http\Requests\CapNhatBlogRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
-
 use App\Models\Blog;
+use App\Models\User;
+use App\Models\BinhLuan;
+
 class BlogController extends Controller
 {
      //select all
      public function index()
      {
-         $blogs = Blog::all();
+         $blogs = User::find(Auth::user()->id)->blogs;
          return View::make('blog.danhsach', compact('blogs'));
      }
-     public function blog()
-     {
-         $blogs = Blog::all();
-         return View::make('blog.blogs', compact('blogs'));
-     }
-     public function blog1()
-     {
-         $blogs = Blog::all();
-         return View::make('index', compact('blogs'));
-     }
+
+    public function blog()
+    {
+        $blogs = BLog::simplePaginate(10);
+        return View::make('blog.blogs', compact('blogs'));
+    }
+    public function blogganday()
+    {
+        $blogganday = BLog::limit(3)->get();
+        return View::make('blog.blogs', compact('blogganday'));
+    }
+     public function chitietblog($id)
+    {
+        $data['blog'] = BLog::find($id);
+        $data['comments'] = BinhLuan::where('blog_id', $id)->get();
+        return view('blog.chi-tiet-blog', $data);
+    }
      //form luu
      public function create()
      {
@@ -45,21 +56,21 @@ class BlogController extends Controller
      //form cap nhat
      public function edit($id)
      {
-         $Blog = Blog::find($id);
+        $blog = Blog::find($id);
          return View::make('blog.capnhat', compact('blog', 'id'));
      }
      //cap nhat
      public function update(CapNhatBlogRequest $request, $id)
      {
          Blog::find($id)->update($request->validated());
-         return redirect()->route('blog.list');
+         return redirect('/blog/danhsach');
      }
 
      //xoa
      public function destroy($id)
      {
          Blog::find($id)->delete();
-         return redirect()->route('blog.list');
+         return redirect('/blog/danhsach');
      }
      //xoa nhieu
      public function destroyall(Request $request)
@@ -73,6 +84,25 @@ class BlogController extends Controller
       public function restore()
       {
          Blog::onlyTrashed()->restore();
-          return redirect()->route('blog.list');
+          return redirect('/blog/danhsach');
       }
+
+      public function search(Request $request)
+    {
+        $keywords = $request->keywords_submit;
+        $search_vieclam = DB::table('blogs')->where('tennguoiviet','like','%'.$keywords.'%')->orWhere('tieude','like','%'.$keywords.'%')->get();
+
+        return view('tim-kiem-blog',)->with('search_vieclam',$search_vieclam);
+    }
+
+    public function postComment($id, Request $request)
+    {
+        $comment = new BinhLuan;
+        $comment->blog_id = $id;
+        $comment->ten = Auth::user()->name;
+        $comment->noidung = $request->noidung;
+        $comment->save();
+
+        return back();
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Tintuyendung extends Migration
+class CreateTinTuyendungsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class Tintuyendung extends Migration
      */
     public function up()
     {
-        Schema::create('tintuyendung', function (Blueprint $table) {
+        Schema::create('tintuyendungs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('tieude');
-            $table->string('diachi');
-            $table->string('kinhnghiem')->nullable();
-            $table->string('soluong');
-            $table->string('gioitinh')->nullable();
             $table->string('tenquan');
-            $table->string('luong')->nullable();
+            $table->string('diachi');
+            $table->string('soluong');
             $table->string('nganhnghe');
+            $table->string('luong');
             $table->string('thoigian');
+            $table->string('mota');
             $table->string('anh')->nullable();
-            $table->string('mota')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add
         });

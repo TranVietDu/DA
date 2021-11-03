@@ -7,8 +7,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4><i class="fa fa-user"></i>John Doe  &nbsp;&nbsp;&nbsp;&nbsp;  <i class="fa fa-calendar"></i> 12/06/2020 10:30   &nbsp;&nbsp;&nbsp;&nbsp;</h4>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing</h2>
+                <h4><i class="fa fa-user"></i> {{$blog->tennguoiviet}}  &nbsp;&nbsp;&nbsp;&nbsp;  <i class="fa fa-calendar"></i> {{$blog->created_at}}  &nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                <h2>{{$blog->tieude}}</h2>
               </div>
             </div>
           </div>
@@ -20,38 +20,23 @@
           <div class="row">
               <div class="col-md-12">
                 <div class="section-heading">
-                  <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
+                  <h2>{{$blog->tieude}}</h2>
                 </div>
               </div>
 
               <div class="col-md-8">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, sed. Ex, id autem cum assumenda, quisquam cupiditate amet dolorem atque ipsam pariatur sequi voluptatem est nesciunt eum, aspernatur, tenetur rem. <br>
-
-                  <br>
-
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequatur, magnam. Dolorum vitae a vel quisquam. Fuga quia suscipit id veritatis sint earum impedit corporis quidem eum consectetur ipsam ex sequi ad, distinctio enim tenetur eveniet eligendi. Laborum, sapiente, magnam.</p>
-
-                  <br>
-
-                  <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, modi.</h5>
-
-                  <br>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam officia in adipisci. Corporis rem beatae cupiditate neque consequuntur necessitatibus expedita laudantium temporibus quam ex quidem, aut non blanditiis soluta deserunt dolores mollitia repudiandae voluptatibus perspiciatis dolor quos distinctio! Atque, magnam. <br>
-
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt dolore ducimus, ad itaque reprehenderit repellat dignissimos, qui velit dolores voluptas.</p>
+                  <p>{{$blog->noidung}}</p>
               </div>
 
               <div class="col-md-4">
                 <div class="left-content">
-                  <h4>Lorem ipsum dolor sit amet.</h4>
+                  <h4>Ảnh Liên Quan</h4>
 
                   <br>
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti.</p>
-
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, minus?</p>
+                  <p>
+                      <img src="{{$blog->anh}}" alt="" width="100%" class="img-responsive">
+                  </p>
                 </div>
               </div>
           </div>
@@ -64,6 +49,7 @@
         </div>
       </div>
 
+      @if (Auth::check())
       <div class="send-message">
         <div class="container">
           <div class="row">
@@ -76,47 +62,39 @@
               <div class="contact-form">
                 <form id="contact" action="" method="post">
                   <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-12">
                       <fieldset>
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Họ và Tên" required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control" id="email" placeholder="Địa chỉ Email" required="">
+                        <textarea name="noidung" rows="6" class="form-control" id="message" placeholder="Bình luận của bạn..." required=""></textarea>
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
                       <fieldset>
-                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Bình luận của bạn..." required=""></textarea>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="filled-button">Submit</button>
+                        <button type="submit" id="form-submit" class="filled-button">Bình Luận</button>
                       </fieldset>
                     </div>
                   </div>
+                  {{csrf_field()}}
                 </form>
               </div>
             </div>
 
             <div class="col-md-4">
-                <div class="left-content">
 
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur. Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti.</p>
-
-                  <br>
-
-                  <ul class="social-icons">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                  </ul>
+            </div>
+            @foreach ($comments as $cm)
+                <div class="col-md-12" style="margin-top:30px">
+                    <div class="product-item" style="padding:20px">
+                            <strong>{{$cm->ten}}</strong>
+                            <p>{{$cm->created_at}}</p>
+                        <br>
+                        <h6>
+                            <a>{{$cm->noidung}}</a>
+                        </h6>
+                    </div>
                 </div>
-              </div>
+            @endforeach
           </div>
         </div>
       </div>
+      @endif
 @endsection

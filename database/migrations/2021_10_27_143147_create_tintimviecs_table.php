@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Tintimviec extends Migration
+class CreateTinTimViecsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,19 @@ class Tintimviec extends Migration
      */
     public function up()
     {
-        Schema::create('tintimviec', function (Blueprint $table) {
+        Schema::create('tintimviecs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('ten');
-            $table->string('gioitinh');
             $table->string('ngaysinh');
-            $table->string('lienhe')->nullable();
+            $table->string('gioitinh');
+            $table->string('sdt');
+            $table->string('email');
+            $table->string('nganhnghe');
+            $table->string('diachi');
+            $table->string('mota');
             $table->string('anh')->nullable();
-            $table->text('mota');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add
         });

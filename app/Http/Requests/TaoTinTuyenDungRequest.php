@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TaoTinTuyenDungRequest extends FormRequest
 {
@@ -24,17 +25,15 @@ class TaoTinTuyenDungRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'tieude' => 'required|string',
-            'diachi' => 'required|string',
-            'kinhnghiem' => '',
-            'soluong' => 'required|string',
-            'gioitinh' => '',
             'tenquan' => 'required|string',
-            'luong' => '',
+            'diachi' => 'required|string',
+            'soluong' => 'required|string',
             'nganhnghe' => 'required|string',
-            'thoigian' => 'required',
-            'anh' => '',
-            'mota' => ''
+            'thoigian' => 'required|string',
+            'mota' => 'required|string',
+            'anh' => 'required|string',
         ];
     }
 

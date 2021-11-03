@@ -24,6 +24,17 @@
                             <form action="{{route('tintimviec.store')}}" method="post">
                                 @csrf
                                 <div class="row register-form">
+                                    <div class="col-12">
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="text" class="form-control" placeholder="Họ và tên *" value="" name="ten"/>
@@ -38,16 +49,14 @@
                                                     <input type="radio" name="gioitinh" value="Nữ">
                                                     <span> Nữ </span>
                                                 </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gioitinh" value="Khác">
+                                                    <span> Khác </span>
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <input type="date" name="ngaysinh" class="form-control" placeholder="Ngày sinh *" value="" />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Địa chỉ Email *" value="" name="email"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="file" class="form-control" placeholder="Ảnh về bản thân" value="" name="anh"/>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -60,7 +69,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="Số năm kinh nghiệm *" value="" name="kinhnghiem"/>
+                                            <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
                                         </div>
                                         <div class="form-group">
                                             <select class="form-control" name="thoigian">
@@ -71,10 +80,13 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" name="mucluong" class="form-control" placeholder="Mức lương mong muốn *" value="" />
+                                            <input type="file" class="form-control" placeholder="Ảnh về bản thân" value="" name="anh"/>
                                         </div>
                                     </div>
                                     <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Liên hệ" value="" name="lienhe"/>
+                                        </div>
                                         <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" rows="4" cols="75">

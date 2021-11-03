@@ -25,16 +25,14 @@ class CapNhatTinTimViecRequest extends FormRequest
     {
         return [
             'ten' => '',
-            'gioitinh' => '',
             'ngaysinh' => '',
+            'gioitinh' => '',
+            'sdt' => '',
             'email' => '',
-            'anh' => '',
-            'dienthoai' => '',
             'nganhnghe' => '',
-            'kinhnghiem' => '',
-            'thoigian' => '',
-            'mucluong' => '',
-            'mota' => ''
+            'diachi' => '',
+            'mota' => '',
+            'anh' => '',
         ];
     }
 }

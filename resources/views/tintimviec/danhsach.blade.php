@@ -41,7 +41,7 @@
                                  {{$al->ngaysinh}}
                              </td>
                              <td>{{$al->email}}</td>
-                             <td>{{$al->anh}}</td>
+                             <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
                              <td>{{$al->dienthoai}}</td>
                              <td>
                                 {{$al->nganhnghe}}

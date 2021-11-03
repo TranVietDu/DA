@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class TimViecController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,7 @@ class TimViecController extends Controller
     public function index()
     {
         $username=Auth::user();
-        return view('admin.tintimviec.tintimviec',['username'=>$username]);
+        return view('admin.tintimviec.tintimviec');
     }
     /**
      * Show the form for creating a new resource.

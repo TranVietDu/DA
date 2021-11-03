@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Binhluan extends Migration
+class CreateYKienNguoiDungTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class Binhluan extends Migration
      */
     public function up()
     {
-        Schema::create('binhluan', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+        Schema::create('ykiennguoidung', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->string('ten');
-            $table->string('email');
             $table->string('noidung');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add
         });
@@ -31,7 +31,7 @@ class Binhluan extends Migration
      */
     public function down()
     {
-        Schema::table('binhluan', function (Blueprint $table) {
+        Schema::table('ykiennguoidung', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }

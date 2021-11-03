@@ -51,6 +51,9 @@
                                         <input type="file" class="form-control" placeholder="" value="" name="anh" style="height:47px"/>
                                     </div>
                                     <div class="form-group">
+                                        <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
+                                    </div>
+                                    <div class="form-group">
                                             <label for="" style="text-align: left">Nội dung:</label>
                                             <textarea name="noidung" rows="4" cols="75">
                                             </textarea>

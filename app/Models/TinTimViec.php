@@ -11,8 +11,14 @@ class TinTimViec extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-    protected $table = 'tintimviec';
+
+    protected $table = 'tintimviecs';
     protected $fillable = [
-        'id','user_id', 'ten', 'gioitinh', 'ngaysinh', 'lienhe', 'anh', 'mota'
+        'id','user_id', 'ten', 'ngaysinh', 'gioitinh', 'sdt','email','nganhnghe','diachi', 'mota', 'anh'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(TinTuyenDung::class);
+    }
 }

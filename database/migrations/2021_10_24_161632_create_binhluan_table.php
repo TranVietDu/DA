@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Lienhe extends Migration
+class CreateBinhluanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class Lienhe extends Migration
      */
     public function up()
     {
-        Schema::create('lienhe', function (Blueprint $table) {
-            $table->id();
-            $table->string('diachi');
-            $table->string('tieude');
-            $table->string('gioithieu');
+        Schema::create('binhluan', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('blog_id')->unsigned();
+            $table->string('ten');
+            $table->string('noidung');
+            $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add
         });
@@ -30,7 +31,7 @@ class Lienhe extends Migration
      */
     public function down()
     {
-        Schema::table('lienhe', function (Blueprint $table) {
+        Schema::table('binhluan', function (Blueprint $table) {
             $table->dropSoftDeletes();
         });
     }
