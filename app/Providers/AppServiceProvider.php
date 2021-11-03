@@ -31,10 +31,20 @@ class AppServiceProvider extends ServiceProvider
     {
 
         Schema::defaultStringLength(191);
-        $all=TinTuyenDung::all();
-        view()->share('all',$all);
         $sliders = DB::table('Slider')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
+
+        $vieclams=TinTuyenDung::all();
+        view()->share('vieclams',$vieclams);
+
+        $timviecs=TinTimViec::all();
+        view()->share('timviecs',$timviecs);
+
+        $blogs=Blog::all();
+        view()->share('blogs',$blogs);
+
+        $ykiens = YKienNguoiDung::all();
+        view()->share('ykiens',$ykiens);
     }
 }
 

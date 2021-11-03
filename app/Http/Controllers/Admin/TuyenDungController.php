@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class TuyenDungController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +17,6 @@ class TuyenDungController extends Controller
     public function index()
     {
         $all=Tintuyendung::all();
-        $username=Auth::user();
         return view('admin.tintuyendung.tintuyendung',compact('all'));
     }
     /**
@@ -64,8 +59,7 @@ class TuyenDungController extends Controller
      */
     public function edit(Tintuyendung $tintuyendung)
     {
-        $username=Auth::user();
-        return view('admin.tintuyendung.updatetintuyendung',['username'=>$username],compact('tintuyendung'));
+        return view('admin.tintuyendung.updatetintuyendung',compact('tintuyendung'));
     }
 
     /**

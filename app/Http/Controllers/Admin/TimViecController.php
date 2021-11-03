@@ -20,9 +20,8 @@ class TimViecController extends Controller
      */
     public function index()
     {
-        $username=Auth::user();
         $all=TinTimViec::all();
-        return view('admin.tintimviec.tintimviec',compact('all'),['username'=>$username]);
+        return view('admin.tintimviec.tintimviec',compact('all'));
     }
     /**
      * Show the form for creating a new resource.

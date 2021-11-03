@@ -11,13 +11,9 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
-           <li class="nav-item">
-             <a class="nav-link" href="/">Trang Chủ
-               <span class="sr-only">(current)</span>
-             </a>
-           </li>
 
            <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
+           <li class="nav-item"><a class="nav-link" href="/vieclam">Hồ Sơ</a></li>
            <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
            <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
 

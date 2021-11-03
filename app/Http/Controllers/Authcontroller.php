@@ -12,7 +12,6 @@ class Authcontroller extends Controller
 {
 
     public function indexhome(){
-        $username = Auth::user();
         return view('admin.index');
     }
     public function index()
@@ -68,6 +67,6 @@ class Authcontroller extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('relogin');
     }
 }

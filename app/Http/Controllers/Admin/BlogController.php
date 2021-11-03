@@ -17,8 +17,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs=Blog::all();
-        $username=Auth::user();
-        return view('admin.blog.blog',compact('blogs'),['username'=>$username]);
+        return view('admin.blog.blog',compact('blogs'));
     }
 
     /**

@@ -17,8 +17,7 @@ class SliderController extends Controller
     public function index()
     {
         $sliders = Slider::all();
-        $username = Auth::user();
-        return view('admin.slider.slider', compact('sliders'), ['username' => $username]);
+        return view('admin.slider.slider', compact('sliders'));
     }
 
     /**
@@ -28,8 +27,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        $username = Auth::user();
-        return view('admin.slider.addslider', ['username' => $username]);
+        return view('admin.slider.addslider');
     }
 
     /**
@@ -82,8 +80,7 @@ class SliderController extends Controller
      */
     public function edit(slider $slider)
     {
-        $username = Auth::user();
-        return view('admin.slider.updateslider',compact('slider'),['username' => $username]);
+        return view('admin.slider.updateslider',compact('slider'));
     }
 
     /**

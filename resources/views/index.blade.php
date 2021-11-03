@@ -587,7 +587,6 @@
   </div>
 </div>
 
-@endsection
       <script src="{{asset('assets/js/extention/choices.js')}}"></script>
       <script>
         const customSelects = document.querySelectorAll("select");

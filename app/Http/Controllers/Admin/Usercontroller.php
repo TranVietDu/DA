@@ -15,29 +15,15 @@ use Symfony\Component\Console\Output\Output;
 class Usercontroller extends Controller
 {
 
-    public function __construct()
-    {
-        if(Auth::check())
-        {
-            view()->share('user',Auth::user());
-        }else{
-        }
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      *
      */
-    public function __construct()
-    {
-        $username=Auth::user();
-        view()->share('username',$username);    
-    }
     public function index()
     {
         $all=User::all();
-        $username=Auth::user();
         return view('admin.user.user',compact('all'));
     }
     /**
@@ -47,7 +33,6 @@ class Usercontroller extends Controller
      */
     public function create()
     {
-        $username=Auth::user();
         return view('admin.user.adduser');
     }
 
@@ -87,7 +72,6 @@ class Usercontroller extends Controller
      */
     public function edit(User $user)
     {
-        $username=Auth::user();
         return view('admin.user.updateuser',compact('user'));
     }
 
