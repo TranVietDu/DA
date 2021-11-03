@@ -8,6 +8,7 @@ use App\Http\Requests\CapNhatTinTimViecRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class TinTimViecController extends Controller
 {
@@ -15,7 +16,7 @@ class TinTimViecController extends Controller
     //select all
     public function index()
     {
-        $tintimviecs = TinTimViec::all();
+        $tintimviecs = User::find(Auth::user()->id)->tintimviecs;
         return View::make('tintimviec.danhsach', compact('tintimviecs'));
     }
     //form luu
@@ -30,16 +31,16 @@ class TinTimViecController extends Controller
         if(TinTimViec::create($data)){
             return redirect('/tintimviec/danhsach');
         }else{
-            return back()->withInput()->with('thongbao1',"No success.");
+            return back()->withInput()->with('thongbao',"No success.");
         }
     }
 
     //form cap nhat
     public function edit($id)
     {
-        $tintimviec = TinTimViec::find($id);
+        $tintimviec = TinTimViec::find(Auth::user()->id);
         $username=Auth::user();
-        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'),['username'=>$username]);
+        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
     }
     //cap nhat
     public function update(CapNhatTinTimViecRequest $request, $id)

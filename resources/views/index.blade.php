@@ -169,6 +169,245 @@
     </script>
 </div>
 </div>
+
+
+              {{-- Đăng tin  --}}
+    @if(Auth::check())
+      <div class="call-to-action">
+        <div class="container">
+          <div class="row">
+            @if  (Auth::user()->role == 2)
+              <div class="col-md-12">
+                <div class="inner-content">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <section class="wrapper">
+                              <div class="container-fostrap">
+                                  <div>
+                                      <h3 class="heading">
+                                          Dịch vụ tuyển dụng
+                                      </h3>
+                                  </div>
+                                  <div class="content" style="margin-top:50px">
+                                      <div class="container">
+                                          <div class="row">
+                                              <div class="col-xs-12 col-sm-6">
+                                                  <div class="card">
+                                                      <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
+                                                      <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                                    </a>
+                                                      <div class="card-content">
+                                                          <h4 class="card-title text-center">
+                                                              <a href="tintuyendung/tao-tin-tuyen-dung"> Đăng tin tuyển dụng
+                                                            </a>
+                                                          </h4>
+                                                          <p class="">
+                                                              Material Design is a visual programming language made by Google. Language programming...
+                                                          </p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xs-12 col-sm-6">
+                                                  <div class="card">
+                                                      <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                                      <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                                    </a>
+                                                      <div class="card-content">
+                                                          <h4 class="card-title text-center">
+                                                              <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Tìm hồ sơ xin việc
+                                                            </a>
+                                                          </h4>
+                                                          <p class="">
+                                                              tutorials button hover animation, although very much a hover button is very beauti...
+                                                          </p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </section>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            @elseif (Auth::user()->role == 3)
+            <div class="col-md-12">
+                <div class="inner-content">
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <section class="wrapper">
+                              <div class="container-fostrap">
+                                  <div>
+                                      <h3 class="heading">
+                                          Dịch vụ tìm việc
+                                      </h3>
+                                  </div>
+                                  <div class="content" style="margin-top:50px">
+                                      <div class="container">
+                                          <div class="row">
+                                              <div class="col-xs-12 col-sm-6">
+                                                  <div class="card">
+                                                      <a class="img-card" href="tintimviec/tao-tin-tim-viec">
+                                                      <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                                    </a>
+                                                      <div class="card-content">
+                                                          <h4 class="card-title text-center">
+                                                              <a href="tintimviec/tao-tin-tim-viec"> Đăng tin tìm việc
+                                                            </a>
+                                                          </h4>
+                                                          <p class="">
+                                                              Material Design is a visual programming language made by Google. Language programming...
+                                                          </p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xs-12 col-sm-6">
+                                                  <div class="card">
+                                                      <a class="img-card" href="vieclam">
+                                                      <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                                    </a>
+                                                      <div class="card-content">
+                                                          <h4 class="card-title text-center">
+                                                              <a href="vieclam">Tìm kiếm việc làm
+                                                            </a>
+                                                          </h4>
+                                                          <p class="">
+                                                              tutorials button hover animation, although very much a hover button is very beauti...
+                                                          </p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                          </section>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            @endif
+            </div>
+         </div>
+       </div>
+    @else
+    <div class="col-md-12">
+        <div class="inner-content">
+          <div class="row">
+              <div class="col-lg-12">
+                  <section class="wrapper">
+                      <div class="container-fostrap">
+                          <div>
+                              <h3 class="heading">
+                                  Dịch vụ tuyển dụng
+                              </h3>
+                          </div>
+                          <div class="content" style="margin-top:50px">
+                              <div class="container">
+                                  <div class="row">
+                                      <div class="col-xs-12 col-sm-6">
+                                          <div class="card">
+                                              <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
+                                              <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                            </a>
+                                              <div class="card-content">
+                                                  <h4 class="card-title text-center">
+                                                      <a href="tintuyendung/tao-tin-tuyen-dung"> Đăng tin tuyển dụng
+                                                    </a>
+                                                  </h4>
+                                                  <p class="">
+                                                      Material Design is a visual programming language made by Google. Language programming...
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="col-xs-12 col-sm-6">
+                                          <div class="card">
+                                              <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                              <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                            </a>
+                                              <div class="card-content">
+                                                  <h4 class="card-title text-center">
+                                                      <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Tìm hồ sơ xin việc
+                                                    </a>
+                                                  </h4>
+                                                  <p class="">
+                                                      tutorials button hover animation, although very much a hover button is very beauti...
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </section>
+          </div>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-12">
+           <div class="inner-content">
+             <div class="row">
+                 <div class="col-lg-12">
+                     <section class="wrapper">
+                         <div class="container-fostrap">
+                             <div>
+                                 <h3 class="heading">
+                                     Dịch vụ tìm việc
+                                 </h3>
+                             </div>
+                             <div class="content" style="margin-top:50px">
+                                 <div class="container">
+                                     <div class="row">
+                                         <div class="col-xs-12 col-sm-6">
+                                             <div class="card">
+                                                 <a class="img-card" href="tintimviec/tao-tin-tim-viec">
+                                                 <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                               </a>
+                                                 <div class="card-content">
+                                                     <h4 class="card-title text-center">
+                                                         <a href="tintimviec/tao-tin-tim-viec"> Đăng tin tìm việc
+                                                       </a>
+                                                     </h4>
+                                                     <p class="">
+                                                         Material Design is a visual programming language made by Google. Language programming...
+                                                     </p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div class="col-xs-12 col-sm-6">
+                                             <div class="card">
+                                                 <a class="img-card" href="vieclam">
+                                                 <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                               </a>
+                                                 <div class="card-content">
+                                                     <h4 class="card-title text-center">
+                                                         <a href="vieclam">Tìm kiếm việc làm
+                                                       </a>
+                                                     </h4>
+                                                     <p class="">
+                                                         tutorials button hover animation, although very much a hover button is very beauti...
+                                                     </p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                           </div>
+                     </section>
+                 </div>
+               </div>
+             </div>
+       </div>
+
+    @endif
+
+
+ <!-- Banner Ends Here -->
 <!-- Banner Ends Here -->
 {{-- Blog --}}
 
@@ -314,78 +553,32 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-<div class="happy-clients">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Đánh Giá</h2>
-
-          <a href="testimonials.html">xem thêm <i class="fa fa-angle-right"></i></a>
+     
+          </div>
         </div>
       </div>
-      <div class="col-md-12">
-        <div class="owl-clients owl-carousel text-center">
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
+      <div class="happy-clients">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <h2>Đánh Giá</h2>
+              </div>
             </div>
-            <div class="down-content">
-              <h4>John Doe</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="down-content">
-              <h4>Jane Smith</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="down-content">
-              <h4>Antony Davis</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="down-content">
-              <h4>John Doe</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="down-content">
-              <h4>Jane Smith</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
-            </div>
-          </div>
-
-          <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
-            </div>
-            <div class="down-content">
-              <h4>Antony Davis</h4>
-              <p class="n-m"><em>"Lorem ipsum dolor sit amet, consectetur an adipisicing elit. Itaque, corporis nulla at quia quaerat."</em></p>
+            <div class="col-md-12">
+              <div class="owl-clients owl-carousel text-center">
+                @foreach ($ykiens as $ykien)
+                <div class="service-item">
+                    <div class="icon">
+                      <i class="fa fa-user"></i>
+                    </div>
+                    <div class="down-content">
+                      <h4>{{$ykien->ten}}</h4>
+                      <p><i>"{{$ykien->noidung}}"</i></p>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
             </div>
           </div>
         </div>
@@ -394,4 +587,26 @@
   </div>
 </div>
 
+@endsection
+      <script src="{{asset('assets/js/extention/choices.js')}}"></script>
+      <script>
+        const customSelects = document.querySelectorAll("select");
+        const deleteBtn = document.getElementById('delete')
+        const choices = new Choices('select',
+        {
+          searchEnabled: false,
+          itemSelectText: '',
+          removeItemButton: true,
+        });
+        deleteBtn.addEventListener("click", function(e)
+        {
+          e.preventDefault()
+          const deleteAll = document.querySelectorAll('.choices__button')
+          for (let i = 0; i < deleteAll.length; i++)
+          {
+            deleteAll[i].click();
+          }
+        });
+
+      </script>
 @endsection

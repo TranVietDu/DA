@@ -1,7 +1,7 @@
 
     /* CV */
     .tieude{
-      background-color: rgb(177, 155, 34);
+      background-color: rgb(37, 110, 8);
       padding: 10px;
       margin-bottom: 20px;
       border-right: 5px double black;
@@ -32,12 +32,12 @@
     #tren{
       margin-right: auto;
       margin-left: auto;
-      background-color: rgb(177, 155, 34);
+      background-color: rgb(37, 110, 8);
       color: white;
     }
     #trai{
-      background-color: rgb(177, 155, 34);
-      border-right: 5px double black;
+      background-color: rgb(37, 110, 8);
+      border-right: 5px double rgb(252, 252, 252);
       padding: 15px;
     }
     #phai{

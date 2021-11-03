@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CapNhatTinTimViecRequest extends FormRequest
+class TaoBlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,17 @@ class CapNhatTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
-            'ten' => '',
-            'ngaysinh' => '',
-            'gioitinh' => '',
-            'sdt' => '',
-            'email' => '',
-            'nganhnghe' => '',
-            'diachi' => '',
-            'mota' => '',
-            'anh' => '',
+            'user_id' => 'required',
+            'tennguoiviet' => 'required|string',
+            'tieude' => 'required|string',
+            'noidung' => 'required|string',
+            'anh' => 'required|string',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
         ];
     }
 }

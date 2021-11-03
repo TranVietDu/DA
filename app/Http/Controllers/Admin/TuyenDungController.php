@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class TuyenDungController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +22,7 @@ class TuyenDungController extends Controller
     {
         $all=Tintuyendung::all();
         $username=Auth::user();
-        return view('admin.tintuyendung.tintuyendung',compact('all'),['username'=>$username]);
+        return view('admin.tintuyendung.tintuyendung',compact('all'));
     }
     /**
      * Show the form for creating a new resource.

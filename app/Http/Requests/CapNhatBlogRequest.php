@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CapNhatTinTimViecRequest extends FormRequest
+class CapNhatBlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,9 @@ class CapNhatTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
-            'ten' => '',
-            'ngaysinh' => '',
-            'gioitinh' => '',
-            'sdt' => '',
-            'email' => '',
-            'nganhnghe' => '',
-            'diachi' => '',
-            'mota' => '',
+            'tennguoiviet' => '',
+            'tieude' => '',
+            'noidung' => '',
             'anh' => '',
         ];
     }

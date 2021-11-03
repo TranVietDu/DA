@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use App\Models\TinTuyenDung;
-use Facade\FlareClient\View;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema; // add
+use App\Models\TinTimViec;
+use App\Models\Blog;
+use App\Models\YKienNguoiDung;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -33,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         $all=TinTuyenDung::all();
         view()->share('all',$all);
-
         $sliders = DB::table('Slider')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
     }
 }
+
