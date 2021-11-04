@@ -24,6 +24,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Chi Tiet Viec lam
     Route::get('vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chitietvieclam');
 
+    // Hoso
+    Route::get('hoso','TinTimViecController@vieclamview')->name('hoso.view');
+    // Chi tiet ho so
+    Route::get('hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chitiethoso')->name('hoso.chitiethoso');
+
     //Blog
     Route::get('blog', 'BlogController@blog');
 
@@ -120,6 +125,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
 });
 // Admin
+Route::middleware(['admin'])->group(function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         // User
         Route::get('admin/user', 'UserController@index')->name('user.index');
@@ -146,4 +152,11 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('admin/slider','SliderController@store')->name('slider.store');
         Route::get('admin/slider/{slider}/edit','SliderController@edit')->name('slider.edit');
         Route::put('admin/slider/{slider}','SliderController@update')->name('slider.update');
+        // Lien He
+        Route::get('admin/lienhe','AdminLienHeController@index')->name('lienhe.index');
+        Route::get('admin/lienhe/{lienhe}/edit','AdminLienHeController@edit')->name('lienhe.edit');
+        Route::put('admin/lienhe/{lienhe}','AdminLienHeController@update')->name('lienhe.update');
+        Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
     });
+});
+    

@@ -21,7 +21,7 @@ class AdminMiddleware
                 return $next($request);
             }
             else{
-                return redirect('/lienhe');
+                return redirect('/');
             }
         }
         else{

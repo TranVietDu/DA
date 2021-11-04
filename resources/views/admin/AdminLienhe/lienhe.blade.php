@@ -7,7 +7,7 @@
 <div id="layoutSidenav_content">
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
-            <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Tin Tìm Việc</h1>
+            <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Liên Hệ</h1>
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card mb-4">
@@ -31,11 +31,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Tin Tìm Việc
-                    <form class="form-inline" action="{{route('user.search')}}" method="get">
-                        <input type="search" name="search" id="">
-                        <button class="btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                    Blog
                 </div>
                 <div class="card-header">
                 </div>
@@ -48,31 +44,29 @@
                     <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead>
                             <tr class="bg-info">
-                                <th scope="col">STT</th>
-                                <th scope="col">Ảnh</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Giới Tính</th>
-                                <th scope="col">Ngành nghề</th>
-                                <th scope="col">Xem Chi Tiết</th>
+
+                                <th scope="col">Địa Chỉ</th>
+                                <th scope="col">Tiêu Đề</th>
+                                <th scope="col">Facebook</th>
+                                <th scope="col">Twitter</th>
+                                <th scope="col">in</th>
+                                <th scope="col">be</th>
                                 <th scope="col">Sửa</th>
                                 <th scope="col">Xóa</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                            $i=1;
-                            @endphp
-                            @foreach($all as $al)
+                            @foreach($lienhe as $al)
                             <tr>
-                                <td>{{$i++}}</td>
-                                <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
-                                <td>{{$al->ten}}</td>
-                                <td>{{$al->gioitinh}}</td>
-                                <td>{{$al->nganhnghe}}</td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                <td>{{$al->diachi}}</td>
+                                <td>{{$al->tieude}}</td>
+                                <td>{{$al->facebook}}</td>
+                                <td>{{$al->twitter}}</td>
+                                <td>{{$al->in}}</td>
+                                <td>{{$al->be}}</td>
+                                <td><a href="{{route('lienhe.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
-                                    <form action="{{route('tintimviec.destroy',[$al->id])}}" method="post">
+                                    <form action="" method="post">
                                         @csrf
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash"></i></button>

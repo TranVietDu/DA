@@ -4,26 +4,6 @@
 <!-- Page Content -->
 <!-- Banner Starts Here -->
 <div class="banner header-text">
-  <!-- <div class="owl-banner owl-carousel">
-    <div class="banner-item-02">
-      <div class="text-content">
-        <h4>Fugiat Aspernatur</h4>
-        <h2>Try to take advantage of every opportunity that comes you way.</h2>
-      </div>
-    </div>
-    <div class="banner-item-03">
-      <div class="text-content">
-        <h4>Saepe Omnis</h4>
-        <h2>Try to take advantage of every opportunity that comes you way.</h2>
-      </div>
-    </div>
-    <div class="banner-item-01">
-      <div class="text-content">
-        <h4>Find your car today!</h4>
-        <h2>Try to take advantage of every opportunity that comes you way.</h2>
-      </div>
-    </div>
-  </div> -->
 
 
   <script src="js/jssor.slider-28.1.0.min.js" type="text/javascript"></script>
@@ -152,7 +132,7 @@
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1600px;height:560px;overflow:hidden;">
         @foreach($sliders as $slider)
-            <div style="background-color:#d3890e;">
+            <div >
                 <img data-u="image"  style="opacity:0.8;" data-src="{{ asset('slider/'.$slider->image) }}" />
                 <div data-ts="flat" data-p="275" data-po="40% 50%" style="left:150px;top:40px;width:800px;height:300px;position:absolute;">
                     <div data-to="50% 50%" data-t="0" style="left:50px;top:520px;width:400px;height:100px;position:absolute;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
@@ -412,7 +392,7 @@
 {{-- Blog --}}
 
 <div style="margin-top: 100px;" class="blog">
-  <div class="container">
+  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
     <div class="row">
     <div class="col-md-12">
         <div class="section-heading">
@@ -433,7 +413,7 @@
 
 {{-- Công việc mới nhất --}}
 <div class="latest-products">
-  <div class="container">
+  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
@@ -496,7 +476,7 @@
 
 <!-- Tin tim viec -->
 <div class="latest-products">
-  <div class="container">
+  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
@@ -552,8 +532,6 @@
           </div>
         </div>
       </div>
-
-     
           </div>
         </div>
       </div>
@@ -586,7 +564,6 @@
     </div>
   </div>
 </div>
-
       <script src="{{asset('assets/js/extention/choices.js')}}"></script>
       <script>
         const customSelects = document.querySelectorAll("select");

@@ -2,14 +2,14 @@
 
 @section('content')
     <!-- Page Content -->
-    <div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+    <div class="page-heading about-heading header-text" style="background-color: rgb(197, 235, 254);">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <div class="text-content">
-                <h4>Security / Protective Services Jobs</h4>
+                <h4>Chi Tiết Tin Tuyển Dụng</h4>
 
-                <h2>Security Officer - Luxury Retail</h2>
+                <h2 style="color: black;">{{$vieclam->tenquan}}</h2>
               </div>
             </div>
           </div>
@@ -20,42 +20,22 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 col-sm-7">
-                <p class="lead">
-                     <i class="fa fa-map-marker"></i> {{$vieclam->diachi}} &nbsp;&nbsp;
-                     <i class="fa fa-calendar"></i> {{$vieclam->created_at}} &nbsp;&nbsp;
-                     <i class="fa fa-user"></i> Số Lượng: {{$vieclam->soluong}}
-                </p>
-
+            <h1>{{$vieclam->tieude}}</h1>
+            <h5>Ngành Nghề:{{$vieclam->nganhnghe}}</h5>
                 <br>
                 <br>
-
-                <div class="form-group">
-                  <h5>{{$vieclam->tieude}}</h5>
-                </div>
-                        <p><b>- Thời gian làm việc:</b><span>
-                        {{$vieclam->thoigian}}</span></p>
-
-
-                    <p><b>- Thuộc ngành nghề:</b><span>
-                        {{$vieclam->nganhnghe}}</span></p>
-
+                        <h6 style="padding: 10px;">Thời gian làm việc:{{$vieclam->thoigian}}</h6>
                         @if (isset($vieclam->mota))
-                        <p><b>- Mô Tả:</b>
-                            {{$vieclam->mota}}
-                        </p>
-                    @endif
-
-                    @if (isset($vieclam->luong))
-                        <p><b>- Mức lương:</b>
-                            {{$vieclam->luong}}
-                        </p>
+                        <h6 style="padding: 10px;">Mô Tả Công Việc: {{$vieclam->mota}}</h6>
+                        @endif
+                        @if (isset($vieclam->luong))
+                        <h6 style="padding: 10px;">Mức lương:{{$vieclam->luong}}</h6>
                         @else
-                        <p><b>- Mức lương:</b>
-                            {{'Thương lượng'}}
-                        </p>
-                    @endif
-                <br>
-                <br>
+                        <h6 style="padding: 10px;">Mức lương:Thương lượng</h6>
+                        @endif
+                        <h6 style="padding: 10px;">Số Lượng:{{$vieclam->soluong}}</h6>
+                        <h6 style="padding: 10px;">Địa Điểm Làm Việc:{{$vieclam->diachi}}</h6>
+                        <h6 style="padding: 10px;">Ngày Đăng:{{$vieclam->created_at}}</h6>
             </div>
 
             <div class="col-md-4 col-sm-5">
@@ -63,7 +43,7 @@
                   <br>
                   <h6 style="text-align:center">Ảnh về chúng tôi</h6>
                   <br>
-                <img src="https://i.ytimg.com/vi/kGz9cHL9LFc/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmiRNWDNbhb4ZbyO2JXVYYlua2HQ" alt="" class="img-fluid wc-image">
+                <img src="{{$vieclam->anh}}" alt="" class="img-fluid wc-image">
               </div>
               <br>
               <div class="contact-form">
@@ -77,45 +57,10 @@
               </div>
 
               <br>
-              <ul class="social-icons text-center">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-              </ul>
-
               <br>
               <br>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
               <div class="section-heading">
-                <h2>Giới thiệu về chúng tôi</h2>
-              </div>
-
-              <p class="lead">
-                     <i class="fas fa-store"></i>
-                     @if (isset($vieclam->tenquan))
-                         {{$vieclam->tenquan}}
-                         <p>
-                             {{$vieclam->mota}}
-                         </p>
-                     @endif
-                </p>
-            </div>
-
-            <div class="col-md-3">
-              <div class="section-heading">
-                <h2>Liên Hệ</h2>
-              </div>
-
-              <div class="left-content">
+                <h2>Liên Hệ:</h2>
                 <p>
                   <span>Tên Nhà Tuyển Dụng</span>
 

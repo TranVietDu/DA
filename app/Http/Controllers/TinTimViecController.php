@@ -69,4 +69,11 @@ class TinTimViecController extends Controller
         TinTimViec::onlyTrashed()->restore();
         return redirect()->route('tintimviec.list');
      }
+     public function vieclamview(){
+         return view('hoso.hoso');
+     }
+     public function chitiethoso($id){
+         $hoso=TinTimViec::find($id);
+         return view('hoso.chi-tiet-ho-so',compact('hoso'));
+     }
 }

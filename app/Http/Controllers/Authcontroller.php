@@ -24,7 +24,6 @@ class Authcontroller extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            $username = Auth::user();
             $role = Auth::user()->role;
             if($role==2 || $role==3){
                 return redirect()->route('home');
@@ -39,15 +38,6 @@ class Authcontroller extends Controller
             )->with('thongbao', 'Email hoặc mật khẩu không đúng');
         }
     }
-    // public function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'role' => $data['role'],
-    //         'password' => Hash::make($data['password']),
-    //     ]);
-    // }
     public function register(Register $request)
     {
         $user=new User();
@@ -67,6 +57,6 @@ class Authcontroller extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('relogin');
+        return redirect('dangnhap');
     }
 }
