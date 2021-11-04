@@ -5,7 +5,6 @@
                 <div class="sb-sidenav-menu-heading">Core</div>
 
                 <a class="nav-link" href="/admin/home">
-
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Home
                 </a>
@@ -32,6 +31,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></i></div>
                     Giao Diện
 
+                </a>
+                <a class="nav-link collapsed" href="/admin/lienhe">
+                    <div class="sb-nav-link-icon"><i class="fas fa-id-card-alt"></i></i></div>
+                    Liên Hệ
                 </a>
             </div>
     </nav>

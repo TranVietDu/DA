@@ -46,28 +46,28 @@ class TinTuyenDungController extends Controller
     public function update(CapNhatTinTuyenDungRequest $request, $id)
     {
         TinTuyenDung::find($id)->update($request->validated());
-        return redirect()->route('tintuyendung.list');
+        return redirect()->route('tintuyendung1.list');
     }
 
     //xoa
     public function destroy($id)
     {
         TinTuyenDung::find($id)->delete();
-        return redirect()->route('tintuyendung.list');
+        return redirect()->route('tintuyendung1.list');
     }
     //xoa nhieu
     public function destroyall(Request $request)
     {
         $ids = $request->ids;
         TinTuyenDung::whereIn('id', $ids)->delete();
-        return redirect()->route('tintuyendung.list');
+        return redirect()->route('tintuyendung1.list');
     }
 
      //khoi phuc tin da xoa
      public function restore()
      {
         TinTuyenDung::onlyTrashed()->restore();
-         return redirect()->route('tintuyendung.list');
+         return redirect()->route('tintuyendung1.list');
      }
 
      public function index()

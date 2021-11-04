@@ -7,7 +7,7 @@
           <div class="row">
               <div class="col-md-12">
                 <div class="center" style="margin: 20px 0">
-                    <button class="btn btn-primary"><a style="color:aliceblue;" href="{{ route("tintuyendung.create") }}">Thêm</a></button>
+                    <button class="btn btn-primary"><a style="color:aliceblue;" href="{{ route("tintuyendung1.create") }}">Thêm</a></button>
                     <button type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
                 </div>
                   <table class="table">
@@ -59,16 +59,16 @@
                                 @endif
                              </td>
                              <td>
-                                <form method="POST" action="{{ route('tintuyendung.destroy', $al->id)}}">
+                                <form method="POST" action="{{ route('tintuyendung1.destroy', $al->id)}}">
                                     @csrf
                                     <input name="_method" type="hidden" value="DELETE">
                                     <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'>Xóa</button>
                                 </form>
-                             <td><a href="{{ route('tintuyendung.edit', $al->id) }}">Cập nhật</a></td>
+                             <td><a href="{{ route('tintuyendung1.edit', $al->id) }}">Cập nhật</a></td>
                          </tr>
 
                          @endforeach
-                         <a href="{{ route('tintuyendung.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
+                         <a href="{{ route('tintuyendung1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                      </tbody>
                  </table>
               </div>
@@ -130,7 +130,7 @@
         if(confirm("Bạn có muốn xóa các hàng đã chọn không?")){
         var strIds = idsArr.join(",");
         $.ajax({
-        url: "{{ route('tintuyendung.destroyall') }}",
+        url: "{{ route('tintuyendung1.destroyall') }}",
         type: 'GET',
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data: 'ids='+strIds,

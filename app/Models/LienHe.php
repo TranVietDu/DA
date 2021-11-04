@@ -13,6 +13,6 @@ class LienHe extends Model
     protected $dates = ['deleted_at'];
     protected $table = 'lienhe';
     protected $fillable = [
-         'diachi', 'tieude', 'gioithieu',
+         'diachi', 'tieude', 'gioithieu','facebook','twitter','in','be'
     ];
 }

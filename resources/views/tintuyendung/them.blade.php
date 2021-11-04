@@ -46,6 +46,14 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Địa chỉ" value="" name="diachi"/>
                                     </div>
+                                    <div class="form-group">
+                                        <select class="form-control" name="nganhnghe">
+                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
+                                            <option>Phục vụ</option>
+                                            <option>Bán hàng</option>
+                                            <option>Gia sư</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -66,16 +74,11 @@
                                     <div class="form-group">
                                         <input type="file" class="form-control" placeholder="" value="" name="anh" style="height:47px"/>
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control"  placeholder="Mức lương *" value="" name="luong"/>
+                                    </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <select class="form-control" name="nganhnghe">
-                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
-                                            <option>Phục vụ</option>
-                                            <option>Bán hàng</option>
-                                            <option>Gia sư</option>
-                                        </select>
-                                    </div>
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" rows="4" cols="75">

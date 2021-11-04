@@ -11,7 +11,6 @@ class TinTimViec extends Model
     use SoftDeletes;
     use HasFactory;
     protected $dates = ['deleted_at'];
-
     protected $table = 'tintimviecs';
     protected $fillable = [
         'id','user_id', 'ten', 'ngaysinh', 'gioitinh', 'sdt','email','nganhnghe','diachi', 'mota', 'anh'
