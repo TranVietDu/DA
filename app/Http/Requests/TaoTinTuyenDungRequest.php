@@ -31,6 +31,7 @@ class TaoTinTuyenDungRequest extends FormRequest
             'diachi' => 'required|string',
             'soluong' => 'required|string',
             'nganhnghe' => 'required|string',
+            'luong' => '',
             'thoigian' => 'required|string',
             'mota' => 'required|string',
             'anh' => 'required|string',

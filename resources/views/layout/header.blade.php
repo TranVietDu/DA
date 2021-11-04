@@ -41,9 +41,9 @@
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
                  @if (Auth::user()->role==2)
-                 <a class="dropdown-item" href="tintuyendung/danhsach">QL Việc Làm</a>
+                 <a class="dropdown-item" href="{{route('tintuyenndung1.list')}}">QL Việc Làm</a>
                  @elseif (Auth::user()->role==3)
-                 <a class="dropdown-item" href="tintimviec/danhsach">QL Hồ Sơ</a>
+                 <a class="dropdown-item" href="{{route('tintimviec.list')}}">QL Hồ Sơ</a>
                  @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>

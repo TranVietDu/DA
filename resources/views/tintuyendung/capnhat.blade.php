@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Cập nhật</h3>
 
-                        <form action="{{ route('tintuyendung.update', $tintuyendung->id)}}" method="post">
+                        <form action="{{ route('tintuyendung1.update', $tintuyendung->id)}}" method="post">
                             {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row register-form">

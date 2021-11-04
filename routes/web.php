@@ -60,7 +60,7 @@ Route::get('/tao-cv', function () {
 
 
 // QUAN LI TIN TUYEN DUNG
-Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
     Route::get('/tao-tin-tuyen-dung', 'TinTuyenDungController@create')->name('create');
     Route::post('/tao-tin-tuyen-dung', 'TinTuyenDungController@store')->name('store');
