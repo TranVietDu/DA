@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TinTuyenDung;
-use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -160,4 +159,3 @@ Route::middleware(['admin'])->group(function () {
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
     });
 });
-    
