@@ -153,6 +153,7 @@
 
               {{-- Đăng tin  --}}
     @if(Auth::check())
+
       <div class="call-to-action">
         <div class="container">
           <div class="row">
@@ -189,7 +190,7 @@
                                               </div>
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
-                                                      <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                                      <a class="img-card" href="/hoso">
                                                       <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
                                                     </a>
                                                       <div class="card-content">
@@ -424,7 +425,7 @@
       <div class="col-md-4">
         <div class="product-item">
           <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam">
               <h4>Ngành Nghề</h4>
@@ -440,7 +441,7 @@
       <div class="col-md-4">
         <div class="product-item">
           <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam">
               <h4>Ngành Nghề</h4>
@@ -456,7 +457,7 @@
       <div class="col-md-4">
         <div class="product-item">
           <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam">
               <h4>Ngành Nghề</h4>
@@ -503,7 +504,7 @@
       <div class="col-md-4">
         <div class="product-item">
           <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam">
               <h4>Tên Người Viết</h4>
@@ -519,7 +520,7 @@
       <div class="col-md-4">
         <div class="product-item">
           <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam">
               <h4>Tên Người Viết</h4>

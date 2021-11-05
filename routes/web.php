@@ -71,7 +71,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // QUAN LI TIN TIM VIEC
-Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
     Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
@@ -83,7 +83,7 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
 });
 
 // QUAN LI BLOG
-Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'BlogController@index')->name('list');
     Route::get('/viet-blog', 'BlogController@create')->name('create');
     Route::post('/viet-blog', 'BlogController@store')->name('store');
@@ -135,6 +135,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
         Route::put('admin/{user}','UserController@update')->name('user.update');
         Route::get('admin/user/search', 'UserController@search')->name('user.search');
+        Route::get('admin/user/xembai/{user}','UserController@viewposttuyendung')->name('user.view');
         // Tintuyendung
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
