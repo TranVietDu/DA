@@ -33,7 +33,7 @@ class TaoTinTimViecRequest extends FormRequest
             'nganhnghe' => 'required|string',
             'diachi' => 'required|string',
             'mota' => '',
-            'anh' => 'required|string',
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
     public function messages()

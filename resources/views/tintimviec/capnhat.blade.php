@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Cập nhật</h3>
 
-                        <form action="{{ route('tintimviec.update', $tintimviec->id)}}" method="post">
+                        <form action="{{ route('tintimviec1.update', $tintimviec->id) }}" method="post" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row register-form">
@@ -38,48 +38,48 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <b style="float: left;">Họ và tên</b>
+                                        <b style="float: left;">Tên</b>
                                         <input type="text" class="form-control" value="{{ $tintimviec->ten }}" name="ten"/>
-                                    </div>
-                                    <div class="form-group">
-                                        <b style="float: left;">Giới tính</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->gioitinh }}" name="gioitinh"/>
                                     </div>
                                     <div class="form-group">
                                         <b style="float: left;">Ngày sinh</b>
                                         <input type="text" class="form-control" value="{{ $tintimviec->ngaysinh }}" name="ngaysinh"/>
                                     </div>
                                     <div class="form-group">
-                                        <b style="float: left;">Email</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->email }}" name="email"/>
+                                        <b style="float: left;">Giới tính</b>
+                                        <input type="text" class="form-control" value="{{ $tintimviec->gioitinh }}" name="gioitinh"/>
                                     </div>
                                     <div class="form-group">
-                                        <b style="float: left;">Ảnh bản thân</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->anh }}" name="anh"/>
+                                        <b style="float: left;">Số ĐT</b>
+                                        <input type="text" class="form-control" value="{{ $tintimviec->sdt }}" name="sdt"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <b style="float: left;">Số ĐT</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->dienthoai }}" name="dienthoai"/>
+                                        <b style="float: left;">Email</b>
+                                        <input type="email" class="form-control" value="{{ $tintimviec->email }}" name="email"/>
                                     </div>
                                     <div class="form-group">
                                         <b style="float: left;">Ngành nghề</b>
                                         <input type="text" class="form-control" value="{{ $tintimviec->nganhnghe }}" name="nganhnghe"/>
                                     </div>
                                     <div class="form-group">
-                                        <b style="float: left;">Kinh nghiệm</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->kinhnghiem }}" name="kinhnghiem"/>
+                                        <b style="float: left;">Địa chỉ</b>
+                                        <input type="text" class="form-control" value="{{ $tintimviec->diachi }}" name="diachi"/>
                                     </div>
                                     <div class="form-group">
-                                        <b style="float: left;">Thời gian làm việc</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->thoigian }}" name="thoigian"/>
+                                        <b style="float: left;">Ảnh bản thân</b>
+                                        <input type="file" class="form-control" value="{{ $tintimviec->anh }}" name="anh"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea id="" name="mota" rows="4" cols="75" value="{{ $tintimviec->mota}}">
+                                            <textarea id="" name="mota" rows="4" cols="75" value="">
+                                                {{ $tintimviec->mota}}
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Xong"/>
                                     </div>

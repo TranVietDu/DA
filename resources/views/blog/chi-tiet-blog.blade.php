@@ -35,7 +35,7 @@
                   <br>
 
                   <p>
-                      <img src="{{$blog->anh}}" alt="" width="100%" class="img-responsive">
+                      <img src="{{ asset('anh_blog/'.$blog->anh) }}"  alt="" width="100%" class="img-responsive">
                   </p>
                 </div>
               </div>
@@ -44,7 +44,6 @@
           <br>
 
           <div>
-            <img src="assets/images/blog-image-fullscren-1-1920x700.jpg" class="img-fluid" alt="">
           </div>
         </div>
       </div>

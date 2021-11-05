@@ -43,7 +43,7 @@
                  @if (Auth::user()->role==2)
                  <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
                  @elseif (Auth::user()->role==3)
-                 <a class="dropdown-item" href="{{route('tintimviec.list')}}">QL Hồ Sơ</a>
+                 <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ Sơ</a>
                  @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>

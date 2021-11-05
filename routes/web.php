@@ -45,6 +45,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     //tim kiem viec lam
     Route::get('/tim-kiem','TinTuyenDungController@search');
 
+    // //tim kiem ho so
+    // Route::get('/tim-kiem','TinTimViecController@search');
+
     //tim kiem blog
     Route::get('/tim-kiem-blog','BlogController@search');
 
@@ -70,19 +73,19 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // QUAN LI TIN TIM VIEC
-Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
     Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
     Route::get('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@update')->name('update');
-    Route::get('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
+    Route::delete('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
     Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
 
 // QUAN LI BLOG
-Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'BlogController@index')->name('list');
     Route::get('/viet-blog', 'BlogController@create')->name('create');
     Route::post('/viet-blog', 'BlogController@store')->name('store');

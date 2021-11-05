@@ -13,7 +13,7 @@
         @foreach ($search_vieclam as $val)
         <div class="col-md-6">
             <div class="service-item">
-              <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
+              <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{ asset('anh_blog/'.$val->anh) }}"  alt="" height="250px" width="400px" class="img-responsive"></a>
 
               <div class="down-content">
                 <h4><a href="/blog/chi-tiet-blog/{{$val->id}}">{{$val->tieude}}</a></h4>

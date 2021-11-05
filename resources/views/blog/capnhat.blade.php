@@ -21,20 +21,18 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="blog-heading">Tâm sự cùng mọi người</h3>
 
-                            <form action="{{ route('blog.update', $blog->id)}}" method="put">
+                            <form action="{{ route('blog1.update', $blog->id)}}" method="post" enctype="multipart/form-data">
                                 {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                                 <div class="row blog-form">
                                     <div class="col-12">
-                                        @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
+                                        <div class="col-12">
+                                            @if (session('tb'))
+                                                <div class="alert alert-danger">
+                                                    {{session('tb')}}
+                                                </div>
+                                            @endif
                                         </div>
-                                    @endif
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -48,11 +46,12 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="file" class="form-control" placeholder="" value="{{$blog->anh}}" name="anh" style="height:47px"/>
+                                            <input type="file" class="form-control" placeholder="" value="{{$blog->anh}}" name="anh"/>
                                         </div>
                                         <div class="form-group">
                                                 <label for="" style="text-align: left">Nội dung:</label>
-                                                <textarea name="noidung" rows="4" cols="75" value="{{ $blog->mota}}">
+                                                <textarea name="noidung" rows="4" cols="75" value="">
+                                                    {{$blog->noidung}}
                                                 </textarea>
                                             <input type="submit" class="btnblog"  value="Cập Nhật"/>
                                         </div>

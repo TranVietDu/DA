@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="blog-heading">Tâm sự cùng mọi người</h3>
 
-                        <form action="{{ route('blog.store')}}" method="post">
+                        <form action="{{ route('blog1.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row blog-form">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="file" class="form-control" placeholder="" value="" name="anh" style="height:47px"/>
+                                        <input type="file" class="form-control" placeholder="" value="" name="anh"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>

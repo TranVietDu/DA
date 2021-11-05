@@ -28,7 +28,7 @@ class TaoBlogRequest extends FormRequest
             'tennguoiviet' => 'required|string',
             'tieude' => 'required|string',
             'noidung' => 'required|string',
-            'anh' => 'required|string',
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
     public function messages()

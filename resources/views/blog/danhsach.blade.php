@@ -6,8 +6,10 @@
         <h3 style="text-align: center">Quản lí Blog</h3>
           <div class="row">
               <div class="col-md-12">
+                <a href="{{ route('blog1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                 <div class="add" style="margin: 20px 0">
-                    <button type="button" class="btn btn-danger" id="deleteall">Delete Selected </button>
+                    <button type="button" class="btn btn-primary"><a href="{{route('blog1.create')}}" style="color:aliceblue;">Thêm</a> </button>
+                    <button type="button" class="btn btn-danger" id="deleteall">Xóa các hàng đã chọn </button>
                 </div>
                   <table class="table">
                      <thead>
@@ -33,13 +35,13 @@
                              <td>
                                  {{$al->noidung}}
                              </td>
-                             <td>{{$al->anh}}</td>
-                             <td><a href="{{ route('blog.destroy', $al->id)}}">Xóa</a></td>
-                             <td><a href="{{ route('blog.edit', $al->id) }}">Cập nhật</a></td>
+                             <td><img src="{{ asset('anh_blog/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>
+                             <td><a href="{{ route('blog1.destroy', $al->id)}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                             <td><a href="{{ route('blog1.edit', $al->id) }}"><i class="fas fa-edit"></i></a></td>
                          </tr>
 
                          @endforeach
-                         <a href="{{ route('blog.restore')}}">Khôi phục các tin đã xóa</a>
+
                      </tbody>
                  </table>
               </div>
@@ -59,7 +61,7 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
-                    url:"{{route('tintuyendung.destroyall')}}",
+                    url:"{{route('blog1.destroyall')}}",
                     type:'GET',
                     data:{
                         ids:allids,

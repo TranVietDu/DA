@@ -21,20 +21,16 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Cập nhật</h3>
 
-                        <form action="{{ route('tintuyendung1.update', $tintuyendung->id)}}" method="post">
+                        <form action="{{ route('tintuyendung1.update', $tintuyendung->id)}}" method="post" enctype="multipart/form-data">
                             {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row register-form">
                                 <div class="col-12">
-                                    @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                                    @if (session('tb'))
+                                        <div class="alert alert-danger">
+                                            {{session('tb')}}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -46,6 +42,14 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Địa chỉ" value="{{$tintuyendung->diachi}}" name="diachi"/>
                                     </div>
+                                    <div class="form-group">
+                                        <select class="form-control" name="nganhnghe">
+                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
+                                            <option>Phục vụ</option>
+                                            <option>Bán hàng</option>
+                                            <option>Gia sư</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -56,7 +60,7 @@
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="thoigian">
-                                            <option class="hidden"  selected disabled>--Thời gian--</option>
+                                            <option class="hidden"  selected disabled>Thời gian</option>
                                             <option>Ca sáng: 7h30-11h30</option>
                                             <option>Ca chiều: 14h-18h</option>
                                             <option>Ca tối: 19h-23h</option>
@@ -64,13 +68,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="file" class="form-control" placeholder="" value="{{$tintuyendung->anh}}" name="anh" style="height:47px"/>
+                                        <input type="file" class="form-control" placeholder="" value="" name="anh"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control"  placeholder="Mức lương *" value="{{$tintuyendung->luong}}" name="luong"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                            <label for="amount" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea  name="mota" rows="4" cols="75" value="{{ $tintuyendung->mota}}">
+                                            <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
+                                            <textarea name="mota" rows="4" cols="75">
+                                                {{$tintuyendung->mota}}
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Xong"/>
                                     </div>

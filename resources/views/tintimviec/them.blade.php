@@ -21,7 +21,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Vui lòng nhập thông tin</h3>
-                            <form action="{{route('tintimviec.store')}}" method="post">
+                            <form action="{{route('tintimviec1.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row register-form">
                                     <div class="col-12">
@@ -37,7 +37,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Họ và tên *" value="" name="ten"/>
+                                            <input type="text" class="form-control" placeholder="Họ và tên *" value="{{old('ten')}}" name="ten"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="date" name="ngaysinh" class="form-control" placeholder="Ngày sinh *" value="{{old('ngaysinh')}}" />
                                         </div>
                                         <div class="form-group" style="float: left;">
                                             <div class="form-control" name="gioitinh">Giới tính:
@@ -56,10 +59,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" name="ngaysinh" class="form-control" placeholder="Ngày sinh *" value="" />
+                                            <input type="text" name="sdt" class="form-control" placeholder="Số điện thoại *" value="{{old('sdt')}}" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="{{old('email')}}" name="email"/>
+                                        </div>
                                         <div class="form-group">
                                             <select class="form-control" name="nganhnghe">
                                                 <option class="hidden"  selected disabled>Ngành nghề mong muốn</option>
@@ -72,24 +78,17 @@
                                             <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" name="thoigian">
-                                                <option class="hidden"  selected disabled>Thời gian mong muốn</option>
-                                                <option>Ca sáng: 7h30-11h30</option>
-                                                <option>Ca chiều: 14h-18h</option>
-                                                <option>Ca tối: 19h-23h</option>
-                                            </select>
+                                            <input type="text" class="form-control" placeholder="Địa chỉ" value="{{old('diachi')}}" name="diachi"/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="file" class="form-control" placeholder="Ảnh về bản thân" value="" name="anh"/>
+                                            <input type="file" class="form-control" placeholder="Ảnh về bản thân" value="{{old('anh')}}" name="anh"/>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Liên hệ" value="" name="lienhe"/>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" rows="4" cols="75">
+                                                {{old('mota')}}
                                             </textarea>
                                             <input type="submit" class="btnRegister"  value="Đăng"/>
                                         </div>

@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Vui lòng nhập thông tin</h3>
 
-                        <form action="{{ route('tintuyendung1.store')}}" method="post">
+                        <form action="{{ route('tintuyendung1.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row register-form">
@@ -38,13 +38,13 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tiêu đề *" value="" name="tieude"/>
+                                        <input type="text" class="form-control" placeholder="Tiêu đề *" value="{{old('tieude')}}" name="tieude"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Tên quán *" value="" name="tenquan"/>
+                                        <input type="text" class="form-control" placeholder="Tên quán *" value="{{old('tenquan')}}" name="tenquan"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Địa chỉ" value="" name="diachi"/>
+                                        <input type="text" class="form-control" placeholder="Địa chỉ" value="{{old('diachi')}}" name="diachi"/>
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="nganhnghe">
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Số lượng *" value="" name="soluong"/>
+                                        <input type="text" class="form-control"  placeholder="Số lượng *" value="{{old('soluong')}}" name="soluong"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
@@ -72,16 +72,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="file" class="form-control" placeholder="" value="" name="anh"/>
+                                        <input type="file" class="form-control" placeholder="" value="{{old('anh')}}" name="anh"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Mức lương *" value="" name="luong"/>
+                                        <input type="text" class="form-control"  placeholder="Mức lương *" value="{{old('luong')}}" name="luong"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" rows="4" cols="75">
+                                                {{old('mota')}}
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Đăng"/>
                                     </div>
