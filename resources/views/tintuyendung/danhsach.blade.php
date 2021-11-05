@@ -46,7 +46,7 @@
                              <td>{{$al->thoigian}}</td>
                              <td>
                                 @if (isset($al->anh))
-                                <img src="{{$al->anh}}" width="100px" class="img-flush" alt="">
+                                <td><img src="{{ asset('tintuyendung/'.$al->image) }}" width="100px" class="img-flush" alt=""></td>
                                 @else
                                 {{'...'}}
                                 @endif

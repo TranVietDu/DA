@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Vui lòng nhập thông tin</h3>
 
-                        <form action="{{ route('tintuyendung.store')}}" method="post">
+                        <form action="{{ route('tintuyendung1.store')}}" method="post">
                             @csrf
 
                             <div class="row register-form">
@@ -72,7 +72,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="file" class="form-control" placeholder="" value="" name="anh" style="height:47px"/>
+                                        <input type="file" class="form-control" placeholder="" value="" name="anh"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="Mức lương *" value="" name="luong"/>
