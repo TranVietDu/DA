@@ -23,7 +23,7 @@
                 @foreach ($blogs as $val)
                 <div class="col-md-6">
                     <div class="service-item">
-                      <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{$val->anh}}" class="img-fluid" alt=""></a>
+                      <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{ asset('anh_blog/'.$val->anh) }}" class="img-fluid" style="height:200px" alt=""></a>
 
                       <div class="down-content">
                         <h4><a href="/blog/chi-tiet-blog/{{$val->id}}">{{$val->tieude}}</a></h4>

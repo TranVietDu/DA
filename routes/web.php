@@ -45,6 +45,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     //tim kiem viec lam
     Route::get('/tim-kiem','TinTuyenDungController@search');
 
+    // //tim kiem ho so
+    // Route::get('/tim-kiem','TinTimViecController@search');
+
     //tim kiem blog
     Route::get('/tim-kiem-blog','BlogController@search');
 
@@ -76,7 +79,7 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
     Route::get('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@update')->name('update');
-    Route::get('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
+    Route::delete('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
     Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });

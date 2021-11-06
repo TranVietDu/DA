@@ -172,7 +172,7 @@
         <div class="col-md-4">
           <div class="product-item">
             <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
-            <img src="{{ $val->anh }}" alt="">
+                <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}"  style="width:100%; height:200px; padding: 8px;" alt="">
             <div class="down-content">
                 <h4>{{ $val->tieude }}</h4>
               <h6>
@@ -192,7 +192,7 @@
             </a>
           </div>
         </div>
-        
+
       @endforeach
     </div>
 

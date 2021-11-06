@@ -45,12 +45,21 @@ class BlogController extends Controller
      // Luu
      public function store(TaoBlogRequest $request)
      {
-         $data = $request->validated();
-         if(Blog::create($data)){
-             return redirect('/blog/danhsach');
-         }else{
-             return back()->withInput();
-         }
+        $data = $request->validated();
+        $get_image = $request->file('anh');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('anh_blog', $new_image);
+            $data['anh'] = $new_image;
+            BLog::create($data);
+
+            return redirect()->route('blog1.list');
+        }
+        else{
+            return redirect()->route('blog1.create')->withInput();
+        }
      }
 
      //form cap nhat
@@ -62,8 +71,21 @@ class BlogController extends Controller
      //cap nhat
      public function update(CapNhatBlogRequest $request, $id)
      {
-         Blog::find($id)->update($request->validated());
-         return redirect('/blog/danhsach');
+        $data = $request->validated();
+        $get_image = $request->file('anh');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('anh_blog', $new_image);
+            $data['anh'] = $new_image;
+            Blog::find($id)->update($data);
+
+            return redirect()->route('blog1.list');
+        }
+        else{
+            return back()->with('tb', 'Cập nhật không thành công');
+        }
      }
 
      //xoa

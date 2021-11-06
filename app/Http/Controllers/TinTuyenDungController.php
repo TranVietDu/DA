@@ -29,33 +29,46 @@ class TinTuyenDungController extends Controller
     public function store(TaoTinTuyenDungRequest $request)
     {
         $data = $request->validated();
-
         $get_image = $request->file('anh');
         if ($get_image) {
             $get_name_image = $get_image->getClientOriginalName();
             $name_image = current(explode('.', $get_name_image));
             $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
-            $get_image->move('tintuyendung', $new_image);
+            $get_image->move('anh_tintuyendung', $new_image);
             $data['anh'] = $new_image;
             TinTuyenDung::create($data);
+
             return redirect()->route('tintuyendung1.list');
         }
         else{
-            return redirect()->route('tintuyendung1.create');
+            return redirect()->route('tintuyendung1.create')->withInput();
         }
     }
 
     //form cap nhat
     public function edit($id)
     {
-        $tintuyendung = TinTuyenDung::find(Auth::user()->id);
+        $tintuyendung = TinTuyenDung::find($id);
         return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
     }
     //cap nhat
     public function update(CapNhatTinTuyenDungRequest $request, $id)
     {
-        TinTuyenDung::find($id)->update($request->validated());
-        return redirect()->route('tintuyendung1.list');
+        $data = $request->validated();
+        $get_image = $request->file('anh');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('anh_tintuyendung', $new_image);
+            $data['anh'] = $new_image;
+            TinTuyenDung::find($id)->update($data);
+
+            return redirect()->route('tintuyendung1.list');
+        }
+        else{
+            return back()->with('tb', 'Cập nhật không thành công');
+        }
     }
 
     //xoa
@@ -101,10 +114,12 @@ class TinTuyenDungController extends Controller
      public function search(Request $request)
      {
          $keywords = $request->keywords_submit;
-         $search_vieclam = DB::table('tintuyendungs')->where('tieude','like','%'.$keywords.'%')
+         $data['search_vieclam'] = DB::table('tintuyendungs')->where('tieude','like','%'.$keywords.'%')
          ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->orWhere('thoigian','like','%'.$keywords.'%')->get();
+         $data['search_hoso'] =  DB::table('tintimviecs')->where('ten','like','%'.$keywords.'%')
+        ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->get();
 
-         return view('timkiem')->with('search_vieclam',$search_vieclam);
+        return view('tim-kiem', $data);
      }
 
 }
