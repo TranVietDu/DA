@@ -29,10 +29,19 @@ class TinTuyenDungController extends Controller
     public function store(TaoTinTuyenDungRequest $request)
     {
         $data = $request->validated();
-        if(TinTuyenDung::create($data)){
-            return redirect('/tintuyendung/danhsach');
-        }else{
-            return back()->withInput();
+
+        $get_image = $request->file('anh');
+        if ($get_image) {
+            $get_name_image = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_name_image));
+            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('tintuyendung', $new_image);
+            $data['anh'] = $new_image;
+            TinTuyenDung::create($data);
+            return redirect()->route('tintuyendung1.list');
+        }
+        else{
+            return redirect()->route('tintuyendung1.create');
         }
     }
 

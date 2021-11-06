@@ -21,7 +21,7 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="blog-heading">Tâm sự cùng mọi người</h3>
 
-                            <form action="{{ route('blog.update', $blog->id)}}" method="put">
+                            <form action="{{ route('blog1.update', $blog->id)}}" method="put">
                                 {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                                 <div class="row blog-form">

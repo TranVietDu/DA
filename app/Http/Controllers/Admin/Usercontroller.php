@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -128,4 +129,8 @@ class Usercontroller extends Controller
                     }
                     return Response($output);
                 }
+    public function viewposttuyendung(User $user){
+        $userpost=User::find($user)->tintuyendungs;
+        return view('admin.user.xembaidang',compact('userpost'));
+    }
 }

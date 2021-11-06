@@ -389,9 +389,11 @@ header .navbar {
 }
 
 .section-heading a {
+	float: right;
 	margin-top: -35px;
 	font-size: 13px;
 	font-weight: 700;
+	color: #f33f3f;
 	
 }
 
@@ -1126,5 +1128,7 @@ footer .inner-content p a {
 	-o-animation: my 700ms infinite; 
 	animation: my 700ms infinite;
 }
-
+.hososs h5{
+	padding: 5px;
+}
 

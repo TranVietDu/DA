@@ -21,7 +21,7 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="blog-heading">Tâm sự cùng mọi người</h3>
 
-                        <form action="{{ route('blog.store')}}" method="post">
+                        <form action="{{ route('blog1.store')}}" method="post">
                             @csrf
 
                             <div class="row blog-form">

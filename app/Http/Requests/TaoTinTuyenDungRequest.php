@@ -34,7 +34,7 @@ class TaoTinTuyenDungRequest extends FormRequest
             'luong' => '',
             'thoigian' => 'required|string',
             'mota' => 'required|string',
-            'anh' => 'required|string',
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 

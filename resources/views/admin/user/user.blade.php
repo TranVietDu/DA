@@ -78,7 +78,7 @@
                                 @if($al->role==3)
                                 <td>Người tìm việc</td>
                                 @endif
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                                <td><a href="{{route('user.view',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                                 <td><a href="{{route('user.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('user.destroy',[$al->id])}}" method="post">
