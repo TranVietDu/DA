@@ -61,7 +61,9 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
+
                     url:"{{route('blog1.destroyall')}}",
+
                     type:'GET',
                     data:{
                         ids:allids,

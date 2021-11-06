@@ -2,13 +2,11 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+<div class="page-heading about-heading header-text" style="background-image: url(https://cdn.shopify.com/s/files/1/1404/4249/files/2020-02-06_BANNER_TUY_N_D_NG.jpg?v=1581044229);">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="text-content">
-          <h4>Lorem ipsum dolor sit amet</h4>
-          <h2>Jobs</h2>
         </div>
       </div>
     </div>
@@ -168,7 +166,7 @@
         </div>
         </form>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9" style="margin-top: 60px;">
       <div class="row">
         @foreach ($vieclams as $val)
         <div class="col-md-4">
