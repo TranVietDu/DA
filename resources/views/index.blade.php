@@ -406,7 +406,7 @@
           <h4 class="text-center">Tên Blog</h4>
           <p class="float-left">Gia đình hạnh phúc vẫn "bận rộn" với trường học, công việc, sở thích và những hoạt động khác nhưng họ vẫn có thời gian dành cho nhau vì họ có quyền quyết định điều gì làm hay không. Họ xử lý vấn đề một cách nhanh chóng. Khi một vấn đề lớn phát sinh, họ chia sẻ với nhau và xử lý hiệu quả. Họ có thể chia sẻ mối quan tâm một cách hòa nhã, dễ chịu để người kia bình tĩnh xử lý vấn đề..
  </p>
-          <p class="float-right">Tác Giả:</p>
+          <p class="float-right">Tác Giả:VIết Dũ</p>
         </div>
     </div>
   </div>
