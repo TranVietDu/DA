@@ -1,11 +1,11 @@
 
     /* CV */
     .tieude{
-      background-color: rgb(37, 110, 8);
+      background-color: #4f4e48;
       padding: 10px;
       margin-bottom: 20px;
-      border-right: 5px double black;
       color: white;
+      border-right: 5px double rgb(14, 13, 13);
     }
     #output{
       border-radius: 50%;
@@ -13,7 +13,7 @@
       width: 200px;
       background-color: rgb(150, 146, 141);
       position: relative;
-      border: 2px dashed yellow;
+      border: 2px dashed rgb(247, 247, 242);
     }
     #thongtin,h3,p{
       padding: 8px;
@@ -32,15 +32,16 @@
     #tren{
       margin-right: auto;
       margin-left: auto;
-      background-color: rgb(37, 110, 8);
+      background-color: #4f4e48;
       color: white;
+      padding: 0;
     }
     #trai{
-      background-color: rgb(37, 110, 8);
-      border-right: 5px double rgb(252, 252, 252);
+      background-color: #4f4e48;
+      border-right: 5px double rgb(14, 13, 13);
       padding: 15px;
     }
-    #phai{
+    .phai{
       padding: 15px;
     }
     .tieude1{
@@ -55,6 +56,9 @@
     .range{
       width: 80%;
     }
+    .phai{
+        margin-left: 15px;
+      }
     }
     @media(min-width:740px) and (max-width:1199px){
       .content{
@@ -63,6 +67,9 @@
     .range{
       width: 80%;
     }
+    .phai{
+        margin-left: 15px;
+      }
     }
     @media(max-width:740px){
       .content{
@@ -71,6 +78,10 @@
     .range{
       width: 90%;
     }
+    .phai{
+        padding: 0;
+        margin-top:20px
+      }
     }
     .page-heading .contact-heading{
       background-color: aliceblue;

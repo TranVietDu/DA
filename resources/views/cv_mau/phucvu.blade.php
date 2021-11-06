@@ -227,16 +227,5 @@
       </div>
         </div>
   </div>
-  <!-- nút tạo cv -->
-  <div class="hotline-phone-ring-wrap">
-    <div class="hotline-phone-ring">
-      <div class="hotline-phone-ring-circle"></div>
-      <div class="hotline-phone-ring-circle-fill"></div>
-      <div class="hotline-phone-ring-img-circle">
-        <a href="tao_cv/cv" class="pps-btn-img">
-          <img src="{{ asset('assets/icons/cv.png')}}" alt="Nhắn tin" class="nhantin" width="45">
-        </a>
-      </div>
-    </div>
-  </div>
+
 @endsection

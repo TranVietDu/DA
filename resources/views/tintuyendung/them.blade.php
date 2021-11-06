@@ -81,8 +81,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea name="mota" rows="4" cols="75">
-                                                {{old('mota')}}
+                                            <textarea name="mota" id="editor">
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Đăng"/>
                                     </div>
@@ -96,6 +95,13 @@
     </div>
     </div>
 </div>
-
 </div>
+{{-- editor --}}
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 @endsection

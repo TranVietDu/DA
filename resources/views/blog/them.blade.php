@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Nội dung:</label>
-                                            <textarea name="noidung" rows="4" cols="75">
+                                            <textarea name="noidung" id="editor">
                                             </textarea>
                                         <input type="submit" class="btnblog"  value="Đăng"/>
                                     </div>
@@ -69,6 +69,14 @@
     </div>
     </div>
 </div>
-
 </div>
+{{-- editor --}}
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        const data = editor.getData();
+</script>
 @endsection
