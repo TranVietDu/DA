@@ -15,7 +15,10 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    {{-- tai cv --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    {{-- editor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
@@ -56,6 +59,10 @@
 
 @include('layout.footer')
 
+    {{-- cv --}}
+    <script src="{{ asset('assets/js/download.js')}}"></script>
+    <script src="{{ asset('assets/js/cv.js')}}"></script>
+    <script src="{{ asset('assets/js/menu.js')}}"></script>
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
@@ -65,6 +72,5 @@
     <!-- Additional Scripts -->
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/js/owl.js')}}"></script>
-
   </body>
 </html>

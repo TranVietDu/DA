@@ -59,7 +59,7 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
-                    url:"{{route('tintuyendung.destroyall')}}",
+                    url:"{{route('blog.destroyall')}}",
                     type:'GET',
                     data:{
                         ids:allids,
