@@ -161,4 +161,3 @@ Route::middleware(['admin'])->group(function () {
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
     });
 });
-
