@@ -162,7 +162,3 @@ Route::middleware(['admin'])->group(function () {
     });
 });
 
-// resset password
-Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.request');
