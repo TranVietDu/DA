@@ -25,7 +25,7 @@
               </div>
 
               <div class="col-md-8">
-                  <p>{{$blog->noidung}}</p>
+                {!!html_entity_decode($blog->noidung)!!}
               </div>
 
               <div class="col-md-4">

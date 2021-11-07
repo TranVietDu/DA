@@ -54,7 +54,7 @@
                              </td>
                              <td>
                                 @if (isset($al->mota))
-                                {{$al->mota}}
+                                {!!html_entity_decode($al->mota)!!}
                                 @else
                                 {{'...'}}
                                 @endif

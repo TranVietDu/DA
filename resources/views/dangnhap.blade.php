@@ -39,11 +39,25 @@
                             @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" required="" name="email" id="your_name" value="{{old('email')}}" placeholder="Email" />
+                                <input type="email" name="email" id="your_name" placeholder="Email"
+                                 required
+                                @if (Auth::check())
+                                value="{{old('email')}}"
+
+                                @else
+                                value="{{ Cookie::get('email') }}"
+                                @endif
+                                />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" required="" name="password" id="your_pass" placeholder="Mật Khẩu" />
+                                <input type="password" name="password" id="your_pass" placeholder="Mật Khẩu"
+                                @if (Cookie::has('password'))
+                                value="{{ Cookie::get('password') }}"
+                                @else
+                                value="{{old('email')}}"
+                                @endif
+                                required/>
                             </div>
                             @if (session('thongbao'))
                             <div class="alert">
@@ -51,7 +65,7 @@
                             </div>
                             @endif
                             <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                                <input type="checkbox" name="rememberme" id="remember-me" class="agree-term" />
                                 <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div class="form-group form-button">

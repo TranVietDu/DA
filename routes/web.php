@@ -161,3 +161,8 @@ Route::middleware(['admin'])->group(function () {
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
     });
 });
+
+// resset password
+Route::get('/forgot-password', function () {
+    return view('auth.forgot-password');
+})->middleware('guest')->name('password.request');

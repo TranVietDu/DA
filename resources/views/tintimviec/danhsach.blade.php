@@ -49,7 +49,7 @@
                              <td><img src="{{ asset('anh_tintimviec/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>
                              <td>
                                 @if (isset($al->mota))
-                                {{$al->mota}}
+                                {!!html_entity_decode($al->mota)!!}
                                 @else
                                 {{'...'}}
                                 @endif
