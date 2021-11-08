@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+  
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
+    // send mail
+    Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
+    Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
     //Viec lam Index
     Route::get('/', 'TinTuyenDungController@index')->name('home');
     // Viec lam

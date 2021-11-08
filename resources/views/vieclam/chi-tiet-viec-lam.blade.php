@@ -43,15 +43,14 @@
                   <br>
                   <h6 style="text-align:center">Ảnh về chúng tôi</h6>
                   <br>
-                <img src="{{$vieclam->anh}}" alt="" class="img-fluid wc-image">
+                <img src="{{ asset('anh_tintuyendung/'.$vieclam->anh) }}" alt="" class="img-fluid wc-image">
               </div>
               <br>
               <div class="contact-form">
                 <div class="form-group">
-                  <button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button>
+                  <a href="/mail/{{$vieclam->id}}"><button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button></a>
                 </div>
               </div>
-
               <div>
                 <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid wc-image">
               </div>
@@ -62,21 +61,13 @@
               <div class="section-heading">
                 <h2>Liên Hệ:</h2>
                 <p>
-                  <span>Tên Nhà Tuyển Dụng</span>
-
-                  <br>
-
-                  <strong>{{ $user->name }}</strong>
+                  <span>Tên Nhà Tuyển Dụng:    <b>{{ $user->name }}</b></span>   
                 </p>
-
                 <p>
-                  <span>Email</span>
-
+                  <span>Email: </span>
                   <br>
-
-                  <strong>
-                    <a href="mailto:{{$user->email}}">{{$user->email}}</a>
-                  </strong>
+                  <a href="mailto:{{$user->email}}"><b>{{$user->email}}</b></a>
+                  
                 </p>
               </div>
             </div>

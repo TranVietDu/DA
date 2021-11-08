@@ -68,7 +68,7 @@
                             @foreach($all as $al)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
+                                <td><img src="{{ asset('anh_tintimviec/'.$al->anh) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->ten}}</td>
                                 <td>{{$al->gioitinh}}</td>
                                 <td>{{$al->nganhnghe}}</td>
