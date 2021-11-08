@@ -389,9 +389,11 @@ header .navbar {
 }
 
 .section-heading a {
+	float: right;
 	margin-top: -35px;
 	font-size: 13px;
 	font-weight: 700;
+	color: #f33f3f;
 	
 }
 
@@ -427,7 +429,7 @@ header .navbar {
 }
 
 .product-item .down-content p {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 .product-item .down-content ul li {
@@ -1126,5 +1128,10 @@ footer .inner-content p a {
 	-o-animation: my 700ms infinite; 
 	animation: my 700ms infinite;
 }
-
-
+.hososs h5{
+	padding: 5px;
+}
+.product-item:hover{
+	transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}

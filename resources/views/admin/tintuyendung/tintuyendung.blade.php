@@ -44,6 +44,9 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
+                <div class="add">
+                        <a style="float: right;" href="{{route('tintuyendung1.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Tin Tuyển Dụng</button></a>
+                    </div>
                 <div style="overflow-x:auto;" class="card-bod">
                     <table id="datatablesSimpl" class="table table-bordered border border-info">
                         <thead>
@@ -65,12 +68,12 @@
                             @foreach($all as $al)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
+                                <td><img src="{{ asset('anh_tintuyendung/'.$al->anh) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->tieude}}</td>
                                 <td>{{$al->nganhnghe}}</td>
                                 <td>{{$al->soluong}}</td>
                                 <td><a href="/vieclam/chi-tiet-viec-lam/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                <td><a href="{{route('tintuyendung.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                <td><a href="{{route('tintuyendung1.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('tintuyendung.destroy',[$al->id])}}" method="post">
                                         @csrf

@@ -40,6 +40,9 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
+                <div class="add">
+                        <a style="float: right;" href="/blog/viet-blog"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add Blog</button></a>
+                    </div>
                 <div style="overflow-x:auto;" class="card-body">
                     <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead>
@@ -65,8 +68,8 @@
                                 <td>{{$al->tennguoiviet}}</td>
                                 <td>{{$al->tieude}}</td>
                                 <td>{{$al->noidung}}</td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                <td><a href="/blog/chi-tiet-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                                <td><a href="/blog/cap-nhat-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('blog.destroy',[$al->id])}}" method="post">
                                         @csrf

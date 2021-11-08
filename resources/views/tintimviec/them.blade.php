@@ -89,6 +89,7 @@
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                                 <textarea name="mota" id="editor">
                                                 </textarea>
+                                            <div id="editor" name="mota"></div>
                                             <input type="submit" class="btnRegister"  value="Đăng"/>
                                         </div>
                                     </div>
@@ -102,4 +103,12 @@
     </div>
 </div>
 </div>
+{{-- editor --}}
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 @endsection

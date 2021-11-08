@@ -3,18 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Register;
+use App\Models\Blog;
+use App\Models\TinTimViec;
+use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
 use Illuminate\Support\Facades\Cookie;
 
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class Authcontroller extends Controller
 {
 
     public function indexhome(){
-        return view('admin.index');
+        $data['user']=User::count();
+        $data['tintuyendung']=TinTuyenDung::count();
+        $data['tintimviec']=TinTimViec::count();
+        $data['blog']=Blog::count();
+        $data['nhatuyendung']=DB::table('users')->where('role',2)->count();
+        $data['nguoitimviec']=DB::table('users')->where('role',3)->count();
+        return view('admin.index',$data);
     }
     public function index()
     {

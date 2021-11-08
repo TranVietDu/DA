@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+  
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
+    // send mail
+    Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
+    Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
     //Viec lam Index
     Route::get('/', 'TinTuyenDungController@index')->name('home');
     // Viec lam
@@ -139,6 +143,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
         Route::put('admin/{user}','UserController@update')->name('user.update');
         Route::get('admin/user/search', 'UserController@search')->name('user.search');
+        Route::get('admin/user/xembai/{user}','UserController@viewposttuyendung')->name('user.view');
         // Tintuyendung
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');

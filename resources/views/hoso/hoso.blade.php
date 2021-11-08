@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+<!-- <div class="page-heading about-heading header-text" style="background-image: url(https://blogcdn.muaban.net/wp-content/uploads/2018/01/h%E1%BB%93-s%C6%A1-%E1%BB%A9ng-vi%C3%AAn-t%C3%ACm-vi%E1%BB%87c-2.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
-</div>
-
+</div> -->
+<img width="100%" height="300px" src="https://blogcdn.muaban.net/wp-content/uploads/2018/01/h%E1%BB%93-s%C6%A1-%E1%BB%A9ng-vi%C3%AAn-t%C3%ACm-vi%E1%BB%87c-2.jpg" alt="">
 <div class="products">
     <div class="container">
         <div class="row">
@@ -169,6 +169,7 @@
                 </form>
             </div>
             <div class="col-md-9">
+            <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tìm Việc</h4>
                 <div class="row">
                     @foreach($timviecs as $al)
                     <div class="col-md-6">
@@ -176,7 +177,7 @@
                             <a href="/hoso/chi-tiet-ho-so/{{$al->id}}">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img style="padding: 8px;" width="auto" height="100%" src="{{$al->anh}}" alt="">
+                                        <img style="padding: 8px;" width="auto" height="100%" src="{{ asset('anh_tintimviec/'.$al->anh) }}" alt="">
                                     </div>
                                     <div class="col-md-7">
                                         <div class="down-content">
@@ -185,7 +186,7 @@
                                             <p><i class="fas fa-briefcase"></i>  {{$al->nganhnghe}}</p>
                                             <small>
                                                 <strong title="Posted on"><i class="fa fa-calendar"></i> {{$al->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <strong title="Location"><i class="fa fa-map-marker"></i>{{$al->diachi}}</strong>
+                                                <strong title="Location"><i class="fa fa-map-marker"></i> {{$al->diachi}}</strong>
                                             </small>
                                         </div>
                                     </div>

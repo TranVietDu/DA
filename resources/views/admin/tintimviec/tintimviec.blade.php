@@ -44,6 +44,9 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
+                <div class="add">
+                        <a style="float: right;" href="{{route('tintimviec1.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Tin Tìm Việc</button></a>
+                    </div>
                 <div style="overflow-x:auto;" class="card-body">
                     <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead>
@@ -65,12 +68,12 @@
                             @foreach($all as $al)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
+                                <td><img src="{{ asset('anh_tintimviec/'.$al->anh) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->ten}}</td>
                                 <td>{{$al->gioitinh}}</td>
                                 <td>{{$al->nganhnghe}}</td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                <td><a href="/hoso/chi-tiet-ho-so/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                                <td><a href="{{route('tintimviec1.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('tintimviec.destroy',[$al->id])}}" method="post">
                                         @csrf

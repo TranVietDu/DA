@@ -135,11 +135,7 @@
                 <img data-u="image"  style="opacity:0.8;" data-src="{{ asset('slider/'.$slider->image) }}" />
                 <div data-ts="flat" data-p="275" data-po="40% 50%" style="left:150px;top:40px;width:800px;height:300px;position:absolute;">
                     <div data-to="50% 50%" data-t="0" style="left:50px;top:520px;width:400px;height:100px;position:absolute;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    <div data-to="50% 50%" data-t="1" style="left:50px;top:540px;width:400px;height:100px;position:absolute;opacity:0.5;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    <div data-to="50% 50%" data-t="2" style="left:50px;top:560px;width:400px;height:100px;position:absolute;opacity:0.25;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    <div data-to="50% 50%" data-t="3" style="left:50px;top:580px;width:400px;height:100px;position:absolute;opacity:0.125;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    <div data-to="50% 50%" data-t="4" style="left:50px;top:600px;width:400px;height:100px;position:absolute;opacity:0.06;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    <div data-to="50% 50%" data-t="5" style="left:50px;top:710px;width:700px;height:100px;position:absolute;color:#f0a329;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;"></div>
+                    
                 </div>
             </div>
         @endforeach
@@ -152,6 +148,7 @@
 
               {{-- Đăng tin  --}}
     @if(Auth::check())
+
       <div class="call-to-action">
         <div class="container">
           <div class="row">
@@ -188,7 +185,7 @@
                                               </div>
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
-                                                      <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                                      <a class="img-card" href="/hoso">
                                                       <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
                                                     </a>
                                                       <div class="card-content">
@@ -391,7 +388,7 @@
 {{-- Blog --}}
 
 <div style="margin-top: 100px;" class="blog">
-  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
+  <div style="" class="container">
     <div class="row">
     <div class="col-md-12">
         <div class="section-heading">
@@ -399,20 +396,21 @@
           <a href="">xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
-        <div class="col-md-6"><img width="100%" src="https://i.pinimg.com/originals/ce/12/25/ce1225f92e766b3a87113dc69560e88f.jpg" alt=""></div>
+      @foreach($blognoibat as $blog)
+        <div class="col-md-6"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></div>
         <div class="col-md-6">
-          <h4 class="text-center">Tên Blog</h4>
-          <p class="float-left">Gia đình hạnh phúc vẫn "bận rộn" với trường học, công việc, sở thích và những hoạt động khác nhưng họ vẫn có thời gian dành cho nhau vì họ có quyền quyết định điều gì làm hay không. Họ xử lý vấn đề một cách nhanh chóng. Khi một vấn đề lớn phát sinh, họ chia sẻ với nhau và xử lý hiệu quả. Họ có thể chia sẻ mối quan tâm một cách hòa nhã, dễ chịu để người kia bình tĩnh xử lý vấn đề..
- </p>
-          <p class="float-right">Tác Giả:</p>
+          <h4 class="text-center">{{$blog->tieude}}</h4>
+          <p class="float-left">{{$blog->noidung}}</p>
+          <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
         </div>
+      @endforeach
     </div>
   </div>
 </div>
 
 {{-- Công việc mới nhất --}}
 <div class="latest-products">
-  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
+  <div style="" class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
@@ -420,54 +418,24 @@
           <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
+      @foreach($tintuyendungmoinhat as $tin)
       <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+        <div style="height: 428px" class="product-item">
+          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="232px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt=""></a>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Ngành Nghề</h4>
+            <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}">
+              <h4>{{$tin->nganhnghe}}</h4>
             </a>
-              <h5>Tên Công Ty</h5>
+              <h5>{{$tin->tenquan}}</h5>
             <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Đăng</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa chỉ</strong>
+              <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+              <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
             </small>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Ngành Nghề</h4>
-            </a>
-              <h5>Tên Công Ty</h5>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Đăng</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa chỉ</strong>
-            </small>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img class="img-fluid" src="https://jobsgo.vn/blog/wp-content/uploads/2020/02/5-k%E1%BB%B9-n%C4%83ng-ph%E1%BB%A5c-v%E1%BB%A5-b%C3%A0n-c%C6%A1-b%E1%BA%A3n-c%E1%BB%A7a-nh%C3%A2n-vi%C3%AAn-ph%E1%BB%A5c-v%E1%BB%A5-nh%C3%A0-h%C3%A0ng.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Ngành Nghề</h4>
-            </a>
-              <h5>Tên Công Ty</h5>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Đăng</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa chỉ</strong>
-            </small>
-          </div>
-        </div>
-      </div>
+      @endforeach
 
     </div>
   </div>
@@ -475,62 +443,32 @@
 
 <!-- Tin tim viec -->
 <div class="latest-products">
-  <div style="background-color: rgb(132, 205, 212);border-radius: 8px;" class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
           <h2>Tin Tìm Việc Mới Nhất</h2>
-          <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
+          <a href="/hoso">xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
+      @foreach($tintimviecmoinhat as $tin)
       <div class="col-md-4">
         <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
+          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
+          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Tên Người Viết</h4>
+            <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">
+              <h4>{{$tin->ten}}</h4>
             </a>
-            <h6>Ngành Nghề</h6>
+            <h6>{{$tin->nganhnghe}}</h6>
             <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
+              <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+              <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
             </small>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Tên Người Viết</h4>
-            </a>
-            <h6>Ngành Nghề</h6>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
-            </small>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b>New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Tên Người Viết</h4>
-            </a>
-            <h6>Ngành Nghề</h6>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
-            </small>
-          </div>
-        </div>
-      </div>
+      @endforeach
           </div>
         </div>
       </div>

@@ -2,13 +2,11 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+<div class="page-heading about-heading header-text" style="background-image: url(https://cdn.shopify.com/s/files/1/1404/4249/files/2020-02-06_BANNER_TUY_N_D_NG.jpg?v=1581044229);">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="text-content">
-          <h4>Lorem ipsum dolor sit amet</h4>
-          <h2>Jobs</h2>
         </div>
       </div>
     </div>
@@ -170,6 +168,7 @@
         </form>
       </div>
       <div class="col-md-9">
+      <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tuyển Dụng</h4>
       <div class="row">
         @foreach ($vieclams as $val)
         <div class="col-md-4">
@@ -177,20 +176,20 @@
             <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
                 <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}"  style="width:100%; height:200px; padding: 8px;" alt="">
             <div class="down-content">
-                <h4>{{ $val->tieude }}</h4>
-              <h6>
+                <h4 style="color: red;">{{ $val->tieude }}</h4>
+              <p>
                 @if (isset($val->luong))
-                ${{$val->luong }}
+                 {{$val->luong }}
                 @else
                 {{ 'Thương lượng'}}
                 @endif
-              </h6>
-              <h4><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <strong><i class="fa fa-building"></i> {{ $val->tenquan }}</strong></small></h4>
-              <small>
+              </p>
+              <h5><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <strong><i class="fa fa-building"></i> {{ $val->tenquan }}</strong></small></h5>
+              <!-- <small>
                 <strong title="Posted on"><i class="fa fa-calendar"></i> {{ $val->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                 <strong title="Type"><i class="fa fa-file"></i> {{$val->gioitinh}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                 <strong title="Location"><i class="fa fa-map-marker"></i> {{$val->diachi }}</strong>
-              </small>
+              </small> -->
             </div>
             </a>
           </div>
