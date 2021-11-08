@@ -24,7 +24,7 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        $all=User::all();
+        $all=User::paginate(2);
         return view('admin.user.user',compact('all'));
     }
     /**
@@ -118,8 +118,7 @@ class Usercontroller extends Controller
                             <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                             <td><a href="/admin/user/'.$al->id.'/edit"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                             <td>
-                                    <form action="/admin/user/'.$al->id.'" method="post">
-                                        @csrf   
+                                    <form action="/admin/user/'.$al->id.'" method="post">   
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
                                     </form>

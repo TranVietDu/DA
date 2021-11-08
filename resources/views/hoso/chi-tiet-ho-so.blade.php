@@ -19,7 +19,7 @@
   <div style="box-shadow: 5px 10px 18px;" class="col-m">
     <div style="padding-top: 50px;" class="row">
       <div class="col-md-4">
-        <img width="100%" src="https://br-art.vn/wp-content/uploads/2018/05/31166726_1633894463367332_884926566222528512_o.jpg" alt="">
+        <img width="100%" src="{{ asset('anh_tintimviec/'.$hoso->anh) }}" alt="">
       </div>
       <div class="col-md-8 text-justify hososs">
         <h5>Họ Và Tên: {{$hoso->ten}}</h5>
@@ -35,60 +35,27 @@
       </div>
     </div>
   </div>
-  <div style="padding-top: 40px;" class="col-md-12">
-    <h5 class="text-center">Tin Tìm Việc Gần Đây</h5>
+  <div class="col-md-12">
+    <h3 style="padding: 60px 0;" class="text-center">Tin Tìm Việc Gần Đây</h3>
     <div class="row">
+    @foreach($tintimviecmoinhat as $tin)
       <div class="col-md-4">
         <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
+          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
           <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Tên Người Viết</h4>
+            <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">
+              <h4>{{$tin->ten}}</h4>
             </a>
-            <h6>Ngành Nghề</h6>
+            <h6>{{$tin->nganhnghe}}</h6>
             <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
+              <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+              <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
             </small>
           </div>
         </div>
       </div>
-
-
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam">
-              <h4>Tên Người Viết</h4>
-            </a>
-            <h6>Ngành Nghề</h6>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-              <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
-            </small>
-          </div>
-        </div>
-      </div>
-
-    <div class="col-md-4">
-      <div class="product-item">
-        <a href="vieclam/chi-tiet-viec-lam"><img src="https://www.paratime.vn/wp-content/uploads/2019/09/timestudio.vn-headshot-eye-glasses-02.jpg" alt=""></a>
-        <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
-        <div class="down-content">
-          <a href="vieclam/chi-tiet-viec-lam">
-            <h4>Tên Người Viết</h4>
-          </a>
-          <h6>Ngành Nghề</h6>
-          <small>
-            <strong title="Posted on"><i class="fa fa-calendar"></i> Ngày Viết</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-            <strong title="Location"><i class="fa fa-map-marker"></i> Địa Chỉ</strong>
-          </small>
-        </div>
-      </div>
-    </div>
+      @endforeach
   </div>
 </div>
 </div>

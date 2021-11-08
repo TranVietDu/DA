@@ -88,10 +88,12 @@
                                     </form>
                                 </td>
                             </tr>
-
                             @endforeach
                         </tbody>
                     </table>
+                    <div style="float: right;" class="phantrang">
+                    {!! $all->links() !!} 
+                    </div>     
                     <script type="text/javascript">
                         $('#search').on('keyup', function() {
                             $value = $(this).val();

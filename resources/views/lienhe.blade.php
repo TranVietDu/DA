@@ -2,19 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading contact-heading header-text" style="background-image: url(assets/images/heading-4-1920x500.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="text-content">
-            <h4>Try to take advantage of every opportunity that comes you way.</h4>
-            <h2>Về Chúng Tôi</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<img width="100%" height="400px" src="{{asset('anh_blog\part.jpg')}}" alt="">
 @foreach ($lienhes as $lh)
 <div class="find-us">
     <div class="container">

@@ -100,7 +100,7 @@ class TinTuyenDungController extends Controller
      }
      public function vieclam()
      {
-            $vieclams = TinTuyenDung::simplePaginate(10);
+        $vieclams = TinTuyenDung::simplePaginate(10);
         return view('vieclam.vieclam')->with('vieclams', $vieclams);
      }
 
