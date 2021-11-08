@@ -16,7 +16,7 @@ class TinTuyenDung extends Model
     protected $table = 'tintuyendungs';
 
     protected $fillable = [
-        'id','user_id', 'tieude', 'tenquan', 'diachi', 'soluong', 'nganhnghe','luong', 'thoigian', 'mota', 'anh'
+        'id','user_id', 'tieude', 'tenquan', 'diachi', 'soluong', 'nganhnghe','luong', 'thoigian','ngayhethan', 'mota', 'anh'
     ];
 
     public function user()

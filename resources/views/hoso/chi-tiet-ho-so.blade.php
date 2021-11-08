@@ -21,33 +21,33 @@
           <div class="row">
             <div class="col-md-8 col-sm-7">
                 <p class="lead">
-                     <i class="fa fa-map-marker"></i> {{$vieclam->diachi}} &nbsp;&nbsp;
-                     <i class="fa fa-calendar"></i> {{$vieclam->created_at}} &nbsp;&nbsp;
-                     <i class="fa fa-user"></i> Số Lượng: {{$vieclam->soluong}}
+                     <i class="fa fa-map-marker"></i> {{$hoso->diachi}} &nbsp;&nbsp;
+                     <i class="fa fa-calendar"></i> {{$hoso->created_at}} &nbsp;&nbsp;
+                     <i class="fa fa-user"></i> Số Lượng: {{$hoso->soluong}}
                 </p>
 
                 <br>
                 <br>
 
                 <div class="form-group">
-                  <h5>{{$vieclam->tieude}}</h5>
+                  <h5>{{$hoso->tieude}}</h5>
                 </div>
                         <p><b>- Thời gian làm việc:</b><span>
-                        {{$vieclam->thoigian}}</span></p>
+                        {{$hoso->thoigian}}</span></p>
 
 
                     <p><b>- Thuộc ngành nghề:</b><span>
-                        {{$vieclam->nganhnghe}}</span></p>
+                        {{$hoso->nganhnghe}}</span></p>
 
-                        @if (isset($vieclam->mota))
+                        @if (isset($hoso->mota))
                         <p><b>- Mô Tả:</b>
-                            {{$vieclam->mota}}
+                            {{$hoso->mota}}
                         </p>
                     @endif
 
-                    @if (isset($vieclam->luong))
+                    @if (isset($hoso->luong))
                         <p><b>- Mức lương:</b>
-                            {{$vieclam->luong}}
+                            {{$hoso->luong}}
                         </p>
                         @else
                         <p><b>- Mức lương:</b>
@@ -101,10 +101,10 @@
 
               <p class="lead">
                      <i class="fas fa-store"></i>
-                     @if (isset($vieclam->tenquan))
-                         {{$vieclam->tenquan}}
+                     @if (isset($hoso->tenquan))
+                         {{$hoso->tenquan}}
                          <p>
-                             {{$vieclam->mota}}
+                             {{$hoso->mota}}
                          </p>
                      @endif
                 </p>

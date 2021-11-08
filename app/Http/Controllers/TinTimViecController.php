@@ -96,8 +96,9 @@ class TinTimViecController extends Controller
          return view('hoso.hoso');
      }
      public function chitiethoso($id){
-         $hoso=TinTimViec::find($id);
-         return view('hoso.chi-tiet-ho-so',compact('hoso'));
+         $data['hoso'] = TinTimViec::find($id);
+         $data['user'] = TinTimViec::find($id)->user;
+         return view('hoso.chi-tiet-ho-so', $data);
      }
 
      public function search(Request $request)

@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Cookie;
 
 
 
-
 class Authcontroller extends Controller
 {
 
@@ -68,4 +67,5 @@ class Authcontroller extends Controller
         Auth::logout();
         return redirect('dangnhap');
     }
+
 }

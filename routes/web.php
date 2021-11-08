@@ -119,7 +119,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
     });
-
+        //login-facebook
+        Route::get('/login-facebook','AuthController@login_facebook');
+        Route::get('/admin/callback','AuthController@callback_facebook');
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'Authcontroller@login')->name('login');
     Route::post('dangki', 'Authcontroller@register')->name('dangki');
@@ -159,5 +161,6 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/lienhe/{lienhe}/edit','AdminLienHeController@edit')->name('lienhe.edit');
         Route::put('admin/lienhe/{lienhe}','AdminLienHeController@update')->name('lienhe.update');
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
+
     });
 });

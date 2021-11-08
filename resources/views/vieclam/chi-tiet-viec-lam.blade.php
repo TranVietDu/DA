@@ -20,13 +20,17 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 col-sm-7">
+                @php
+                    $today = date("Y-m-d");
+                    $another_date = $vieclam->ngayhethan;
+                @endphp
             <h1>{{$vieclam->tieude}}</h1>
             <h5>Ngành Nghề:{{$vieclam->nganhnghe}}</h5>
                 <br>
                 <br>
                         <h6 style="padding: 10px;">Thời gian làm việc:{{$vieclam->thoigian}}</h6>
                         @if (isset($vieclam->mota))
-                        <h6 style="padding: 10px;">Mô Tả Công Việc: {{$vieclam->mota}}</h6>
+                        <h6 style="padding: 10px;">Mô Tả Công Việc:{!!html_entity_decode($vieclam->mota)!!}</h6>
                         @endif
                         @if (isset($vieclam->luong))
                         <h6 style="padding: 10px;">Mức lương:{{$vieclam->luong}}</h6>
@@ -35,7 +39,9 @@
                         @endif
                         <h6 style="padding: 10px;">Số Lượng:{{$vieclam->soluong}}</h6>
                         <h6 style="padding: 10px;">Địa Điểm Làm Việc:{{$vieclam->diachi}}</h6>
-                        <h6 style="padding: 10px;">Ngày Đăng:{{$vieclam->created_at}}</h6>
+                        <h6 style="padding: 10px;">Ngày Đăng:
+
+                        </h6>
             </div>
 
             <div class="col-md-4 col-sm-5">
@@ -48,7 +54,15 @@
               <br>
               <div class="contact-form">
                 <div class="form-group">
-                  <button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button>
+                  <button type="submit" class="filled-button btn-block">
+                    @php
+                    if (strtotime($today) < strtotime($another_date)) {
+                        echo 'Ứng Tuyển Ngay';
+                    } else {
+                        echo 'Hết hạn';
+                    }
+                @endphp
+                    </button>
                 </div>
               </div>
 
