@@ -50,8 +50,9 @@
                                         </div>
                                         <div class="form-group">
                                                 <label for="" style="text-align: left">Nội dung:</label>
-                                                <textarea name="noidung" rows="4" cols="75" value="">
-                                                    {{$blog->noidung}}
+                                                <div id="toolbar-container"></div>
+                                                <textarea name="noidung" id="editor">
+                                                    {!!html_entity_decode($blog->noidung)!!}
                                                 </textarea>
                                             <input type="submit" class="btnblog"  value="Cập Nhật"/>
                                         </div>

@@ -58,7 +58,6 @@
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Nội dung:</label>
                                             <textarea name="noidung" id="editor">
-                                                &lt;p&gt;This is some sample content.&lt;/p&gt;
                                             </textarea>
                                         <input type="submit" class="btnblog"  value="Đăng"/>
                                     </div>

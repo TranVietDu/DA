@@ -5,7 +5,6 @@
 <!-- Banner Starts Here -->
 <div class="banner header-text">
 
-
   <script src="js/jssor.slider-28.1.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         window.jssor_1_slider_init = function() {

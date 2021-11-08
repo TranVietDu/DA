@@ -12,9 +12,6 @@
           <h2>{{$hoso->ten}}</h2>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 <div class="container">
   <div style="box-shadow: 5px 10px 18px;" class="col-m">
     <div style="padding-top: 50px;" class="row">
@@ -60,7 +57,6 @@
 </div>
 </div>
 </div>
-
 
 
 @endsection

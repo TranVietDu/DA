@@ -72,5 +72,16 @@
     <!-- Additional Scripts -->
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/js/owl.js')}}"></script>
+
+   {{-- editor --}}
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        const data = editor.getData();
+</script>
+
   </body>
 </html>

@@ -87,13 +87,9 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-<<<<<<< HEAD
-                                            <textarea name="mota" rows="4" cols="75">
-                                                {{old('mota')}}
-                                            </textarea>
-=======
+                                                <textarea name="mota" id="editor">
+                                                </textarea>
                                             <div id="editor" name="mota"></div>
->>>>>>> 891346d (hihihi)
                                             <input type="submit" class="btnRegister"  value="Đăng"/>
                                         </div>
                                     </div>

@@ -76,9 +76,13 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
+                                        <label for="" style="text-align: left">Ngày hết hạn</label>
+                                        <input type="date" name="ngayhethan" class="form-control" placeholder="Ngày hết hạn *" value="{{$tintuyendung->ngayhethan}}" />
+                                    </div>
+                                    <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea name="mota" rows="4" cols="75">
-                                                {{$tintuyendung->mota}}
+                                            <textarea name="mota" id="editor">
+                                                {!!html_entity_decode($tintuyendung->mota)!!}
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Xong"/>
                                     </div>
