@@ -36,14 +36,17 @@
                </button>
                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                 <b>{{Auth::user()->name}}</b>
+                <a class="dropdown-item" href="">QL Tài khoản</a>
                 <hr>
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
                  @if (Auth::user()->role==2)
                  <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
+                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
                  @elseif (Auth::user()->role==3)
                  <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ Sơ</a>
+                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
                  @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>

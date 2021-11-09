@@ -36,6 +36,7 @@
                         <h6 style="padding: 10px;">Số Lượng:{{$vieclam->soluong}}</h6>
                         <h6 style="padding: 10px;">Địa Điểm Làm Việc:{{$vieclam->diachi}}</h6>
                         <h6 style="padding: 10px;">Ngày Đăng:{{$vieclam->created_at}}</h6>
+                        <h6 style="padding: 10px;">Ngày Hết Hạn:{{$vieclam->ngayhethan}}</h6>
             </div>
 
             <div class="col-md-4 col-sm-5">
@@ -48,7 +49,11 @@
               <br>
               <div class="contact-form">
                 <div class="form-group">
+                  @if($now < $vieclam->ngayhethan)
                   <a href="/mail/{{$vieclam->id}}"><button type="submit" class="filled-button btn-block">Ứng Tuyển Ngay</button></a>
+                  @else
+                  <a href=""><button type="submit" style="background-color: rgb(210, 210, 210);" class="filled-button btn-block">Hết Hạn Ứng Tuyển</button></a>
+                  @endif
                 </div>
               </div>
               <div>
@@ -65,8 +70,7 @@
                 </p>
                 <p>
                   <span>Email: </span>
-                  <br>
-                  <a href="mailto:{{$user->email}}"><b>{{$user->email}}</b></a>
+                  <b>{{$user->email}}</b>
                   
                 </p>
               </div>
