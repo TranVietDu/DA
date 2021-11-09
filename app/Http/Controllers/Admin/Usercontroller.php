@@ -24,7 +24,7 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        $all=User::paginate(2);
+        $all=User::paginate(3);
         return view('admin.user.user',compact('all'));
     }
     /**
@@ -128,8 +128,16 @@ class Usercontroller extends Controller
                     }
                     return Response($output);
                 }
-    public function viewposttuyendung(User $user){
-        $userpost=User::find($user)->tintuyendungs;
-        return view('admin.user.xembaidang',compact('userpost'));
+    public function viewposttuyendung($user){
+        $username=User::find($user);
+        $userposttuyen=User::find($user)->tintuyendungs;
+        $blog=User::find($user)->blogs;
+        return view('admin.user.xembaidangtuyen',compact('userposttuyen','blog','username'));
+    }
+    public function viewposttimviec($user){
+        $username=User::find($user);
+        $userposttim=User::find($user)->tintimviecs;
+        $blog=User::find($user)->blogs;
+        return view('admin.user.xembaidangtim',compact('userposttim','blog','username'));
     }
 }

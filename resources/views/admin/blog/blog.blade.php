@@ -81,6 +81,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div style="float: right;" class="phantrang">
+                    {!! $blogs->links() !!} 
+                    </div>  
                 </div>
             </div>
         </div>
