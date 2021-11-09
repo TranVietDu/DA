@@ -3,9 +3,10 @@
 @section('content')
      <!-- content -->
   <div class="services">
-    <div class="content1">
-    <div class="container" style="background-color: white; padding: 30px 15px">
-            <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
+  <!-- content -->
+  <div class="container-fluid" style="text-align: justify;">
+    <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
+    <div class="container" id="content">
       <div class="row mt-4">
         <div class="col-md-10 text-center" id="tren">
           <div id="image-grid">
@@ -24,8 +25,7 @@
         <div class="col-md-5" id="trai">
           <div id="lienhe">
             <h5 class="tieude1"><b>
-                <img src="https://cdn3.iconfinder.com/data/icons/communication-1/100/phone_contact_book-256.png" alt=""
-                  style="height: 25px;">
+                <i class="fas fa-info-circle"></i>
                 THÔNG TIN LIÊN HỆ</b></h5>
             <ul class="ul">
               <li><b>Giới tính: </b> <span contenteditable="" id="thongtin"> Nam</span></li>
@@ -37,24 +37,21 @@
           </div>
           <div id="tomtatbanthan">
             <h5 class="tieude1"><b>
-                <img src="https://cdn1.iconfinder.com/data/icons/neutro-essential/32/user-256.png" alt=""
-                  style="height: 25px;">
+                <i class="fa fa-user" aria-hidden="true"></i>
                 TÓM TẮT BẢN THÂN</b></h5>
             <ul>
               <li contenteditable="">
-                <p>Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
+                <p  style="color: black">Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
               </li>
               <li contenteditable="">
-                <p>Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
+                <p  style="color: black">Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
                   tìm ra hướng giải quyết vấn đề.</p>
               </li>
             </ul>
           </div>
           <div id="kynang">
             <h5 class="tieude1"><b>
-                <img
-                  src="https://cdn1.iconfinder.com/data/icons/worker-and-employee-glyph/64/16_skill_ability_gear_employee_worker_job_business-256.png"
-                  alt="" style="height: 25px;">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
                 CÁC KỸ NĂNG</b></h5>
             <ul class="ul list-unstyled">
               <li contenteditable="">Giao tiếp</li>
@@ -69,18 +66,15 @@
           </div>
           <div id="sothich">
             <h5 class="tieude1"><b>
-                <img src="https://cdn4.iconfinder.com/data/icons/sports-basic/64/darts-256.png" alt=""
-                  style="height: 25px;">
+                <i class="fa fa-pinterest"></i>
                 SỞ THÍCH</b></h5>
-            <p contenteditable="">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
+            <p contenteditable=""  style="color: black">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
           </div>
         </div>
-        <div class="col-md-5" id="phai">
+        <div class="col-md-5 phai">
           <div id="trinhdo">
             <h5 class="tieude"><b>
-                <img
-                  src="https://cdn0.iconfinder.com/data/icons/business-diagram-and-graph/512/N_T_572Artboard_1_copy_8-256.png"
-                  alt="" style="height: 25px;">
+                <i class="fa fa-level-up" aria-hidden="true"></i>
                 TRÌNH ĐỘ HỌC VẤN</b></h5>
             <div class="row">
               <div class="col-md-3">
@@ -93,17 +87,14 @@
           </div>
           <div id="muctieu">
             <h5 class="tieude"><b>
-                <img src="https://cdn2.iconfinder.com/data/icons/complete-common-version-6-7/1024/mission-256.png"
-                  alt="" style="height: 25px;">
+                <i class="fa fa-bullseye" aria-hidden="true"></i>
                 MỤC TIÊU NGHỀ NGHIỆP</b></h5>
             <p contenteditable="">Thích nghi nhanh với môi trường làm việc, cung cấp các dịch vụ chất lượng theo quy
               trình, quy định của nhà hàng/ cửa hàng, thu hút thêm nhiều khác hàng.</p>
           </div>
           <div id="kinhnghiem">
             <h5 class="tieude"><b>
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/personality-traits-2-solid/128/practical_experience_role_play_implement_operation-256.png"
-                  alt="" style="height: 25px;">
+                <i class="fas fa-briefcase"></i>
                 KINH NGHIỆM LÀM VIỆC</b></h5>
             <div class="row">
               <div class="col-md-4">
@@ -136,10 +127,10 @@
         </div>
         <div class="col-md-1"></div>
       </div>
-        </div>
     </div>
+  </div>
   <div class="container text-right mt-5 mb-5">
-    <button class="btn btn-danger" id="download"> Tải xuống</button>
+    <button class="btn btn-primary" id="download"> Tải xuống</button>
   </div>
   <div class="call-to-action">
     <div class="container">
@@ -160,6 +151,4 @@
       </div>
     </div>
   </div>
-  <hr>
-  <script src="{{ asset('assets/js/download.js')}}"></script>
 @endsection

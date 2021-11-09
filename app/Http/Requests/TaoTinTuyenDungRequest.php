@@ -33,6 +33,7 @@ class TaoTinTuyenDungRequest extends FormRequest
             'nganhnghe' => 'required|string',
             'luong' => '',
             'thoigian' => 'required|string',
+            'ngayhethan' => 'required|string',
             'mota' => 'required|string',
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'ngayhethan'=> 'required'

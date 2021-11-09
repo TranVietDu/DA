@@ -25,7 +25,7 @@
               <a href="/blog/chi-tiet-blog/{{$blog->id}}" class="services-item-image"><img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" class="img-fluid" alt=""></a>
               <div class="down-content">
                 <h4><a href="/blog/chi-tiet-blog/{{$blog->id}}">{{$blog->tieude}}</a></h4>
-                <p class="text-justify">{{$blog->noidung}}</p>
+                <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
                 <p style="margin: 0;float: right;">Tác Giả: {{$blog->tennguoiviet}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
               </div>
             </div>
@@ -40,7 +40,7 @@
           </div>
           <form action="/tim-kiem-blog" method="get" autocomplete="off">
             <div class="input-group">
-              
+
                   <td><input height="100px" class=" border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit"></td>
                   <td><button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
                 <i class="fa fa-search"></i>

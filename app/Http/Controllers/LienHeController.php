@@ -18,7 +18,7 @@ class LienHeController extends Controller
         return View::make('lienhe', compact('lienhes'));
     }
 
-    public function postYKien( Request $request)
+    public function postYKien(Request $request)
     {
         $ykien = new YKienNguoiDung;
         $ykien->user_id = Auth::user()->id;

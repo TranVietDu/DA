@@ -20,13 +20,17 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 col-sm-7">
+                @php
+                    $today = date("Y-m-d");
+                    $another_date = $vieclam->ngayhethan;
+                @endphp
             <h1>{{$vieclam->tieude}}</h1>
             <h5>Ngành Nghề:{{$vieclam->nganhnghe}}</h5>
                 <br>
                 <br>
                         <h6 style="padding: 10px;">Thời gian làm việc:{{$vieclam->thoigian}}</h6>
                         @if (isset($vieclam->mota))
-                        <h6 style="padding: 10px;">Mô Tả Công Việc: {{$vieclam->mota}}</h6>
+                        <h6 style="padding: 10px;">Mô Tả Công Việc:{!!html_entity_decode($vieclam->mota)!!}</h6>
                         @endif
                         @if (isset($vieclam->luong))
                         <h6 style="padding: 10px;">Mức lương:{{$vieclam->luong}}</h6>
@@ -66,12 +70,13 @@
               <div class="section-heading">
                 <h2>Liên Hệ:</h2>
                 <p>
-                  <span>Tên Nhà Tuyển Dụng:    <b>{{ $user->name }}</b></span>   
+                  <span>Tên Nhà Tuyển Dụng:    <b>{{ $user->name }}</b></span>
                 </p>
                 <p>
                   <span>Email: </span>
                   <b>{{$user->email}}</b>
                   
+
                 </p>
               </div>
             </div>

@@ -30,6 +30,7 @@ class CapNhatTinTuyenDungRequest extends FormRequest
             'soluong' => '',
             'nganhnghe' => '',
             'thoigian' => '',
+            'ngayhethan' => '',
             'mota' => '',
             'anh' => '',
         ];

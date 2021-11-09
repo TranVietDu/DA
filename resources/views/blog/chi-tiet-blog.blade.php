@@ -16,13 +16,14 @@
         <div class="row">
           <div class="col-md-9">
             <img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="">
-            <p class="text-justify">{{$blog->noidung}}</p>
+            <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
             <i style="padding-top: 10px;" class="float-right">Tác Giả: {{$blog->tennguoiviet}}</i>
           </div>
           <div class="col-md-3">
             <div class="contact-form">
               <div class="form-group">
                 <h5>Hãy Thử Tìm Gì Đó !</h5>
+                
               </div>
               <form action="/tim-kiem-blog" method="get" autocomplete="off">
                 <div class="input-group">

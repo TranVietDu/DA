@@ -9,6 +9,10 @@ use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
+use Illuminate\Support\Facades\Cookie;
+
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -30,10 +34,16 @@ class Authcontroller extends Controller
     }
     public function login(Request $request)
     {
-
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
+            if($request->has('rememberme')){
+                Cookie::queue('email',$request->email, 101);
+                Cookie::queue('password',$request->password, 101);
+            }else{
+                Cookie::queue(Cookie::forget('email'));
+                Cookie::queue(Cookie::forget('password'));
+                Cookie::queue(Cookie::forget('name'));
+            }
             $role = Auth::user()->role;
             if($role==2 || $role==3){
                 return redirect()->route('home');
@@ -41,7 +51,7 @@ class Authcontroller extends Controller
             if($role==1){
                 return redirect()->route('adminhome');
             }
-        } 
+        }
         else {
             return back()->withInput(
                 $request->only('email')
@@ -69,4 +79,5 @@ class Authcontroller extends Controller
         Auth::logout();
         return redirect('dangnhap');
     }
+
 }

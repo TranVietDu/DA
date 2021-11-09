@@ -22,4 +22,4 @@ class MailController extends Controller
         \Mail::to($email)->send(new Mail($data));
         return back()->with('thongbao','Gửi CV Thành Công, Vui Lòng Chờ Nhà Tuyển Dụng Liên Hệ');
     }
-} 
+}

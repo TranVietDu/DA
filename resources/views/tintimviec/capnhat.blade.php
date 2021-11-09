@@ -78,8 +78,8 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
-                                            <textarea id="" name="mota" rows="4" cols="75" value="">
-                                                {{ $tintimviec->mota}}
+                                            <textarea name="mota" id="editor">
+                                                {!!html_entity_decode($tintimviec->mota)!!}
                                             </textarea>
                                         <input type="submit" class="btnRegister"  value="Xong"/>
                                     </div>

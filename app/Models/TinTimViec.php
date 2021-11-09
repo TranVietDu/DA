@@ -18,6 +18,6 @@ class TinTimViec extends Model
 
     public function user()
     {
-        return $this->belongsTo(TinTuyenDung::class);
+        return $this->belongsTo(User::class);
     }
 }

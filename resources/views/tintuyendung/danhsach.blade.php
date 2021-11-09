@@ -23,6 +23,7 @@
                             <th>Ngành nghề</th>
                             <th>Mức lương</th>
                             <th>Thời gian</th>
+                            <th>Ngày hết hạn</th>
                             <th>Ảnh</th>
                             <th>Mô tả</th>
                             <th colspan="2">Action</th>
@@ -45,6 +46,7 @@
                              <td>{{$al->nganhnghe}}</td>
                              <td>{{$al->luong}}</td>
                              <td>{{$al->thoigian}}</td>
+                             <td>{{$al->ngayhethan}}</td>
                              <td>
                                 @if (isset($al->anh))
                                     <img src="{{ asset('anh_tintuyendung/'.$al->anh) }}"  style="width:90px; height:80px" alt="">
@@ -54,7 +56,7 @@
                              </td>
                              <td>
                                 @if (isset($al->mota))
-                                {{$al->mota}}
+                                {!!html_entity_decode($al->mota)!!}
                                 @else
                                 {{'...'}}
                                 @endif

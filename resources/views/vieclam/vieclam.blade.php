@@ -26,8 +26,9 @@
 
             <div>
               <ul>
-                <li><a href="?sort_by=nam" style="color: black">Nam</a></li>
-                <li><a href="?sort_by=nu" style="color: black">Nữ</a></li>
+                <form method="GET">
+                    <input type="text" name="nganhnghe">
+                </form>
               </ul>
             </div>
 
@@ -193,7 +194,6 @@
         <div class="phantrang text-center">
           {!! $vieclams->links() !!}
         </div>
-
 
       </div>
     </div>

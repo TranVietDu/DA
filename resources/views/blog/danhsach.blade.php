@@ -33,7 +33,7 @@
                              <td>{{$al->tieude}}</td>
                              <td>{{$al->tennguoiviet}}</td>
                              <td>
-                                 {{$al->noidung}}
+                                {!!html_entity_decode($al->noidung)!!}
                              </td>
                              <td><img src="{{ asset('anh_blog/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>
                              <td><a href="{{ route('blog1.destroy', $al->id)}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
@@ -61,9 +61,13 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
+<<<<<<< HEAD
 
                     url:"{{route('blog1.destroyall')}}",
 
+=======
+                    url:"{{route('blog.destroyall')}}",
+>>>>>>> 891346d (hihihi)
                     type:'GET',
                     data:{
                         ids:allids,

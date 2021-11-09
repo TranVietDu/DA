@@ -28,17 +28,24 @@
                          </tr>
                      </thead>
                      <tbody>
-                         @php
-                             $i=1;
-                         @endphp
+                        @php
+                            $i =1 ;
+                        @endphp
                          @foreach($tintimviecs as $al)
+                         @php
+                         date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+                            $birthday = $al->ngaysinh;
+                            $diff = date_diff(date_create(), date_create($birthday));
+                            $age = $diff->format('%Y');
+                        @endphp
                          <tr id="sid{{$al->id}}">
                             <td><input type="checkbox" name="ids" class="checkbox" value="{{$al->id}}"></td>
                             <td>
                                 {{$i++}}
                             </td>
                              <td>{{$al->ten}}</td>
-                             <td>{{ $al->ngaysinh}}</td>
+                             <td>{{ $age }}</td>
                              <td>
                                  {{$al->gioitinh}}
                              </td>
@@ -49,7 +56,7 @@
                              <td><img src="{{ asset('anh_tintimviec/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>
                              <td>
                                 @if (isset($al->mota))
-                                {{$al->mota}}
+                                {!!html_entity_decode($al->mota)!!}
                                 @else
                                 {{'...'}}
                                 @endif

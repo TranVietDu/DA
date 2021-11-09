@@ -17,6 +17,7 @@ class TinTuyenDung extends Model
 
     protected $fillable = [
         'id','user_id', 'tieude', 'tenquan', 'diachi', 'soluong', 'nganhnghe','luong', 'thoigian', 'mota', 'anh','ngayhethan'
+
     ];
 
     public function user()
