@@ -16,7 +16,7 @@ class TuyenDungController extends Controller
      */
     public function index()
     {
-        $all=Tintuyendung::all();
+        $all=Tintuyendung::paginate(5);
         return view('admin.tintuyendung.tintuyendung',compact('all'));
     }
     /**

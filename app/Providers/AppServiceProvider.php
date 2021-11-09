@@ -9,6 +9,7 @@ use App\Models\YKienNguoiDung;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
@@ -35,10 +36,10 @@ class AppServiceProvider extends ServiceProvider
         $sliders = DB::table('Slider')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
         // Trang Việc Làm
-        $vieclams=TinTuyenDung::all();
+        $vieclams=TintuyenDung::paginate(2);
         view()->share('vieclams',$vieclams);
         // Trang Tìm Việc
-        $timviecs=TinTimViec::all();
+        $timviecs=TinTimViec::paginate(6);
         view()->share('timviecs',$timviecs);
         // Trang Blog
         $blogs=Blog::all();
@@ -66,6 +67,8 @@ class AppServiceProvider extends ServiceProvider
         // Blog nổi Bật
         Paginator::useBootstrap();
 
+        $now= Carbon::now('Asia/Ho_Chi_Minh');
+        view()->share('now',$now);
     }
 }
 

@@ -143,7 +143,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
         Route::put('admin/{user}','UserController@update')->name('user.update');
         Route::get('admin/user/search', 'UserController@search')->name('user.search');
-        Route::get('admin/user/xembai/{user}','UserController@viewposttuyendung')->name('user.view');
+        Route::get('admin/user/xembaituyen/{user}','UserController@viewposttuyendung')->name('user.viewtuyen');
+        Route::get('admin/user/xembaitim/{user}','UserController@viewposttimviec')->name('user.viewtim');
         // Tintuyendung
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');

@@ -196,9 +196,10 @@
                         </div>
                     </div>
                     @endforeach
-
                 </div>
-
+                <div class="phantrang text-center">
+                    {!! $timviecs->links() !!} 
+                    </div> 
             </div>
         </div>
     </div>

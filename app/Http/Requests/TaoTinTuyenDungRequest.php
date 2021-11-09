@@ -36,6 +36,7 @@ class TaoTinTuyenDungRequest extends FormRequest
             'ngayhethan' => 'required|string',
             'mota' => 'required|string',
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'ngayhethan'=> 'required'
         ];
     }
 

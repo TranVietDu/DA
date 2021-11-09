@@ -10,7 +10,7 @@ class Blog extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    protected $dates = ['deleted_at'];
+    // protected $dates = ['deleted_at'];
     protected $table = 'blogs';
     protected $fillable = [
         'user_id','tennguoiviet','tieude','noidung', 'anh',

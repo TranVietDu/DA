@@ -20,7 +20,7 @@ class TimViecController extends Controller
      */
     public function index()
     {
-        $all=TinTimViec::all();
+        $all=TinTimViec::paginate(5);
         return view('admin.tintimviec.tintimviec',compact('all'));
     }
     /**
