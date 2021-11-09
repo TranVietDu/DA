@@ -84,10 +84,6 @@
                                         <input type="datetime-local" name="ngayhethan" class="form-control" placeholder="Ngày hết hạn *" value="{{old('ngayhethan')}}" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="" style="text-align: left">Ngày hết hạn</label>
-                                        <input type="date" name="ngayhethan" class="form-control" placeholder="Ngày hết hạn *" value="{{old('ngayhethan')}}" />
-                                    </div>
-                                    <div class="form-group">
                                             <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
                                             <textarea name="mota" id="editor">
                                                 {{old('mota')}}

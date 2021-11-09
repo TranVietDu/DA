@@ -23,7 +23,6 @@ class CreateTinTuyendungsTable extends Migration
             $table->string('nganhnghe');
             $table->string('luong');
             $table->string('thoigian');
-            $table->string('ngayhethan');
             $table->string('mota');
             $table->string('anh')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
