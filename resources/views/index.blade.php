@@ -135,7 +135,7 @@
                 <img data-u="image"  style="opacity:0.8;" data-src="{{ asset('slider/'.$slider->image) }}" />
                 <div data-ts="flat" data-p="275" data-po="40% 50%" style="left:150px;top:40px;width:800px;height:300px;position:absolute;">
                     <div data-to="50% 50%" data-t="0" style="left:50px;top:520px;width:400px;height:100px;position:absolute;color:red;font-family:'Roboto Condensed',sans-serif;font-size:84px;font-weight:900;letter-spacing:0.5em;">{{$slider->name}}</div>
-                    
+
                 </div>
             </div>
         @endforeach
@@ -400,7 +400,7 @@
         <div class="col-md-6"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></div>
         <div class="col-md-6">
           <h4 class="text-center">{{$blog->tieude}}</h4>
-          <p class="float-left">{{$blog->noidung}}</p>
+          <p class="float-left">{!!html_entity_decode($blog->noidung)!!}</p>
           <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
         </div>
       @endforeach

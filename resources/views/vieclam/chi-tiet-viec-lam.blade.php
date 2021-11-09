@@ -54,7 +54,7 @@
               <br>
               <div class="contact-form">
                 <div class="form-group">
-                  <button type="submit" class="filled-button btn-block">
+                    <a href="/mail/{{$vieclam->id}}"><button type="submit" class="filled-button btn-block">
                     @php
                     if (strtotime($today) < strtotime($another_date)) {
                         echo 'Ứng Tuyển Ngay';
@@ -62,7 +62,7 @@
                         echo 'Hết hạn';
                     }
                 @endphp
-                    </button>
+                    </button></a>
                 </div>
               </div>
               <div>
@@ -75,13 +75,13 @@
               <div class="section-heading">
                 <h2>Liên Hệ:</h2>
                 <p>
-                  <span>Tên Nhà Tuyển Dụng:    <b>{{ $user->name }}</b></span>   
+                  <span>Tên Nhà Tuyển Dụng:    <b>{{ $user->name }}</b></span>
                 </p>
                 <p>
                   <span>Email: </span>
                   <br>
                   <a href="mailto:{{$user->email}}"><b>{{$user->email}}</b></a>
-                  
+
                 </p>
               </div>
             </div>
