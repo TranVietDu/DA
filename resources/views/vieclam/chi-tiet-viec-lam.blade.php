@@ -20,10 +20,6 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 col-sm-7">
-                @php
-                    $today = date("Y-m-d");
-                    $another_date = $vieclam->ngayhethan;
-                @endphp
             <h1>{{$vieclam->tieude}}</h1>
             <h5>Ngành Nghề:{{$vieclam->nganhnghe}}</h5>
                 <br>
@@ -75,7 +71,7 @@
                 <p>
                   <span>Email: </span>
                   <b>{{$user->email}}</b>
-                  
+
 
                 </p>
               </div>
