@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
   
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
-
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
     Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
@@ -64,7 +63,8 @@ Route::get('/tao-cv', function () {
     return view('tao-cv');
 });
 
-
+// qltaikhoan
+Route::get('quanlitaikhoan','App\Http\Controllers\Admin\Usercontroller@quanlitaikhoan');
 // QUAN LI TIN TUYEN DUNG
 Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>'auth'], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
@@ -122,13 +122,13 @@ Route::get('admin/user/adduser', function () {
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
-    });
+    })->middleware('login');;
         //login-facebook
-        Route::get('/login-facebook','AuthController@login_facebook');
-        Route::get('/admin/callback','AuthController@callback_facebook');
+    Route::get('/login-facebook','AuthController@login_facebook');
+    Route::get('/admin/callback','AuthController@callback_facebook');
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
-    Route::post('dangnhap', 'Authcontroller@login')->name('login');
-    Route::post('dangki', 'Authcontroller@register')->name('dangki');
+    Route::post('dangnhap', 'Authcontroller@login')->name('login')->middleware('login');
+    Route::post('dangki', 'Authcontroller@register')->name('dangki')->middleware('login');
     Route::get('logout', 'Authcontroller@logout')->name('logout');
     Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
 });
@@ -136,6 +136,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         // User
+        Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome');
         Route::get('admin/user', 'UserController@index')->name('user.index');
         Route::delete('admin/user/{user}', 'UserController@destroy')->name('user.destroy');
         Route::get('admin/user/create', 'UserController@create')->name('user.create');

@@ -47,7 +47,11 @@
                                     </div>
                                     <div class="form-group">
                                         <b style="float: left;">Giới tính</b>
-                                        <input type="text" class="form-control" value="{{ $tintimviec->gioitinh }}" name="gioitinh"/>
+                                        <select class="form-control" name="gioitinh">
+                                                <option name="gioitinh" value="Nam" {{($tintimviec->gioitinh === 'Nam') ? 'Selected' : ''}}>Nam</option>
+                                                <option name="gioitinh" value="Nữ" {{($tintimviec->gioitinh === 'Nữ') ? 'Selected' : ''}}>Nữ</option>
+                                                <option name="gioitinh" value="Khác" {{($tintimviec->gioitinh === 'Khác') ? 'Selected' : ''}}>Khác</option>
+                                            </select>
                                     </div>
                                     <div class="form-group">
                                         <b style="float: left;">Số ĐT</b>

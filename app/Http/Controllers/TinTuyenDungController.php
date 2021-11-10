@@ -67,7 +67,9 @@ class TinTuyenDungController extends Controller
             return redirect()->route('tintuyendung1.list');
         }
         else{
-            return back()->with('tb', 'Cập nhật không thành công');
+            TinTuyenDung::find($id)->update($data);
+
+            return redirect()->route('tintuyendung1.list');
         }
     }
 
@@ -91,17 +93,9 @@ class TinTuyenDungController extends Controller
         TinTuyenDung::onlyTrashed()->restore();
          return redirect()->route('tintuyendung1.list');
      }
-
-     public function index()
-     {
-         $vieclams = TinTuyenDung::limit('6')->get();
-         return view('index', compact('vieclams'));
-
-     }
      public function vieclam()
      {
-        $vieclams = TinTuyenDung::simplePaginate(10);
-        return view('vieclam.vieclam')->with('vieclams', $vieclams);
+        return view('vieclam.vieclam');
      }
 
      public function chitietvieclam($id)
@@ -120,6 +114,9 @@ class TinTuyenDungController extends Controller
         ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->get();
 
         return view('tim-kiem', $data);
+     }
+     public function index(){
+         return view('index');
      }
 
 }

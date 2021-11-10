@@ -64,11 +64,11 @@ class TinTimViecController extends Controller
             $get_image->move('anh_tintimviec', $new_image);
             $data['anh'] = $new_image;
             TinTimViec::find($id)->update($data);
-
             return redirect()->route('tintimviec1.list');
         }
         else{
-            return back()->with('tb', 'Cập nhật không thành công');
+            TinTimViec::find($id)->update($data);
+            return redirect()->route('tintimviec1.list');
         }
     }
 

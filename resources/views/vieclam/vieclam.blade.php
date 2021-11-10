@@ -175,7 +175,7 @@
             <div class="product-item">
               <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
                 <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}" style="width:100%; height:200px; padding: 8px;" alt="">
-                <div class="down-content">
+                <div style="height: 200px;" class="down-content">
                   <h4 style="color: red;">{{ $val->tieude }}</h4>
                   <p>
                     @if (isset($val->luong))

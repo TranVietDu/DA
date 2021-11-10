@@ -64,7 +64,7 @@
                             @foreach($blogs as $al)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td><img src="{{$al->anh}}" width="100px" class="img-flush" alt=""></td>
+                                <td><img src="{{ asset('anh_blog/'.$al->anh) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->tennguoiviet}}</td>
                                 <td>{{$al->tieude}}</td>
                                 <td>{{$al->noidung}}</td>

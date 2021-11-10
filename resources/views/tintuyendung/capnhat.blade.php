@@ -34,53 +34,50 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <b class="float-left" for="">Tiêu đề :</b>
                                         <input type="text" class="form-control" placeholder="Tiêu đề *" value="{{$tintuyendung->tieude}}" name="tieude"/>
                                     </div>
                                     <div class="form-group">
+                                        <b class="float-left" for="">Tên nhà tuyển tụng :</b>
                                         <input type="text" class="form-control" placeholder="Tên quán *" value="{{$tintuyendung->tenquan}}" name="tenquan"/>
                                     </div>
                                     <div class="form-group">
+                                        <b class="float-left" for="">Địa chỉ :</b>
                                         <input type="text" class="form-control" placeholder="Địa chỉ" value="{{$tintuyendung->diachi}}" name="diachi"/>
                                     </div>
                                     <div class="form-group">
-                                        <select class="form-control" name="nganhnghe">
-                                            <option class="hidden"  selected disabled>Ngành nghề *</option>
-                                            <option>Phục vụ</option>
-                                            <option>Bán hàng</option>
-                                            <option>Gia sư</option>
-                                        </select>
+                                    <b class="float-left" for="">Ngành nghề :</b>
+                                    <input type="text" class="form-control" placeholder="Ngành nghề" value="{{$tintuyendung->nganhnghe}}" name="nganhnghe"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Số lượng *" value="{{$tintuyendung->soluong}}" name="soluong"/>
+                                    <b class="float-left" for="">Số lượng :</b>
+                                        <input type="number" class="form-control"  placeholder="Số lượng *" value="{{$tintuyendung->soluong}}" name="soluong"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
                                     </div>
                                     <div class="form-group">
-                                        <select class="form-control" name="thoigian">
-                                            <option class="hidden"  selected disabled>Thời gian</option>
-                                            <option>Ca sáng: 7h30-11h30</option>
-                                            <option>Ca chiều: 14h-18h</option>
-                                            <option>Ca tối: 19h-23h</option>
-                                        </select>
+                                    <b class="float-left" for="">Thời gian :</b>
+                                    <input type="text" class="form-control"  placeholder="Thời gian *" value="{{$tintuyendung->thoigian}}" name="thoigian"/>
                                     </div>
-
                                     <div class="form-group">
+                                    <b class="float-left" for="">Ảnh :</b>
                                         <input type="file" class="form-control" placeholder="" value="" name="anh"/>
                                     </div>
                                     <div class="form-group">
+                                        <b class="float-left" for="">Lương :</b>
                                         <input type="text" class="form-control"  placeholder="Mức lương *" value="{{$tintuyendung->luong}}" name="luong"/>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="" style="text-align: left">Ngày hết hạn</label>
-                                        <input type="date" name="ngayhethan" class="form-control" placeholder="Ngày hết hạn *" value="{{$tintuyendung->ngayhethan}}" />
+                                        <b for="" style="text-align: left">Ngày hết hạn</b>
+                                        <input type="datetime" name="ngayhethan" value="{{$tintuyendung->ngayhethan}}" class="form-control" placeholder="Ngày hết hạn *"  />
                                     </div>
                                     <div class="form-group">
-                                            <label for="" style="text-align: left">Mô tả thêm(nếu có):</label>
+                                            <b for="" style="text-align: left">Mô tả thêm(nếu có):</b>
                                             <textarea name="mota" id="editor">
                                                 {!!html_entity_decode($tintuyendung->mota)!!}
                                             </textarea>

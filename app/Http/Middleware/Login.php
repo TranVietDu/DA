@@ -22,7 +22,7 @@ class Login
                 return redirect()->route('adminhome');
             }
             if(Auth::user()->role==2 ||Auth::user()->role==3){
-                return redirect()->route('');
+                return redirect('/');
         }
     }
         else{

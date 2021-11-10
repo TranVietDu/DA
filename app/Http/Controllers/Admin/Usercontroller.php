@@ -140,4 +140,7 @@ class Usercontroller extends Controller
         $blog=User::find($user)->blogs;
         return view('admin.user.xembaidangtim',compact('userposttim','blog','username'));
     }
+    public function quanlitaikhoan(User $user){
+        return view('user.qltaikhoan',compact($user));
+    }
 }

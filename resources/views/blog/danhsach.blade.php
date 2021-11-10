@@ -61,13 +61,8 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
-<<<<<<< HEAD
 
                     url:"{{route('blog1.destroyall')}}",
-
-=======
-                    url:"{{route('blog.destroyall')}}",
->>>>>>> 891346d (hihihi)
                     type:'GET',
                     data:{
                         ids:allids,

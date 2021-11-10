@@ -35,6 +35,7 @@ class TaoBlogRequest extends FormRequest
     {
         return [
             'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
+            'anh.mimes'=> 'Ảnh không đúng định dạng(jpeg,png,jpg,gif,svg)',
         ];
     }
 }

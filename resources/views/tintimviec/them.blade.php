@@ -37,13 +37,21 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                        <b style="float: left;">Họ và tên :</b>
                                             <input type="text" class="form-control" placeholder="Họ và tên *" value="{{old('ten')}}" name="ten"/>
                                         </div>
                                         <div class="form-group">
+                                        <b style="float: left;">Ngày sinh :</b>
                                             <input type="date" name="ngaysinh" class="form-control" placeholder="Ngày sinh *" value="{{old('ngaysinh')}}" />
                                         </div>
-                                        <div class="form-group" style="float: left;">
-                                            <div class="form-control" name="gioitinh">Giới tính:
+                                        <div class="form-group">
+                                        <b style="float: left;">Giới tính :</b>
+                                            <select class="form-control" name="gioitinh">
+                                                <option name="gioitinh" value="Nam">Nam</option>
+                                                <option name="gioitinh" value="Nữ">Nữ</option>
+                                                <option name="gioitinh" value="Khác">Khác</option>
+                                            </select>
+                                            <!-- <div class="form-control" name="gioitinh">Giới tính:
                                                 <label class="radio inline">
                                                     <input type="radio" name="gioitinh" value="Nam">
                                                     <span> Nam </span>
@@ -56,31 +64,37 @@
                                                     <input type="radio" name="gioitinh" value="Khác">
                                                     <span> Khác </span>
                                                 </label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="form-group">
+                                        <b style="float: left;">Số điện thoại :</b>
                                             <input type="text" name="sdt" class="form-control" placeholder="Số điện thoại *" value="{{old('sdt')}}" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                        <b style="float: left;">Email :</b>
                                             <input type="email" class="form-control" placeholder="Email *" value="{{old('email')}}" name="email"/>
                                         </div>
                                         <div class="form-group">
-                                            <select class="form-control" name="nganhnghe">
+                                            <!-- <select class="form-control" name="nganhnghe">
                                                 <option class="hidden"  selected disabled>Ngành nghề mong muốn</option>
                                                 <option>Phục vụ</option>
                                                 <option>Bán hàng</option>
                                                 <option>Gia sư</option>
-                                            </select>
+                                            </select> -->
+                                            <b style="float: left;">Ngành nghề mong muốn :</b>
+                                            <input type="text" class="form-control" placeholder="" value="{{old('nganhnghe')}}" name="nganhnghe"/>
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
                                         </div>
                                         <div class="form-group">
+                                            <b style="float: left;">Địa chỉ :</b>
                                             <input type="text" class="form-control" placeholder="Địa chỉ" value="{{old('diachi')}}" name="diachi"/>
                                         </div>
                                         <div class="form-group">
+                                        <b style="float: left;">Ảnh bản thân :</b>
                                             <input type="file" class="form-control" placeholder="Ảnh về bản thân" value="{{old('anh')}}" name="anh"/>
                                         </div>
                                     </div>
