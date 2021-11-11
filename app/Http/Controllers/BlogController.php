@@ -65,8 +65,12 @@ class BlogController extends Controller
      //form cap nhat
      public function edit($id)
      {
-        $blog = Blog::find($id);
-         return View::make('blog.capnhat', compact('blog', 'id'));
+         if(Auth::user()->id == $id){
+            $blog = Blog::find($id);
+            return View::make('blog.capnhat', compact('blog', 'id'));
+        }else{
+            return back();
+        }
      }
      //cap nhat
      public function update(CapNhatBlogRequest $request, $id)
@@ -91,30 +95,30 @@ class BlogController extends Controller
      //xoa
      public function destroy($id)
      {
-         Blog::find($id)->delete();
-         return redirect('/blog/danhsach');
+            Blog::find($id)->delete();
+            return redirect()->route('blog1.list');
+
      }
      //xoa nhieu
      public function destroyall(Request $request)
      {
          $ids = $request->ids;
          Blog::whereIn('id', $ids)->delete();
-         return redirect()->route('blog.list');
+         return redirect()->route('blog1.list');
      }
-
       //khoi phuc tin da xoa
       public function restore()
       {
-         Blog::onlyTrashed()->restore();
-          return redirect('/blog/danhsach');
+          Blog::onlyTrashed()->restore();
+          return redirect()->route('blog1.list');
       }
 
       public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
-        $search_vieclam = DB::table('blogs')->where('tennguoiviet','like','%'.$keywords.'%')->orWhere('tieude','like','%'.$keywords.'%')->get();
+        $search_blog = DB::table('blogs')->where('tennguoiviet','like','%'.$keywords.'%')->orWhere('tieude','like','%'.$keywords.'%')->get();
 
-        return view('tim-kiem-blog',)->with('search_vieclam',$search_vieclam);
+        return view('tim-kiem-blog',)->with('search_blog',$search_blog);
     }
 
     public function postComment($id, Request $request)

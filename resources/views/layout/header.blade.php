@@ -28,7 +28,7 @@
                   </div>
              </form>
            </li>
-           @if(Auth::user())
+           @if(Auth::check())
            <li>
              <div class="dropdown">
                <button class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

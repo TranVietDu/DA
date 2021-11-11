@@ -48,8 +48,12 @@ class TinTuyenDungController extends Controller
     //form cap nhat
     public function edit($id)
     {
-        $tintuyendung = TinTuyenDung::find($id);
-        return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
+        if(Auth::user()->id == $id){
+            $tintuyendung = TinTuyenDung::find($id);
+            return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
+        }else{
+            return back();
+        }
     }
     //cap nhat
     public function update(CapNhatTinTuyenDungRequest $request, $id)

@@ -31,6 +31,15 @@ class TaoBlogRequest extends FormRequest
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
+    public function attributes()
+    {
+        return [
+            'tennguoiviet' => 'Tên người viết',
+            'tieude' => 'Tiêu đề',
+            'noidung' => 'Nội dung',
+            'anh' => 'Ảnh',
+        ];
+    }
     public function messages()
     {
         return [

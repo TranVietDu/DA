@@ -48,6 +48,7 @@
             </div>
           </form>
         </div>
+        <br>
         <div class="form-group blognear">
           <h5 style="margin-bottom: 20px;">Các Blogs gần đây</h5>
           @foreach($blogganday as $blog)
@@ -57,7 +58,7 @@
                 <div class="">
                   <img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="">
                 </div>
-                <div class="">
+                <div style="text-align: center">
                   <b class="small">{{$blog->tieude}}</b>
                 </div>
               </div>
@@ -72,10 +73,10 @@
       <div class="col-md-3">
       <div class="product-item">
         <a href="/blog/chi-tiet-blog/{{$blog->id}}">
-            <img class="card-img-top" src="https://anhdepfree.com/wp-content/uploads/2018/08/bo-hinh-nen-may-tinh-4k-cuc-dep.jpg" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
             <div class="card-body">
               <p style="font-size: large;" class="card-title">{{$blog->tieude}}</p>
-              <small class="card-text float-right">Tác giả: {{$blog->tennguoiviet}}</small>
+              <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small>
             </div>
         </a>
       </div>

@@ -24,7 +24,7 @@ class TaoTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
+            'user_id' => 'required|',
             'ten' => 'required|string',
             'ngaysinh' => 'required|string',
             'gioitinh' => 'required|string',
@@ -34,6 +34,20 @@ class TaoTinTimViecRequest extends FormRequest
             'diachi' => 'required|string',
             'mota' => '',
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'ten' => 'Họ và tên',
+            'ngaysinh' => 'Ngày sinh',
+            'gioitinh' => 'Giới tính',
+            'sdt' => 'Số ĐT',
+            'email' => 'Email',
+            'nganhnghe' => 'Ngành nghề',
+            'diachi' => 'Địa chỉ',
+            'mota' => 'Mô tả',
+            'anh' => 'Ảnh',
         ];
     }
     public function messages()
