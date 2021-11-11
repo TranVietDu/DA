@@ -42,7 +42,6 @@ class Authcontroller extends Controller
             }else{
                 Cookie::queue(Cookie::forget('email'));
                 Cookie::queue(Cookie::forget('password'));
-                Cookie::queue(Cookie::forget('name'));
             }
             $role = Auth::user()->role;
             if($role==2 || $role==3){

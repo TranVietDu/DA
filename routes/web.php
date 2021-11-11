@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
+
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
-    Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+    Route::get('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
     //Viec lam Index
     Route::get('/', 'TinTuyenDungController@index')->name('home');
     // Viec lam
@@ -66,7 +66,7 @@ Route::get('/tao-cv', function () {
 // qltaikhoan
 Route::get('quanlitaikhoan','App\Http\Controllers\Admin\Usercontroller@quanlitaikhoan');
 // QUAN LI TIN TUYEN DUNG
-Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>['auth','checktuyendung']], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
     Route::get('/tao-tin-tuyen-dung', 'TinTuyenDungController@create')->name('create');
     Route::post('/tao-tin-tuyen-dung', 'TinTuyenDungController@store')->name('store');
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // QUAN LI TIN TIM VIEC
-Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>['auth', 'checktimviec']], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
     Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
@@ -122,6 +122,7 @@ Route::get('admin/user/adduser', function () {
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
+
     })->middleware('login');;
         //login-facebook
     Route::get('/login-facebook','AuthController@login_facebook');

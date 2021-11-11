@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" style="background-color: rgb(29, 196, 176)">
+<div class="page-heading about-heading header-text" >
   <div class="container">
     <div class="row">
       <div class="col-md-12">

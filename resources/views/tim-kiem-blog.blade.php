@@ -18,8 +18,8 @@
 
       <div class="col-md-8">
         <div class="row">
-          @if (isset($search_vieclam))
-          @foreach ($search_vieclam as $val)
+          @if (isset($search_blog))
+          @foreach ($search_blog as $val)
           <div class="col-md-6">
             <div class="product-item">
               <a href="/blog/chi-tiet-blog/{{$val->id}}" class="services-item-image"><img src="{{ asset('anh_blog/'.$val->anh) }}" alt="" height="250px" width="400px" class="img-responsive"></a>
@@ -42,7 +42,7 @@
           </div>
           <form action="/tim-kiem-blog" method="get" autocomplete="off">
             <div class="input-group">
-              
+
                   <td><input height="100px" class=" border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit"></td>
                   <td><button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
                 <i class="fa fa-search"></i>

@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <input type="file" class="form-control" placeholder="" value="{{$blog->anh}}" name="anh"/>
+                                            <input type="file" class="form-control" value="{{asset('anh_blog/'.$blog->anh)}}" name="anh"/>
                                         </div>
                                         <div class="form-group">
                                                 <label for="" style="text-align: left">Nội dung:</label>

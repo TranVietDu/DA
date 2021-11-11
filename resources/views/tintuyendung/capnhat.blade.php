@@ -75,6 +75,7 @@
                                     <div class="form-group">
                                         <b for="" style="text-align: left">Ngày hết hạn</b>
                                         <input type="datetime" name="ngayhethan" value="{{$tintuyendung->ngayhethan}}" class="form-control" placeholder="Ngày hết hạn *"  />
+
                                     </div>
                                     <div class="form-group">
                                             <b for="" style="text-align: left">Mô tả thêm(nếu có):</b>
