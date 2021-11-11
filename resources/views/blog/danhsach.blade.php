@@ -6,13 +6,13 @@
         <h3 style="text-align: center">Quản lí Blog</h3>
           <div class="row">
               <div class="col-md-12">
-                <a href="{{ route('blog1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                 <div class="add" style="margin: 20px 0">
+                    <a href="{{ route('blog1.restore') }}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                     <button type="button" class="btn btn-primary"><a href="{{route('blog1.create')}}" style="color:aliceblue;">Thêm</a> </button>
                     <button type="button" class="btn btn-danger" id="deleteall">Xóa các hàng đã chọn </button>
                 </div>
-                  <table class="table">
-                     <thead>
+                <table class="table table-bordered border border-info" id="datatablesSiple">
+                    <thead class="bg-info">
                          <tr>
                             <th><input type="checkbox" id="chkCheckAll" /></th>
                             <th>STT</th>
@@ -24,11 +24,14 @@
                          </tr>
                      </thead>
                      <tbody>
+                         @php
+                             $i = 1;
+                         @endphp
                          @foreach($blogs as $al)
                          <tr id="sid{{$al->id}}">
                             <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
                             <td>
-                               {{$al->id}}
+                               {{$i++}}
                             </td>
                              <td>{{$al->tieude}}</td>
                              <td>{{$al->tennguoiviet}}</td>
@@ -39,7 +42,6 @@
                              <td><a href="{{ route('blog1.destroy', $al->id)}}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                              <td><a href="{{ route('blog1.edit', $al->id) }}"><i class="fas fa-edit"></i></a></td>
                          </tr>
-
                          @endforeach
 
                      </tbody>
@@ -61,13 +63,7 @@
                     allids.push($(this).val());
                 });
                 $.ajax({
-<<<<<<< HEAD
-
                     url:"{{route('blog1.destroyall')}}",
-
-=======
-                    url:"{{route('blog.destroyall')}}",
->>>>>>> 891346d (hihihi)
                     type:'GET',
                     data:{
                         ids:allids,

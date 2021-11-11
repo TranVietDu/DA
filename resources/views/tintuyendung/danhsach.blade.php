@@ -11,8 +11,8 @@
                     <button class="btn btn-primary"><a style="color:aliceblue;" href="{{ route("tintuyendung1.create") }}">Thêm</a></button>
                     <button type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
                 </div>
-                  <table class="table">
-                     <thead>
+                  <table class="table table-bordered border border-info" id="datatablesSiple">
+                     <thead class="bg-info">
                          <tr>
                             <th><input type="checkbox" id="check_all"/></th>
                             <th>STT</th>
