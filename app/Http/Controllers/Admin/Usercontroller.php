@@ -24,7 +24,7 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        $all=User::paginate(3);
+        $all=User::paginate(10);
         return view('admin.user.user',compact('all'));
     }
     /**

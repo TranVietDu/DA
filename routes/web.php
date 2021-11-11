@@ -136,7 +136,6 @@ Route::namespace('App\Http\Controllers')->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::namespace('App\Http\Controllers\Admin')->group(function () {
         // User
-        Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome');
         Route::get('admin/user', 'UserController@index')->name('user.index');
         Route::delete('admin/user/{user}', 'UserController@destroy')->name('user.destroy');
         Route::get('admin/user/create', 'UserController@create')->name('user.create');
@@ -168,6 +167,10 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/lienhe/{lienhe}/edit','AdminLienHeController@edit')->name('lienhe.edit');
         Route::put('admin/lienhe/{lienhe}','AdminLienHeController@update')->name('lienhe.update');
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
+
+        // Y Kien nguoi dung
+        Route::get('admin/ykien','Ykiencontroller@index')->name('ykien.index');
+        Route::delete('admin/ykien/{yKienNguoiDung}','Ykiencontroller@destroy')->name('ykien.destroy');
 
     });
 });

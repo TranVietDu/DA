@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
+use App\Models\YKienNguoiDung;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class BlogController extends Controller
+class Ykiencontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs=Blog::paginate(10);
-        return view('admin.blog.blog',compact('blogs'));
+        $all=YKienNguoiDung::paginate(10);
+        return view('admin.Ykien.ykien',compact('all'));
     }
 
     /**
@@ -44,10 +43,10 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\YKienNguoiDung  $yKienNguoiDung
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(YKienNguoiDung $yKienNguoiDung)
     {
         //
     }
@@ -55,10 +54,10 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\YKienNguoiDung  $yKienNguoiDung
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(YKienNguoiDung $yKienNguoiDung)
     {
         //
     }
@@ -67,10 +66,10 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\YKienNguoiDung  $yKienNguoiDung
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, YKienNguoiDung $yKienNguoiDung)
     {
         //
     }
@@ -78,12 +77,12 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\YKienNguoiDung  $yKienNguoiDung
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(YKienNguoiDung $yKienNguoiDung)
     {
-        $blog->delete();
-        return redirect()->route('blog.index')->with('thongbao','Xóa Thành Công');
+        $yKienNguoiDung->delete();
+        return redirect('/admin/ykien');
     }
 }
