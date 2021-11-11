@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
-
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
     Route::get('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
@@ -64,7 +63,8 @@ Route::get('/tao-cv', function () {
     return view('tao-cv');
 });
 
-
+// qltaikhoan
+Route::get('quanlitaikhoan','App\Http\Controllers\Admin\Usercontroller@quanlitaikhoan');
 // QUAN LI TIN TUYEN DUNG
 Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>['auth','checktuyendung']], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
@@ -122,11 +122,14 @@ Route::get('admin/user/adduser', function () {
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
-    });
 
+    })->middleware('login');;
+        //login-facebook
+    Route::get('/login-facebook','AuthController@login_facebook');
+    Route::get('/admin/callback','AuthController@callback_facebook');
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
-    Route::post('dangnhap', 'Authcontroller@login')->name('login');
-    Route::post('dangki', 'Authcontroller@register')->name('dangki');
+    Route::post('dangnhap', 'Authcontroller@login')->name('login')->middleware('login');
+    Route::post('dangki', 'Authcontroller@register')->name('dangki')->middleware('login');
     Route::get('logout', 'Authcontroller@logout')->name('logout');
     Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
 });
@@ -165,6 +168,10 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/lienhe/{lienhe}/edit','AdminLienHeController@edit')->name('lienhe.edit');
         Route::put('admin/lienhe/{lienhe}','AdminLienHeController@update')->name('lienhe.update');
         Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
+
+        // Y Kien nguoi dung
+        Route::get('admin/ykien','Ykiencontroller@index')->name('ykien.index');
+        Route::delete('admin/ykien/{yKienNguoiDung}','Ykiencontroller@destroy')->name('ykien.destroy');
 
     });
 });

@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $sliders = DB::table('Slider')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
         // Trang Việc Làm
-        $vieclams=TintuyenDung::paginate(2);
+        $vieclams=TintuyenDung::paginate(9);
         view()->share('vieclams',$vieclams);
         // Trang Tìm Việc
         $timviecs=TinTimViec::paginate(6);

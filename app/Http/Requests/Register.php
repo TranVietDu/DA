@@ -27,7 +27,8 @@ class Register extends FormRequest
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|required_with:repassword|same:repassword',
-            'repassword' => 'required|min:8'
+            'repassword' => 'required',
+            'role'=>'required'
         ];
     }
     public function messages()

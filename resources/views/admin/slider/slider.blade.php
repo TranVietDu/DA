@@ -83,6 +83,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div style="float: right;" class="phantrang">
+                    {!! $sliders->links() !!} 
+                    </div> 
                 </div>
             </div>
         </div>

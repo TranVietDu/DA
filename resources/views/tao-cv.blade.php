@@ -1,8 +1,8 @@
 @extends('master')
 
 @section('content')
-     <!-- content -->
-  <div class="services">
+<!-- content -->
+<div class="services">
   <!-- content -->
   <div class="container-fluid" style="text-align: justify;">
     <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
@@ -15,8 +15,7 @@
           <img id="output" />
           <label for="file" class="lable">
           </label>
-          <h2 contenteditable="" role="textbox" aria-multiline="true" spellcheck="false" onclick="myFunction()"
-            class="sua" style="margin-top: 10px;"><b>Nguyễn Hữu Thường</b></h2>
+          <h2 contenteditable="" role="textbox" aria-multiline="true" spellcheck="false" onclick="myFunction()" class="sua" style="margin-top: 10px;"><b>Nguyễn Hữu Thường</b></h2>
           <h5 contenteditable="">Nhân Viên Phục Vụ</h5>
         </div>
       </div>
@@ -41,10 +40,10 @@
                 TÓM TẮT BẢN THÂN</b></h5>
             <ul>
               <li contenteditable="">
-                <p  style="color: black">Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
+                <p style="color: black">Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
               </li>
               <li contenteditable="">
-                <p  style="color: black">Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
+                <p style="color: black">Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
                   tìm ra hướng giải quyết vấn đề.</p>
               </li>
             </ul>
@@ -68,7 +67,7 @@
             <h5 class="tieude1"><b>
                 <i class="fa fa-pinterest"></i>
                 SỞ THÍCH</b></h5>
-            <p contenteditable=""  style="color: black">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
+            <p contenteditable="" style="color: black">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
           </div>
         </div>
         <div class="col-md-5 phai">
@@ -128,27 +127,32 @@
         <div class="col-md-1"></div>
       </div>
     </div>
-  </div>
-  <div class="container text-right mt-5 mb-5">
-    <button class="btn btn-primary" id="download"> Tải xuống</button>
-  </div>
-  <div class="call-to-action">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="inner-content">
-            <div class="row">
-              <div class="col-md-8">
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
-              </div>
-              <div class="col-lg-4 col-md-6 text-right">
-                <a href="cv-mau" class="filled-button">Tham khảo cách viết CV chuẩn nhất.</a>
+
+    <div class="div">
+      <div class="container text-right mt-5 mb-5">
+        <button class="btn btn-primary" id="download"> Tải xuống</button>
+      </div>
+      <div class="call-to-action">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="inner-content">
+                <div class="row">
+                  <div class="col-md-8">
+                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                  </div>
+                  <div class="col-lg-4 col-md-6 text-right">
+                    <a href="cv-mau" class="filled-button">Tham khảo cách viết CV chuẩn nhất.</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-@endsection
+
+  @endsection

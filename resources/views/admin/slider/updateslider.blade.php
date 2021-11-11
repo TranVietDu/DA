@@ -27,8 +27,8 @@
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form4Example3">Tình Trạng:</label>
                     <select name="status" class="browser-default custom-select">
-                        <option value="0">Ẩn</option>
-                        <option value="1">Hiển Thị</option>
+                        <option value="0" {{($slider->status === '0') ? 'Selected' : ''}}>Ẩn</option>
+                        <option value="1" {{($slider->status === '1') ? 'Selected' : ''}}>Hiển Thị</option>
                     </select>
                 </div>
                 <!-- Submit button -->

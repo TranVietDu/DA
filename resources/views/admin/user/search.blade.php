@@ -5,7 +5,7 @@
 
 @section('content')
 <div id="layoutSidenav_content">
-    <main style="padding: 25px;background-clor: rgb(237, 241, 245);">
+    <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Người Dùng</h1>
             <div class="card mb-4">

@@ -24,15 +24,15 @@ class CapNhatTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
-            'ten' => '',
-            'ngaysinh' => '',
-            'gioitinh' => '',
-            'sdt' => '',
-            'email' => '',
-            'nganhnghe' => '',
-            'diachi' => '',
-            'mota' => '',
-            'anh' => '',
+            'ten' => 'required',
+            'ngaysinh' => 'required',
+            'gioitinh' => 'required',
+            'sdt' => 'required',
+            'email' => 'required|email',
+            'nganhnghe' => 'required',
+            'diachi' => 'required',
+            'mota' => 'required',
         ];
     }
+    
 }

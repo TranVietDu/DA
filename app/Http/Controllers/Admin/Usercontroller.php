@@ -24,7 +24,7 @@ class Usercontroller extends Controller
      */
     public function index()
     {
-        $all=User::paginate(3);
+        $all=User::paginate(10);
         return view('admin.user.user',compact('all'));
     }
     /**
@@ -139,5 +139,8 @@ class Usercontroller extends Controller
         $userposttim=User::find($user)->tintimviecs;
         $blog=User::find($user)->blogs;
         return view('admin.user.xembaidangtim',compact('userposttim','blog','username'));
+    }
+    public function quanlitaikhoan(User $user){
+        return view('user.qltaikhoan',compact($user));
     }
 }

@@ -27,7 +27,6 @@ class CapNhatBlogRequest extends FormRequest
             'tennguoiviet' => '',
             'tieude' => '',
             'noidung' => '',
-            'anh' => '',
         ];
     }
 }

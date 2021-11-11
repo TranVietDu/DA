@@ -88,7 +88,9 @@ class BlogController extends Controller
             return redirect()->route('blog1.list');
         }
         else{
-            return back()->with('tb', 'Cập nhật không thành công');
+            Blog::find($id)->update($data);
+
+            return redirect()->route('blog1.list');
         }
      }
 

@@ -32,7 +32,6 @@ class CapNhatTinTuyenDungRequest extends FormRequest
             'thoigian' => '',
             'ngayhethan' => '',
             'mota' => '',
-            'anh' => '',
         ];
     }
 }

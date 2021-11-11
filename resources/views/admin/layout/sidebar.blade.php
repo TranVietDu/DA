@@ -32,6 +32,10 @@
                     Giao Diện
 
                 </a>
+                <a class="nav-link collapsed" href="/admin/ykien">
+                    <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
+                   Ý Kiến Người Dùng
+                </a>
                 <a class="nav-link collapsed" href="/admin/lienhe">
                     <div class="sb-nav-link-icon"><i class="fas fa-id-card-alt"></i></i></div>
                     Liên Hệ
