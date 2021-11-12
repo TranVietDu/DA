@@ -14,7 +14,6 @@ class LienHeController extends Controller
     public function index()
     {
         $lienhes = LienHe::all();
-        $username=Auth::user();
         return View::make('lienhe', compact('lienhes'));
     }
 

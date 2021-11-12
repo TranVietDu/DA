@@ -24,9 +24,27 @@ class CapNhatBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'tennguoiviet' => '',
-            'tieude' => '',
-            'noidung' => '',
+            'tennguoiviet' => 'required|string',
+            'tieude' => 'required|string',
+            'noidung' => 'required|string',
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'tennguoiviet' => 'Tên người viết',
+            'tieude' => 'Tiêu đề',
+            'noidung' => 'Nội dung',
+            'anh' => 'Ảnh',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
+            'anh.image' => 'File được chọn không phải là ảnh',
+            'anh.mimes'=> 'Định dạng ảnh phải là: jpeg, png, jpg, gif, svg'
         ];
     }
 }

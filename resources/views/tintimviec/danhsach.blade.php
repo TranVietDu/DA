@@ -75,6 +75,9 @@
                          <a href="{{ route('tintimviec1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                      </tbody>
                  </table>
+                 <div style="float: right;" class="phantrang">
+                    {!! $tintimviecs->links() !!}
+                    </div>
               </div>
           </div>
       </div>

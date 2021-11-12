@@ -24,14 +24,39 @@ class CapNhatTinTuyenDungRequest extends FormRequest
     public function rules()
     {
         return [
-            'tieude' => '',
-            'tenquan' => '',
-            'diachi' => '',
-            'soluong' => '',
-            'nganhnghe' => '',
-            'thoigian' => '',
-            'ngayhethan' => '',
-            'mota' => '',
+            'tieude' => 'required|string',
+            'tenquan' => 'required|string',
+            'diachi' => 'required|string',
+            'soluong' => 'required|string',
+            'nganhnghe' => 'required|string',
+            'luong' => '',
+            'thoigian' => 'required|string',
+            'mota' => 'required|string',
+            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'ngayhethan'=> 'required'
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'tieude' => 'Tiêu đề',
+            'tenquan' => 'Tên quán',
+            'diachi' => 'Địa chỉ',
+            'soluong' => 'Số lượng',
+            'nganhnghe' => 'Ngành nghề',
+            'luong' => 'Mức lương',
+            'thoigian' => 'Thời gian',
+            'mota' => 'Mô tả',
+            'anh' => 'Ảnh',
+            'ngayhethan' => 'Ngày hết hạn',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
+            'anh.image' => 'File được chọn không phải là ảnh',
+            'anh.mimes'=> 'Định dạng ảnh phải là: jpeg, png, jpg, gif, svg'
         ];
     }
 }
