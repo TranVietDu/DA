@@ -17,8 +17,8 @@ class BlogController extends Controller
      //select all
      public function index()
      {
-         $blogs = User::find(Auth::user()->id)->blogs;
-         return View::make('blog.danhsach', compact('blogs'));
+        $blogs = Blog::where('user_id','=',Auth::user()->id)->paginate(10);
+        return View::make('blog.danhsach', compact('blogs'));
      }
 
     public function blog()
@@ -65,7 +65,8 @@ class BlogController extends Controller
      //form cap nhat
      public function edit($id)
      {
-         if(Auth::user()->id == $id){
+        $blog = Blog::find($id);
+        if($blog->user_id == Auth::user()->id || Auth::user()->role == 1){
             $blog = Blog::find($id);
             return View::make('blog.capnhat', compact('blog', 'id'));
         }else{
@@ -97,9 +98,13 @@ class BlogController extends Controller
      //xoa
      public function destroy($id)
      {
+        $blog = Blog::find($id);
+        if($blog->user_id == Auth::user()->id || Auth::user()->role == 1){
             Blog::find($id)->delete();
             return redirect()->route('blog1.list');
-
+        }else{
+            return back();
+        }
      }
      //xoa nhieu
      public function destroyall(Request $request)

@@ -44,7 +44,8 @@ class TaoBlogRequest extends FormRequest
     {
         return [
             'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
-            'anh.mimes'=> 'Ảnh không đúng định dạng(jpeg,png,jpg,gif,svg)',
+            'anh.image' => 'File được chọn không phải là ảnh',
+            'anh.mimes'=> 'Định dạng ảnh phải là: jpeg, png, jpg, gif, svg'
         ];
     }
 }

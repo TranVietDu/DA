@@ -8,8 +8,8 @@ use App\Http\Requests\CapNhatTinTuyenDungRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 
 class TinTuyenDungController extends Controller
 {
@@ -17,7 +17,7 @@ class TinTuyenDungController extends Controller
     //select all
     public function list()
     {
-        $tintuyendungs = User::find(Auth::user()->id)->tintuyendungs;
+        $tintuyendungs = TinTuyenDung::where('user_id', '=', Auth::user()->id)->paginate(10);
         return View::make('tintuyendung.danhsach', compact('tintuyendungs'));
     }
     //form luu
@@ -48,7 +48,8 @@ class TinTuyenDungController extends Controller
     //form cap nhat
     public function edit($id)
     {
-        if(Auth::user()->id == $id){
+        $tintuyendung = TinTuyenDung::find($id);
+        if($tintuyendung->user_id == Auth::user()->id || Auth::user()->role == 1){
             $tintuyendung = TinTuyenDung::find($id);
             return View::make('tintuyendung.capnhat', compact('tintuyendung', 'id'));
         }else{
@@ -80,15 +81,24 @@ class TinTuyenDungController extends Controller
     //xoa
     public function destroy($id)
     {
-        TinTuyenDung::find($id)->delete();
-        return redirect()->route('tintuyendung1.list');
+        $tintuyendung = TinTuyenDung::find($id);
+        if($tintuyendung->user_id == Auth::user()->id || Auth::user()->role == 1){
+            TinTuyenDung::find($id)->delete();
+            return redirect()->route('tintuyendung1.list');
+        }else{
+            return back();
+        }
     }
     //xoa nhieu
     public function destroyall(Request $request)
     {
-        $ids = $request->ids;
-        TinTuyenDung::whereIn('id', $ids)->delete();
-        return redirect()->route('tintuyendung1.list');
+        if(TinTuyenDung::where('user_id', '=', Auth::user()->id)){
+            $ids = $request->ids;
+            TinTuyenDung::whereIn('id', $ids)->delete();
+            return redirect()->route('tintuyendung1.list');
+        }else{
+            return back();
+        }
     }
 
      //khoi phuc tin da xoa

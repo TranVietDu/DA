@@ -17,7 +17,7 @@ class TinTimViecController extends Controller
     //select all
     public function index()
     {
-        $tintimviecs = User::find(Auth::user()->id)->tintimviecs;
+        $tintimviecs = TinTimViec::where('user_id','=',Auth::user()->id)->paginate(10);
         return View::make('tintimviec.danhsach', compact('tintimviecs'));
     }
     //form luu
@@ -48,9 +48,13 @@ class TinTimViecController extends Controller
     //form cap nhat
     public function edit($id)
     {
-        $tintimviec = TinTimViec::find($id);
-        $username=Auth::user();
-        return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
+        $tintimviec = Tintimviec::find($id);
+        if($tintimviec->user_id == Auth::user()->id || Auth::user()->role == 1){
+            $tintimviec = TinTimViec::find($id);
+            return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
+        }else{
+            return back();
+        }
     }
     //cap nhat
     public function update(CapNhatTinTimViecRequest $request, $id)
@@ -75,8 +79,13 @@ class TinTimViecController extends Controller
     //xoa
     public function destroy($id)
     {
-        TinTimViec::find($id)->delete();
+        $tintimviec = Tintimviec::find($id);
+        if($tintimviec->user_id == Auth::user()->id || Auth::user()->role == 1){
+            TinTimViec::find($id)->delete();
         return redirect()->route('tintimviec1.list');
+        }else{
+            return back();
+        }
     }
     //xoa nhieu
     public function destroyall(Request $request)
@@ -99,14 +108,5 @@ class TinTimViecController extends Controller
          $data['hoso'] = TinTimViec::find($id);
          $data['user'] = TinTimViec::find($id)->user;
          return view('hoso.chi-tiet-ho-so', $data);
-     }
-
-     public function search(Request $request)
-     {
-         $keywords = $request->keywords_submit;
-         $search_hoso = DB::table('tintimviecs')->where('ten','like','%'.$keywords.'%')
-         ->orWhere('nganhnghe','like','%'.$keywords.'%')->orWhere('diachi','like','%'.$keywords.'%')->get();
-
-         return view('tim-kiem')->with('search_hoso',$search_hoso);
      }
 }
