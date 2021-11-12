@@ -29,4 +29,15 @@ class UpdateUser extends FormRequest
             'role' => 'required'
         ];
     }
+    public function messages()
+    {
+        return [
+        'name.required' => "Vui lòng nhập vào trường Tên",
+        'email.required' => "Vui lòng nhập vào trường Email",
+        'email.unique' => "Email đã tồn tại",
+        'email.email'=> "Email không đúng định dạng",
+        'role'=> "Role không thể để trống"
+        ];
+
+    }
 }

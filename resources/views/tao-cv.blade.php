@@ -7,6 +7,7 @@
   <div class="container-fluid" style="text-align: justify;">
     <h3 style="text-align: center;">Hãy tự mình thiết kế một CV riêng</h3>
     <div class="container" id="content">
+      <div class="cvmau">
       <div class="row mt-4">
         <div class="col-md-10 text-center" id="tren">
           <div id="image-grid">
@@ -126,6 +127,7 @@
         </div>
         <div class="col-md-1"></div>
       </div>
+      </div>
     </div>
 
     <div class="div">
@@ -154,5 +156,6 @@
 
     </div>
   </div>
+</div>
 
-  @endsection
+@endsection

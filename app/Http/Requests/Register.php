@@ -34,9 +34,12 @@ class Register extends FormRequest
     public function messages()
     {
         return [
+            'name.required'=>"Vui lòng điền vào trường Tên",
+            'email.required'=>"Vui lòng điền vào trường Email",
             'email.unique'=>"Email đã tồn tại",
             'password.same'=>"Nhập lại mật khẩu không trùng khớp",
             'password.min'=>"Mật khẩu tối thiểu 8 kí tự",
+            'role.required'=>"Role không được để trống"
         ];
     }
 }
