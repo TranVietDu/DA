@@ -14,12 +14,13 @@ use App\Models\BinhLuan;
 
 class BlogController extends Controller
 {
-    //select all
-    public function index()
-    {
-        $blogs = User::find(Auth::user()->id)->blogs;
+     //select all
+     public function index()
+     {
+        $blogs = Blog::where('user_id','=',Auth::user()->id)->paginate(10);
         return View::make('blog.danhsach', compact('blogs'));
-    }
+     }
+
 
     public function blog()
     {
@@ -60,12 +61,12 @@ class BlogController extends Controller
             return redirect()->route('blog1.create')->withInput();
         }
     }
-
-    //form cap nhat
-    public function edit($id)
-    {
+     //form cap nhat
+     public function edit($id)
+     {
         $blog = Blog::find($id);
-        if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
+        if($blog->user_id == Auth::user()->id || Auth::user()->role == 1){
+            $blog = Blog::find($id);
             return View::make('blog.capnhat', compact('blog', 'id'));
         }
         else{
@@ -86,7 +87,6 @@ class BlogController extends Controller
                 $get_image->move('anh_blog', $new_image);
                 $data['anh'] = $new_image;
                 Blog::find($id)->update($data);
-
                 return redirect()->route('blog1.list');
             } else {
                 Blog::find($id)->update($data);
@@ -123,7 +123,6 @@ class BlogController extends Controller
         Blog::onlyTrashed()->restore();
         return redirect()->route('blog1.list');
     }
-
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;

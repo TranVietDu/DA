@@ -78,5 +78,4 @@ class Authcontroller extends Controller
         Auth::logout();
         return redirect('dangnhap');
     }
-
 }

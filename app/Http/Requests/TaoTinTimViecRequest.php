@@ -24,7 +24,7 @@ class TaoTinTimViecRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required|',
+            'user_id' => 'required',
             'ten' => 'required|string',
             'ngaysinh' => 'required|string',
             'gioitinh' => 'required|string',
@@ -32,7 +32,7 @@ class TaoTinTimViecRequest extends FormRequest
             'email' => 'required|string',
             'nganhnghe' => 'required|string',
             'diachi' => 'required|string',
-            'mota' => '',
+            'mota' => 'required|string',
             'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
@@ -54,6 +54,8 @@ class TaoTinTimViecRequest extends FormRequest
     {
         return [
             'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
+            'anh.image' => 'File được chọn không phải là ảnh',
+            'anh.mimes'=> 'Định dạng ảnh phải là: jpeg, png, jpg, gif, svg'
         ];
     }
 }

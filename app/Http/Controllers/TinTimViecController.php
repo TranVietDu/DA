@@ -17,7 +17,7 @@ class TinTimViecController extends Controller
     //select all
     public function index()
     {
-        $tintimviecs = User::find(Auth::user()->id)->tintimviecs;
+        $tintimviecs = TinTimViec::where('user_id','=',Auth::user()->id)->paginate(10);
         return View::make('tintimviec.danhsach', compact('tintimviecs'));
     }
     //form luu
@@ -47,7 +47,6 @@ class TinTimViecController extends Controller
     //form cap nhat
     public function edit($id)
     {
-
         $tintimviec = TinTimViec::find($id);
         if ($tintimviec->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             $username = Auth::user();
@@ -132,10 +131,6 @@ class TinTimViecController extends Controller
         if ($request->has('nganhnghe')) {
             $tintimviec->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
         }
-        // if ($request->has('birthday')) {
-        //     $user->whereDate('birthday', $request->birthday);
-        // }
-    
         return view('hoso.hosofilter')->with('timviec',$tintimviec->get());
         }
 }

@@ -57,6 +57,8 @@ class TaoTinTuyenDungRequest extends FormRequest
     {
         return [
             'required' => 'Vui lòng điền đầy đủ thông tin vào trường :attribute',
+            'anh.image' => 'File được chọn không phải là ảnh',
+            'anh.mimes'=> 'Định dạng ảnh phải là: jpeg, png, jpg, gif, svg'
         ];
     }
 }

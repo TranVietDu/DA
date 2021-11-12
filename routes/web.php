@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
+
+    //cap nhat thong tin ca nhan
+    Route::get('/cap-nhat-thong-tin/{id}', 'Admin\UserController@capnhatthongtin')->name('capnhatthongtin');
+    Route::put('/cap-nhat-thong-tin/{id}', 'Admin\UserController@capnhat')->name('capnhat');
+
+    //doi mat khau
+    Route::get('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhauthongtin')->name('doimatkhauthongtin');
+    Route::put('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhau')->name('doimatkhau');
+
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
     Route::get('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
@@ -128,9 +137,6 @@ Route::namespace('App\Http\Controllers')->group(function () {
         return view('dangki');
 
     })->middleware('login');;
-        //login-facebook
-    Route::get('/login-facebook','AuthController@login_facebook');
-    Route::get('/admin/callback','AuthController@callback_facebook');
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'Authcontroller@login')->name('login')->middleware('login');
     Route::post('dangki', 'Authcontroller@register')->name('dangki')->middleware('login');

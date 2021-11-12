@@ -41,9 +41,8 @@
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="email" name="email" value="{{old('email')}}" id="your_name" placeholder="Email"
                                  required
-                                @if (Auth::check())
+                                @if (!Cookie::get('email'))
                                 value="{{old('email')}}"
-
                                 @else
                                 value="{{ Cookie::get('email') }}"
                                 @endif
@@ -52,10 +51,10 @@
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="your_pass" placeholder="Mật Khẩu"
-                                @if (Cookie::has('password'))
-                                value="{{ Cookie::get('password') }}"
+                                @if (!Cookie::get('password'))
+                                value="{{old('password')}}"
                                 @else
-                                value="{{old('email')}}"
+                                value="{{ Cookie::get('password') }}"
                                 @endif
                                 required/>
                             </div>

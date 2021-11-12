@@ -73,6 +73,9 @@
                          @endforeach
                      </tbody>
                  </table>
+                 <div style="float: right;" class="phantrang">
+                    {!! $tintuyendungs->links() !!}
+                    </div>
               </div>
           </div>
       </div>
