@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Models\YKienNguoiDung;
 use Illuminate\Http\Request;
-
 class Ykiencontroller extends Controller
 {
     /**

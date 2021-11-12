@@ -23,7 +23,7 @@
         <div class="col-md-8 text-justify hososs">
           <h5>Họ Và Tên: {{$hoso->ten}}</h5>
           <h5>Ngày Sinh: {{$hoso->ngaysinh}}</h5>
-          <h5>Họ Và Tên: {{$hoso->gioitinh}}</h5>
+          <h5>Giới Tính: {{$hoso->gioitinh}}</h5>
           <h5>Ngành Nghề Mong Muốn: {{$hoso->nganhnghe}}</h5>
           <h5>Nhu Cầu Việc Làm: {!!html_entity_decode($hoso->mota)!!}</h5>
           <h5>Địa Chỉ: {{$hoso->diachi}}</h5>

@@ -73,7 +73,7 @@
       <div class="col-md-3">
       <div class="product-item">
         <a href="/blog/chi-tiet-blog/{{$blog->id}}">
-            <img class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
+            <img height="200px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
             <div class="card-body">
               <p style="font-size: large;" class="card-title">{{$blog->tieude}}</p>
               <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small>

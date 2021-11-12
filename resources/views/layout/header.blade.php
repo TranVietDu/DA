@@ -36,7 +36,6 @@
                </button>
                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                 <b>{{Auth::user()->name}}</b>
-                <a class="dropdown-item" href="">QL Tài khoản</a>
                 <hr>
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>

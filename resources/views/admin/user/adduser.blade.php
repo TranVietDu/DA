@@ -37,10 +37,10 @@
 
                                 <!-- First Name -->
                                 <div class="input-group col-lg-6 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="text" name="name" placeholder="Họ Và Tên" class="form-control bg-white border-left-0 border-md">
+                                    <input style="border-radius: 10px;" required="" type="text" name="name" value="{{old('name')}}" placeholder="Họ Và Tên" class="form-control bg-white border-left-0 border-md">
                                 </div>
                                 <div class="input-group col-lg-12 mb-4">
-                                    <input style="border-radius: 10px;" required="" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                                    <input style="border-radius: 10px;" required="" type="email" name="email" value="{{old('email')}}" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
                                 </div>
 
 
