@@ -19,7 +19,7 @@
       <div class="col-md-3">
         <div class="contact-form">
           <form action="{{route('filter')}}" method="get">
-          <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
 
             <br>
 
@@ -67,9 +67,6 @@
                 <small>Hòa Vang</small>
               </label>
             </div>
-
-            <br>
-
             <h5 style="margin-bottom: 15px">Ngành Nghề</h5>
 
             <div>
@@ -103,16 +100,16 @@
                 <small>Pha Chế</small>
               </label>
             </div>
-
-
-            <br>
         </div>
         </form>
       </div>
       <div class="col-md-9">
         <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tuyển Dụng</h4>
         <div class="row">
-          @foreach ($vieclams as $val)
+          @if($vieclam->isEmpty())
+          <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
+          @else
+          @foreach ($vieclam as $val)
           <div class="col-md-4">
             <div class="product-item">
               <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
@@ -132,16 +129,13 @@
             </div>
           </div>
           @endforeach
+          @endif
         </div>
-        <div class="phantrang text-center">
-          {!! $vieclams->links() !!}
-        </div>
-
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function() {
 
     $('#sort').on('change', function() {
@@ -152,5 +146,5 @@
       return false;
     });
   });
-</script>
+</script> -->
 @endsection

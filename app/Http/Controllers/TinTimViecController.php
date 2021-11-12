@@ -39,8 +39,7 @@ class TinTimViecController extends Controller
             TinTimViec::create($data);
 
             return redirect()->route('tintimviec1.list');
-        }
-        else{
+        } else {
             return back()->withInput();
         }
     }
@@ -48,43 +47,47 @@ class TinTimViecController extends Controller
     //form cap nhat
     public function edit($id)
     {
-        $tintimviec = Tintimviec::find($id);
-        if($tintimviec->user_id == Auth::user()->id || Auth::user()->role == 1){
-            $tintimviec = TinTimViec::find($id);
+        $tintimviec = TinTimViec::find($id);
+        if ($tintimviec->user_id == Auth::user()->id  || Auth::user()->role == 1) {
+            $username = Auth::user();
             return View::make('tintimviec.capnhat', compact('tintimviec', 'id'));
-        }else{
-            return back();
+        } else {
+            return view('404');
         }
     }
     //cap nhat
     public function update(CapNhatTinTimViecRequest $request, $id)
     {
-        $data = $request->validated();
-        $get_image = $request->file('anh');
-        if ($get_image) {
-            $get_name_image = $get_image->getClientOriginalName();
-            $name_image = current(explode('.', $get_name_image));
-            $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
-            $get_image->move('anh_tintimviec', $new_image);
-            $data['anh'] = $new_image;
-            TinTimViec::find($id)->update($data);
-            return redirect()->route('tintimviec1.list');
-        }
-        else{
-            TinTimViec::find($id)->update($data);
-            return redirect()->route('tintimviec1.list');
+        $tintimviec = TinTimViec::find($id);
+        if ($tintimviec->user_id == Auth::user()->id  || Auth::user()->role == 1) {
+            $data = $request->validated();
+            $get_image = $request->file('anh');
+            if ($get_image) {
+                $get_name_image = $get_image->getClientOriginalName();
+                $name_image = current(explode('.', $get_name_image));
+                $new_image = $name_image . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+                $get_image->move('anh_tintimviec', $new_image);
+                $data['anh'] = $new_image;
+                TinTimViec::find($id)->update($data);
+                return redirect()->route('tintimviec1.list');
+            } else {
+                TinTimViec::find($id)->update($data);
+                return redirect()->route('tintimviec1.list');
+            }
+        } else {
+            return view('404');
         }
     }
 
     //xoa
     public function destroy($id)
     {
-        $tintimviec = Tintimviec::find($id);
-        if($tintimviec->user_id == Auth::user()->id || Auth::user()->role == 1){
+        $tintimviec = TinTimViec::find($id);
+        if ($tintimviec->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             TinTimViec::find($id)->delete();
-        return redirect()->route('tintimviec1.list');
-        }else{
-            return back();
+            return redirect()->route('tintimviec1.list');
+        } else {
+            return view('404');
         }
     }
     //xoa nhieu
@@ -95,9 +98,9 @@ class TinTimViecController extends Controller
         return redirect()->route('tintimviec1.list');
     }
 
-     //khoi phuc TinTimViec da xoa
-     public function restore()
-     {
+    //khoi phuc TinTimViec da xoa
+    public function restore()
+    {
         TinTimViec::onlyTrashed()->restore();
         return redirect()->route('tintimviec1.list');
      }
@@ -109,4 +112,27 @@ class TinTimViecController extends Controller
          $data['user'] = TinTimViec::find($id)->user;
          return view('hoso.chi-tiet-ho-so', $data);
      }
+
+    public function search(Request $request)
+    {
+        $keywords = $request->keywords_submit;
+        $search_hoso = DB::table('tintimviecs')->where('ten', 'like', '%' . $keywords . '%')
+            ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->get();
+
+        return view('tim-kiem')->with('search_hoso', $search_hoso);
+    }
+    public function filter(Request $request){
+        $tintimviec = TinTimViec::query();
+        if ($request->has('gioitinh')) {
+            $tintimviec->where('gioitinh',$request->gioitinh);
+        }
+        if ($request->has('nganhnghe')) {
+            $tintimviec->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
+        }
+        // if ($request->has('birthday')) {
+        //     $user->whereDate('birthday', $request->birthday);
+        // }
+
+        return view('hoso.hosofilter')->with('timviec',$tintimviec->get());
+        }
 }

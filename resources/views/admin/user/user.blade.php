@@ -99,8 +99,8 @@
                         </tbody>
                     </table>
                     <div style="float: right;" class="phantrang">
-                    {!! $all->links() !!} 
-                    </div>     
+                        {!! $all->links() !!}
+                    </div>
                     <script type="text/javascript">
                         $('#search').on('keyup', function() {
                             $value = $(this).val();
@@ -119,6 +119,26 @@
                             headers: {
                                 'csrftoken': '{{ csrf_token() }}'
                             }
+                        });
+                    </script>
+                    {{-- xoa 1 --}}
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+                    <script type="text/javascript">
+                        $('.show_confirm').click(function(event) {
+                            var form = $(this).closest("form");
+                            var name = $(this).data("name");
+                            event.preventDefault();
+                            swal({
+                                    title: `Bạn có muốn xóa người dùng này không?`,
+                                    icon: "warning",
+                                    buttons: true,
+                                    dangerMode: true,
+                                })
+                                .then((willDelete) => {
+                                    if (willDelete) {
+                                        form.submit();
+                                    }
+                                });
                         });
                     </script>
                 </div>

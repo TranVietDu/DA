@@ -31,7 +31,12 @@ class CapNhatUserRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.unique'=> 'Email đã tồn tại',
+        'name.required' => "Vui lòng nhập vào trường Tên",
+        'email.required' => "Vui lòng nhập vào trường Email",
+        'email.unique' => "Email đã tồn tại",
+        'email.email'=> "Email không đúng định dạng",
+        'role'=> "Role không thể để trống"
         ];
+
     }
 }

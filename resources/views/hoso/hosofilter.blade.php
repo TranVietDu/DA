@@ -21,9 +21,9 @@
             <div class="col-md-3">
                 <div class="contact-form">
                     <form action="{{route('timviecfiter')}}" method="get">
-                    <h5>
-                        <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
-                    </h5>
+                        <h5>
+                            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+                        </h5>
                         <h5 style="margin-bottom: 15px">Giới Tính</h5>
                         <div>
                             <label>
@@ -48,14 +48,14 @@
 
                         <div>
                             <label>
-                                <input type="radio" name="nganhnghe" value="Phục Vụ" >
+                                <input type="radio" value="Phục Vụ" name="nganhnghe">
                                 <small>Phục Vụ</small>
                             </label>
                         </div>
 
                         <div>
                             <label>
-                                <input type="radio" name="nganhnghe" value="Bàn Hàng">
+                                <input type="radio" value="Bán Hàng" name="nganhnghe">
 
                                 <small>Bán Hàng</small>
                             </label>
@@ -63,7 +63,7 @@
 
                         <div>
                             <label>
-                                <input type="radio" name="nganhnghe" value="Gia Sư" >
+                                <input type="radio" value="Gia sư" name="nganhnghe">
 
                                 <small>Gia sư</small>
                             </label>
@@ -71,7 +71,7 @@
 
                         <div>
                             <label>
-                                <input type="radio" name="nganhnghe" value="Pha Chế">
+                                <input type="radio" value="Pha Chế" name="nganhnghe">
                                 <small>Pha Chế</small>
                             </label>
                         </div>
@@ -81,9 +81,12 @@
                 </form>
             </div>
             <div class="col-md-9">
-            <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tìm Việc</h4>
+                <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tìm Việc</h4>
                 <div class="row">
-                    @foreach($timviecs as $al)
+                    @if($timviec->isEmpty())
+                        <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
+                    @else
+                    @foreach($timviec as $al)
                     <div class="col-md-6">
                         <div class="product-item">
                             <a href="/hoso/chi-tiet-ho-so/{{$al->id}}">
@@ -95,7 +98,7 @@
                                         <div class="down-content">
                                             <h4>{{$al->ten}}</h4>
 
-                                            <p><i class="fas fa-briefcase"></i>  {{$al->nganhnghe}}</p>
+                                            <p><i class="fas fa-briefcase"></i> {{$al->nganhnghe}}</p>
                                             <small>
                                                 <strong title="Posted on"><i class="fa fa-calendar"></i> {{$al->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <strong title="Location"><i class="fa fa-map-marker"></i> {{$al->diachi}}</strong>
@@ -104,19 +107,16 @@
                                     </div>
                                 </div>
                             </a>
-
                         </div>
                     </div>
                     @endforeach
+                    @endif
                 </div>
-                <div class="phantrang text-center">
-                    {!! $timviecs->links() !!} 
-                    </div> 
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function() {
 
         $('#sort').on('change', function() {
@@ -127,5 +127,5 @@
             return false;
         });
     });
-</script>
+</script> -->
 @endsection

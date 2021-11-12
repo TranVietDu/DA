@@ -51,8 +51,14 @@ class Usercontroller extends Controller
         $user->email = $request->email;
         $user->password=bcrypt($request->password);
         $user->role=$request->role;
-        $user->save();
-        return redirect()->route('user.index');
+        $adduser=$user->save();
+        if($adduser){
+            return redirect()->route('user.index');
+        }
+        else{
+            return back()->with($request->only('name,email'));
+        }
+       
     }
 
     /**
@@ -86,6 +92,14 @@ class Usercontroller extends Controller
      */
     public function update(AdminCapNhatUserRequest $request, User $user)
     {
+        $request->validate(
+            [
+                'email'=>'unique:users,email,'.$user->id,
+            ],
+            [
+                'email.unique'=>'Email đã tồn tại',
+            ]
+            );
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role=$request->role;

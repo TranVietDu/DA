@@ -73,7 +73,7 @@ Route::get('/tao-cv', function () {
 });
 
 // qltaikhoan
-Route::get('quanlitaikhoan','App\Http\Controllers\Admin\Usercontroller@quanlitaikhoan');
+
 // QUAN LI TIN TUYEN DUNG
 Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>['auth','checktuyendung']], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
@@ -85,6 +85,10 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
+// filter vieclam
+Route::get('vieclam/vieclamfilter','App\Http\Controllers\TinTuyenDungController@filter')->name('filter');
+// filter timviec
+Route::get('hoso/timviecfilter','App\Http\Controllers\TinTimViecController@filter')->name('timviecfiter');
 // QUAN LI TIN TIM VIEC
 Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>['auth', 'checktimviec']], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');

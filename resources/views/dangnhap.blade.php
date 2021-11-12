@@ -39,7 +39,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" name="email" id="your_name" placeholder="Email"
+                                <input type="email" name="email" value="{{old('email')}}" id="your_name" placeholder="Email"
                                  required
                                 @if (!Cookie::get('email'))
                                 value="{{old('email')}}"
