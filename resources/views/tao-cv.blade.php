@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('content')
-<!-- content -->
 <div class="services">
   <!-- content -->
   <div class="container-fluid" style="text-align: justify;">
@@ -154,5 +153,5 @@
 
     </div>
   </div>
-
+</div>
   @endsection
