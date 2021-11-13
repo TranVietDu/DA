@@ -85,41 +85,9 @@ class BlogController extends Controller
                 $get_image->move('anh_blog', $new_image);
                 $data['anh'] = $new_image;
                 Blog::find($id)->update($data);
-     //xoa
-     public function destroy($id)
-     {
-        $blog = Blog::find($id);
-        if($blog->user_id == Auth::user()->id || Auth::user()->role == 1){
-            Blog::find($id)->delete();
-            return redirect()->route('blog1.list');
-        }else{
-            return back();
-        }
-     }
-     //xoa nhieu
-     public function destroyall(Request $request)
-     {
-         $ids = $request->ids;
-         Blog::whereIn('id', $ids)->delete();
-         return redirect()->route('blog1.list');
-     }
-      //khoi phuc tin da xoa
-      public function restore()
-      {
-          Blog::onlyTrashed()->restore();
-          return redirect()->route('blog1.list');
-      }
-                return redirect()->route('blog1.list');
-            } else {
-                Blog::find($id)->update($data);
-
-                return redirect()->route('blog1.list');
             }
-        } else {
-            return view('404');
         }
     }
-
     //xoa
     public function destroy($id)
     {

@@ -103,15 +103,18 @@ class TinTimViecController extends Controller
     {
         TinTimViec::onlyTrashed()->restore();
         return redirect()->route('tintimviec1.list');
-     }
-     public function vieclamview(){
-         return view('hoso.hoso');
-     }
-     public function chitiethoso($id){
-         $data['hoso'] = TinTimViec::find($id);
-         $data['user'] = TinTimViec::find($id)->user;
-         return view('hoso.chi-tiet-ho-so', $data);
-     }
+    }
+    public function vieclamview()
+    {
+        return view('hoso.hoso');
+    }
+    public function chitiethoso($id)
+    {
+        $data['hoso'] = TinTimViec::find($id);
+        $data['user'] = TinTimViec::find($id)->user;
+        return view('hoso.chi-tiet-ho-so', $data);
+    }
+
 
     public function search(Request $request)
     {
@@ -132,7 +135,6 @@ class TinTimViecController extends Controller
         // if ($request->has('birthday')) {
         //     $user->whereDate('birthday', $request->birthday);
         // }
-
         return view('hoso.hosofilter')->with('timviec',$tintimviec->get());
         }
 }
