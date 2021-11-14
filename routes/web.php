@@ -26,7 +26,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
-    Route::get('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+    Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
     //Viec lam Index
     Route::get('/', 'TinTuyenDungController@index')->name('home');
     // Viec lam
@@ -134,9 +134,7 @@ Route::get('admin/user/adduser', function () {
 //dang nhap
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
-        return view('dangki');
-
-    })->middleware('login');;
+        return view('dangki');})->middleware('login');;
     Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'Authcontroller@login')->name('login')->middleware('login');
     Route::post('dangki', 'Authcontroller@register')->name('dangki')->middleware('login');
