@@ -44,7 +44,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('blog', 'BlogController@blog');
 
     //3 Blog trang Blog
-    Route::get('blog', 'BlogController@blogganday');
+    Route::get('blog', 'BlogController@blogxemnhieu');
 
     //Chi tiet Blog
     Route::get('/blog/chi-tiet-blog/{id}', 'BLogController@chitietblog');

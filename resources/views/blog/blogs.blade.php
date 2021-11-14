@@ -50,8 +50,8 @@
         </div>
         <br>
         <div class="form-group blognear">
-          <h5 style="margin-bottom: 20px;">Các Blogs gần đây</h5>
-          @foreach($blogganday as $blog)
+          <h5 style="margin-bottom: 20px;">Xem nhiều nhất</h5>
+          @foreach($blogxemnhieu as $blog)
           <div style="margin: 10px;" class="blogss">
             <a href="/blog/chi-tiet-blog/{{$blog->id}}">
               <div class="product-item">
@@ -59,7 +59,8 @@
                   <img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="">
                 </div>
                 <div style="text-align: center">
-                  <b class="small">{{$blog->tieude}}</b>
+                  <b class="small">{{$blog->tieude}} | {{$blog->luotxem}}
+                    <i class="fa fa-eye" aria-hidden="true"></i></b>
                 </div>
               </div>
             </a>
@@ -76,7 +77,16 @@
             <img height="200px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
             <div class="card-body">
               <p style="font-size: large;" class="card-title">{{$blog->tieude}}</p>
-              <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small>
+              <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small><br>
+              <i><small>
+                Lượt xem:
+                @if (isset($blog->luotxem))
+                {{$blog->luotxem}}
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                @else
+                {{'Chưa có'}}
+                @endif
+            </small></i>
             </div>
         </a>
       </div>

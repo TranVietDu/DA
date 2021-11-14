@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="{{asset('assets/tin-tuyen-dung.css')}}">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/cvmau.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/taocv.css')}}">

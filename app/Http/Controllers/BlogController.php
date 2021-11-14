@@ -26,15 +26,18 @@ class BlogController extends Controller
         $blogs = BLog::simplePaginate(10);
         return View::make('blog.blogs', compact('blogs'));
     }
-    public function blogganday()
+    public function blogxemnhieu()
     {
-        $blogganday = BLog::limit(3)->get();
-        return View::make('blog.blogs', compact('blogganday'));
+        $blogxemnhieu = Blog::orderBy('luotxem', 'DESC')->take(2)->get();
+        return View::make('blog.blogs', compact('blogxemnhieu'));
     }
     public function chitietblog($id)
     {
         $data['blog'] = BLog::find($id);
         $data['comments'] = BinhLuan::where('blog_id', $id)->get();
+        $blog_view = BLog::find($id);
+        $blog_view->luotxem = $blog_view->luotxem + 1;
+        $blog_view->save();
         return view('blog.chi-tiet-blog', $data);
     }
     //form luu
