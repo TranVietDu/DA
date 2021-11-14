@@ -1,12 +1,12 @@
-
 <?php
 
 namespace App\Http\Controllers;
 
 
+use App\Mail\Mail as MailMail;
+
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
-
 use App\Models\TinTuyenDung;
 
 class MailController extends Controller
@@ -21,7 +21,7 @@ class MailController extends Controller
             'file' => $request->file('file')
         ];
         $email=$request->email;
-        /Mail::to($email)->send(new Mail($data));
+        Mail::to($email)->send(new Mail($data));
         return back()->with('thongbao','Gửi CV Thành Công, Vui Lòng Chờ Nhà Tuyển Dụng Liên Hệ');
     }
 }

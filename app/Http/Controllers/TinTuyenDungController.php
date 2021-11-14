@@ -145,9 +145,6 @@ class TinTuyenDungController extends Controller
     if ($request->has('nganhnghe')) {
         $tintuyendung->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
     }
-    // if ($request->has('birthday')) {
-    //     $user->whereDate('birthday', $request->birthday);
-    // }
 
     return view('vieclam.vieclamfilter')->with('vieclam',$tintuyendung->get());
     }

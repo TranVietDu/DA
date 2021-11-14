@@ -1,19 +1,6 @@
 @extends('master')
 
 @section('content')
-<!-- Page Content -->
-<!-- <div class="page-heading about-heading header-text" style="background-image: url(https://blogcdn.muaban.net/wp-content/uploads/2018/01/h%E1%BB%93-s%C6%A1-%E1%BB%A9ng-vi%C3%AAn-t%C3%ACm-vi%E1%BB%87c-2.jpg);">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-content">
-                    <h4></h4>
-                    <h2></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <img width="100%" height="300px" src="https://blogcdn.muaban.net/wp-content/uploads/2018/01/h%E1%BB%93-s%C6%A1-%E1%BB%A9ng-vi%C3%AAn-t%C3%ACm-vi%E1%BB%87c-2.jpg" alt="">
 <div class="products">
     <div class="container">

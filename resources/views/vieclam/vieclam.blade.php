@@ -19,7 +19,7 @@
       <div class="col-md-3">
         <div class="contact-form">
           <form action="{{route('filter')}}" method="get">
-          <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+          <button type="submit" class="btn btn-primary btn-sm float-right">Lọc <i class="fa fa-filter" aria-hidden="true"></i></button>
 
             <br>
 
@@ -27,26 +27,26 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Hải Châu" name="diadiem">
+                <input type="radio" value="Hải Châu" name="diadiem">
                 <small>Hải Châu</small>
               </label>
             </div>
             <div>
               <label>
-                <input type="checkbox" value="Thanh Khê" name="diadiem">
+                <input type="radio" value="Thanh Khê" name="diadiem">
                 <small>Thanh Khê</small>
               </label>
             </div>
             <div>
               <label>
-                <input type="checkbox" value="Ngũ Hành Sơn" name="diadiem">
+                <input type="radio" value="Ngũ Hành Sơn" name="diadiem">
                 <small>Ngũ Hành Sơn</small>
               </label>
             </div>
 
             <div>
               <label>
-                <input type="checkbox" value="Sơn Trà" name="diadiem">
+                <input type="radio" value="Sơn Trà" name="diadiem">
 
                 <small>Sơn Trà</small>
               </label>
@@ -54,7 +54,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Cẩm Lệ" name="diadiem">
+                <input type="radio" value="Cẩm Lệ" name="diadiem">
 
                 <small>Cẩm Lệ</small>
               </label>
@@ -62,7 +62,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Hòa Vang" name="diadiem">
+                <input type="radio" value="Hòa Vang" name="diadiem">
 
                 <small>Hòa Vang</small>
               </label>
@@ -74,7 +74,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Phục Vụ" name="nganhnghe">
+                <input type="radio" value="Phục Vụ" name="nganhnghe">
 
                 <small>Phục Vụ</small>
               </label>
@@ -82,7 +82,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Bán Hàng" name="nganhnghe">
+                <input type="radio" value="Bán Hàng" name="nganhnghe">
 
                 <small>Bán Hàng</small>
               </label>
@@ -90,7 +90,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Gia Sư" name="nganhnghe">
+                <input type="radio" value="Gia Sư" name="nganhnghe">
 
                 <small>Gia Sư</small>
               </label>
@@ -98,7 +98,7 @@
 
             <div>
               <label>
-                <input type="checkbox" value="Pha Chế" name="nganhnghe">
+                <input type="radio" value="Pha Chế" name="nganhnghe">
 
                 <small>Pha Chế</small>
               </label>
