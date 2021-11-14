@@ -25,9 +25,7 @@ class AdminCapNhatUserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|required_with:repassword|same:repassword',
-            'repassword' => 'required',
+            'email' => 'required|email',
             'role'=>'required'
         ];
     }
@@ -35,10 +33,8 @@ class AdminCapNhatUserRequest extends FormRequest
     {
         return [
             'name.required' => 'Vui lòng điền vào trường Tên',
-            'email.unique'=> 'Email đã tồn tại',
             'role.required' => 'Vui lòng điền vào trường Phân quyền',
-            'password.same'=>"Nhập lại mật khẩu không trùng khớp",
-            'password.min'=>"Mật khẩu tối thiểu 8 kí tự",
+            'email.required' => 'Vui lòng điền vào trường Email'
         ];
     }
 }
