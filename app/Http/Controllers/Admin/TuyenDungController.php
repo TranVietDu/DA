@@ -85,4 +85,31 @@ class TuyenDungController extends Controller
         $tintuyendung->delete();
         return redirect()->route('tintuyendung.index')->with('thongbao','Xóa Thành Công');
     }
+    public function search(Request $request){
+        if ($request->ajax()) {
+            $output = '';
+            $timtuyendungs=Tintuyendung::where('tieude','like','%'.$request->search.'%')
+                        ->orwhere('nganhnghe','like','%'.$request->search.'%')->get();
+            foreach ($timtuyendungs as $key => $al) {
+                                $i=1;
+                                $output .= '<tr>
+                                <td>'.$al->id.'</td>
+                                <td><img src="{{ asset("anh_tintuyendung/".$al->anh) }}" width="100px" class="img-flush" alt=""></td>
+                                <td>'.$al->tieude.'</td>
+                                <td>'.$al->nganhnghe.'</td>
+                                <td>'.$al->soluong.'</td>
+                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                                <td><a href="/admin/user/'.$al->id.'/edit"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
+                                <td>
+                                        <form action="/admin/user/'.$al->id.'" method="post">
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                   </td>
+                                </tr>';
+                            }
+                        }
+                        return Response($output);
+                    }
+
 }

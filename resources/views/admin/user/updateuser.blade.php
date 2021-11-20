@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Update User')
+@section('title', 'Cập nhật người dùng')
 
 
 @section('content')

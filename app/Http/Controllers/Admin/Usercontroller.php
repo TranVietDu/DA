@@ -122,7 +122,7 @@ class Usercontroller extends Controller
         if ($request->ajax()) {
         $output = '';
         $users=User::where('name','like','%'.$request->search.'%')
-                    ->orwhere('email',$request->search)->get();
+                    ->orwhere('email','like','%'.$request->search.'%')->get();
         foreach ($users as $key => $al) {
                             $i=1;
                             $output .= '<tr>
@@ -130,7 +130,12 @@ class Usercontroller extends Controller
                             <td>'.$al->name.'</td>
                             <td>'.$al->email.'</td>
                             <td>'.$al->role.'</td>
-                            <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                            if($al->role==2){
+                            <td><a href="/admin/user/xembaituyen/'.$al->id.'"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                            }
+                            if($al->role==3){
+                            <td><a href="admin/user/xembaitim/'.$al->id.'"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
+                            }
                             <td><a href="/admin/user/'.$al->id.'/edit"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                             <td>
                                     <form action="/admin/user/'.$al->id.'" method="post">

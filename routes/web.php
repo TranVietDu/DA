@@ -158,6 +158,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
         Route::get('admin/tintuyendung/{tintuyendung}/edit','TuyenDungController@edit')->name('tintuyendung.edit');
+        Route::get('admin/tintuyendung/search','TuyenDungController@search')->name('tintuyendung.search');
         // Tintimviec
         Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
         Route::delete('admin/tintimviec/{tinTimViec}','TimViecController@destroy')->name('tintimviec.destroy');

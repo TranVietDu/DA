@@ -1,7 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Manager User')
-
+@section('title', 'Quản lí tin tìm việc')
 
 @section('content')
 <div id="layoutSidenav_content">

@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Manager User')
+@section('title', 'Quản lí tin tuyển dụng')
 
 
 @section('content')
@@ -33,7 +33,7 @@
                     <i class="fas fa-table me-1"></i>
                     Tin Tuyển Dụng
                     <form class="form-inline" action="" method="get">
-                    <input type="search" name="search" id="">
+                    <input type="search" name="search" id="search">
                     <button class="btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -91,6 +91,27 @@
                 </div>
             </div>
         </div>
+        <!-- Search ajax -->
+        <script type="text/javascript">
+                        $('#search').on('keyup', function() {
+                            $value = $(this).val();
+                            $.ajax({
+                                type: 'get',
+                                url: '/admin/tintuyendung/search',
+                                data: {
+                                    'search': $value
+                                },
+                                success: function(data) {
+                                    $('tbody').html(data);
+                                }
+                            });
+                        })
+                        $.ajaxSetup({
+                            headers: {
+                                'csrftoken': '{{ csrf_token() }}'
+                            }
+                        });
+                    </script>
         {{-- xoa 1 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">

@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Add User')
+@section('title', 'Thêm người dùng')
 
 
 @section('content')

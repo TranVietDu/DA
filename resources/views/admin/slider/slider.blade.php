@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Manager User')
+@section('title', 'Quản lí slider')
 
 
 @section('content')

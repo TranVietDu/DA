@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Manager User')
+@section('title', 'Thêm slide')
 
 
 @section('content')
