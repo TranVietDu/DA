@@ -15,59 +15,59 @@
           <img id="output" />
           <label for="file" class="lable">
           </label>
-          <h2 contenteditable="" role="textbox" aria-multiline="true" spellcheck="false" onclick="myFunction()" class="sua" style="margin-top: 10px;"><b>Nguyễn Hữu Thường</b></h2>
-          <h5 contenteditable="">Nhân Viên Phục Vụ</h5>
+          <h2 contenteditable="true" onclick="myFunction()" class="sua" style="margin: 10px 0;"><b>Nguyễn Hữu Thường</b></h2>
+          <h5 contenteditable="true">Nhân Viên Phục Vụ</h5>
         </div>
       </div>
-      <div class="row mt-4" style="background-color: white;">
+      <div class="row mt-4">
         <div class="col-md-1"></div>
         <div class="col-md-5" id="trai">
-          <div id="lienhe">
+          <div id="lienhe" style="margin-bottom: 10px">
             <h5 class="tieude1"><b>
                 <i class="fas fa-info-circle"></i>
                 THÔNG TIN LIÊN HỆ</b></h5>
             <ul class="ul">
-              <li><b>Giới tính: </b> <span contenteditable="" id="thongtin"> Nam</span></li>
-              <li><b>Ngày sinh: </b> <span contenteditable="" id="thongtin">27/02/2002</span></li>
-              <li><b>Điện thoại: </b> <span contenteditable="" id="thongtin">0338742355</span></li>
-              <li><b>Facebook:</b> <span contenteditable="" id="thongtin">facebook.com</span></li>
-              <li><b>Địa chỉ: </b> <span contenteditable="" id="thongtin">Đà nẵng</span></li>
+              <li>Giới tính: <span contenteditable="true"> Nam</span></li>
+              <li>Ngày sinh: <span contenteditable="true">27/02/2002</span></li>
+              <li>Điện thoại: <span contenteditable="true">0338742355</span></li>
+              <li>Facebook:<span contenteditable="true">facebook.com</span></li>
+              <li>Địa chỉ: <span contenteditable="true">Đà nẵng</span></li>
             </ul>
           </div>
-          <div id="tomtatbanthan">
+          <div id="tomtatbanthan" style="margin-bottom: 10px">
             <h5 class="tieude1"><b>
                 <i class="fa fa-user" aria-hidden="true"></i>
                 TÓM TẮT BẢN THÂN</b></h5>
             <ul>
-              <li contenteditable="">
-                <p style="color: black">Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
+              <li contenteditable="true">
+                <p style="color: white">Đam mê muốn làm phục vụ ngay từ khi đang là học sinh.</p>
               </li>
-              <li contenteditable="">
-                <p style="color: black">Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
+              <li contenteditable="true">
+                <p style="color: white">Là một người điềm tĩnh, thích ứng nhanh với môi trường mới, không ngại khó khăn, hứng thú trong việc
                   tìm ra hướng giải quyết vấn đề.</p>
               </li>
             </ul>
           </div>
-          <div id="kynang">
+          <div id="kynang" style="margin-bottom: 10px">
             <h5 class="tieude1"><b>
                 <i class="fa fa-cogs" aria-hidden="true"></i>
                 CÁC KỸ NĂNG</b></h5>
             <ul class="ul list-unstyled">
-              <li contenteditable="">Giao tiếp</li>
+              <li contenteditable="true">Giao tiếp</li>
               <input type="range" name="" id="" class="range" value="90">
-              <li contenteditable="">Chăm sóc khách hàng</li>
+              <li contenteditable="true">Chăm sóc khách hàng</li>
               <input type="range" name="" id="" class="range" value="70">
-              <li contenteditable="">Làm việc dưới áp lực</li>
+              <li contenteditable="true">Làm việc dưới áp lực</li>
               <input type="range" name="" id="" class="range" value="80">
-              <li contenteditable="">Giải quyết vấn đề</li>
+              <li contenteditable="true">Giải quyết vấn đề</li>
               <input type="range" name="" id="" class="range" value="60">
             </ul>
           </div>
-          <div id="sothich">
+          <div id="sothich" style="margin-bottom: 10px">
             <h5 class="tieude1"><b>
                 <i class="fa fa-pinterest"></i>
                 SỞ THÍCH</b></h5>
-            <p contenteditable="" style="color: black">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
+            <p contenteditable="true" style="color: white">Thích đọc sách, chơi thể thao đặc biệt là đá bóng.</p>
           </div>
         </div>
         <div class="col-md-5 phai">
@@ -77,10 +77,10 @@
                 TRÌNH ĐỘ HỌC VẤN</b></h5>
             <div class="row">
               <div class="col-md-3">
-                <p contenteditable=""><b>Hiện nay</b></p>
+                <p contenteditable="true"><b>Hiện nay</b></p>
               </div>
               <div class="col-md-8">
-                <p contenteditable="">Đang là sinh viên tại trường Đại Học Việt Hàn</p>
+                <p contenteditable="true">Đang là sinh viên tại trường Đại Học Việt Hàn</p>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@
             <h5 class="tieude"><b>
                 <i class="fa fa-bullseye" aria-hidden="true"></i>
                 MỤC TIÊU NGHỀ NGHIỆP</b></h5>
-            <p contenteditable="">Thích nghi nhanh với môi trường làm việc, cung cấp các dịch vụ chất lượng theo quy
+            <p contenteditable="true">Thích nghi nhanh với môi trường làm việc, cung cấp các dịch vụ chất lượng theo quy
               trình, quy định của nhà hàng/ cửa hàng, thu hút thêm nhiều khác hàng.</p>
           </div>
           <div id="kinhnghiem">
@@ -97,29 +97,29 @@
                 KINH NGHIỆM LÀM VIỆC</b></h5>
             <div class="row">
               <div class="col-md-4">
-                <p contenteditable=""><b>05/2019</b></p>
+                <p contenteditable="true"><b>05/2019</b></p>
               </div>
               <div class="col-md-8">
-                <p contenteditable=""><b> Coffee Garden</b></p>
-                <p contenteditable="">Nhân viên phục vụ tại quán</p>
+                <p contenteditable="true"><b> Coffee Garden</b></p>
+                <p contenteditable="true">Nhân viên phục vụ tại quán</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <p contenteditable=""><b>11/2019</b></p>
+                <p contenteditable="true"><b>11/2019</b></p>
               </div>
               <div class="col-md-8">
-                <p contenteditable=""><b>Quán nhậu Hải Sản RUBI</b></p>
-                <p contenteditable="">Nhân viên tiếp thị, phục vụ bàn tại quán</p>
+                <p contenteditable="true"><b>Quán nhậu Hải Sản RUBI</b></p>
+                <p contenteditable="true">Nhân viên tiếp thị, phục vụ bàn tại quán</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <p contenteditable=""><b>01/2020</b></p>
+                <p contenteditable="true"><b>01/2020</b></p>
               </div>
               <div class="col-md-8">
-                <p contenteditable=""><b>Nhà Hàng Thăng Long</b></p>
-                <p contenteditable="">Dọn dẹp, setup bàn ăn, thay chén đĩa, dụng cụ cho khách</p>
+                <p contenteditable="true"><b>Nhà Hàng Thăng Long</b></p>
+                <p contenteditable="true">Dọn dẹp, setup bàn ăn, thay chén đĩa, dụng cụ cho khách</p>
               </div>
             </div>
           </div>

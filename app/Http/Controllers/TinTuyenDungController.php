@@ -145,6 +145,9 @@ class TinTuyenDungController extends Controller
     if ($request->has('nganhnghe')) {
         $tintuyendung->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
     }
+    if ($request->has('thoigian')) {
+        $tintuyendung->where('thoigian', 'LIKE', '%' . $request->thoigian . '%');
+    }
 
     return view('vieclam.vieclamfilter')->with('vieclam',$tintuyendung->get());
     }

@@ -25,8 +25,8 @@
               <a href="/blog/chi-tiet-blog/{{$blog->id}}" class="services-item-image"><img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" class="img-fluid" alt=""></a>
               <div class="down-content">
                 <h4><a href="/blog/chi-tiet-blog/{{$blog->id}}">{{$blog->tieude}}</a></h4>
-                <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
-                <p style="margin: 0;float: right;">Tác Giả: {{$blog->tennguoiviet}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
+                <p class="text-justify">{!!html_entity_decode($blog->noidung)!!} <br>
+                <span style="float: right;"><small>Tác Giả: {{$blog->tennguoiviet}}</small></span></p>
               </div>
             </div>
           </div>
@@ -70,6 +70,10 @@
       </div>
     </div>
     <div class="row">
+        <div class="col-12">
+            <hr>
+            <h5 style="margin-bottom: 20px">Tất cả Blog</h5>
+        </div>
       @foreach($blogs as $blog)
       <div class="col-md-3">
       <div class="product-item">
@@ -92,6 +96,11 @@
       </div>
       </div>
       @endforeach
+    </div>
+    <div class="col-12">
+        <div class="phantrang text-center">
+            {!! $blogs->links() !!}
+          </div>
     </div>
   </div>
 </div>

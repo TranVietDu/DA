@@ -170,7 +170,7 @@
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
                                                       <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
-                                                      <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                                      <img src="https://benhvienvanhanh.com/wp-content/uploads/2020/01/2020_01_16/0805fbd5c3b499c19b7599613666a106.jpg" />
                                                     </a>
                                                       <div class="card-content">
                                                           <h4 class="card-title text-center">
@@ -186,7 +186,7 @@
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
                                                       <a class="img-card" href="/hoso">
-                                                      <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                                      <img src="https://quantrinhansu.vn/wp-content/uploads/2020/03/chon-trang-phuc-phu-hop-khi-di-phong-van-xin-viec.png" />
                                                     </a>
                                                       <div class="card-content">
                                                           <h4 class="card-title text-center">
@@ -213,7 +213,7 @@
                 <div class="inner-content">
                   <div class="row">
                       <div class="col-lg-12">
-                          <section class="wrapper">
+                          <section class="wrapper" style="background-image: url('https://static.vecteezy.com/system/resources/previews/002/176/491/non_2x/blue-panoramic-studio-background-with-white-glow-vector.jpg')">
                               <div class="container-fostrap">
                                   <div>
                                       <h3 class="heading">
@@ -226,7 +226,7 @@
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
                                                       <a class="img-card" href="tintimviec/tao-tin-tim-viec">
-                                                      <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                                      <img src="https://cv.com.vn/blog/wp-content/uploads/2019/08/ho-so-xin-viec-la-gi-1.png" />
                                                     </a>
                                                       <div class="card-content">
                                                           <h4 class="card-title text-center">
@@ -242,7 +242,7 @@
                                               <div class="col-xs-12 col-sm-6">
                                                   <div class="card">
                                                       <a class="img-card" href="vieclam">
-                                                      <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                                      <img src="https://hr.jobnow.com.vn/wp-content/uploads/2019/04/cach-tim-viec-lam-nhanh-hieu-qua.jpg" />
                                                     </a>
                                                       <div class="card-content">
                                                           <h4 class="card-title text-center">
@@ -286,7 +286,7 @@
                                       <div class="col-xs-12 col-sm-6">
                                           <div class="card">
                                               <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
-                                              <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                              <img src="https://benhvienvanhanh.com/wp-content/uploads/2020/01/2020_01_16/0805fbd5c3b499c19b7599613666a106.jpg" />
                                             </a>
                                               <div class="card-content">
                                                   <h4 class="card-title text-center">
@@ -302,7 +302,7 @@
                                       <div class="col-xs-12 col-sm-6">
                                           <div class="card">
                                               <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                              <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                              <img src="https://quantrinhansu.vn/wp-content/uploads/2020/03/chon-trang-phuc-phu-hop-khi-di-phong-van-xin-viec.png" />
                                             </a>
                                               <div class="card-content">
                                                   <h4 class="card-title text-center">
@@ -341,7 +341,7 @@
                                          <div class="col-xs-12 col-sm-6">
                                              <div class="card">
                                                  <a class="img-card" href="tintimviec/tao-tin-tim-viec">
-                                                 <img src="https://3.bp.blogspot.com/-bAsTyYC8U80/VtLZRKN6OlI/AAAAAAAABjY/kAoljiMALkQ/s400/material%2Bnavbar.jpg" />
+                                                 <img src="https://cv.com.vn/blog/wp-content/uploads/2019/08/ho-so-xin-viec-la-gi-1.png" />
                                                </a>
                                                  <div class="card-content">
                                                      <h4 class="card-title text-center">
@@ -357,7 +357,7 @@
                                          <div class="col-xs-12 col-sm-6">
                                              <div class="card">
                                                  <a class="img-card" href="vieclam">
-                                                 <img src="https://4.bp.blogspot.com/-TDIJ17DfCco/Vtneyc-0t4I/AAAAAAAABmk/aa4AjmCvRck/s1600/cover.jpg" />
+                                                 <img src="https://hr.jobnow.com.vn/wp-content/uploads/2019/04/cach-tim-viec-lam-nhanh-hieu-qua.jpg" />
                                                </a>
                                                  <div class="card-content">
                                                      <h4 class="card-title text-center">

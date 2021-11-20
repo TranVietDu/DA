@@ -24,6 +24,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhauthongtin')->name('doimatkhauthongtin');
     Route::put('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhau')->name('doimatkhau');
 
+    //quen mat khau
+    Route::get('/quen-mat-khau', 'MailController@quen_mat_khau');
+    Route::post('/khoi-phuc-mat-khau', 'MailController@khoi_phuc_mat_khau');
+    Route::get('/cap-nhat-mat-khau-moi', 'MailController@mat_khau_moi');
+    Route::post('/dat-lai-mat-khau', 'MailController@dat_lai_mat_khau');
+    //dang nhap bang mang xa hoi
+    Route::get('/auth/{provider}', 'AuthController@redirect');
+    Route::get('dangnhap/{provider}/callback', 'AuthController@callback');
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
     Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
@@ -134,14 +142,12 @@ Route::get('admin/user/adduser', function () {
 //dang nhap
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
-        return view('dangki');
-
-    })->middleware('login');;
-    Route::get('dangnhap', 'Authcontroller@index')->name('relogin')->middleware('login');
-    Route::post('dangnhap', 'Authcontroller@login')->name('login')->middleware('login');
-    Route::post('dangki', 'Authcontroller@register')->name('dangki')->middleware('login');
-    Route::get('logout', 'Authcontroller@logout')->name('logout');
-    Route::get('admin/home', 'Authcontroller@indexhome')->name('adminhome')->middleware('admin');
+        return view('dangki');})->middleware('login');;
+    Route::get('dangnhap', 'AuthController@index')->name('relogin')->middleware('login');
+    Route::post('dangnhap', 'AuthController@login')->name('login')->middleware('login');
+    Route::post('dangki', 'AuthController@register')->name('dangki')->middleware('login');
+    Route::get('logout', 'AuthController@logout')->name('logout');
+    Route::get('admin/home', 'AuthController@indexhome')->name('adminhome')->middleware('admin');
 });
 // Admin
 Route::middleware(['admin'])->group(function () {

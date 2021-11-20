@@ -9,15 +9,17 @@ use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Cookie;
-
-
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Exception;
 
 class Authcontroller extends Controller
 {
+
 
     public function indexhome(){
         $data['user']=User::count();
@@ -77,5 +79,33 @@ class Authcontroller extends Controller
     {
         Auth::logout();
         return redirect('dangnhap');
+    }
+
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function callback($provider)
+    {
+      $getInfo = Socialite::driver($provider)->user();
+      $user = $this->createUser($getInfo,$provider);
+      auth()->login($user);
+      return redirect()->to('/');
+    }
+    function createUser($getInfo,$provider){
+    $user = User::where('provider_id', $getInfo->id)->first();
+    $role= 3;
+    if (!$user) {
+         $user = User::create([
+            'name'     => $getInfo->name,
+            'email'    => $getInfo->email,
+            'role'     =>$role,
+            'password' => '',
+            'provider' => $provider,
+            'provider_id' => $getInfo->id
+        ]);
+      }
+      return $user;
     }
 }

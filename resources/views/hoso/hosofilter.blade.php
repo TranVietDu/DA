@@ -5,13 +5,13 @@
 <div class="products">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="contact-form">
                     <form action="{{route('timviecfiter')}}" method="get">
                         <h5>
-                            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+                            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc <i class="fa fa-filter" aria-hidden="true"></i></button>
                         </h5>
-                        <h5 style="margin-bottom: 15px">Giới Tính</h5>
+                        <h6 style="margin-bottom: 16px">Giới Tính</h6>
                         <div>
                             <label>
                                 <input type="radio" name="gioitinh" value="Nam">
@@ -31,7 +31,7 @@
                             </label>
                         </div>
                         <br>
-                        <h5 style="margin-bottom: 15px">Ngành Nghề Mong Muốn</h5>
+                        <h6 style="margin-bottom: 16px">Ngành Nghề</h6>
 
                         <div>
                             <label>
@@ -67,13 +67,21 @@
                 </div>
                 </form>
             </div>
-            <div class="col-md-9">
-                <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tìm Việc</h4>
+            <div class="col-md-10">
+                <h5 style="padding: 10px 10px;background-color:#0091ce;color: white; margin-bottom:10px" class="text-center"><i class="fas fa-search"></i> DANH SÁCH HỒ SƠ TÌM VIỆC</h5>
                 <div class="row">
                     @if($timviec->isEmpty())
                         <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
                     @else
                     @foreach($timviec as $al)
+                    @php
+                    date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+                       $birthday = $al->ngaysinh;
+                       $diff = date_diff(date_create(), date_create($birthday));
+                       $age = $diff->format('%Y');
+                       $ngaytao = $al->created_at->format('d-m-Y');
+                   @endphp
                     <div class="col-md-6">
                         <div class="product-item">
                             <a href="/hoso/chi-tiet-ho-so/{{$al->id}}">
@@ -84,10 +92,9 @@
                                     <div class="col-md-7">
                                         <div class="down-content">
                                             <h4>{{$al->ten}}</h4>
-
-                                            <p><i class="fas fa-briefcase"></i> {{$al->nganhnghe}}</p>
+                                            <p>● {{$al->nganhnghe}} ● {{$age}} tuổi</p>
                                             <small>
-                                                <strong title="Posted on"><i class="fa fa-calendar"></i> {{$al->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <strong title="Posted on"><i class="fa fa-calendar"></i> {{$ngaytao}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                                 <strong title="Location"><i class="fa fa-map-marker"></i> {{$al->diachi}}</strong>
                                             </small>
                                         </div>

@@ -70,6 +70,13 @@
               </div>
             </div>
           </div>
+          <hr>
+          <h5>Một số việc làm khác</h5>
+          @foreach ($vieclams as $val)
+            <div class="col-12">
+                <a href="{{$val->id}}">- {{$val->tieude}}</a>
+            </div>
+          @endforeach
         </div>
       </div>
 @endsection
