@@ -17,7 +17,7 @@ class CreateBinhluanTable extends Migration
             $table->increments('id');
             $table->integer('blog_id')->unsigned();
             $table->string('ten');
-            $table->string('noidung');
+            $table->text('noidung');
             $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes(); // add

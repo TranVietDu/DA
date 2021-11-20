@@ -17,15 +17,15 @@ class CreateTinTimViecsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('ten');
-            $table->string('ngaysinh');
+            $table->datetime('ngaysinh');
             $table->string('gioitinh');
             $table->string('sdt');
             $table->string('email');
             $table->string('nganhnghe');
-            $table->string('diachi');
-            $table->string('mota');
-            $table->string('anh')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('diachi');
+            $table->text('mota');
+            $table->text('anh')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes(); // add
         });
