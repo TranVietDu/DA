@@ -25,9 +25,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{asset('assets/tin-tuyen-dung.css')}}">
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/css/cvmau.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/taocv.css')}}">
@@ -72,7 +72,6 @@
     <!-- Additional Scripts -->
     <script src="{{ asset('assets/js/custom.js')}}"></script>
     <script src="{{ asset('assets/js/owl.js')}}"></script>
-
    {{-- editor --}}
 <script>
     ClassicEditor

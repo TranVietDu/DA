@@ -247,7 +247,7 @@ header .navbar {
 	text-align: center;
 }
 .navbar .navbar-nav .nav-item {
-	margin: 0px 15px;
+	margin: 0px 13px;
 }
 .navbar .navbar-nav a.nav-link {
 	text-transform: capitalize;
@@ -394,7 +394,7 @@ header .navbar {
 	font-size: 13px;
 	font-weight: 700;
 	color: #f33f3f;
-	
+
 }
 
 .product-item {
@@ -1103,29 +1103,29 @@ footer .inner-content p a {
 }
 
 @-webkit-keyframes my {
-	0% { color: red; } 
-	50% { color: #fff;  } 
-	100% { color: red;  } 
-}
-@-moz-keyframes my { 
-	0% { color: red;  } 
+	0% { color: red; }
 	50% { color: #fff;  }
-	100% { color: red;  } 
+	100% { color: red;  }
 }
-@-o-keyframes my { 
-	0% { color: red; } 
-	50% { color: #fff; } 
-	100% { color: red;  } 
-}
-@keyframes my { 
-	0% { color: red;  } 
+@-moz-keyframes my {
+	0% { color: red;  }
 	50% { color: #fff;  }
-	100% { color: red;  } 
-} 
+	100% { color: red;  }
+}
+@-o-keyframes my {
+	0% { color: red; }
+	50% { color: #fff; }
+	100% { color: red;  }
+}
+@keyframes my {
+	0% { color: red;  }
+	50% { color: #fff;  }
+	100% { color: red;  }
+}
 .test {
 	-webkit-animation: my 700ms infinite;
-	-moz-animation: my 700ms infinite; 
-	-o-animation: my 700ms infinite; 
+	-moz-animation: my 700ms infinite;
+	-o-animation: my 700ms infinite;
 	animation: my 700ms infinite;
 }
 .hososs h5{

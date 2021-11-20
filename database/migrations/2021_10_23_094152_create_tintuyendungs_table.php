@@ -18,14 +18,14 @@ class CreateTinTuyendungsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('tieude');
             $table->string('tenquan');
-            $table->string('diachi');
+            $table->text('diachi');
             $table->string('soluong');
             $table->string('nganhnghe');
             $table->string('luong');
             $table->string('thoigian');
-            $table->string('mota');
-            $table->string('anh')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('mota');
+            $table->text('anh')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes(); // add
         });

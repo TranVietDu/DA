@@ -14,28 +14,31 @@ use App\Models\BinhLuan;
 
 class BlogController extends Controller
 {
-     //select all
-     public function index()
-     {
-        $blogs = Blog::where('user_id','=',Auth::user()->id)->paginate(10);
+    //select all
+    public function index()
+    {
+        $blogs = User::find(Auth::user()->id)->blogs;
         return View::make('blog.danhsach', compact('blogs'));
-     }
-
-
-    public function blog()
-    {
-        $blogs = BLog::simplePaginate(10);
-        return View::make('blog.blogs', compact('blogs'));
     }
-    public function blogganday()
+
+    public function blog($id)
     {
-        $blogganday = BLog::limit(3)->get();
-        return View::make('blog.blogs', compact('blogganday'));
+        $data['blogs'] = BLog::simplePaginate(10);
+        $data['count'] = Blog::find($id)->binhluan;
+        return View::make('blog.blogs', compact($data));
+    }
+    public function blogxemnhieu()
+    {
+        $blogxemnhieu = Blog::orderBy('luotxem', 'DESC')->take(2)->get();
+        return View::make('blog.blogs', compact('blogxemnhieu'));
     }
     public function chitietblog($id)
     {
         $data['blog'] = BLog::find($id);
         $data['comments'] = BinhLuan::where('blog_id', $id)->get();
+        $blog_view = BLog::find($id);
+        $blog_view->luotxem = $blog_view->luotxem + 1;
+        $blog_view->save();
         return view('blog.chi-tiet-blog', $data);
     }
     //form luu
@@ -61,12 +64,11 @@ class BlogController extends Controller
             return redirect()->route('blog1.create')->withInput();
         }
     }
-     //form cap nhat
-     public function edit($id)
-     {
+    //form cap nhat
+    public function edit($id)
+    {
         $blog = Blog::find($id);
-        if($blog->user_id == Auth::user()->id || Auth::user()->role == 1){
-            $blog = Blog::find($id);
+        if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             return View::make('blog.capnhat', compact('blog', 'id'));
         }
         else{
@@ -87,17 +89,9 @@ class BlogController extends Controller
                 $get_image->move('anh_blog', $new_image);
                 $data['anh'] = $new_image;
                 Blog::find($id)->update($data);
-                return redirect()->route('blog1.list');
-            } else {
-                Blog::find($id)->update($data);
-
-                return redirect()->route('blog1.list');
             }
-        } else {
-            return view('404');
         }
     }
-
     //xoa
     public function destroy($id)
     {
@@ -123,6 +117,7 @@ class BlogController extends Controller
         Blog::onlyTrashed()->restore();
         return redirect()->route('blog1.list');
     }
+
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
@@ -141,4 +136,5 @@ class BlogController extends Controller
 
         return back();
     }
+
 }

@@ -51,15 +51,10 @@
                                 <td>{{$al->name}}</td>
                                 <td>{{$al->email}}</td>
                                 @if($al->role==1)
-                                <td>Admin</td>
+                                <td>Người quản trị</td>
+                                @else
+                                <td>Người dùng</td>
                                 @endif
-                                @if($al->role==2)
-                                <td>Nhà tuyển dụng</td>
-                                @endif
-                                @if($al->role==3)
-                                <td>Người tìm việc</td>
-                                @endif
-
                                 @if($al->role==2)
                                 <td><a href="{{route('user.viewtuyen',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                                 @elseif($al->role==3)

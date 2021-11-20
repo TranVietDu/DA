@@ -64,6 +64,13 @@
               <a href=""><button type="submit" style="background-color: rgb(210, 210, 210);" class="filled-button btn-block">Hết Hạn Ứng Tuyển</button></a>
               @endif
           </div>
+          <hr>
+          <h5>Một số việc làm khác</h5>
+          @foreach ($vieclams as $val)
+            <div class="col-12">
+                <a href="{{$val->id}}">- {{$val->tieude}}</a>
+            </div>
+          @endforeach
         </div>
         <div>
           <img src="assets/images/product-1-370x270.jpg" alt="" class="img-fluid wc-image">

@@ -25,8 +25,8 @@
               <a href="/blog/chi-tiet-blog/{{$blog->id}}" class="services-item-image"><img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" class="img-fluid" alt=""></a>
               <div class="down-content">
                 <h4><a href="/blog/chi-tiet-blog/{{$blog->id}}">{{$blog->tieude}}</a></h4>
-                <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
-                <p style="margin: 0;float: right;">Tác Giả: {{$blog->tennguoiviet}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</p>
+                <p class="text-justify">{!!html_entity_decode($blog->noidung)!!} <br>
+                <span style="float: right;"><small>Tác Giả: {{$blog->tennguoiviet}}</small></span></p>
               </div>
             </div>
           </div>
@@ -50,8 +50,8 @@
         </div>
         <br>
         <div class="form-group blognear">
-          <h5 style="margin-bottom: 20px;">Các Blogs gần đây</h5>
-          @foreach($blogganday as $blog)
+          <h5 style="margin-bottom: 20px;">Xem nhiều nhất</h5>
+          @foreach($blogxemnhieu as $blog)
           <div style="margin: 10px;" class="blogss">
             <a href="/blog/chi-tiet-blog/{{$blog->id}}">
               <div class="product-item">
@@ -59,7 +59,8 @@
                   <img width="100%" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="">
                 </div>
                 <div style="text-align: center">
-                  <b class="small">{{$blog->tieude}}</b>
+                  <b class="small">{{$blog->tieude}} | {{$blog->luotxem}}
+                    <i class="fa fa-eye" aria-hidden="true"></i></b>
                 </div>
               </div>
             </a>
@@ -69,6 +70,10 @@
       </div>
     </div>
     <div class="row">
+        <div class="col-12">
+            <hr>
+            <h5 style="margin-bottom: 20px">Tất cả Blog</h5>
+        </div>
       @foreach($blogs as $blog)
       <div class="col-md-3">
       <div class="product-item">
@@ -76,12 +81,26 @@
             <img height="200px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
             <div class="card-body">
               <p style="font-size: large;" class="card-title">{{$blog->tieude}}</p>
-              <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small>
+              <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small><br>
+              <i><small>
+                Lượt xem:
+                @if (isset($blog->luotxem))
+                {{$blog->luotxem}}
+                <i class="fa fa-eye" aria-hidden="true"></i>
+                @else
+                {{'Chưa có'}}
+                @endif
+            </small></i>
             </div>
         </a>
       </div>
       </div>
       @endforeach
+    </div>
+    <div class="col-12">
+        <div class="phantrang text-center">
+            {!! $blogs->links() !!}
+          </div>
     </div>
   </div>
 </div>

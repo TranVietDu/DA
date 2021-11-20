@@ -115,6 +115,7 @@ class TinTimViecController extends Controller
         return view('hoso.chi-tiet-ho-so', $data);
     }
 
+
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
@@ -131,6 +132,9 @@ class TinTimViecController extends Controller
         if ($request->has('nganhnghe')) {
             $tintimviec->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
         }
+        // if ($request->has('birthday')) {
+        //     $user->whereDate('birthday', $request->birthday);
+        // }
         return view('hoso.hosofilter')->with('timviec',$tintimviec->get());
         }
 }

@@ -19,7 +19,7 @@
       <div class="col-md-3">
         <div class="contact-form">
           <form action="{{route('filter')}}" method="get">
-          <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+          <button type="submit" class="btn btn-primary btn-sm float-right">Lọc <i class="fa fa-filter" aria-hidden="true"></i></button>
 
             <br>
 
@@ -104,13 +104,39 @@
               </label>
             </div>
 
+            <br>
 
+            <h5 style="margin-bottom: 15px">Thời gian</h5>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca sáng" name="thoigian">
+
+                <small>Ca sáng</small>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca chiều" name="thoigian">
+
+                <small>Ca chiều</small>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca tối" name="thoigian">
+
+                <small>Ca tối</small>
+              </label>
+            </div>
             <br>
         </div>
         </form>
       </div>
       <div class="col-md-9">
-        <h4 style="padding: 20px 20px;background-color: red;color: white;" class="text-center">Tin Tuyển Dụng</h4>
+        <h4 style="padding: 10px 10px; background-color: red; color: white; margin-bottom:10px" class="text-center"><i class="fas fa-search"></i> DANH SÁCH VIỆC LÀM</h4>
         <div class="row">
           @foreach ($vieclams as $val)
           <div class="col-md-4">
@@ -126,7 +152,7 @@
                     {{ 'Thương lượng'}}
                     @endif
                   </p>
-                  <h5><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <strong><i class="fa fa-building"></i> {{ $val->tenquan }}</strong></small></h5>
+                  <h5><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <i class="fa fa-building"></i> {{ $val->tenquan }}</small></h5>
                 </div>
               </a>
             </div>

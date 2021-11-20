@@ -18,9 +18,9 @@ class CreateBlogsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('tennguoiviet');
             $table->string('tieude');
-            $table->string('noidung');
-            $table->string('anh')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->text('noidung');
+            $table->text('anh')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes(); // add
         });
