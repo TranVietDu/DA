@@ -20,7 +20,6 @@ class CreateBlogsTable extends Migration
             $table->string('tieude');
             $table->text('noidung');
             $table->text('anh')->nullable();
-            $table->integer('luotxem')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes(); // add

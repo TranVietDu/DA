@@ -25,7 +25,6 @@ class CreateTinTuyendungsTable extends Migration
             $table->string('thoigian');
             $table->text('mota');
             $table->text('anh')->nullable();
-            $table->datetime('ngayhethan');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes(); // add

@@ -97,7 +97,6 @@
       </div>
       @endforeach
     </div>
-    {{$count}}
     <div class="col-12">
         <div class="phantrang text-center">
             {!! $blogs->links() !!}
