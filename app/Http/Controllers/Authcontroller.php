@@ -46,11 +46,10 @@ class Authcontroller extends Controller
                 Cookie::queue(Cookie::forget('password'));
             }
             $role = Auth::user()->role;
-            if($role==2 || $role==3){
-                return redirect()->route('home');
-            }
             if($role==1){
                 return redirect()->route('adminhome');
+            }else{
+                return redirect('/');
             }
         }
         else {
@@ -65,7 +64,9 @@ class Authcontroller extends Controller
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=bcrypt($request->password);
-        $user->role=$request->role;
+        $user->role=0;
+        $user->provider='';
+        $user->provider_id='';
         $usersave=$user->save();
         if ($usersave) {
             return redirect("dangnhap")->with('thongbao1', 'Đăng kí thành công');
@@ -95,7 +96,7 @@ class Authcontroller extends Controller
     }
     function createUser($getInfo,$provider){
     $user = User::where('provider_id', $getInfo->id)->first();
-    $role= 3;
+    $role= 0;
     if (!$user) {
          $user = User::create([
             'name'     => $getInfo->name,

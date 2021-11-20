@@ -44,9 +44,9 @@
                                             <input type="password" class="form-control" placeholder="Xác nhận mật khẩu mới" value="" name="confirm_newpassword"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                    <input type="submit" class="btn btn-primary"  value="Xong"/>
-                                    </div>
+                                    <div class="form-group" style="margin-left: auto; margin-right:auto">
+                                        <button type="submit" class="btn btn-primary">Xong</button>
+                                        </div>
                                 </div>
                             </form>
                             <a href="/cap-nhat-thong-tin/{{$user->id}}">Trở lại</a>

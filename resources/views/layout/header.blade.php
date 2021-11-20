@@ -39,12 +39,9 @@
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 @if (Auth::user()->role==2)
-                 <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
-                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
-                 @elseif (Auth::user()->role==3)
-                 <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ Sơ</a>
-                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
+                 @if (Auth::user()->role==0)
+                    <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
+                    <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ sơ</a>
                  @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
@@ -54,17 +51,6 @@
            <li class="nav-item">
              <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Đăng nhập</a>
            </li>
-           @endif
-           @if (isset(Auth::user()->role))
-           @if (Auth::user()->role == 3)
-           <li class="nav-item"><a href="/blog">
-            <button class="btn btn-warning">Tuyển dụng</button>
-            </a></li>
-            @else
-            <li class="nav-item"><a href="/blog">
-                <button class="btn btn-primary">Tìm việc</button>
-                </a></li>
-           @endif
            @endif
          </ul>
        </div>

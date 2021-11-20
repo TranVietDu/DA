@@ -28,7 +28,6 @@ class Register extends FormRequest
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|required_with:repassword|same:repassword',
             'repassword' => 'required',
-            'role'=>'required'
         ];
     }
     public function messages()
@@ -39,7 +38,6 @@ class Register extends FormRequest
             'email.unique'=>"Email đã tồn tại",
             'password.same'=>"Nhập lại mật khẩu không trùng khớp",
             'password.min'=>"Mật khẩu tối thiểu 8 kí tự",
-            'role.required'=>"Role không được để trống"
         ];
     }
 }

@@ -144,131 +144,8 @@
     </script>
 </div>
 </div>
-
-
               {{-- Đăng tin  --}}
-    @if(Auth::check())
 
-      <div class="call-to-action">
-        <div class="container">
-          <div class="row">
-            @if  (Auth::user()->role == 2)
-              <div class="col-md-12">
-                <div class="inner-content">
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <section class="wrapper">
-                              <div class="container-fostrap">
-                                  <div>
-                                      <h3 class="heading">
-                                          Dịch vụ tuyển dụng
-                                      </h3>
-                                  </div>
-                                  <div class="content" style="margin-top:50px">
-                                      <div class="container">
-                                          <div class="row">
-                                              <div class="col-xs-12 col-sm-6">
-                                                  <div class="card">
-                                                      <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
-                                                      <img src="https://benhvienvanhanh.com/wp-content/uploads/2020/01/2020_01_16/0805fbd5c3b499c19b7599613666a106.jpg" />
-                                                    </a>
-                                                      <div class="card-content">
-                                                          <h4 class="card-title text-center">
-                                                              <a href="tintuyendung/tao-tin-tuyen-dung"> Đăng tin tuyển dụng
-                                                            </a>
-                                                          </h4>
-                                                          <p class="">
-                                                              Material Design is a visual programming language made by Google. Language programming...
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="col-xs-12 col-sm-6">
-                                                  <div class="card">
-                                                      <a class="img-card" href="/hoso">
-                                                      <img src="https://quantrinhansu.vn/wp-content/uploads/2020/03/chon-trang-phuc-phu-hop-khi-di-phong-van-xin-viec.png" />
-                                                    </a>
-                                                      <div class="card-content">
-                                                          <h4 class="card-title text-center">
-                                                              <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Tìm hồ sơ xin việc
-                                                            </a>
-                                                          </h4>
-                                                          <p class="">
-                                                              tutorials button hover animation, although very much a hover button is very beauti...
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </section>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            @elseif (Auth::user()->role == 3)
-            <div class="col-md-12">
-                <div class="inner-content">
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <section class="wrapper" style="background-image: url('https://static.vecteezy.com/system/resources/previews/002/176/491/non_2x/blue-panoramic-studio-background-with-white-glow-vector.jpg')">
-                              <div class="container-fostrap">
-                                  <div>
-                                      <h3 class="heading">
-                                          Dịch vụ tìm việc
-                                      </h3>
-                                  </div>
-                                  <div class="content" style="margin-top:50px">
-                                      <div class="container">
-                                          <div class="row">
-                                              <div class="col-xs-12 col-sm-6">
-                                                  <div class="card">
-                                                      <a class="img-card" href="tintimviec/tao-tin-tim-viec">
-                                                      <img src="https://cv.com.vn/blog/wp-content/uploads/2019/08/ho-so-xin-viec-la-gi-1.png" />
-                                                    </a>
-                                                      <div class="card-content">
-                                                          <h4 class="card-title text-center">
-                                                              <a href="tintimviec/tao-tin-tim-viec"> Đăng tin tìm việc
-                                                            </a>
-                                                          </h4>
-                                                          <p class="">
-                                                              Material Design is a visual programming language made by Google. Language programming...
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="col-xs-12 col-sm-6">
-                                                  <div class="card">
-                                                      <a class="img-card" href="vieclam">
-                                                      <img src="https://hr.jobnow.com.vn/wp-content/uploads/2019/04/cach-tim-viec-lam-nhanh-hieu-qua.jpg" />
-                                                    </a>
-                                                      <div class="card-content">
-                                                          <h4 class="card-title text-center">
-                                                              <a href="vieclam">Tìm kiếm việc làm
-                                                            </a>
-                                                          </h4>
-                                                          <p class="">
-                                                              tutorials button hover animation, although very much a hover button is very beauti...
-                                                          </p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                </div>
-                          </section>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-            @endif
-            </div>
-         </div>
-       </div>
-    @else
     <div class="col-md-12">
         <div class="inner-content">
           <div class="row">
@@ -306,7 +183,7 @@
                                             </a>
                                               <div class="card-content">
                                                   <h4 class="card-title text-center">
-                                                      <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Tìm hồ sơ xin việc
+                                                      <a href="/hoso">Tìm hồ sơ xin việc
                                                     </a>
                                                   </h4>
                                                   <p class="">
@@ -361,7 +238,7 @@
                                                </a>
                                                  <div class="card-content">
                                                      <h4 class="card-title text-center">
-                                                         <a href="vieclam">Tìm kiếm việc làm
+                                                         <a href="/vieclam">Tìm kiếm việc làm
                                                        </a>
                                                      </h4>
                                                      <p class="">
@@ -380,98 +257,102 @@
              </div>
        </div>
 
-    @endif
-
-
- <!-- Banner Ends Here -->
-<!-- Banner Ends Here -->
 {{-- Blog --}}
 
+@if ($blognoibat->isEmpty())
+@else
 <div style="margin-top: 100px;" class="blog">
-  <div style="" class="container">
-    <div class="row">
-    <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Đọc Gì Hôm Nay?</h2>
-          <a href="">xem thêm <i class="fa fa-angle-right"></i></a>
+    <div style="" class="container">
+      <div class="row">
+      <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Đọc Gì Hôm Nay?</h2>
+            <a href="">xem thêm <i class="fa fa-angle-right"></i></a>
+          </div>
         </div>
+        @foreach($blognoibat as $blog)
+          <div class="col-md-6"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></div>
+          <div class="col-md-6">
+            <h4 class="text-center">{{$blog->tieude}}</h4>
+            <p class="float-left">{!!html_entity_decode($blog->noidung)!!}</p>
+            <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
+          </div>
+        @endforeach
       </div>
-      @foreach($blognoibat as $blog)
-        <div class="col-md-6"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></div>
-        <div class="col-md-6">
-          <h4 class="text-center">{{$blog->tieude}}</h4>
-          <p class="float-left">{!!html_entity_decode($blog->noidung)!!}</p>
-          <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
-        </div>
-      @endforeach
     </div>
   </div>
-</div>
+@endif
 
 {{-- Công việc mới nhất --}}
+@if ($tintuyendungmoinhat->isEmpty())
+@else
 <div class="latest-products">
-  <div style="" class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Công Việc Mới Nhất</h2>
-          <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
-        </div>
-      </div>
-      @foreach($tintuyendungmoinhat as $tin)
-      <div class="col-md-4">
-        <div style="height: 428px" class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="232px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
-          <div class="down-content">
-            <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}">
-              <h4>{{$tin->nganhnghe}}</h4>
-            </a>
-              <h5>{{$tin->tenquan}}</h5>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
-              <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
-            </small>
+    <div style="" class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Công Việc Mới Nhất</h2>
+            <a href="/vieclam">xem thêm <i class="fa fa-angle-right"></i></a>
           </div>
         </div>
-      </div>
-      @endforeach
+        @foreach($tintuyendungmoinhat as $tin)
+        <div class="col-md-4">
+          <div style="height: 428px" class="product-item">
+            <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="232px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt=""></a>
+            <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
+            <div class="down-content">
+              <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}">
+                <h4>{{$tin->nganhnghe}}</h4>
+              </a>
+                <h5>{{$tin->tenquan}}</h5>
+              <small>
+                <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
+              </small>
+            </div>
+          </div>
+        </div>
+        @endforeach
 
+      </div>
     </div>
   </div>
-</div>
 
+@endif
 <!-- Tin tim viec -->
-<div class="latest-products">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <h2>Tin Tìm Việc Mới Nhất</h2>
-          <a href="/hoso">xem thêm <i class="fa fa-angle-right"></i></a>
-        </div>
-      </div>
-      @foreach($tintimviecmoinhat as $tin)
-      <div class="col-md-4">
-        <div class="product-item">
-          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
-          <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
-          <div class="down-content">
-            <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">
-              <h4>{{$tin->ten}}</h4>
-            </a>
-            <h6>{{$tin->nganhnghe}}</h6>
-            <small>
-              <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
-              <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
-            </small>
-          </div>
-        </div>
-      </div>
-      @endforeach
-          </div>
-        </div>
-      </div>
+    @if ($tintimviecmoinhat->isEmpty())
+            @else
+            <div class="latest-products">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="section-heading">
+                        <h2>Tin Tìm Việc Mới Nhất</h2>
+                        <a href="/hoso">xem thêm <i class="fa fa-angle-right"></i></a>
+                      </div>
+                    </div>
+                    @foreach($tintimviecmoinhat as $tin)
+                    <div class="col-md-4">
+                      <div class="product-item">
+                        <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
+                        <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
+                        <div class="down-content">
+                          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">
+                            <h4>{{$tin->ten}}</h4>
+                          </a>
+                          <h6>{{$tin->nganhnghe}}</h6>
+                          <small>
+                            <strong title="Posted on"><i class="fa fa-calendar"></i> {{$tin->created_at}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            <strong title="Location"><i class="fa fa-map-marker"></i> {{$tin->diachi}}</strong>
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    @endforeach
+                        </div>
+                      </div>
+                    </div>
+            @endif
       <div class="happy-clients">
         <div class="container">
           <div class="row">

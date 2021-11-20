@@ -21,10 +21,11 @@ class BlogController extends Controller
         return View::make('blog.danhsach', compact('blogs'));
     }
 
-    public function blog()
+    public function blog($id)
     {
-        $blogs = BLog::simplePaginate(10);
-        return View::make('blog.blogs', compact('blogs'));
+        $data['blogs'] = BLog::simplePaginate(10);
+        $data['count'] = Blog::find($id)->binhluan;
+        return View::make('blog.blogs', compact($data));
     }
     public function blogxemnhieu()
     {
@@ -135,4 +136,5 @@ class BlogController extends Controller
 
         return back();
     }
+
 }
