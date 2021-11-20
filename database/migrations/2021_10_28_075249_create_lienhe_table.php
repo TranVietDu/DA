@@ -15,13 +15,13 @@ class CreateLienheTable extends Migration
     {
         Schema::create('lienhe', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('diachi');
+            $table->text('diachi');
             $table->string('tieude');
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
+            $table->string('fb')->nullable();
+            $table->string('tw')->nullable();
             $table->string('in')->nullable();
             $table->string('be')->nullable();
-            $table->string('gioithieu');
+            $table->text('gioithieu');
             $table->timestamps();
             $table->softDeletes(); // add
         });
