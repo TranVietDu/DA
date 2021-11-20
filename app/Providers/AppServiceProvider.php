@@ -42,14 +42,11 @@ class AppServiceProvider extends ServiceProvider
         $timviecs=TinTimViec::paginate(6);
         view()->share('timviecs',$timviecs);
         // Trang Blog
-        $blogs=Blog::all();
+        $blogs=Blog::paginate(8);
         view()->share('blogs',$blogs);
         // Blog nổi Bật
-        $blognoibat=DB::table('blogs')->orderBy('id','desc')->take(1)->get();
+        $blognoibat=DB::table('blogs')->orderBy('created_at','desc')->take(1)->get();
         view()->share('blognoibat',$blognoibat);
-        // Blog gần Đây
-        $blogganday=DB::table('blogs')->orderBy('id','desc')->take(3)->get();
-        view()->share('blogganday',$blogganday);
         // ý Kiến
         $ykiens = YKienNguoiDung::all();
         view()->share('ykiens',$ykiens);
@@ -66,7 +63,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('blogmoinhat',$blogmoinhat);
         // Blog nổi Bật
         Paginator::useBootstrap();
-
         $now= Carbon::now('Asia/Ho_Chi_Minh');
         view()->share('now',$now);
     }

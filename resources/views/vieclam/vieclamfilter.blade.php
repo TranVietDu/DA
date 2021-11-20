@@ -19,7 +19,7 @@
       <div class="col-md-3">
         <div class="contact-form">
           <form action="{{route('filter')}}" method="get">
-            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc</button>
+            <button type="submit" class="btn btn-primary btn-sm float-right">Lọc <i class="fa fa-filter" aria-hidden="true"></i></button>
 
             <br>
 
@@ -100,6 +100,32 @@
                 <small>Pha Chế</small>
               </label>
             </div>
+            <h5 style="margin-bottom: 15px">Thời gian</h5>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca sáng" name="thoigian">
+
+                <small>Ca sáng</small>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca chiều" name="thoigian">
+
+                <small>Ca chiều</small>
+              </label>
+            </div>
+
+            <div>
+              <label>
+                <input type="radio" value="Ca tối" name="thoigian">
+
+                <small>Ca tối</small>
+              </label>
+            </div>
+            <br>
         </div>
         </form>
       </div>
@@ -110,7 +136,7 @@
           <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
           @else
           @foreach ($vieclam as $val)
-          <div class="col-md-4">
+          <div class="col-md-4 mt-3">
             <div class="product-item">
               <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
                 <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}" style="width:100%; height:200px; padding: 8px;" alt="">

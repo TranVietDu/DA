@@ -7,7 +7,7 @@
 <div id="layoutSidenav_content">
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
-            <h1 style="padding-top: 20px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Người Dùng</hq>
+            <h1 style="padding-top: 20px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Người Dùng</h1>
             <h4 class="text-center" style="background-color: blue; color: white; padding: 20px ;border-radius: 20px;">Thêm Người Dùng</h4>
             <!--important link source from "https://bootstrapious.com/p/bootstrap-registration-page"-->
             <!-- Navbar-->

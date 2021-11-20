@@ -35,11 +35,21 @@
                             <p style="color: green;">{{session('thongbao1')}}</p>
                         </div>
                         @endif
+                        @if (session('ms'))
+                        <div class="alert">
+                            <p style="color: rgb(219, 10, 10);">{{session('ms')}}</p>
+                        </div>
+                        @endif
+                        @if (session('ms3'))
+                        <div class="alert">
+                            <p style="color: green;">{{session('ms3')}}</p>
+                        </div>
+                        @endif
                         <form method="POST" action="dangnhap" class="register-form" id="login-form">
                             @csrf
                             <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="email" name="email" value="{{old('email')}}" id="your_name" placeholder="Email"
+                                <label><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="email" name="email" placeholder="Email"
                                  required
                                 @if (!Cookie::get('email'))
                                 value="{{old('email')}}"
@@ -49,8 +59,8 @@
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="password" id="your_pass" placeholder="Mật Khẩu"
+                                <label><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" placeholder="Mật Khẩu"
                                 @if (!Cookie::get('password'))
                                 value="{{old('password')}}"
                                 @else
@@ -65,7 +75,8 @@
                             @endif
                             <div class="form-group">
                                 <input type="checkbox" name="rememberme" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Ghi nhớ đăng nhập</label><br>
+                                <a href="/quen-mat-khau">Quên mật khẩu</a>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
@@ -74,9 +85,9 @@
                         <div class="social-login">
                             <span class="social-label">Or login with</span>
                             <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href=" {{ url('/auth/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href=" {{ url('/auth/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                                 <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
                             </ul>
                         </div>
                     </div>

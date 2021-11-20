@@ -24,16 +24,16 @@
                                         </ul>
                                      @endif
                                     </div>
-                            <form action="{{ route('capnhat', $user->id)}}" method="post">
+                            <form action="{{ route('capnhat', $user->id)}}" method="post" name="form">
                                 {!! csrf_field() !!}
                             <input type="hidden" name="_method" value="PUT">
                                 <div class="row mt-3">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" value="{{$user->name}}" name="name"/>
+                                            <input type="text" class="form-control" value="{{$user->name}}" name="name" required = ""/>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" value="{{$user->email}}" name="email"/>
+                                            <input type="email" class="form-control" value="{{$user->email}}" name="email" required = ""/>
                                         </div>
                                     </div>
                                     <div class="form-group" style="margin-left: auto; margin-right:auto">

@@ -40,11 +40,14 @@
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="repassword" required="" id="re_pass" placeholder="Nhập Lại Mật Khẩu" />
                             </div>
-                            <p style="color: black;">Bạn Là:</p>
-                                <select name="role" class="form-control browser-default custom-select">
-                                    <option selected value="2">Nhà Tuyển Dụng</option>
-                                    <option  value="3">Người Tìm Việc</option>
-                                </select>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="hidden" name="provider" required=""/>
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="hidden" name="provider_id" required=""/>
+                            </div>
                             <ul class="alert text-danger">
                                 @foreach ($errors->all() as $error)
                                 <li style="color: red;font-family:monospace">{{ $error }}</li>

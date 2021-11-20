@@ -13,7 +13,7 @@ class Blog extends Model
     // protected $dates = ['deleted_at'];
     protected $table = 'blogs';
     protected $fillable = [
-        'user_id','tennguoiviet','tieude','noidung', 'anh',
+        'user_id','tennguoiviet','tieude','noidung', 'anh','luotxem',
     ];
 
     public function user()

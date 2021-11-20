@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use App\Models\TinTuyenDung;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -58,7 +57,7 @@ class Usercontroller extends Controller
         else{
             return back()->with($request->only('name,email'));
         }
-       
+
     }
 
     /**
@@ -162,8 +161,17 @@ class Usercontroller extends Controller
     }
     public function capnhat(CapNhatUserRequest $request, $id)
     {
-        $data = $request->validated();
-        User::find($id)->update($data);
+        $user = User::find($id);
+        $data = $request->validate(
+            [
+                'email'=>'unique:users,email,'.$user->id,
+                'name' => 'required',
+            ],
+            [
+                'email.unique'=>'Email đã tồn tại',
+            ]
+            );
+        $user->update($data);
         return back()->with('tb','Cập Nhật Thành Công');
     }
 

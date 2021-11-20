@@ -1,5 +1,5 @@
  <!-- Header -->
- <header class="">
+ <header style="position:relative; ">
 
    <nav class="navbar navbar-expand-lg">
      <div class="container">
@@ -11,13 +11,11 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarResponsive">
          <ul class="navbar-nav ml-auto">
-
-           <li class="nav-item"><a class="nav-link" href="/vieclam">Việc Làm</a></li>
-           <li class="nav-item"><a class="nav-link" href="/hoso">Hồ Sơ</a></li>
-           <li class="nav-item"><a class="nav-link" href="/tao-cv">Tạo CV</a></li>
-           <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
-
-           <li class="nav-item"><a class="nav-link" href="/lienhe">Liên Hệ</a></li>
+           <li class="nav-item"><a class="nav-link" href="/vieclam">VIỆC LÀM</a></li>
+           <li class="nav-item"><a class="nav-link" href="/hoso">HỒ SƠ</a></li>
+           <li class="nav-item"><a class="nav-link" href="/tao-cv">TẠO CV</a></li>
+           <li class="nav-item"><a class="nav-link" href="/blog">BLOG</a></li>
+           <li class="nav-item"><a class="nav-link" href="/lienhe">LIÊN HỆ</a></li>
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
                 <div class="input-group">
@@ -41,12 +39,9 @@
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 @if (Auth::user()->role==2)
-                 <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
-                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
-                 @elseif (Auth::user()->role==3)
-                 <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ Sơ</a>
-                 <a class="dropdown-item" href="{{route('blog1.list')}}">QL Blog</a>
+                 @if (Auth::user()->role==0)
+                    <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
+                    <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ sơ</a>
                  @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
@@ -54,7 +49,7 @@
            </li>
            @else
            <li class="nav-item">
-             <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign in</a>
+             <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Đăng nhập</a>
            </li>
            @endif
          </ul>

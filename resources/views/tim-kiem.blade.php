@@ -13,6 +13,9 @@
             <div class="section-heading">
               <h2 style="color:black">Việc làm</h2>
             </div>
+            @if ($search_vieclam->isEmpty())
+                {{'Không tìm thấy kết quả'}}
+            @endif
           </div>
         @foreach ($search_vieclam as $val)
         <div class="col-md-4">
@@ -35,10 +38,13 @@
 
 
 
-        <div class="col-md-12">
+        <div class="col-md-12 mt-4">
             <div class="section-heading">
               <h2 style="color:black">Hồ sơ</h2>
             </div>
+            @if ($search_hoso->isEmpty())
+                {{'Không tìm thấy kết quả'}}
+            @endif
           </div>
         @foreach ($search_hoso as $val)
         <div class="col-md-6">
