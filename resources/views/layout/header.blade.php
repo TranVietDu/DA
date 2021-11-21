@@ -34,15 +34,11 @@
                </button>
                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                 <b>{{Auth::user()->name}}</b>
-                <a class="dropdown-item" href="{{ route('capnhatthongtin', Auth::user()->id ) }}">QL Tài khoản</a>
+                <a class="dropdown-item" href="{{ route('capnhatthongtin', Auth::user()->id ) }}">Tài Khoản</a>
                 <hr>
                  @if(Auth::user()->role==1)
                   <a class="dropdown-item" href="/admin/home">Admin</a>
                   @endif
-                 @if (Auth::user()->role==0)
-                    <a class="dropdown-item" href="{{route('tintuyendung1.list')}}">QL Việc Làm</a>
-                    <a class="dropdown-item" href="{{route('tintimviec1.list')}}">QL Hồ sơ</a>
-                 @endif
                  <a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a>
                </div>
              </div>
@@ -50,6 +46,20 @@
            @else
            <li class="nav-item">
              <a href="{{route('relogin')}}" type="button" class="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Đăng nhập</a>
+           </li>
+           @endif
+           @if (Auth::check())
+           <li  class="nav-item">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  QUẢN LÍ
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{{ route('blog1.list')}}">Blogs</a>
+                  <a class="dropdown-item" href="{{ route('tintuyendung1.list')}}">Tin Tuyển Dụng</a>
+                  <a class="dropdown-item" href="{{ route('tintimviec1.list')}}">Hồ Sơ Xin việc</a>
+                </div>
+              </div>
            </li>
            @endif
          </ul>

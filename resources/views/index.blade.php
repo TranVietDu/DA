@@ -370,7 +370,7 @@
                     </div>
                     <div class="down-content">
                       <h4>{{$ykien->ten}}</h4>
-                      <p><i>"{{$ykien->noidung}}"</i></p>
+                      <p>"{{$ykien->noidung}}"</p>
                     </div>
                   </div>
                 @endforeach

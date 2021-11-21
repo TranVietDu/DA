@@ -9,7 +9,7 @@
                 <div class="col-md-8">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3>Cập nhật</h3>
+                                <h3>Cập nhật tài khoản</h3>
                                 @if (session('tb'))
                                         <div class="alert alert-success">
                                             {{session('tb')}}
