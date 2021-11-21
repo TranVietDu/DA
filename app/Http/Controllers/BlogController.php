@@ -21,17 +21,12 @@ class BlogController extends Controller
         return View::make('blog.danhsach', compact('blogs'));
     }
 
-    public function blog($id)
+    public function blog()
     {
         $data['blogs'] = BLog::simplePaginate(10);
-        $data['count'] = Blog::find($id)->binhluan;
         return View::make('blog.blogs', compact($data));
     }
-    public function blogxemnhieu()
-    {
-        $blogxemnhieu = Blog::orderBy('luotxem', 'DESC')->take(2)->get();
-        return View::make('blog.blogs', compact('blogxemnhieu'));
-    }
+
     public function chitietblog($id)
     {
         $data['blog'] = BLog::find($id);
@@ -78,8 +73,8 @@ class BlogController extends Controller
     //cap nhat
     public function update(CapNhatBlogRequest $request, $id)
     {
-        $blog = Blog::find($id);
-        if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
+        $tintuyendung = BLog::find($id);
+        if ($tintuyendung->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             $data = $request->validated();
             $get_image = $request->file('anh');
             if ($get_image) {
@@ -89,7 +84,14 @@ class BlogController extends Controller
                 $get_image->move('anh_blog', $new_image);
                 $data['anh'] = $new_image;
                 Blog::find($id)->update($data);
+                return redirect()->route('blog1.list');
+            } else {
+                Blog::find($id)->update($data);
+
+                return redirect()->route('blog1.list');
             }
+        } else {
+            return view('404');
         }
     }
     //xoa

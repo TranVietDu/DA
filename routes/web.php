@@ -29,38 +29,41 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('/khoi-phuc-mat-khau', 'MailController@khoi_phuc_mat_khau');
     Route::get('/cap-nhat-mat-khau-moi', 'MailController@mat_khau_moi');
     Route::post('/dat-lai-mat-khau', 'MailController@dat_lai_mat_khau');
+
     //dang nhap bang mang xa hoi
     Route::get('/auth/{provider}', 'AuthController@redirect');
     Route::get('dangnhap/{provider}/callback', 'AuthController@callback');
+
     // send mail
     Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
     Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+
+
     //Viec lam Index
     Route::get('/', 'TinTuyenDungController@index')->name('home');
+
+
     // Viec lam
     Route::get('vieclam', 'TinTuyenDungController@vieclam');
-
     // Chi Tiet Viec lam
     Route::get('vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chitietvieclam');
+
 
     // Hoso
     Route::get('hoso','TinTimViecController@vieclamview')->name('hoso.view');
     // Chi tiet ho so
     Route::get('hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chitiethoso')->name('hoso.chitiethoso');
 
+
     //Blog
     Route::get('blog', 'BlogController@blog');
-
-    //3 Blog trang Blog
-    Route::get('blog', 'BlogController@blogxemnhieu');
-
     //Chi tiet Blog
     Route::get('/blog/chi-tiet-blog/{id}', 'BLogController@chitietblog');
 
+
     // Lien he
     Route::get('/lienhe','LienHeController@index');
-
-    Route::post('/lienhe','LienHeController@postYKien');
+    Route::post('/lienhe','LienHeController@dangYKien');
 
     //tim kiem viec lam
     Route::get('/tim-kiem','TinTuyenDungController@search');

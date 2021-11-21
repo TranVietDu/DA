@@ -42,26 +42,27 @@ class AppServiceProvider extends ServiceProvider
         $timviecs=TinTimViec::paginate(6);
         view()->share('timviecs',$timviecs);
         // Trang Blog
-        $blogs=Blog::paginate(8);
+        $blogs=Blog::paginate(5);
         view()->share('blogs',$blogs);
-        // Blog nổi Bật
-        $blognoibat=DB::table('blogs')->orderBy('created_at','desc')->take(1)->get();
-        view()->share('blognoibat',$blognoibat);
         // ý Kiến
         $ykiens = YKienNguoiDung::all();
         view()->share('ykiens',$ykiens);
-
         // Tin Tim Việc Mới Nhất
         $tintimviecmoinhat=DB::table('tintimviecs')->orderBy('id','desc')->take(3)->get();
         view()->share('tintimviecmoinhat',$tintimviecmoinhat);
-
         // Tin tuyen Dung moi nhat
         $tintuyendungmoinhat=DB::table('tintuyendungs')->orderBy('id','desc')->take(3)->get();
         view()->share('tintuyendungmoinhat', $tintuyendungmoinhat);
-        // Blog mới nhất
+        // Blog mới nhất trang blog
         $blogmoinhat=DB::table('blogs')->orderBy('id','desc')->take(3);
         view()->share('blogmoinhat',$blogmoinhat);
-        // Blog nổi Bật
+        //Blog xem nhieu trang blog
+        $blogxemnhieu = Blog::orderBy('luotxem', 'DESC')->take(5)->get();
+        view()->share('blogxemnhieu', $blogxemnhieu);
+        //blognoibat trang index
+        $blognoibat = Blog::orderBy('luotxem', 'DESC')->take(1)->get();
+        view()->share('blognoibat', $blognoibat);
+
         Paginator::useBootstrap();
         $now= Carbon::now('Asia/Ho_Chi_Minh');
         view()->share('now',$now);

@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<img height="500px" width="100%" src="https://www.seotopnhanh.com/wp-content/uploads/2019/09/Ki%E1%BA%BFm-ti%E1%BB%81n-t%E1%BB%AB-blog.jpg" alt="">
+<img height="500px" width="100%" src="https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png" alt="">
 
 <div class="products">
   <div class="container">
@@ -17,7 +17,7 @@
           <div class="col-md-9">
             <img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="">
             <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
-            <i style="padding-top: 10px;" class="float-right">Tác Giả: {{$blog->tennguoiviet}}</i>
+            <i style="padding-top: 10px;" class="float-right"><i class="fas fa-at"></i> {{$blog->tennguoiviet}}</i>
           </div>
           <div class="col-md-3">
           </div>

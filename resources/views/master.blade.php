@@ -83,6 +83,5 @@
         } );
         const data = editor.getData();
 </script>
-
   </body>
 </html>

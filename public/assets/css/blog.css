@@ -171,3 +171,40 @@
       color: #495057;
   }
 
+  .blog1{
+    padding: 45px 10px;
+    background-color: rgb(36, 207, 212);
+    border-radius: 50%;
+    animation: colorBackground 0.5s infinite;
+    -webkit-animation: colorBackground 2s infinite;
+    -moz-animation: colorBackground 2s infinite;
+    -o-animation: colorBackground 0.5s infinite
+    }
+    @keyframes colorBackground {
+    0% {
+    background-color: yellowgreen;
+    color: white;
+    }
+    50% {
+    background-color: red;
+    color: yellow;
+    }
+    }
+.blog2 p{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin-bottom: 12px;
+}
+ .blog2:hover{
+    box-shadow: 0 8px 5px 1px grey;
+}
+
+.blog2 p:hover{
+    color: red;
+}
