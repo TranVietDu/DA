@@ -1,12 +1,11 @@
 @extends('master')
 
 @section('content')
-<div class="page-heading contact-heading header-text">
-    <div class="container">
-        <div class="container blog">
+<div class="page-heading contact-heading header-text" style="background-color: rgb(52, 78, 134)">
+        <div class="container">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-md-8">
+                <div class="col-3"></div>
+                <div class="col-md-6 blog4">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3>Cập nhật tài khoản</h3>
@@ -45,9 +44,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
             </div>
-        </div>
         </div>
     </div>
 </div>

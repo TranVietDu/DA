@@ -17,7 +17,7 @@ class TinTimViecController extends Controller
     //select all
     public function index()
     {
-        $tintimviecs = TinTimViec::where('user_id',Auth::id())->paginate(10);
+        $tintimviecs = TinTimViec::where('user_id',Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.danhsach', compact('tintimviecs'));
     }
     //form luu
@@ -85,7 +85,7 @@ class TinTimViecController extends Controller
         $tintimviec = TinTimViec::find($id);
         if ($tintimviec->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             TinTimViec::find($id)->delete();
-            return redirect()->route('tintimviec1.list');
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         } else {
             return view('404');
         }
@@ -96,7 +96,7 @@ class TinTimViecController extends Controller
         if(TinTimViec::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
             TinTimViec::whereIn('id', $ids)->delete();
-            return redirect()->route('tintimviec1.list');
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         }else{
             return view('404');
         }
@@ -104,7 +104,7 @@ class TinTimViecController extends Controller
     //thung rac
     public function tintimviec_trash()
     {
-        $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->paginate(10);
+        $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.tintimviecs_trash', compact('tintimviecs_trash'));
     }
     //khoi phuc
@@ -112,14 +112,22 @@ class TinTimViecController extends Controller
     {
         $tintimviec = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->find($id);
         $tintimviec->restore();
-        return redirect()->route('tintimviec1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
+    }
+    //xoa vinh vien
+    public function tintimviec_forceDelete($id)
+    {
+        $tintimviec = TinTimViec::onlyTrashed()->where('user_id', Auth::id())->find($id);
+        $tintimviec->forceDelete();
+        return redirect()->back()->with('tb_xoa', 'Xóa thành công');
     }
     //khoi phuc tat cả TinTimViec da xoa
     public function restore()
     {
         TinTimViec::onlyTrashed()->where('user_id',Auth::id())->restore();
-        return redirect()->route('tintimviec1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
+
     public function vieclamview()
     {
         return view('hoso.hoso');

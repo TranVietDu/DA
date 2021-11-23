@@ -261,7 +261,7 @@
 
 @if ($blognoibat->isEmpty())
 @else
-<div style="margin-top: 100px;" class="blog">
+<div style="margin-top: 100px;">
     <div style="" class="container">
       <div class="row">
       <div class="col-md-12">

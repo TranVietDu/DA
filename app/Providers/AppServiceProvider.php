@@ -62,6 +62,10 @@ class AppServiceProvider extends ServiceProvider
         //blognoibat trang index
         $blognoibat = Blog::orderBy('luotxem', 'DESC')->take(1)->get();
         view()->share('blognoibat', $blognoibat);
+        //blognoibat trang chi tiet
+        $blogkhac = Blog::orderBy('id', 'DESC')->take(5)->get();
+        view()->share('blogkhac', $blogkhac);
+
 
         Paginator::useBootstrap();
         $now= Carbon::now('Asia/Ho_Chi_Minh');

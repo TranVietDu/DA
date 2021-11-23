@@ -13,7 +13,7 @@ class LienHeController extends Controller
     //select all
     public function index()
     {
-        $lienhes = LienHe::all();
+        $lienhes = LienHe::orderBy('id','DESC')->take(1)->get();
         return View::make('lienhe', compact('lienhes'));
     }
 

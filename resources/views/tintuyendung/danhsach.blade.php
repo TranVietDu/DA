@@ -12,9 +12,16 @@
                     <button type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
                 </div>
                 <div class="col-12 text-center">
-                    @if (session('ms'))
+                    @if (session('tb_khoiphuc'))
                     <div class="alert alert-success">
-                        {{session('ms')}}
+                        {{session('tb_khoiphuc')}}
+                    </div>
+                @endif
+                </div>
+                <div class="col-12 text-center">
+                    @if (session('tb_xoa'))
+                    <div class="alert alert-success">
+                        {{session('tb_xoa')}}
                     </div>
                 @endif
                 </div>
@@ -23,22 +30,22 @@
                         {{'Bạn chưa đăng tin tuyển dụng nào hoặc đã xóa. Vui lòng kiểm tra trong thùng rác!'}}
                     </div>
                     @else
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
-                        <thead class="bg-info">
+                    <table class="table table-bordered border border-info table-striped" id="datatablesSiple">
+                        <thead class="text-center" style="color: #007bff;">
                             <tr>
                                <th><input type="checkbox" id="chkCheckAll"/></th>
-                               <th>STT</th>
-                               <th>Tiêu đề</th>
-                               <th>Tên quán</th>
-                               <th>Địa chỉ</th>
-                               <th>Số lượng</th>
-                               <th>Ngành nghề</th>
-                               <th>Mức lương</th>
-                               <th>Thời gian</th>
-                               <th>Ngày hết hạn</th>
-                               <th>Ảnh</th>
-                               <th>Mô tả</th>
-                               <th colspan="2">Hành động</th>
+                               <th style="color:black">#</th>
+                               <th style="color:black">@sortablelink('tieude', 'Tiêu đề')</th>
+                               <th width="120px" style="color:black">@sortablelink('tenquan', 'Tên quán')</th>
+                               <th width="130px" style="color:black">@sortablelink('diachi', 'Địa chỉ')</th>
+                               <th width="70px" style="color:black">@sortablelink('soluong', 'SL')</th>
+                               <th width="140px" style="color:black">@sortablelink('nganhnghe', 'Ngành nghề')</th>
+                               <th width="90px" style="color:black">@sortablelink('luong', 'Lương')</th>
+                               <th width="130px" style="color:black">@sortablelink('thoigian', 'Thời gian')</th>
+                               <th width="150px" style="color:black">@sortablelink('ngayhethan', 'Ngày hết hạn')</th>
+                               <th width="100px">Ảnh</th>
+                               <th width="200px">Mô tả</th>
+                               <th colspan="2" width="100px">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -51,7 +58,7 @@
                                <td>
                                   {{$i++}}
                                </td>
-                                <td>{{$al->tieude}}</td>
+                                <td style="width: 100px">{{$al->tieude}}</td>
                                 <td>{{$al->tenquan}}</td>
                                 <td>{{$al->diachi}}</td>
                                 <td>{{$al->soluong}}</td>
@@ -66,7 +73,7 @@
                                    {{'...'}}
                                    @endif
                                 </td>
-                                <td>
+                                <td style="text-align:justify">
                                    @if (isset($al->mota))
                                    {!!html_entity_decode($al->mota)!!}
                                    @else
@@ -80,7 +87,12 @@
                                        <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash" aria-hidden="true"></i></button>
                                    </form>
                                 </td>
-                                <td><a href="{{ route('tintuyendung1.edit', $al->id) }}"><i class="fas fa-edit"></i></a></td>
+                                <td>
+                                    <button type="button" class="btn btn-xs btn-warning" >
+                                        <a href="{{ route('tintuyendung1.edit', $al->id) }}"><i class="fas fa-edit"></i></a>
+                                    </button>
+
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -11,32 +11,40 @@
                     <button class="btn btn-primary"><a style="color:aliceblue;" href="{{ route("tintimviec1.create") }}">Thêm</a></button>
                     <button type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
                 </div>
-                <div class="col-12 text-center">
-                    @if (session('ms'))
-                <div class="alert alert-success">
-                    {{session('ms')}}
-                </div>
-                @endif
+                <div class="row">
+                    <div class="col-12 text-center">
+                        @if (session('tb_khoiphuc'))
+                    <div class="alert alert-success">
+                        {{session('tb_khoiphuc')}}
+                    </div>
+                    @endif
+                    </div>
+                    <div class="col-12 text-center">
+                        @if (session('tb_xoa'))
+                    <div class="alert alert-success">
+                        {{session('tb_xoa')}}
+                    </div>
+                    @endif
+                    </div>
                 </div>
                 @if ($tintimviecs->isEmpty())
                 <div class="col-12 text-center">
                     {{'Bạn chưa đăng hồ sơ xin việc nào hoặc đã xóa. Vui lòng kiểm tra trong thùng rác!'}}
                 </div>
                 @else
-                <table class="table table-bordered border border-info" id="datatablesSiple">
-                    <thead class="bg-info">
-                         <tr>
+                <table class="table table-bordered border border-info table-striped" id="datatablesSiple">
+                    <thead class="text-center" style="color: #007bff;">
                             <th><input type="checkbox" id="chkCheckAll"/></th>
-                            <th>STT</th>
-                            <th>Tên</th>
-                            <th>Tuổi</th>
-                            <th>Giới tính</th>
+                            <th style="color:black">#</th>
+                            <th width="150px" style="color:black">@sortablelink('ten','Tên ứng viên')</th>
+                            <th width="80px" style="color:black">@sortablelink('ngaysinh','Tuổi')</th>
+                            <th width="115px" style="color:black">@sortablelink('gioitinh','Giới tính')</th>
                             <th>Số ĐT</th>
-                            <th>Email</th>
-                            <th>Ngành nghề</th>
-                            <th>Địa chỉ</th>
+                            <th width="100px" style="color:black">@sortablelink('email','Email')</th>
+                            <th width="150px" style="color:black">@sortablelink('nganhnghe','Ngành nghề')</th>
+                            <th width="130px" style="color:black">@sortablelink('diachi','Địa chỉ')</th>
                             <th>Ảnh</th>
-                            <th>Mô tả</th>
+                            <th width="200px">Mô tả</th>
                             <th colspan="2">Hành động</th>
                          </tr>
                      </thead>
@@ -81,7 +89,11 @@
                                 <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash" aria-hidden="true"></i></button>
                             </form>
                             </td>
-                             <td><a href="{{ route('tintimviec1.edit', $al->id) }}"><i class="fas fa-edit"></i></a></td>
+                            <td>
+                                <button type="button" class="btn btn-xs btn-warning" >
+                                    <a href="{{ route('tintimviec1.edit', $al->id) }}"><i class="fas fa-edit"></i></a>
+                                </button>
+                            </td>
                          </tr>
                          @endforeach
                      </tbody>

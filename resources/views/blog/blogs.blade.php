@@ -19,11 +19,11 @@
     <div class="row">
       <div class="col-md-9">
         <div class="row">
-            <div class="col-12">
-                <h5 style="margin-bottom: 20px">Tất cả Blog</h5>
+            <div class="col-12 text-center">
+                <h4 style="padding: 10px 10px; background-color: rgb(10, 172, 184); color: white; margin-bottom:10px" class="text-center">TẤT CẢ BLOG</h4>
             </div>
           @foreach($blogs as $blog)
-          <div class="col-md-12 mb-5 blog2">
+          <div class="col-md-12 mb-5 mt-4 blog2">
             <a href="/blog/chi-tiet-blog/{{$blog->id}}">
               <div class="row">
                   <div class="col-md-4">
@@ -31,7 +31,7 @@
                   </div>
                   <div class="col-md-8">
                     <h5 style="color:black">{{$blog->tieude}}</h5>
-                    {!!html_entity_decode($blog->noidung)!!}
+                    <span style="text-align:justify">{!!html_entity_decode($blog->noidung)!!}</span>
                     <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small><br>
                     <i><small>
                       Lượt xem:
@@ -69,14 +69,32 @@
           </form>
         </div>
         <br>
-        <div class="form-group blognear">
-          <h5 style="margin-bottom: 20px;">Xem nhiều nhất</h5>
+        <h5 style="margin-bottom: 20px;">Bảng xếp hạng lượt xem</h5>
+        <div class="form-group blognear blog3" id="blog3">
+            @php
+                $i=1;
+            @endphp
           @foreach($blogxemnhieu as $blog)
           <div style="margin: 10px;" class="blogss">
-            - <a style="font-size: 18px" href="/blog/chi-tiet-blog/{{$blog->id}}">
-                  <b class="small">{{$blog->tieude}} | {{$blog->luotxem}}
-                    <i class="fa fa-eye" aria-hidden="true"></i></b>
+            <div class="row">
+                <div class="col-12 text-center">
+                    @if ($i == 1)
+                    <span style="color: red"><b>Top {{$i++}}</b></span>
+                    @elseif ($i == 2)
+                    <span style="color: rgb(7, 204, 7)"><b>Top {{$i++}}</b></span>
+                    @elseif ($i == 3)
+                    <span style="color: rgb(0, 68, 255)"><b>Top {{$i++}}</b></span>
+                    @else
+                   <b>{{$i++}}</b>
+                   @endif
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <img height="100px" style="padding: 5px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
+            <a style="font-size: 18px" href="/blog/chi-tiet-blog/{{$blog->id}}">
+                  <b class="small">{{$blog->tieude}}</b>
             </a>
+            </div>
           </div>
           @endforeach
         </div>

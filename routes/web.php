@@ -96,6 +96,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
     Route::get('/thung-rac', 'TinTuyenDungController@tintuyendung_trash')->name('trash');
     Route::get('/khoi-phuc/{id}', 'TinTuyenDungController@tintuyendung_untrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'TinTuyenDungController@tintuyendung_forceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // filter vieclam
@@ -113,6 +114,7 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
     Route::get('/thung-rac', 'TinTimViecController@tintimviec_trash')->name('trash');
     Route::get('/khoi-phuc/{id}', 'TinTimViecController@tintimviec_untrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'TinTimViecController@tintimviec_forceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
 
@@ -123,11 +125,11 @@ Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'bl
     Route::post('/viet-blog', 'BlogController@store')->name('store');
     Route::get('/cap-nhat-blog/{id}', 'BlogController@edit')->name('edit');
     Route::put('/cap-nhat-blog/{id}', 'BlogController@update')->name('update');
-    Route::get('/search_ajax', 'BlogController@search_ajax')->name('search_ajax');
     Route::delete('/xoa-blog/{id}', 'BlogController@destroy')->name('destroy');
     Route::get('/xoa-nhieu-blog', 'BlogController@destroyall')->name('destroyall');
     Route::get('/thung-rac', 'BlogController@blog_trash')->name('trash');
     Route::get('/khoi-phuc/{id}', 'BlogController@blog_untrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'BlogController@blog_forceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-blog', 'BlogController@restore')->name('restore');
 });
 

@@ -8,11 +8,19 @@
                 @if ($tintimviecs_trash->isEmpty())
                 <div class="col-12 text-center">
                     {{'Không có gì trong thùng rác!'}}<br><br><br>
-                    <a href="danhsach">Trở lại</a>
+                    <a href="/danhsach">Trở lại</a>
                 </div>
                 @else
+                <div class="col-12 text-center">
+                    @if (session('tb_xoa'))
+                    <div class="alert alert-success">
+                        {{session('tb_xoa')}}
+                    </div>
+                @endif
+                </div>
                 <div class="col-md-12">
                     <a href="{{ route('tintimviec1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin tìm việc đã xóa</a>
+                    <a href="{{route('tintimviec1.list')}}">&#60;&#60;trở lại</a>
                     <table class="table table-bordered border border-info" id="datatablesSiple">
                         <thead class="bg-info">
                             <tr>
@@ -26,7 +34,7 @@
                                 <th>Địa chỉ</th>
                                 <th>Ảnh</th>
                                 <th>Mô tả</th>
-                                <th>Hành động</th>
+                                <th colspan="2">Hành động</th>
                              </tr>
                          </thead>
                          <tbody>
@@ -62,7 +70,19 @@
                                     {{'...'}}
                                     @endif
                                  </td>
-                                 <td><a href="{{ route('tintimviec1.untrash', $al->id) }}">Khôi phục</a></td>
+                                 <td>
+                                    <button type="button" class="btn btn-xs btn-warning" >
+                                        <a href="{{ route('tintimviec1.untrash', $al->id) }}"><i class="fas fa-eraser"></i></a>
+                                    </button>
+
+                                </td>
+                                 <td>
+                                    <form method="POST" action="{{ route('tintimviec1.forceDelete', $al->id)}}">
+                                        @csrf
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    </form>
+                                </td>
                              </tr>
                              @endforeach
                          </tbody>
@@ -84,7 +104,7 @@
              var name = $(this).data("name");
              event.preventDefault();
              swal({
-                 title: `Bạn có muốn xóa hàng này không?`,
+                 title: `Bạn có muốn xóa vĩnh viễn hàng này không?`,
                  icon: "warning",
                  buttons: true,
                  dangerMode: true,
@@ -97,65 +117,4 @@
          });
 
    </script>
-
-   {{-- xóa nhiều --}}
-   <script type="text/javascript">
-    $(document).ready(function () {
-        $('#check_all').on('click', function(e) {
-        if($(this).is(':checked',true))
-    {
-        $(".checkbox").prop('checked', true);
-        } else {
-        $(".checkbox").prop('checked',false);
-    }
-    });
-        $('.checkbox').on('click',function(){
-        if($('.checkbox:checked').length == $('.checkbox').length){
-        $('#check_all').prop('checked',true);
-        }else{
-        $('#check_all').prop('checked',false);
-    }
-    });
-        $('.delete-all').on('click', function(e) {
-            e.preventDefault();
-            var idsArr = [];
-            $(".checkbox:checked").each(function() {
-            idsArr.push($(this).attr('data-id'));
-    });
-        if(idsArr.length <=0)
-    {
-        alert("Vui lòng chọn ít nhất 1 hàng để xóa.");
-        }  else {
-        if(confirm("Bạn có muốn xóa các hàng đã chọn không?")){
-        var strIds = idsArr.join(",");
-        $.ajax({
-        url: "{{ route('tintimviec1.destroyall') }}",
-        type: 'GET',
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        data: 'ids='+strIds,
-        success: function (data) {
-        if (data['status']==true) {
-        $(".checkbox:checked").each(function() {
-        $(this).parents("tr_").remove();
-    });
-        alert(data['message']);
-        } else {
-        location.reload();
-    }
-    },
-        error: function (data) {
-        alert(data.responseText);
-    }
-    });
-    }
-    }
-    });
-    $('[data-toggle=confirmation]').confirmation({
-        rootSelector: '[data-toggle=confirmation]',
-        onConfirm: function (event, element) {
-        element.closest('form').submit();
-    }
-    });
-    });
-    </script>
 @endsection

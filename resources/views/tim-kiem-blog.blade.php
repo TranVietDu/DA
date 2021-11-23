@@ -22,7 +22,7 @@
               <div class="down-content">
                 <h4><a href="/blog/chi-tiet-blog/{{$val->id}}">{{$val->tieude}}</a></h4>
 
-                <p style="margin: 0;"> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->luotxem}} <i class="fa fa-eye" aria-hidden="true"></i> &nbsp;&nbsp;</p>
+                <p style="margin: 0;"><i class="fas fa-at"></i> {{$val->tennguoiviet}} &nbsp;&nbsp;|&nbsp;&nbsp; {{$val->luotxem}} <i class="fa fa-eye" aria-hidden="true"></i> &nbsp;&nbsp;</p>
               </div>
             </div>
           </div>

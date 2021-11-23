@@ -25,7 +25,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="{{asset('login/images/signin-image.jpg')}}" alt="sing up image"></figure>
-                        <a href="/dangki" class="signup-image-link">Create an account</a>
+                        <a href="/dangki" class="signup-image-link">Đăng kí tài khoản mới</a>
                     </div>
 
                     <div class="signin-form">
@@ -43,6 +43,11 @@
                         @if (session('ms3'))
                         <div class="alert">
                             <p style="color: green;">{{session('ms3')}}</p>
+                        </div>
+                        @endif
+                        @if (session('thongbao'))
+                        <div class="alert">
+                            <p style="color: red;">{{session('thongbao')}}</p>
                         </div>
                         @endif
                         <form method="POST" action="dangnhap" class="register-form" id="login-form">
@@ -68,26 +73,21 @@
                                 @endif
                                 required/>
                             </div>
-                            @if (session('thongbao'))
-                            <div class="alert">
-                                <p style="color: red;">{{session('thongbao')}}</p>
-                            </div>
-                            @endif
                             <div class="form-group">
                                 <input type="checkbox" name="rememberme" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Ghi nhớ đăng nhập</label><br>
-                                <a href="/quen-mat-khau">Quên mật khẩu</a>
+                                <label for="remember-me" class="label-agree-term" style="font-family: Arial, sans-serif;"><span><span></span></span>Ghi nhớ đăng nhập</label>
+                                <br> <br>
+                                <a href="/quen-mat-khau" style="font-family: Arial, sans-serif;">Quên mật khẩu</a>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label">Or login with</span>
+                            <span class="social-label" style="font-family: Arial, sans-serif;">Hoặc đăng nhập với</span>
                             <ul class="socials">
                                 <li><a href=" {{ url('/auth/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href=" {{ url('/auth/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>

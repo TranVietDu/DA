@@ -32,7 +32,7 @@ class CapNhatTinTimViecRequest extends FormRequest
             'nganhnghe' => 'required|string',
             'diachi' => 'required|string',
             'mota' => 'required|string',
-            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'anh' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
     public function attributes()

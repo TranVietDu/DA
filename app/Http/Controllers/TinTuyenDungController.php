@@ -17,7 +17,7 @@ class TinTuyenDungController extends Controller
     //select all
     public function list()
     {
-        $tintuyendungs = TinTuyenDung::where('user_id', Auth::id())->paginate(10);
+        $tintuyendungs = TinTuyenDung::where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintuyendung.danhsach', compact('tintuyendungs'));
     }
     //form luu
@@ -87,7 +87,7 @@ class TinTuyenDungController extends Controller
         $tintuyendung = TinTuyenDung::find($id);
         if ($tintuyendung->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             TinTuyenDung::find($id)->delete();
-            return redirect()->route('tintuyendung1.list');
+            return redirect()->back()->with('tb_xoa','Đã chuyển vào thùng rác');
         } else {
             return view('404');
         }
@@ -98,7 +98,7 @@ class TinTuyenDungController extends Controller
         if(TinTuyenDung::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
             TinTuyenDung::whereIn('id', $ids)->delete();
-            return redirect()->route('tintuyendung1.list');
+            return redirect()->back()->with('tb_xoa','Đã chuyển vào thùng rác');
         }else{
             return view('404');
         }
@@ -106,7 +106,7 @@ class TinTuyenDungController extends Controller
     //thung rac
     public function tintuyendung_trash()
     {
-        $tintuyendungs_trash = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->paginate(10);
+        $tintuyendungs_trash = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintuyendung.tintuyendungs_trash', compact('tintuyendungs_trash'));
     }
     //khoi phuc
@@ -114,14 +114,22 @@ class TinTuyenDungController extends Controller
     {
         $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintuyendung->restore();
-        return redirect()->route('tintuyendung1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('tintuyendung1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
+    }
+    //xoa vinh vien
+    public function tintuyendung_forceDelete($id)
+    {
+        $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
+        $tintuyendung->forceDelete();
+        return redirect()->back()->with('tb_xoa', 'Xóa thành công');
     }
     //khoi phuc tat ca tin da xoa
     public function restore()
     {
         TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->restore();
-        return redirect()->route('tintuyendung1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('tintuyendung1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
+
     public function vieclam()
     {
         return view('vieclam.vieclam');
@@ -137,12 +145,16 @@ class TinTuyenDungController extends Controller
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
-        $data['search_vieclam'] = DB::table('tintuyendungs')->where('tieude', 'like', '%' . $keywords . '%')
+        if($keywords){
+            $data['search_vieclam'] = DB::table('tintuyendungs')->where('tieude', 'like', '%' . $keywords . '%')
             ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->orWhere('thoigian', 'like', '%' . $keywords . '%')->get();
         $data['search_hoso'] =  DB::table('tintimviecs')->where('ten', 'like', '%' . $keywords . '%')
             ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->get();
 
         return view('tim-kiem', $data);
+        }else{
+            return redirect()->back();
+        }
     }
     public function index()
     {

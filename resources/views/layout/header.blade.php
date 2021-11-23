@@ -19,7 +19,7 @@
            <li class="nav-item">
              <form action="/tim-kiem" method="get" autocomplete="off">
                 <div class="input-group">
-                    <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit">
+                    <input class="form-control border-end-0 border rounded-pill" type="text" placeholder="Tìm Kiếm..." id="keywords" name="keywords_submit" required>
                       <button class="btn btn-outline-secondary bg-black border-start-0 border rounded-pill ms-n3" type="submit">
                         <i class="fa fa-search"></i>
                       </button>
@@ -51,13 +51,13 @@
            @if (Auth::check())
            <li  class="nav-item">
             <div class="dropdown">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   QUẢN LÍ
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="{{ route('blog1.list')}}">Blogs</a>
-                  <a class="dropdown-item" href="{{ route('tintuyendung1.list')}}">Tin Tuyển Dụng</a>
-                  <a class="dropdown-item" href="{{ route('tintimviec1.list')}}">Hồ Sơ Xin việc</a>
+                  <a class="dropdown-item" href="{{ route('blog1.list')}}">BLOGS</a>
+                  <a class="dropdown-item" href="{{ route('tintuyendung1.list')}}">TIN TUYỂN DỤNG</a>
+                  <a class="dropdown-item" href="{{ route('tintimviec1.list')}}">HỒ SƠ XIN VIỆC</a>
                 </div>
               </div>
            </li>

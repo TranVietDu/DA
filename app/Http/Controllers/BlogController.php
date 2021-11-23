@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use App\Models\Blog;
-use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use App\Models\BinhLuan;
 
 class BlogController extends Controller
@@ -17,10 +17,9 @@ class BlogController extends Controller
     //select all
     public function index()
     {
-        $blogs = Blog::where('user_id',Auth::user()->id)->paginate(10);
+        $blogs = Blog::where('user_id',Auth::user()->id)->sortable()->paginate(10);
         return View::make('blog.danhsach', compact('blogs'));
     }
-
     public function blog()
     {
         $data['blogs'] = BLog::simplePaginate(10);
@@ -100,7 +99,7 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
         Blog::find($id)->delete();
-        return redirect()->route('blog1.list');
+        return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         }
         else{
             return view('404');
@@ -112,7 +111,7 @@ class BlogController extends Controller
         if(Blog::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
             Blog::whereIn('id', $ids)->delete();
-            return redirect()->route('blog1.list');
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         }else{
             return view('404');
         }
@@ -120,7 +119,7 @@ class BlogController extends Controller
     //thung rac
     public function blog_trash()
     {
-        $blogs_trash = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->paginate(10);
+        $blogs_trash = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->sortable()->paginate(10);
         return View::make('blog.blogs_trash', compact('blogs_trash'));
     }
     //khoi phuc
@@ -128,13 +127,20 @@ class BlogController extends Controller
     {
         $blog = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->find($id);
         $blog->restore();
-        return redirect()->route('blog1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('blog1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
+    }
+    //xoa vinh vien
+    public function blog_forceDelete($id)
+    {
+        $blog = BLog::onlyTrashed()->where('user_id', Auth::id())->find($id);
+        $blog->forceDelete();
+        return redirect()->back()->with('tb_xoa', 'Đã xóa vình viễn');
     }
     //khoi phuc tin da xoa
     public function restore()
     {
         Blog::onlyTrashed()->where('user_id',Auth::user()->id)->restore();
-        return redirect()->route('blog1.list')->with('ms', 'Khôi phục thành công');
+        return redirect()->route('blog1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     public function search(Request $request)
     {
@@ -143,33 +149,6 @@ class BlogController extends Controller
 
         return view('tim-kiem-blog',)->with('search_blog', $search_blog);
     }
-    public function search_ajax(Request $request)
-    {
-        if ($request->ajax()) {
-            $output = '';
-            $blogs=Blog::where('tieude','like','%'.$request->search.'%')
-                        ->orwhere('tennguoiviet',$request->search)->get();
-            foreach ($blogs as  $al) {
-                                $i=1;
-                                $output .= '<tr>
-                                <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
-                                <td>'.$al->id.'</td>
-                                <td>'.$al->tieude.'</td>
-                                <td>'.$al->tennguoiviet.'</td>
-                                <td>'.$al->noidung.'</td>
-                                <td><img src="{{ asset(anh_blog/'.$al->anh.') }}" style="width:90px; height: 80px;" alt=""></td>
-                                <td>'.'
-                                        <form action="/blog/xoa-blog/'.$al->id.'" method="post">
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                        </form>
-                                   '.'</td>
-                                   <td>'.'<a href="/blog/cap-nhat-blog/'.$al->id.'"><button class="btn btn-primary"><i class="fas fa-edit"></i></button></a>'.'</td>
-                                </tr>';
-                            }
-                        }
-                        return Response($output);
-                    }
     public function postComment($id, Request $request)
     {
         $comment = new BinhLuan;
