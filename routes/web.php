@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     //cap nhat thong tin ca nhan
-    Route::get('/cap-nhat-thong-tin/{id}', 'Admin\UserController@capnhatthongtin')->name('capnhatthongtin');
-    Route::put('/cap-nhat-thong-tin/{id}', 'Admin\UserController@capnhat')->name('capnhat');
+    Route::get('/cap-nhat-thong-tin/{id}', 'Admin\UserController@cap_nhat_thong_tin')->name('capnhatthongtin');
+    Route::put('/cap-nhat-thong-tin/{id}', 'Admin\UserController@cap_nhat')->name('capnhat');
 
     //doi mat khau
-    Route::get('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhauthongtin')->name('doimatkhauthongtin');
-    Route::put('/doi-mat-khau/{id}', 'Admin\UserController@doimatkhau')->name('doimatkhau');
+    Route::get('/doi-mat-khau/{id}', 'Admin\UserController@doi_mat_khau_thong_tin')->name('doimatkhauthongtin');
+    Route::put('/doi-mat-khau/{id}', 'Admin\UserController@doi_mat_khau')->name('doimatkhau');
 
     //quen mat khau
     Route::get('/quen-mat-khau', 'MailController@quen_mat_khau');
@@ -46,19 +46,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // Viec lam
     Route::get('vieclam', 'TinTuyenDungController@vieclam');
     // Chi Tiet Viec lam
-    Route::get('vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chitietvieclam');
+    Route::get('vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chiTietViecLam');
 
 
     // Hoso
     Route::get('hoso','TinTimViecController@vieclamview')->name('hoso.view');
     // Chi tiet ho so
-    Route::get('hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chitiethoso')->name('hoso.chitiethoso');
+    Route::get('hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chiTietHoSo')->name('hoso.chitiethoso');
 
 
     //Blog
     Route::get('blog', 'BlogController@blog');
     //Chi tiet Blog
-    Route::get('/blog/chi-tiet-blog/{id}', 'BLogController@chitietblog');
+    Route::get('/blog/chi-tiet-blog/{id}', 'BLogController@chiTietBlog');
 
 
     // Lien he
@@ -93,10 +93,10 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
     Route::get('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tuyen-dung/{id}', 'TinTuyenDungController@update')->name('update');
     Route::delete('/xoa-tin-tuyen-dung/{id}', 'TinTuyenDungController@destroy')->name('destroy');
-    Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyall')->name('destroyall');
-    Route::get('/thung-rac', 'TinTuyenDungController@tintuyendung_trash')->name('trash');
-    Route::get('/khoi-phuc/{id}', 'TinTuyenDungController@tintuyendung_untrash')->name('untrash');
-    Route::delete('/xoa-vinh-vien/{id}', 'TinTuyenDungController@tintuyendung_forceDelete')->name('forceDelete');
+    Route::get('/xoa-nhieu-tin-tuyen-dung', 'TinTuyenDungController@destroyAll')->name('destroyall');
+    Route::get('/thung-rac', 'TinTuyenDungController@tinTuyenDungTrash')->name('trash');
+    Route::get('/khoi-phuc/{id}', 'TinTuyenDungController@tinTuyenDungUnTrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'TinTuyenDungController@tinTuyenDungForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
 });
 // filter vieclam
@@ -111,10 +111,10 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::get('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@edit')->name('edit');
     Route::put('/cap-nhat-tin-tim-viec/{id}', 'TinTimViecController@update')->name('update');
     Route::delete('/xoa-tin-tim-viec/{id}', 'TinTimViecController@destroy')->name('destroy');
-    Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyall')->name('destroyall');
-    Route::get('/thung-rac', 'TinTimViecController@tintimviec_trash')->name('trash');
-    Route::get('/khoi-phuc/{id}', 'TinTimViecController@tintimviec_untrash')->name('untrash');
-    Route::delete('/xoa-vinh-vien/{id}', 'TinTimViecController@tintimviec_forceDelete')->name('forceDelete');
+    Route::get('/xoa-nhieu-tin-tim-viec', 'TinTimViecController@destroyAll')->name('destroyall');
+    Route::get('/thung-rac', 'TinTimViecController@tinTimViecTrash')->name('trash');
+    Route::get('/khoi-phuc/{id}', 'TinTimViecController@tinTimViecUnTrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'TinTimViecController@tinTimViecForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
 
@@ -126,10 +126,10 @@ Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'bl
     Route::get('/cap-nhat-blog/{id}', 'BlogController@edit')->name('edit');
     Route::put('/cap-nhat-blog/{id}', 'BlogController@update')->name('update');
     Route::delete('/xoa-blog/{id}', 'BlogController@destroy')->name('destroy');
-    Route::get('/xoa-nhieu-blog', 'BlogController@destroyall')->name('destroyall');
-    Route::get('/thung-rac', 'BlogController@blog_trash')->name('trash');
-    Route::get('/khoi-phuc/{id}', 'BlogController@blog_untrash')->name('untrash');
-    Route::delete('/xoa-vinh-vien/{id}', 'BlogController@blog_forceDelete')->name('forceDelete');
+    Route::get('/xoa-nhieu-blog', 'BlogController@destroyAll')->name('destroyall');
+    Route::get('/thung-rac', 'BlogController@blogTrash')->name('trash');
+    Route::get('/khoi-phuc/{id}', 'BlogController@blogUnTrash')->name('untrash');
+    Route::delete('/xoa-vinh-vien/{id}', 'BlogController@blogForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-blog', 'BlogController@restore')->name('restore');
 });
 

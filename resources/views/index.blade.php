@@ -178,7 +178,7 @@
                                       </div>
                                       <div class="col-xs-12 col-sm-6">
                                           <div class="card">
-                                              <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                              <a class="img-card" href="/hoso">
                                               <img src="https://quantrinhansu.vn/wp-content/uploads/2020/03/chon-trang-phuc-phu-hop-khi-di-phong-van-xin-viec.png" />
                                             </a>
                                               <div class="card-content">
@@ -233,7 +233,7 @@
                                          </div>
                                          <div class="col-xs-12 col-sm-6">
                                              <div class="card">
-                                                 <a class="img-card" href="vieclam">
+                                                 <a class="img-card" href="/vieclam">
                                                  <img src="https://hr.jobnow.com.vn/wp-content/uploads/2019/04/cach-tim-viec-lam-nhanh-hieu-qua.jpg" />
                                                </a>
                                                  <div class="card-content">

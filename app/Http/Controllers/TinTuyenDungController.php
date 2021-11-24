@@ -93,7 +93,7 @@ class TinTuyenDungController extends Controller
         }
     }
     //xoa nhieu
-    public function destroyall(Request $request)
+    public function destroyAll(Request $request)
     {
         if(TinTuyenDung::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
@@ -104,20 +104,20 @@ class TinTuyenDungController extends Controller
         }
     }
     //thung rac
-    public function tintuyendung_trash()
+    public function tinTuyenDungTrash()
     {
         $tintuyendungs_trash = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintuyendung.tintuyendungs_trash', compact('tintuyendungs_trash'));
     }
     //khoi phuc
-    public function tintuyendung_untrash($id)
+    public function tinTuyenDungUnTrash($id)
     {
         $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintuyendung->restore();
         return redirect()->route('tintuyendung1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     //xoa vinh vien
-    public function tintuyendung_forceDelete($id)
+    public function tinTuyenDungForceDelete($id)
     {
         $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintuyendung->forceDelete();
@@ -135,7 +135,7 @@ class TinTuyenDungController extends Controller
         return view('vieclam.vieclam');
     }
 
-    public function chitietvieclam($id)
+    public function chiTietViecLam($id)
     {
         $data['vieclam'] = TinTuyenDung::find($id);
         $data['user'] = TinTuyenDung::find($id)->user;

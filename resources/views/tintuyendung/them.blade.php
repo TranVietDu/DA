@@ -1,8 +1,7 @@
 @extends('master')
 
 @section('content')
-<div class="services">
-    <div class="container">
+<div class="services" style="margin-top:-50px">
 <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -107,7 +106,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </div>

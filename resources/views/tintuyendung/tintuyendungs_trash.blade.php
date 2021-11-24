@@ -8,7 +8,7 @@
                 @if ($tintuyendungs_trash->isEmpty())
                 <div class="col-12 text-center">
                     {{'Không có gì trong thùng rác!'}}<br><br><br>
-                    <a href="/danhsach">Trở lại</a>
+                    <a href="danhsach">Trở lại</a>
                 </div>
                 @else
                 <div class="col-12 text-center">

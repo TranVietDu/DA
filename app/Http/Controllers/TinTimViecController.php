@@ -91,7 +91,7 @@ class TinTimViecController extends Controller
         }
     }
     //xoa nhieu
-    public function destroyall(Request $request)
+    public function destroyAll(Request $request)
     {
         if(TinTimViec::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
@@ -102,20 +102,20 @@ class TinTimViecController extends Controller
         }
     }
     //thung rac
-    public function tintimviec_trash()
+    public function tinTimViecTrash()
     {
         $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.tintimviecs_trash', compact('tintimviecs_trash'));
     }
     //khoi phuc
-    public function tintimviec_untrash($id)
+    public function tinTimViecUnTrash($id)
     {
         $tintimviec = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->find($id);
         $tintimviec->restore();
         return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     //xoa vinh vien
-    public function tintimviec_forceDelete($id)
+    public function tinTimViecForceDelete($id)
     {
         $tintimviec = TinTimViec::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintimviec->forceDelete();
@@ -132,7 +132,7 @@ class TinTimViecController extends Controller
     {
         return view('hoso.hoso');
     }
-    public function chitiethoso($id)
+    public function chiTietHoSo($id)
     {
         $data['hoso'] = TinTimViec::find($id);
         $data['user'] = TinTimViec::find($id)->user;
