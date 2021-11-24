@@ -48,8 +48,7 @@
                                     <select name="role" required="" class="form-control browser-default custom-select">
                                         <option class="hidden" selected disabled>Role</option>
                                         <option value="1">Admin</option>
-                                        <option value="2">Nhà Tuyển Dụng</option>
-                                        <option value="3">Người Tìm Việc</option>
+                                        <option value="0">Nguời Dùng</option>
                                     </select>
                                 </div>
 

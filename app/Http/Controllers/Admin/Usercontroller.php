@@ -49,6 +49,8 @@ class Usercontroller extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password=bcrypt($request->password);
+        $user->provider='';
+        $user->provider_id='';
         $user->role=$request->role;
         $adduser=$user->save();
         if($adduser){
@@ -129,15 +131,11 @@ class Usercontroller extends Controller
                             <td>'.$al->name.'</td>
                             <td>'.$al->email.'</td>
                             <td>'.$al->role.'</td>
-                            if($al->role==2){
                             <td><a href="/admin/user/xembaituyen/'.$al->id.'"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                            }
-                            if($al->role==3){
-                            <td><a href="admin/user/xembaitim/'.$al->id.'"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                            }
                             <td><a href="/admin/user/'.$al->id.'/edit"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                             <td>
                                     <form action="/admin/user/'.$al->id.'" method="post">
+                                    '.csrf_field().'
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></button>
                                     </form>
@@ -150,8 +148,9 @@ class Usercontroller extends Controller
     public function viewposttuyendung($user){
         $username=User::find($user);
         $userposttuyen=User::find($user)->tintuyendungs;
+        $userposttim=User::find($user)->tintimviecs;
         $blog=User::find($user)->blogs;
-        return view('admin.user.xembaidangtuyen',compact('userposttuyen','blog','username'));
+        return view('admin.user.xembaidangtuyen',compact('userposttuyen','blog','username','userposttim'));
     }
     public function viewposttimviec($user){
         $username=User::find($user);

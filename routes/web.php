@@ -170,6 +170,7 @@ Route::middleware(['admin'])->group(function () {
         // Tintimviec
         Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
         Route::delete('admin/tintimviec/{tinTimViec}','TimViecController@destroy')->name('tintimviec.destroy');
+        Route::get('admin/tintimviec/search','TimViecController@search')->name('tintimviec.search');
         // Blogs
         Route::get('admin/blog','BlogController@index')->name('blog.index');
         Route::delete('admin/blog/{blog}','BlogController@destroy')->name('blog.destroy');

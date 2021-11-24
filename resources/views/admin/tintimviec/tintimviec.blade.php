@@ -7,32 +7,13 @@
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Tin Tìm Việc</h1>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Tin Tìm Việc
-                    <form class="form-inline" action="{{route('user.search')}}" method="get">
-                        <input type="search" name="search" id="">
+                    <form class="form-inline" action="" method="get">
+                        <input type="search" name="search" id="search">
                         <button class="btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>
@@ -46,8 +27,8 @@
                 <div class="add">
                         <a style="float: right;" href="{{route('tintimviec1.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Tin Tìm Việc</button></a>
                     </div>
-                <div style="overflow-x:auto;" class="card-body">
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
+                <div style="overflow-x:auto;">
+                    <table class="table table-bordered border border-info">
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">STT</th>
@@ -90,6 +71,26 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+                        $('#search').on('keyup', function() {
+                            $value = $(this).val();
+                            $.ajax({
+                                type: 'get',
+                                url: '/admin/tintimviec/search',
+                                data: {
+                                    'search': $value
+                                },
+                                success: function(data) {
+                                    $('tbody').html(data);
+                                }
+                            });
+                        })
+                        $.ajaxSetup({
+                            headers: {
+                                'csrftoken': '{{ csrf_token() }}'
+                            }
+                        });
+                    </script>
         {{-- xoa 1 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">

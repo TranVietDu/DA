@@ -104,9 +104,40 @@ class TinTimViecController extends Controller
         TinTimViec::onlyTrashed()->restore();
         return redirect()->route('tintimviec1.list');
     }
-    public function vieclamview()
+    public function vieclamview(Request $request)
     {
-        return view('hoso.hoso');
+        $timviecs = DB::table('tintimviecs')->orderByDesc('id')->paginate(6);        
+		$data = '';
+		if ($request->ajax()) {
+			foreach ($timviecs as $al) {
+				$data.='
+                <div class="col-md-6">
+                        <div class="product-item">
+                            <a href="/hoso/chi-tiet-ho-so/'.$al->id.'">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="anhcanhan">
+                                            <img height="200px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="thongtin">
+                                            <h4 style="padding-bottom: 60px; padding-top: 10px;">'.$al->ten.'</h4>
+                                            <p><i class="fas fa-venus-mars"></i> Giới tính: '.$al->gioitinh.'</p>
+                                            <p><i class="fas fa-briefcase"></i> Ngành nghề: '.$al->nganhnghe.'</p>
+                                            <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  '.\Carbon\Carbon::parse($al->created_at)->format('d/m/Y').'</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                ';
+			}
+			return $data;
+		}
+        return view('hoso.hoso',compact('timviecs'));
     }
     public function chitiethoso($id)
     {

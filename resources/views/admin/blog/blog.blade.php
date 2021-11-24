@@ -8,26 +8,6 @@
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Blog</h1>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
@@ -41,10 +21,10 @@
                 </div>
                 @endif
                 <div class="add">
-                        <a style="float: right;" href="/blog/viet-blog"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add Blog</button></a>
+                        <a style="float: right;" href="/blog/viet-blog"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Blog</button></a>
                     </div>
-                <div style="overflow-x:auto;" class="card-body">
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
+                <div style="overflow-x:auto;">
+                    <table class="table table-bordered border border-info">
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">STT</th>
@@ -67,7 +47,7 @@
                                 <td><img src="{{ asset('anh_blog/'.$al->anh) }}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->tennguoiviet}}</td>
                                 <td>{{$al->tieude}}</td>
-                                <td>{{$al->noidung}}</td>
+                                <td>{!!html_entity_decode(Str::limit($al->noidung, 400))!!}</td>
                                 <td><a href="/blog/chi-tiet-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                                 <td><a href="/blog/cap-nhat-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>

@@ -8,33 +8,13 @@
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Slider</h1>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Slider
                 </div>
                 <div class="card-header">
-                    <a style="float: right;" href="/admin/slider/create"><button class="btn btn-primary">Add Slider</button></a>
+                    <a style="float: right;" href="/admin/slider/create"><button class="btn btn-primary">Thêm Slider</button></a>
                 </div>
                 <div class="card-header">
                 </div>
@@ -43,8 +23,8 @@
                     {{session('thongbao')}}
                 </div>
                 @endif
-                <div style="overflow-x:auto;" class="card-body">
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
+                <div style="overflow-x:auto;">
+                    <table class="table table-bordered border border-info">
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">STT</th>

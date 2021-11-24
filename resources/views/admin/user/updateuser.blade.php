@@ -46,8 +46,7 @@
                                     <select name="role"  required="" class="form-control browser-default custom-select">
                                         <!-- <option class="hidden" selected disabled>Role</option> -->
                                         <option value="1" {{($user->role === '1') ? 'Selected' : ''}}>Admin</option>
-                                        <option value="2" {{($user->role === '2') ? 'Selected' : ''}}>Nhà Tuyển Dụng</option>
-                                        <option value="3" {{($user->role === '3') ? 'Selected' : ''}}>Người Tìm Việc</option>
+                                        <option value="0" {{($user->role === '0') ? 'Selected' : ''}}>Người Dùng</option>
                                     </select>
                                 </div>
 

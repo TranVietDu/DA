@@ -43,12 +43,9 @@
                         {{session('thongbao')}}
                     </div>
                     @endif
-                    <div class="add">
-                        <a style="float: right;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add User</button></a>
-                    </div>
                 </div>
-                <div style="overflow-x:auto;" class="card-body">
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
+                <div style="overflow-x:auto;">
+                    <table class="table table-bordered border border-info" >
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">STT</th>

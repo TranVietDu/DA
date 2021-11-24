@@ -36,11 +36,11 @@ class AppServiceProvider extends ServiceProvider
         $sliders = DB::table('Slider')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
         // Trang Việc Làm
-        $vieclams=TintuyenDung::paginate(9);
-        view()->share('vieclams',$vieclams);
+        // $vieclams=DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);
+        // view()->share('vieclams',$vieclams);
         // Trang Tìm Việc
-        $timviecs=TinTimViec::paginate(6);
-        view()->share('timviecs',$timviecs);
+        // $timviecs=DB::table('tintimviecs')->orderByDesc('id')->paginate(6);
+        // view()->share('timviecs',$timviecs);
         // Trang Blog
         $blogs=Blog::paginate(8);
         view()->share('blogs',$blogs);

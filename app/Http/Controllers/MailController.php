@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Mail as MailMail;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\Email;
 use Illuminate\Http\Request;
 use App\Models\TinTuyenDung;
 use Carbon\Carbon;
@@ -22,9 +23,7 @@ class MailController extends Controller
             'file' => $request->file('file')
         ];
         $email=$request->email;
-
-        \Mail::to($email)->send(new Mail($data));
-
+        \Mail::to($email)->send(new Email($data));
         return back()->with('thongbao','Gửi CV Thành Công, Vui Lòng Chờ Nhà Tuyển Dụng Liên Hệ');
     }
     public function quen_mat_khau()
