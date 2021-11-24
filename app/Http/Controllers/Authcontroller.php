@@ -101,8 +101,8 @@ class Authcontroller extends Controller
          $user = User::create([
             'name'     => $getInfo->name,
             'email'    => $getInfo->email,
-            'role'     =>$role,
-            'password' => '',
+            'role'     => $role,
+            'password' => 'Đăng nhập bằng '.$provider,
             'provider' => $provider,
             'provider_id' => $getInfo->id
         ]);

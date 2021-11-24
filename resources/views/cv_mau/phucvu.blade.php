@@ -36,7 +36,7 @@
           <div class="noidung">
             <!-- Thông tin -->
             <h4 id="Thongtin"><b>I. Thông tin nhất định phải có trong CV xin việc nhân viên phục vụ</b></h4>
-            <img src="assets/images/image Cv/phucvu.jpg" alt="" class="img-fluid"
+            <img src="{{ asset('cv_mau/phucvu.jpg') }}" alt="" class="img-fluid"
               style="display: block; margin-left: auto;margin-right: auto;">
             <p>
               Nhìn chung, CV xin việc nhân viên phục vụ chỉ cần đầy đủ thông tin cơ bản, giới thiệu bản thân với nhà
@@ -59,7 +59,8 @@
               học thiết kế, làm truyền thông...), đa số mọi người dùng luôn các mẫu CV online có sẵn. Do đó, khi nói về
               cách định dạng CV xin việc nhân viên phục vụ, chủ yếu chúng ta sẽ nói về cách chọn mẫu CV phù hợp nhất.
             </p>
-            <img src="assets/images/image Cv/197518304_937464197110331_7928434305684826685_n.png" alt="" class="cv-mau">
+            <img src="{{asset('cv_mau/cv_mau_phucvu.png')}}" alt="" class="img-fluid"
+            style="display: block; margin-left: auto;margin-right: auto;">
             <p style="text-align: center;"><i>CV xin việc phục vụ mẫu</i></p>
             <p>Gợi ý cho bạn là bạn nên chọn mẫu đơn giản. Khi ứng tuyển nhân viên phục vụ, nhiều khả năng bạn đang là
               sinh viên làm thêm, mới tốt nghiệp các chuyên ngành đào tạo về dịch vụ, nhà hàng - khách sạn hoặc liên
@@ -196,8 +197,9 @@
             </p>
             <hr>
             <div class="row">
-              <h4>Bài viết liên quan</h4>
-              <div class="col-md-6">
+              <h5>Bài viết liên quan</h5><br>
+
+              <div class="col-md-12">
                 <ul>
                   <li>
                     <h6><a href="" style="color: #397ac0;">Cách viết CV xin việc Bán điện thoại</a></h6>

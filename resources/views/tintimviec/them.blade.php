@@ -15,7 +15,7 @@
                 <br/>
                 <br/>
                 <br/>
-                <a href="/tintimviec/danhsach" style="color:rgb(8, 8, 8); border-radius: 20px; padding:15px; background-color: rgb(222, 226, 164)">Quản Lí Tin</a>
+                <a href="/tintimviec/danhsach" style="color:rgb(8, 8, 8); border-radius: 20px; padding:15px; background-color: rgb(222, 226, 164)">QUẢN LÍ TIN</a>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">

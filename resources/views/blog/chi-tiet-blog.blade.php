@@ -2,24 +2,39 @@
 
 @section('content')
 <!-- Page Content -->
-<img height="500px" width="100%" src="https://www.seotopnhanh.com/wp-content/uploads/2019/09/Ki%E1%BA%BFm-ti%E1%BB%81n-t%E1%BB%AB-blog.jpg" alt="">
+<img height="500px" width="100%" src="https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png" alt="">
 
 <div class="products">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="section-heading">
-          <h2>{{$blog->tieude}}</h2>
+        <div class="col-md-8">
+            <div class="section-heading text-center">
+                <h2>{{$blog->tieude}}</h2>
+              </div>
         </div>
       </div>
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-9">
-            <img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="">
-            <p class="text-justify">{!!html_entity_decode($blog->noidung)!!}</p>
-            <i style="padding-top: 10px;" class="float-right">Tác Giả: {{$blog->tennguoiviet}}</i>
+          <div class="col-md-8 mb-4 mr-5">
+            <img width="80%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block">
+            <span style="text-align: justify">{!!html_entity_decode($blog->noidung)!!}</span>
+            <i style="padding-top: 10px;" class="float-right"><i class="fas fa-at"></i>{{$blog->tennguoiviet}}</i>
           </div>
           <div class="col-md-3">
+            <div class="form-group blognear">
+                <img src="https://neilpatel.com/wp-content/uploads/2019/06/mao-masculina-segurando-xicara-de-cafe-em-mesa-de.jpeg" alt="" style="width:100%">
+                <h5 style="height: 50px; width:100%; background-color: yellow; text-align:center;line-height:50px"><a style="color: rgb(7, 7, 7);" href="{{route('blog1.create')}}">Viết Blog</a></h5>
+                <h5 style="margin-top: 20px;">Một số blog khác</h5>
+                @foreach($blogkhac as $blog)
+                <div style="margin: 10px;" class="blogss">
+                  - <a style="font-size: 18px" href="/blog/chi-tiet-blog/{{$blog->id}}">
+                        <b class="small">{{$blog->tieude}} | {{$blog->luotxem}}
+                          <i class="fa fa-eye" aria-hidden="true"></i></b>
+                  </a>
+                </div>
+                @endforeach
+              </div>
           </div>
         </div>
 
@@ -39,7 +54,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Bình Luận</h2>
+          <h3>Hãy nói gì đó về {{$blog->tieude}}</h3>
         </div>
       </div>
       <div class="col-md-8">
@@ -48,12 +63,12 @@
             <div class="row">
               <div class="col-lg-12">
                 <fieldset>
-                  <textarea name="noidung" rows="6" class="form-control" id="message" placeholder="Bình luận của bạn..." required=""></textarea>
+                  <textarea name="noidung" rows="10" class="form-control" id="message" placeholder="Nội dung..." required=""></textarea>
                 </fieldset>
               </div>
               <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="filled-button">Bình Luận</button>
+                  <button type="submit" id="form-submit" class="filled-button">Gửi</button>
                 </fieldset>
               </div>
             </div>
@@ -67,7 +82,7 @@
       </div>
       @foreach ($comments as $cm)
       <div class="col-md-12" style="margin-top:30px">
-        <div class="product-item" style="padding:20px">
+        <div style="padding:20px; background-color: rgba(95, 92, 92, 0.062);">
           <strong>{{$cm->ten}}</strong>
           <p>{{$cm->created_at}}</p>
           <br>

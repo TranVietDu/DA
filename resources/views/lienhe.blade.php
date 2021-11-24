@@ -2,38 +2,43 @@
 
 @section('content')
 <!-- Page Content -->
-<img width="100%" height="400px" src="{{asset('anh_blog\part.jpg')}}" alt="">
+<img width="100%" height="400px" src="https://cdn.123job.vn/123job//uploads/images/viec-lam-part-time.jpg" alt="">
 @foreach ($lienhes as $lh)
 <div class="find-us">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="section-heading">
-            <h2>Địa chỉ của chúng tôi trên Maps</h2>
+            <h1>GIỚI THIỆU <span style="color:red;">VỀ CHÚNG TÔI</span> !</h1>
           </div>
         </div>
         <div class="col-md-8">
-<!-- How to change your own map point
-  1. Go to Google Maps
-  2. Click on your location point
-  3. Click "Share" and choose "Embed map" tab
-  4. Copy only URL and paste it within the src="" field below
--->
           <div id="map">
-            <iframe src="{{ $lh->diachi }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              <h4>Địa chỉ</h4>
+            <iframe src="{{ $lh->diachi }}" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
         <div class="col-md-4">
           <div class="left-content">
             <h4>{{ $lh->tieude }}</h4>
-            <p>{{ $lh->gioithieu }}</p>
-            <ul class="social-icons">
+            <p style="text-align:justify">{{ $lh->gioithieu }}</p>
+          </div>
+            <ul class="social-icons" style="">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
             </ul>
-          </div>
+        </div>
+      </div>
+      <div class="row mt-5" style="background-color: rgba(151, 229, 233, 0.363); border: 2px dashed black; padding:20px 5px">
+        <div class="col-12">
+          <h5><i class="fas fa-eye"></i> <b style="color: darkturquoise;">TẦM NHÌN</b></h5>
+          <p>Trở thành 1 trang Web cung cấp các việc làm online hàng đầu và đồng hành cùng tất cả sinh viên ở Việt Nam.
+          </p>
+          <h5><i class="fas fa-bullseye"></i> <b style="color: rgb(204, 26, 26);">SỨ MỆNH</b></h5>
+          <p>Nghiên cứu và phát triển nhiều chức năng trang web để tạo sự thuận tiện và tăng khả năng tương tác của
+            người dùng truy cập website.</p>
         </div>
       </div>
     </div>
@@ -46,7 +51,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Hãy nói gì về trang web của chúng tôi</h2>
+          <h2>Hãy nói gì đó về trang web của chúng tôi</h2>
           @if (session('thongbao'))
           <div class="alert alert-info" role="alert">
               <p style="color: rgb(7, 7, 7); font-size: 15px">{{session('thongbao')}}</p>

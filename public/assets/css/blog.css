@@ -1,3 +1,4 @@
+
 .wrapper {
     display: table;
     height: 100%;
@@ -79,7 +80,10 @@
     text-transform: uppercase
   }
 
-
+/* trang viet blog */
+.blog{
+    background: -webkit-linear-gradient(left, #ddf129, #00c6ff);
+}
   .blog-left{
       text-align: center;
       color: #fff;
@@ -92,7 +96,7 @@
       width: 60%;
       background: #f8f9fa;
       font-weight: bold;
-      color: #7ea81c;
+      color: #171817;
       margin-top: 30%;
       margin-bottom: 3%;
       cursor: pointer;
@@ -132,7 +136,7 @@
       border: none;
       border-radius: 1.5rem;
       padding: 2%;
-      background: #c6e41d;
+      background: #6aaf10;
       color: #fff;
       font-weight: 600;
       width: 50%;
@@ -170,4 +174,86 @@
       margin-bottom: -15%;
       color: #495057;
   }
+/* trang blog */
+  .blog1{
+    padding: 70px 30px;
+    background-color: rgb(36, 207, 212);
+    border-radius: 50%;
+    border: 3px double black;
+    animation: colorBackground 0.5s infinite;
+    -webkit-animation: colorBackground 2s infinite;
+    -moz-animation: colorBackground 2s infinite;
+    -o-animation: colorBackground 0.5s infinite
+    }
+    @keyframes colorBackground {
+    0% {
+    background-color: yellowgreen;
+    color: white;
+    }
+    50% {
+    background-color: red;
+    color: yellow;
+    }
+    }
 
+    /* blog */
+.blog2{
+    padding:7px 3px;
+}
+.blog2 p{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 25px;
+    -webkit-line-clamp: 3;
+    height: 75px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    margin-bottom: 12px;
+}
+ .blog2:hover{
+    box-shadow: 0 5px 5px 1px grey;
+}
+
+.blog2 p:hover{
+    color: rgb(202, 20, 20);
+}
+/* scroll */
+#blog3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+#blog3::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#blog3::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	background-color: #FFF;
+	background-image: -webkit-linear-gradient(90deg,
+    transparent,
+    rgba(44, 141, 231, 0.4) 50%,
+    transparent,
+    transparent);
+}
+
+.blog3{
+	float: left;
+	height: 580px;
+	width: 100%;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+/* quan li tai khoan, doi mat khau */
+.blog4{
+    padding: 30px 20px;
+    background: rgb(229, 241, 241);
+    margin-top: -100px;
+}

@@ -261,7 +261,7 @@
 
 @if ($blognoibat->isEmpty())
 @else
-<div style="margin-top: 100px;" class="blog">
+<div style="margin-top: 100px;">
     <div style="" class="container">
       <div class="row">
       <div class="col-md-12">
@@ -370,7 +370,7 @@
                     </div>
                     <div class="down-content">
                       <h4>{{$ykien->ten}}</h4>
-                      <p><i>"{{$ykien->noidung}}"</i></p>
+                      <p>"{{$ykien->noidung}}"</p>
                     </div>
                   </div>
                 @endforeach

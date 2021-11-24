@@ -27,7 +27,7 @@ class CapNhatBlogRequest extends FormRequest
             'tennguoiviet' => 'required|string',
             'tieude' => 'required|string',
             'noidung' => 'required|string',
-            'anh' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'anh' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
     public function attributes()
