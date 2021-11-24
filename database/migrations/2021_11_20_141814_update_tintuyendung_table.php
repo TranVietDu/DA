@@ -17,7 +17,6 @@ class UpdateTintuyendungTable extends Migration
             $table->dateTime('ngayhethan');
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -74,33 +74,26 @@
                         <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
                     @else
                     @foreach($timviec as $al)
-                    @php
-                    date_default_timezone_set('Asia/Ho_Chi_Minh');
-
-                       $birthday = $al->ngaysinh;
-                       $diff = date_diff(date_create(), date_create($birthday));
-                       $age = $diff->format('%Y');
-                       $ngaytao = $al->created_at->format('d-m-Y');
-                   @endphp
                     <div class="col-md-6">
                         <div class="product-item">
                             <a href="/hoso/chi-tiet-ho-so/{{$al->id}}">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <img style="padding: 8px;" width="auto" height="100%" src="{{ asset('anh_tintimviec/'.$al->anh) }}" alt="">
+                                        <div class="anhcanhan">
+                                            <img height="200px" src="{{asset('anh_tintimviec/'.$al->anh)}}" alt="">
+                                        </div>
                                     </div>
                                     <div class="col-md-7">
-                                        <div class="down-content">
-                                            <h4>{{$al->ten}}</h4>
-                                            <p>● {{$al->nganhnghe}} ● {{$age}} tuổi</p>
-                                            <small>
-                                                <strong title="Posted on"><i class="fa fa-calendar"></i> {{$ngaytao}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <strong title="Location"><i class="fa fa-map-marker"></i> {{$al->diachi}}</strong>
-                                            </small>
+                                        <div class="thongtin">
+                                            <h4 style="padding-bottom: 60px; padding-top: 10px;">{{$al->ten}}</h4>
+                                            <p><i class="fas fa-venus-mars"></i> Giới tính: {{$al->gioitinh}}</p>
+                                            <p><i class="fas fa-briefcase"></i> Ngành nghề: {{$al->nganhnghe}}</p>
+                                            <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  {{ \Carbon\Carbon::parse($al->created_at)->format('d/m/Y')}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
+
                         </div>
                     </div>
                     @endforeach

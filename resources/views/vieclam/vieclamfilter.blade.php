@@ -136,20 +136,20 @@
           <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
           @else
           @foreach ($vieclam as $val)
-          <div class="col-md-4 mt-3">
+          <div class="col-md-4">
             <div class="product-item">
-              <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
+              <a href="/vieclam/chi-tiet-viec-lam/{{$val->id}}">
                 <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}" style="width:100%; height:200px; padding: 8px;" alt="">
                 <div style="height: 200px;" class="down-content">
-                  <h4 style="color: red;">{{ $val->tieude }}</h4>
+                  <h4 style="color: blue;">{{ $val->tieude }}</h4>
                   <p>
                     @if (isset($val->luong))
-                    {{$val->luong }}
+                    <i class="fas fa-dollar-sign"></i> Lương: {{$val->luong }}
                     @else
                     {{ 'Thương lượng'}}
                     @endif
                   </p>
-                  <h5><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <strong><i class="fa fa-building"></i> {{ $val->tenquan }}</strong></small></h5>
+                  <h5 style="color: black;"><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <i class="fa fa-building"></i> {{ $val->tenquan }}</small></h5>
                 </div>
               </a>
             </div>

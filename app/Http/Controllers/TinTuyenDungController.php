@@ -129,10 +129,32 @@ class TinTuyenDungController extends Controller
         TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->restore();
         return redirect()->route('tintuyendung1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
-
-    public function vieclam()
+    public function vieclam(Request $request)
     {
-        return view('vieclam.vieclam');
+        $vieclams = DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);    
+		$data = '';
+		if ($request->ajax()) {
+			foreach ($vieclams as $val) {
+				$data.='
+                <div class="col-md-4">
+                <div class="product-item">
+                <a href="vieclam/chi-tiet-viec-lam/'.$val->id.'">
+                <img src="'.url('anh_tintuyendung/'.$val->anh).'" style="width:100%; height:200px; padding: 8px;" alt="">
+                <div style="height: 200px;" class="down-content">
+                  <h4 style="color: blue;">'.$val->tieude.'</h4>
+                  <p>
+                    <i class="fas fa-dollar-sign"></i> Lương: '.$val->luong.'
+                  </p>
+                  <h5 style="color: black;"><small><i class="fa fa-briefcase"></i> '.$val->nganhnghe.'<br> <i class="fa fa-building"></i> '.$val->tenquan.'</small></h5>
+                </div>
+              </a>
+            </div>
+          </div>
+                ';
+			}
+			return $data;
+		}
+        return view('vieclam.vieclam',compact('vieclams'));
     }
 
     public function chitietvieclam($id)
