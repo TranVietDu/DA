@@ -13,11 +13,11 @@ class LienHeController extends Controller
     //select all
     public function index()
     {
-        $lienhes = LienHe::all();
+        $lienhes = LienHe::orderBy('id','DESC')->take(1)->get();
         return View::make('lienhe', compact('lienhes'));
     }
 
-    public function postYKien(Request $request)
+    public function dangYKien(Request $request)
     {
         $ykien = new YKienNguoiDung;
         $ykien->user_id = Auth::user()->id;

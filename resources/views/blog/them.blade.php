@@ -6,15 +6,15 @@
 <div class="container blog">
         <div class="row">
             <div class="col-md-3 blog-left">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYwaHkoaoaMS7ad0XpbNO3kHqfJrvGHDi_hjPzArheo_uYS8MmOLw-jRIWKN8AodRitds&usqp=CAU" alt="" style="width: 100px;"/>
-                <h3>Đăng Blog mới</h3>
+                <img src="https://img.favpng.com/22/20/13/paper-pen-quill-feather-clip-art-png-favpng-kpd7UpK0DFbRztTxeYhGFM5Va.jpg" alt="" style="width: 100px;"/>
+                <h3>Viết Blog mới</h3>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
-                <a href="/blog/danhsach" style="color:rgb(8, 8, 8); border-radius: 20px; padding:15px; background-color: rgb(222, 226, 164)">Quản Lí Blog</a>
+                <a href="/blog/danhsach" style="color:rgb(8, 8, 8); border-radius: 20px; padding:15px; background-color: #f3f3e9">QUẢN LÍ BLOG</a>
             </div>
             <div class="col-md-9 blog-right">
                 <div class="tab-content" id="myTabContent">

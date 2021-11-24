@@ -6,25 +6,46 @@
         <h3 style="text-align: center">Quản lí tin tìm việc</h3>
           <div class="row">
               <div class="col-md-12">
+                <a href="{{ route('tintimviec1.trash')}}" style="text-align: center; display: block; margin-bottom: 10px">Thùng rác</a>
                 <div class="add" style="margin: 20px 0">
                     <button class="btn btn-primary"><a style="color:aliceblue;" href="{{ route("tintimviec1.create") }}">Thêm</a></button>
                     <button type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
                 </div>
-                <table class="table table-bordered border border-info" id="datatablesSiple">
-                    <thead class="bg-info">
-                         <tr>
-                            <th><input type="checkbox" id="check_all"/></th>
-                            <th>STT</th>
-                            <th>Tên</th>
-                            <th>Tuổi</th>
-                            <th>Giới tính</th>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        @if (session('tb_khoiphuc'))
+                    <div class="alert alert-success">
+                        {{session('tb_khoiphuc')}}
+                    </div>
+                    @endif
+                    </div>
+                    <div class="col-12 text-center">
+                        @if (session('tb_xoa'))
+                    <div class="alert alert-success">
+                        {{session('tb_xoa')}}
+                    </div>
+                    @endif
+                    </div>
+                </div>
+                @if ($tintimviecs->isEmpty())
+                <div class="col-12 text-center">
+                    {{'Bạn chưa đăng hồ sơ xin việc nào hoặc đã xóa. Vui lòng kiểm tra trong thùng rác!'}}
+                </div>
+                @else
+                <table class="table table-bordered border border-info table-striped" id="datatablesSiple">
+                    <thead class="text-center" style="color: #007bff;">
+                            <th><input type="checkbox" id="chkCheckAll"/></th>
+                            <th style="color:black">#</th>
+                            <th width="150px" style="color:black">@sortablelink('ten','Tên ứng viên')</th>
+                            <th width="80px" style="color:black">@sortablelink('ngaysinh','Tuổi')</th>
+                            <th width="115px" style="color:black">@sortablelink('gioitinh','Giới tính')</th>
                             <th>Số ĐT</th>
-                            <th>Email</th>
-                            <th>Ngành nghề</th>
-                            <th>Địa chỉ</th>
+                            <th width="100px" style="color:black">@sortablelink('email','Email')</th>
+                            <th width="150px" style="color:black">@sortablelink('nganhnghe','Ngành nghề')</th>
+                            <th width="130px" style="color:black">@sortablelink('diachi','Địa chỉ')</th>
                             <th>Ảnh</th>
-                            <th>Mô tả</th>
-                            <th colspan="2">Action</th>
+                            <th width="200px">Mô tả</th>
+                            <th colspan="2">Hành động</th>
                          </tr>
                      </thead>
                      <tbody>
@@ -40,7 +61,7 @@
                             $age = $diff->format('%Y');
                         @endphp
                          <tr id="sid{{$al->id}}">
-                            <td><input type="checkbox" name="ids" class="checkbox" value="{{$al->id}}"></td>
+                            <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
                             <td>
                                 {{$i++}}
                             </td>
@@ -68,13 +89,16 @@
                                 <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm" data-toggle="tooltip" title='Delete'><i class="fa fa-trash" aria-hidden="true"></i></button>
                             </form>
                             </td>
-                             <td><a href="{{ route('tintimviec1.edit', $al->id) }}"><i class="fas fa-edit"></i></a></td>
+                            <td>
+                                <button type="button" class="btn btn-xs btn-warning" >
+                                    <a href="{{ route('tintimviec1.edit', $al->id) }}"><i class="fas fa-edit"></i></a>
+                                </button>
+                            </td>
                          </tr>
-
                          @endforeach
-                         <a href="{{ route('tintimviec1.restore')}}" style="text-align: center; display: block; margin-bottom: 10px">Khôi phục các tin đã xóa</a>
                      </tbody>
                  </table>
+                @endif
                  <div style="float: right;" class="phantrang">
                     {!! $tintimviecs->links() !!}
                     </div>
@@ -85,7 +109,6 @@
     {{-- xoa 1 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">
-
         $('.show_confirm').click(function(event) {
              var form =  $(this).closest("form");
              var name = $(this).data("name");
@@ -104,65 +127,34 @@
          });
 
    </script>
+   {{-- xoa nhieu --}}
+ <script>
+    $(function(e) {
+        $("#chkCheckAll").click(function() {
+            $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+        });
 
-   {{-- xóa nhiều --}}
-   <script type="text/javascript">
-    $(document).ready(function () {
-        $('#check_all').on('click', function(e) {
-        if($(this).is(':checked',true))
-    {
-        $(".checkbox").prop('checked', true);
-        } else {
-        $(".checkbox").prop('checked',false);
-    }
-    });
-        $('.checkbox').on('click',function(){
-        if($('.checkbox:checked').length == $('.checkbox').length){
-        $('#check_all').prop('checked',true);
-        }else{
-        $('#check_all').prop('checked',false);
-    }
-    });
-        $('.delete-all').on('click', function(e) {
+        $("#deleteall").click(function(e){
             e.preventDefault();
-            var idsArr = [];
-            $(".checkbox:checked").each(function() {
-            idsArr.push($(this).attr('data-id'));
+            var allids= [];
+            $("input:checkbox[name=ids]:checked").each(function(){
+                allids.push($(this).val());
+            });
+            $.ajax({
+                url:"{{route('tintimviec1.destroyall')}}",
+                type:'GET',
+                data:{
+                    ids:allids,
+                    _token:$("input[name=_token]").val()
+                },
+                success:function(response)
+                {
+                    $.each(allids,function(key,val){
+                        $('#sid'+val).remove();
+                    });
+                }
+            });
+        });
     });
-        if(idsArr.length <=0)
-    {
-        alert("Vui lòng chọn ít nhất 1 hàng để xóa.");
-        }  else {
-        if(confirm("Bạn có muốn xóa các hàng đã chọn không?")){
-        var strIds = idsArr.join(",");
-        $.ajax({
-        url: "{{ route('tintimviec1.destroyall') }}",
-        type: 'GET',
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        data: 'ids='+strIds,
-        success: function (data) {
-        if (data['status']==true) {
-        $(".checkbox:checked").each(function() {
-        $(this).parents("tr_").remove();
-    });
-        alert(data['message']);
-        } else {
-        location.reload();
-    }
-    },
-        error: function (data) {
-        alert(data.responseText);
-    }
-    });
-    }
-    }
-    });
-    $('[data-toggle=confirmation]').confirmation({
-        rootSelector: '[data-toggle=confirmation]',
-        onConfirm: function (event, element) {
-        element.closest('form').submit();
-    }
-    });
-    });
-    </script>
+</script>
 @endsection

@@ -486,6 +486,8 @@
 <div style="margin-top: 100px;">
   <div style="" class="container">
     <div class="row">
+
+  
       <div class="col-md-12">
         <div class="section-heading">
           <h2>Đọc Gì Hôm Nay?</h2>
@@ -588,6 +590,7 @@
             <div class="down-content">
               <h4>{{$ykien->ten}}</h4>
               <p><i>"{{$ykien->noidung}}"</i></p>
+
             </div>
           </div>
           @endforeach

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use App\Models\Blog;
-use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use App\Models\BinhLuan;
 
 class BlogController extends Controller
@@ -17,21 +17,15 @@ class BlogController extends Controller
     //select all
     public function index()
     {
-        $blogs = User::find(Auth::user()->id)->blogs;
+        $blogs = Blog::where('user_id',Auth::user()->id)->sortable()->paginate(10);
         return View::make('blog.danhsach', compact('blogs'));
     }
-
-    public function blog($id)
+    public function blog()
     {
         $data['blogs'] = BLog::simplePaginate(10);
-        $data['count'] = Blog::find($id)->binhluan;
         return View::make('blog.blogs', compact($data));
     }
-    public function blogxemnhieu()
-    {
-        $blogxemnhieu = Blog::orderBy('luotxem', 'DESC')->take(2)->get();
-        return View::make('blog.blogs', compact('blogxemnhieu'));
-    }
+
     public function chitietblog($id)
     {
         $data['blog'] = BLog::find($id);
@@ -78,8 +72,8 @@ class BlogController extends Controller
     //cap nhat
     public function update(CapNhatBlogRequest $request, $id)
     {
-        $blog = Blog::find($id);
-        if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
+        $tintuyendung = BLog::find($id);
+        if ($tintuyendung->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             $data = $request->validated();
             $get_image = $request->file('anh');
             if ($get_image) {
@@ -89,7 +83,14 @@ class BlogController extends Controller
                 $get_image->move('anh_blog', $new_image);
                 $data['anh'] = $new_image;
                 Blog::find($id)->update($data);
+                return redirect()->route('blog1.list');
+            } else {
+                Blog::find($id)->update($data);
+
+                return redirect()->route('blog1.list');
             }
+        } else {
+            return view('404');
         }
     }
     //xoa
@@ -98,7 +99,7 @@ class BlogController extends Controller
         $blog = Blog::find($id);
         if ($blog->user_id == Auth::user()->id  || Auth::user()->role == 1) {
         Blog::find($id)->delete();
-        return redirect()->route('blog1.list');
+        return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         }
         else{
             return view('404');
@@ -107,17 +108,40 @@ class BlogController extends Controller
     //xoa nhieu
     public function destroyall(Request $request)
     {
-        $ids = $request->ids;
-        Blog::whereIn('id', $ids)->delete();
-        return redirect()->route('blog1.list');
+        if(Blog::where('user_id', Auth::user()->id)){
+            $ids = $request->ids;
+            Blog::whereIn('id', $ids)->delete();
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
+        }else{
+            return view('404');
+        }
+    }
+    //thung rac
+    public function blog_trash()
+    {
+        $blogs_trash = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->sortable()->paginate(10);
+        return View::make('blog.blogs_trash', compact('blogs_trash'));
+    }
+    //khoi phuc
+    public function blog_untrash($id)
+    {
+        $blog = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->find($id);
+        $blog->restore();
+        return redirect()->route('blog1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
+    }
+    //xoa vinh vien
+    public function blog_forceDelete($id)
+    {
+        $blog = BLog::onlyTrashed()->where('user_id', Auth::id())->find($id);
+        $blog->forceDelete();
+        return redirect()->back()->with('tb_xoa', 'Đã xóa vình viễn');
     }
     //khoi phuc tin da xoa
     public function restore()
     {
-        Blog::onlyTrashed()->restore();
-        return redirect()->route('blog1.list');
+        Blog::onlyTrashed()->where('user_id',Auth::user()->id)->restore();
+        return redirect()->route('blog1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
-
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
@@ -125,7 +149,6 @@ class BlogController extends Controller
 
         return view('tim-kiem-blog',)->with('search_blog', $search_blog);
     }
-
     public function postComment($id, Request $request)
     {
         $comment = new BinhLuan;

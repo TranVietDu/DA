@@ -60,7 +60,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="{{asset('login/images/signup-image.jpg')}}" alt="sing up image"></figure>
-                        <a href="{{route('login')}}" class="signup-image-link">I am already member</a>
+                        <a href="{{route('login')}}" class="signup-image-link">Tôi đã có tài khoản</a>
                     </div>
                 </div>
             </div>

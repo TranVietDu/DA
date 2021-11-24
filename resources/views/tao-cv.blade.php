@@ -140,8 +140,8 @@
               <div class="inner-content">
                 <div class="row">
                   <div class="col-md-8">
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                    <h4>Làm thế nào để viết được 1 CV hoàn thiện ?</h4>
+                    <p>Cách viết CV ấn tượng, tạo CV xin việc cho người mới bắt đầu.</p>
                   </div>
                   <div class="col-lg-4 col-md-6 text-right">
                     <a href="cv-mau" class="filled-button">Tham khảo cách viết CV chuẩn nhất.</a>
