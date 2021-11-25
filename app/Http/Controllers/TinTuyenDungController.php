@@ -131,7 +131,7 @@ class TinTuyenDungController extends Controller
     }
     public function vieclam(Request $request)
     {
-        $vieclams = DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);    
+        $vieclams = DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);
 		$data = '';
 		if ($request->ajax()) {
 			foreach ($vieclams as $val) {
