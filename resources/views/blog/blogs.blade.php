@@ -27,7 +27,7 @@
             <a href="/blog/chi-tiet-blog/{{$blog->id}}">
               <div class="row">
                   <div class="col-md-4">
-                    <img height="200px" style="padding: 5px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
+                    <img height="200px" style="padding: 5px; width: 100%;" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
                   </div>
                   <div class="col-md-8">
                     <h5 style="color:black">{{$blog->tieude}}</h5>

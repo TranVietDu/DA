@@ -2,38 +2,63 @@
 
 @section('content')
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" >
+  <style>
+    .chitietcv h6{
+      padding-bottom: 10px;
+    }
+    .anhcanhan{
+      height: 300px;
+      width: 100%;
+    }
+  </style>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-content">
-          <h4>Thông Tin Hồ Sơ</h4>
-          <h2>{{$hoso->ten}}</h2>
-        </div>
-      </div>
+    <h2 style="padding: 40px;color:red" class="text-center">Thông tin hồ sơ</h2>
+    <h4 style="padding-bottom: 20px;"><u>Thông tin cá nhân</u> </h4>
+   <div class="row">
+    <div class="col-md-8 chitietcv">
+      <table width='100%'>
+        <tr>
+          <td><h6>Họ và tên:</h6></td>
+          <td><h6><b>{{$hoso->ten}}</b></h6></td>
+        </tr>
+        <tr>
+          <td><h6>Giới tính:</h6></td>
+          <td><h6>{{$hoso->gioitinh}}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Ngày sinh:</h6></td>
+          <td><h6>{{ \Carbon\Carbon::parse($hoso->ngaysinh)->format('d/m/Y')}}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Ngày nghề mong muốn:</h6></td>
+          <td><h6>{{$hoso->nganhnghe}}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Mô tả công việc mong muốn:</h6></td>
+          <td><h6>{!!html_entity_decode($hoso->mota)!!}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Địa chỉ liên lạc:</h6></td>
+          <td><h6>{{$hoso->diachi}}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Email:</h6></td>
+          <td><h6><a href="mailto: {{$hoso->email}}">{{$hoso->email}}</a></h6></td>
+        </tr>
+        <tr>
+          <td><h6>Số điện thoại:</h6></td>
+          <td><h6>{{$hoso->sdt}}</h6></td>
+        </tr>
+        <tr>
+          <td><h6>Ngày đăng:</h6></td>
+          <td><h6>{{ \Carbon\Carbon::parse($hoso->created_at)->format('d/m/Y')}}</h6></td>
+        </tr>
+      </table>
     </div>
-  </div>
-</div>
-  <div class="container">
-    <div style="box-shadow: 5px 10px 18px;" class="col-m">
-      <div style="padding-top: 50px;" class="row">
-        <div class="col-md-4">
-          <img width="100%" src="{{ asset('anh_tintimviec/'.$hoso->anh) }}" alt="">
-        </div>
-        <div class="col-md-8 text-justify hososs">
-          <h5>Họ Và Tên: {{$hoso->ten}}</h5>
-          <h5>Ngày Sinh: {{$hoso->ngaysinh}}</h5>
-          <h5>Giới Tính: {{$hoso->gioitinh}}</h5>
-          <h5>Ngành Nghề Mong Muốn: {{$hoso->nganhnghe}}</h5>
-          <h5>Nhu Cầu Việc Làm: {!!html_entity_decode($hoso->mota)!!}</h5>
-          <h5>Địa Chỉ: {{$hoso->diachi}}</h5>
-          <h5>Liên Hệ: <br>
-            Email:{{$hoso->email}} <br>
-            Số Điện Thoại:{{$hoso->sdt}}
-          </h5>
-        </div>
-      </div>
+    <div class="col-md-4">
+      <img class="anhcanhan" src="{{asset('anh_tintimviec/'.$hoso->anh)}}" alt="">
     </div>
+   </div>
     <div class="col-md-12">
       <h3 style="padding: 60px 0;" class="text-center">Tin Tìm Việc Gần Đây</h3>
       <div class="row">

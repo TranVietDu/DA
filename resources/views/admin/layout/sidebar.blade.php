@@ -13,7 +13,7 @@
                 <a class="nav-link collapsed" href="/admin/user">
 
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></i></div>
-                    Users
+                    Người Dùng
                 </a>
                 <a class="nav-link collapsed" href="/admin/tintuyendung">
                     <div class="sb-nav-link-icon"><i class="fas fa-newspaper"></i></div>

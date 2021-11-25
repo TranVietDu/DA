@@ -16,7 +16,7 @@
       border: 2px dashed rgb(247, 247, 242);
     }
     #thongtin,h3,p{
-      padding: 8px;
+      /* padding: 8px; */
     }
     #lienhe ul li{
       margin-top: 10px;

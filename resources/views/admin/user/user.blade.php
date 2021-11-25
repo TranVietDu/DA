@@ -1,6 +1,6 @@
 @extends('admin.masterlayout.masteradmin')
 
-@section('title', 'Manager User')
+@section('title', 'Quản lí người dùng')
 
 
 @section('content')
@@ -8,31 +8,12 @@
     <main style="padding: 25px;background-color: rgb(237, 241, 245);">
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Người Dùng</h1>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
                     Người Dùng
-                    <form class="form-inline" action="{{route('user.search')}}" method="get">
+                    <form class="form-inline" action="" method="get">
                         <input type="search" name="search" id="search">
                         <button class="btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </form>
@@ -44,11 +25,11 @@
                     </div>
                     @endif
                     <div class="add">
-                        <a style="float: right;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Add User</button></a>
+                        <a style="float: right;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Người Dùng</button></a>
                     </div>
                 </div>
-                <div style="overflow-x:auto;" class="card-body">
-                    <table class="table table-bordered border border-info" id="datatablesSiple">
+                <div style="overflow-x:auto;">
+                    <table class="table table-bordered border border-info">
                         <thead>
                             <tr class="bg-info">
                                 <th scope="col">STT</th>
@@ -71,16 +52,10 @@
                                 <td>{{$al->email}}</td>
                                 @if($al->role==1)
                                 <td>Người quản trị</td>
-                                @else
+                                @elseif($al->role==0)
                                 <td>Người dùng</td>
                                 @endif
-                                @if($al->role==2)
                                 <td><a href="{{route('user.viewtuyen',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                @elseif($al->role==3)
-                                <td><a href="{{route('user.viewtim',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                @elseif($al->role==1)
-                                <td><a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
-                                @endif
                                 <td><a href="{{route('user.edit',[$al->id])}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>
                                     <form action="{{route('user.destroy',[$al->id])}}" method="post">

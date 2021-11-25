@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-8 mb-4 mr-5">
-            <img width="80%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block">
+            <img width="90%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 15px">
             <span style="text-align: justify">{!!html_entity_decode($blog->noidung)!!}</span>
             <i style="padding-top: 10px;" class="float-right"><i class="fas fa-at"></i>{{$blog->tennguoiviet}}</i>
           </div>
