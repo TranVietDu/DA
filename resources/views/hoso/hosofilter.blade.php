@@ -5,7 +5,7 @@
 <div class="products">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="contact-form">
                     <form action="{{route('timviecfiter')}}" method="get">
                         <h5>
@@ -58,8 +58,8 @@
 
                         <div>
                             <label>
-                                <input type="radio" value="Pha Chế" name="nganhnghe">
-                                <small>Pha Chế</small>
+                                <input type="radio" value="Công nghệ thông tin" name="nganhnghe">
+                                <small>Công nghệ thông tin</small>
                             </label>
                         </div>
 
@@ -67,7 +67,7 @@
                 </div>
                 </form>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <h5 style="padding: 10px 10px;background-color:#0091ce;color: white; margin-bottom:10px" class="text-center"><i class="fas fa-search"></i> DANH SÁCH HỒ SƠ TÌM VIỆC</h5>
                 <div class="row">
                     @if($timviec->isEmpty())

@@ -7,7 +7,7 @@
     <div class="alert alert-success text-center" style="margin-top:-50px; margin-bottom:0px">
         <h3 style="color:black;">Hãy tự mình thiết kế một CV riêng</h3>
     </div>
-    <div id="content">
+    <div id="content" class="container">
       <div class="cvmau">
       <div class="row mt-4">
         <div class="col-md-10 text-center" id="tren">

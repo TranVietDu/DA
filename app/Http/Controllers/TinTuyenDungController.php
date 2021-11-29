@@ -131,16 +131,16 @@ class TinTuyenDungController extends Controller
     }
     public function vieclam(Request $request)
     {
-        $vieclams = DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);
+        $vieclams = DB::table('tintuyendungs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(9);
 		$data = '';
 		if ($request->ajax()) {
 			foreach ($vieclams as $val) {
-				$data.='
-                <div class="col-md-4">
+                    $data.='
+                    <div class="col-lg-4">
                 <div class="product-item">
                 <a href="vieclam/chi-tiet-viec-lam/'.$val->id.'">
                 <img src="'.url('anh_tintuyendung/'.$val->anh).'" style="width:100%; height:200px; padding: 8px;" alt="">
-                <div style="height: 200px;" class="down-content">
+                <div class="down-content">
                   <h4 style="color: blue;">'.$val->tieude.'</h4>
                   <p>
                     <i class="fas fa-dollar-sign"></i> Lương: '.$val->luong.'

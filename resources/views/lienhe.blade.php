@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<img width="100%" height="400px" src="https://cdn.123job.vn/123job//uploads/images/viec-lam-part-time.jpg" alt="">
+<img width="100%" height="550px" src="https://m.economictimes.com/thumb/msid-66780622,width-1200,height-900,resizemode-4,imgsize-178035/part-timejobs-getty.jpg" alt="">
 @foreach ($lienhes as $lh)
 <div class="find-us">
     <div class="container">
@@ -12,13 +12,13 @@
             <h1>GIỚI THIỆU <span style="color:red;">VỀ CHÚNG TÔI</span> !</h1>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-lg-8">
           <div id="map">
               <h4>Địa chỉ</h4>
             <iframe src="{{ $lh->diachi }}" width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
           <div class="left-content">
             <h4>{{ $lh->tieude }}</h4>
             <p style="text-align:justify">{{ $lh->gioithieu }}</p>

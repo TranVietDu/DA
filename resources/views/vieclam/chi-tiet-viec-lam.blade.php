@@ -11,12 +11,10 @@
     width: 350px;
     height: 234px;
   }
-
-  .imagecl {
-    height: 400px;
-    width: 100%;
+  .image{
+      border-bottom: 5px solid black;
+      width: 100%;
   }
-
   .tieu {
     margin: 10px;
   }
@@ -26,13 +24,13 @@
   }
 </style>
 <div class="tieu">
-  <img class="imagecl" src="{{ asset('anh_tintuyendung/'.$vieclam->anh) }}" class="img-fluid" alt="">
+  <img src="https://congtytanhungphat.com/wp-content/uploads/2020/06/Banner-tuyen-dung.png" class="img-fluid image" alt="">
 </div>
-<h1 class="text-center">{{$vieclam->tieude}} - {{$vieclam->tenquan}}</h1>
+<h2 class="text-center">{{$vieclam->tieude}} - {{$vieclam->tenquan}}</h2>
 <div class="products">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-sm-7">
+      <div class="col-lg-8">
         <div class="row">
           <div class="col-6 chitiet">
             <h6><i style="color: red;" class="fas fa-briefcase"></i> Ngành Nghề: {{$vieclam->nganhnghe}}</h6>
@@ -43,21 +41,23 @@
             <h6><i style="color: red;" class="fas fa-dollar-sign"></i> Mức lương: Thương lượng</h6>
             @endif
             <h6><i style="color: red;" class="fas fa-align-justify"></i> Số Lượng: {{$vieclam->soluong}}</h6>
-            @if (isset($vieclam->mota))
-            <h6><i style="color: red;" class="fas fa-list"></i> Mô Tả Công Việc: </h6>
-            <h6>{!!html_entity_decode($vieclam->mota)!!}</h6>
-            @endif
           </div>
           <div class="col-6 chitiet">
             <h6><i style="color: red;" class="fas fa-map-marker-alt"></i> Địa Điểm Làm Việc: {{$vieclam->diachi}}</h6>
             <h6><i style="color: red;" class="far fa-calendar-alt"></i> Ngày Đăng: {{ \Carbon\Carbon::parse($vieclam->created_at)->format('d/m/Y')}}</h6>
             <h6><i style="color: red;" class="fas fa-clock"></i> Ngày Hết Hạn: {{ \Carbon\Carbon::parse($vieclam->ngayhethan)->format('d/m/Y')}}</h6>
           </div>
+          <div class="col-12 text-justify">
+            @if (isset($vieclam->mota))
+            <h6><i style="color: red;" class="fas fa-list"></i> Mô Tả Công Việc: </h6>
+            <h6>{!!html_entity_decode($vieclam->mota)!!}</h6>
+            @endif
+          </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-5">
+      <div class="col-lg-4 mt-3">
         <div>
-          <img class="img-fluid wc-image ima" src="{{ asset('anh_tintuyendung/'.$vieclam->anh) }}" alt="">
+          <img class="img-fluid wc-image ima" src="{{ asset('anh_tintuyendung/'.$vieclam->anh) }}" alt="" style="display: block; margin-left: auto; margin-right: auto">
         </div>
         <br>
         <div class="contact-form">
@@ -69,9 +69,13 @@
               @endif
           </div>
           <hr>
+          <h3 class="text-center">Liên hệ</h3><br>
+          <p>- Người tuyển dụng: {{$user->name}}</p>
+          <p>- Email:<a href="mailto: {{$user->email}}"> {{$user->email}}</a></p>
         </div>
       </div>
     </div>
+    <hr>
     <div class="row">
       <div class="col-md-12">
       <h4 style="padding-bottom: 20px;">Tin Tuyển Dụng Gần Đây</h4>

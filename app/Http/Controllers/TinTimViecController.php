@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class TinTimViecController extends Controller
 {
@@ -129,18 +129,18 @@ class TinTimViecController extends Controller
     }
     public function vieclamview(Request $request)
     {
-        $timviecs = DB::table('tintimviecs')->orderByDesc('id')->paginate(6);
+        $timviecs = DB::table('tintimviecs')->where('deleted_at', NULL)->orderByDesc('id')->paginate(6);
 		$data = '';
 		if ($request->ajax()) {
 			foreach ($timviecs as $al) {
-				$data.='
-                <div class="col-md-6">
+				                    $data.='
+                <div class="col-lg-6">
                         <div class="product-item">
                             <a href="/hoso/chi-tiet-ho-so/'.$al->id.'">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
-                                            <img height="200px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
+                                            <img height="200px" style="padding: 5px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
@@ -165,7 +165,6 @@ class TinTimViecController extends Controller
     public function chiTietHoSo($id)
     {
         $data['hoso'] = TinTimViec::find($id);
-        $data['user'] = TinTimViec::find($id)->user;
         return view('hoso.chi-tiet-ho-so', $data);
     }
 
