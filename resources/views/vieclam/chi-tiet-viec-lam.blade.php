@@ -43,15 +43,17 @@
             <h6><i style="color: red;" class="fas fa-dollar-sign"></i> Mức lương: Thương lượng</h6>
             @endif
             <h6><i style="color: red;" class="fas fa-align-justify"></i> Số Lượng: {{$vieclam->soluong}}</h6>   
-            @if (isset($vieclam->mota))
-            <h6><i style="color: red;" class="fas fa-list"></i> Mô Tả Công Việc: </h6>
-            <h6>{!!html_entity_decode($vieclam->mota)!!}</h6>
-            @endif
           </div>
           <div class="col-6 chitiet">
             <h6><i style="color: red;" class="fas fa-map-marker-alt"></i> Địa Điểm Làm Việc: {{$vieclam->diachi}}</h6>
             <h6><i style="color: red;" class="far fa-calendar-alt"></i> Ngày Đăng: {{ \Carbon\Carbon::parse($vieclam->created_at)->format('d/m/Y')}}</h6>
             <h6><i style="color: red;" class="fas fa-clock"></i> Ngày Hết Hạn: {{ \Carbon\Carbon::parse($vieclam->ngayhethan)->format('d/m/Y')}}</h6>
+          </div>
+          <div class="col-12">
+          @if (isset($vieclam->mota))
+            <h6><i style="color: red;" class="fas fa-list"></i> Mô Tả Công Việc: </h6>
+            <h6>{!!html_entity_decode($vieclam->mota)!!}</h6>
+            @endif
           </div>
         </div>
       </div>

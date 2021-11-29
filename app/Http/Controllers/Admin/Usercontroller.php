@@ -10,6 +10,8 @@ use App\Http\Requests\Register;
 use App\Http\Requests\AdminCapNhatUserRequest;
 use App\Http\Requests\CapNhatUserRequest;
 use App\Http\Requests\DoiMatKhauRequest;
+use App\Models\Blog;
+use App\Models\TinTimViec;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -127,6 +129,7 @@ class Usercontroller extends Controller
         foreach ($users as $key => $al) {
                             $i=1;
                             $output .= '<tr>
+                            <td><input type="checkbox" name="ids" class="checkBoxClass" value=""></td>
                             <td>'.$al->id.'</td>
                             <td>'.$al->name.'</td>
                             <td>'.$al->email.'</td>
@@ -203,5 +206,25 @@ class Usercontroller extends Controller
             return back()->with('tb','Đổi mật khẩu thành công');
         }
 
+    }
+    public function destroyall(Request $request)
+    {
+        $ids = $request->ids;
+        User::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('tb_xoa','Đã chuyển vào thùng rác');
+    }
+    public function recybin(){
+        $userrci=User::onlyTrashed()->get();
+        return view('admin.user.thungrac',compact('userrci'));
+    }
+    public function restore($id){
+        $user=User::onlyTrashed()->find($id);
+        $user->restore();
+        return redirect()->route('user.recybin')->with('thongbao','Khôi phục thành công');
+    }
+    public function xoavinhvien($id){
+        $userdel=User::onlyTrashed()->find($id);
+        $userdel->forceDelete();
+        return redirect()->route('user.recybin')->with('thongbao','Xóa thành công');
     }
 }

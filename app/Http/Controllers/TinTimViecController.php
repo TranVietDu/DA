@@ -129,7 +129,7 @@ class TinTimViecController extends Controller
     }
     public function vieclamview(Request $request)
     {
-        $timviecs = DB::table('tintimviecs')->orderByDesc('id')->paginate(6);        
+        $timviecs = DB::table('tintimviecs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(6);        
 		$data = '';
 		if ($request->ajax()) {
 			foreach ($timviecs as $al) {
@@ -164,9 +164,8 @@ class TinTimViecController extends Controller
     }
     public function chitiethoso($id)
     {
-        $data['hoso'] = TinTimViec::find($id);
-        $data['user'] = TinTimViec::find($id)->user;
-        return view('hoso.chi-tiet-ho-so', $data);
+        $hoso = TinTimViec::find($id);
+        return view('hoso.chi-tiet-ho-so', compact('hoso'));
     }
 
 

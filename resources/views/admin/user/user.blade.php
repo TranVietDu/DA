@@ -25,13 +25,16 @@
                     </div>
                     @endif
                     <div class="add">
-                        <a style="float: right;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Người Dùng</button></a>
+                        <a style="float: right; padding-left: 10px;" href="{{route('user.create')}}"><button class="btn btn-primary"><i class="fas fa-user-plus"></i>Thêm Người Dùng</button></a>
                     </div>
+                    <button style="float: right; margin-left: 10px;" type="input" class="btn btn-danger" id="deleteall" value="">Xóa các hàng đã chọn</button>
+                    <button  style="float: right;" class="btn btn-primary"><a style="color: white;text-decoration: none;" href="{{route('user.recybin')}}">Thùng rác</a></button>
                 </div>
                 <div style="overflow-x:auto;">
                     <table class="table table-bordered border border-info">
                         <thead>
                             <tr class="bg-info">
+                                <th><input type="checkbox" id="chkCheckAll"/></th>
                                 <th scope="col">STT</th>
                                 <th scope="col">Tên</th>
                                 <th scope="col">Email</th>
@@ -46,7 +49,8 @@
                             $i=1;
                             @endphp
                             @foreach($all as $al)
-                            <tr>
+                            <tr id="sid{{$al->id}}">
+                                <td><input type="checkbox" name="ids" class="checkBoxClass" value="{{$al->id}}"></td>
                                 <td>{{$i++}}</td>
                                 <td>{{$al->name}}</td>
                                 <td>{{$al->email}}</td>
@@ -71,6 +75,8 @@
                     <div style="float: right;" class="phantrang">
                         {!! $all->links() !!}
                     </div>
+
+                    <!-- tìm kiếm ajax -->
                     <script type="text/javascript">
                         $('#search').on('keyup', function() {
                             $value = $(this).val();
@@ -111,6 +117,36 @@
                                 });
                         });
                     </script>
+                    <!-- checkbox -->
+                    <script>
+    $(function(e) {
+        $("#chkCheckAll").click(function() {
+            $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+        });
+
+        $("#deleteall").click(function(e){
+            e.preventDefault();
+            var allids= [];
+            $("input:checkbox[name=ids]:checked").each(function(){
+                allids.push($(this).val());
+            });
+            $.ajax({
+                url:"{{route('user.destroyall')}}",
+                type:'GET',
+                data:{
+                    ids:allids,
+                    _token:$("input[name=_token]").val()
+                },
+                success:function(response)
+                {
+                    $.each(allids,function(key,val){
+                        $('#sid'+val).remove();
+                    });
+                }
+            });
+        });
+    });
+</script>
                 </div>
             </div>
         </div>
