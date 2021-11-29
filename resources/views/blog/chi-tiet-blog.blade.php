@@ -10,14 +10,14 @@
       <div class="col-md-12">
         <div class="col-md-8">
             <div class="section-heading text-center">
-                <h2>{{$blog->tieude}}</h2>
+                <b><h2>{{$blog->tieude}}</h2></b>
               </div>
         </div>
       </div>
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-8 mb-4 mr-5">
-            <img width="80%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block">
+          <div class="col-md-8 mb-4">
+            <img width="90%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 15px">
             <span style="text-align: justify">{!!html_entity_decode($blog->noidung)!!}</span>
             <i style="padding-top: 10px;" class="float-right"><i class="fas fa-at"></i>{{$blog->tennguoiviet}}</i>
           </div>
@@ -29,8 +29,7 @@
                 @foreach($blogkhac as $blog)
                 <div style="margin: 10px;" class="blogss">
                   - <a style="font-size: 18px" href="/blog/chi-tiet-blog/{{$blog->id}}">
-                        <b class="small">{{$blog->tieude}} | {{$blog->luotxem}}
-                          <i class="fa fa-eye" aria-hidden="true"></i></b>
+                        <b class="small">{{$blog->tieude}}</b>
                   </a>
                 </div>
                 @endforeach

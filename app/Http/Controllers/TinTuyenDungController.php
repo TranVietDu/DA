@@ -93,7 +93,7 @@ class TinTuyenDungController extends Controller
         }
     }
     //xoa nhieu
-    public function destroyall(Request $request)
+    public function destroyAll(Request $request)
     {
         if(TinTuyenDung::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
@@ -104,20 +104,20 @@ class TinTuyenDungController extends Controller
         }
     }
     //thung rac
-    public function tintuyendung_trash()
+    public function tinTuyenDungTrash()
     {
         $tintuyendungs_trash = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintuyendung.tintuyendungs_trash', compact('tintuyendungs_trash'));
     }
     //khoi phuc
-    public function tintuyendung_untrash($id)
+    public function tinTuyenDungUnTrash($id)
     {
         $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintuyendung->restore();
         return redirect()->route('tintuyendung1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     //xoa vinh vien
-    public function tintuyendung_forceDelete($id)
+    public function tinTuyenDungForceDelete($id)
     {
         $tintuyendung = TinTuyenDung::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintuyendung->forceDelete();
@@ -131,16 +131,15 @@ class TinTuyenDungController extends Controller
     }
     public function vieclam(Request $request)
     {
-        $vieclams = DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);
-		$data = '';
+        $vieclams = DB::table('tintuyendungs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(9);
 		if ($request->ajax()) {
 			foreach ($vieclams as $val) {
-				$data.='
-                <div class="col-md-4">
+                    $data.='
+                    <div class="col-lg-4">
                 <div class="product-item">
                 <a href="vieclam/chi-tiet-viec-lam/'.$val->id.'">
                 <img src="'.url('anh_tintuyendung/'.$val->anh).'" style="width:100%; height:200px; padding: 8px;" alt="">
-                <div style="height: 200px;" class="down-content">
+                <div class="down-content">
                   <h4 style="color: blue;">'.$val->tieude.'</h4>
                   <p>
                     <i class="fas fa-dollar-sign"></i> Lương: '.$val->luong.'
@@ -157,7 +156,7 @@ class TinTuyenDungController extends Controller
         return view('vieclam.vieclam',compact('vieclams'));
     }
 
-    public function chitietvieclam($id)
+    public function chiTietViecLam($id)
     {
         $data['vieclam'] = TinTuyenDung::find($id);
         $data['user'] = TinTuyenDung::find($id)->user;
@@ -170,7 +169,7 @@ class TinTuyenDungController extends Controller
         if($keywords){
             $data['search_vieclam'] = DB::table('tintuyendungs')->where('tieude', 'like', '%' . $keywords . '%')
             ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->orWhere('thoigian', 'like', '%' . $keywords . '%')->get();
-        $data['search_hoso'] =  DB::table('tintimviecs')->where('ten', 'like', '%' . $keywords . '%')
+            $data['search_hoso'] =  DB::table('tintimviecs')->where('ten', 'like', '%' . $keywords . '%')
             ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->get();
 
         return view('tim-kiem', $data);

@@ -17,21 +17,23 @@
 <div class="products">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-lg-9" style="padding:0 20px">
         <div class="row">
             <div class="col-12 text-center">
                 <h4 style="padding: 10px 10px; background-color: rgb(10, 172, 184); color: white; margin-bottom:10px" class="text-center">TẤT CẢ BLOG</h4>
             </div>
           @foreach($blogs as $blog)
+          @if (isset($blog->deleted_at))
+          @else
           <div class="col-md-12 mb-5 mt-4 blog2">
             <a href="/blog/chi-tiet-blog/{{$blog->id}}">
               <div class="row">
                   <div class="col-md-4">
-                    <img height="200px" style="padding: 5px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
+                    <img height="200px" style="padding: 5px; width: 100%;" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
                   </div>
                   <div class="col-md-8">
                     <h5 style="color:black">{{$blog->tieude}}</h5>
-                    <span style="text-align:justify">{!!html_entity_decode($blog->noidung)!!}</span>
+                    <p style="text-align:justify">{!!html_entity_decode(Str::limit($blog->noidung,340,'...'))!!}</p>
                     <small class="card-text">Tác giả: {{$blog->tennguoiviet}}</small><br>
                     <i><small>
                       Lượt xem:
@@ -46,6 +48,7 @@
               </div>
             </a>
           </div>
+          @endif
           @endforeach
           <div class="col-12">
             <div class="phantrang text-center">
@@ -54,7 +57,7 @@
         </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-lg-3">
         <div class="contact-form">
           <div class="form-group">
             <h5>Hãy Thử Tìm Gì Đó !</h5>
@@ -89,8 +92,8 @@
                    @endif
                 </div>
             </div>
-            <div class="col-12 text-center">
-                <img height="100px" style="padding: 5px" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
+            <div class="col-md-12 text-center">
+                <img height="100px" style="padding: 5px; display: block; margin-left: auto; margin-right: auto;" class="card-img-top" src="{{ asset('anh_blog/'.$blog->anh) }}" alt="Card image cap">
             <a style="font-size: 18px" href="/blog/chi-tiet-blog/{{$blog->id}}">
                   <b class="small">{{$blog->tieude}}</b>
             </a>

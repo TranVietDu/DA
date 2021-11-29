@@ -26,7 +26,7 @@ class BlogController extends Controller
         return View::make('blog.blogs', compact($data));
     }
 
-    public function chitietblog($id)
+    public function chiTietBlog($id)
     {
         $data['blog'] = BLog::find($id);
         $data['comments'] = BinhLuan::where('blog_id', $id)->get();
@@ -106,7 +106,7 @@ class BlogController extends Controller
         }
     }
     //xoa nhieu
-    public function destroyall(Request $request)
+    public function destroyAll(Request $request)
     {
         if(Blog::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
@@ -117,20 +117,20 @@ class BlogController extends Controller
         }
     }
     //thung rac
-    public function blog_trash()
+    public function blogTrash()
     {
         $blogs_trash = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->sortable()->paginate(10);
         return View::make('blog.blogs_trash', compact('blogs_trash'));
     }
     //khoi phuc
-    public function blog_untrash($id)
+    public function blogUnTrash($id)
     {
         $blog = Blog::onlyTrashed()->where('user_id',Auth::user()->id)->find($id);
         $blog->restore();
         return redirect()->route('blog1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     //xoa vinh vien
-    public function blog_forceDelete($id)
+    public function blogForceDelete($id)
     {
         $blog = BLog::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $blog->forceDelete();

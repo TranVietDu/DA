@@ -14,11 +14,11 @@
         </div>
     </div>
 </div> -->
-<img width="100%" height="250px" src="https://entrepreneurcaribbean.com/wp-content/uploads/2020/09/Find_Jobs.jpg" alt="">
+<img width="100%" height="300px" src="https://entrepreneurcaribbean.com/wp-content/uploads/2020/09/Find_Jobs.jpg" alt="">
 <div class="products">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="contact-form">
                     <form action="{{route('timviecfiter')}}" method="get">
                         <h5>
@@ -71,8 +71,8 @@
 
                         <div>
                             <label>
-                                <input type="radio" name="nganhnghe" value="Pha Chế">
-                                <small>Pha Chế</small>
+                                <input type="radio" name="nganhnghe" value="Công nghệ thông tin">
+                                <small>Công nghệ thông tin</small>
                             </label>
                         </div>
 
@@ -80,33 +80,9 @@
                 </div>
                 </form>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <h5 style="padding: 10px 10px;background-color:#0091ce;color: white; margin-bottom:10px" class="text-center">Tin Tìm Việc</h5>
                 <div class="row" id="results" class="ajax-loading">
-                    <!-- @foreach($timviecs as $al)
-                    <div class="col-md-6">
-                        <div class="product-item">
-                            <a href="/hoso/chi-tiet-ho-so/{{$al->id}}">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="anhcanhan">
-                                            <img height="200px" src="{{asset('anh_tintimviec/'.$al->anh)}}" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="thongtin">
-                                            <h4 style="padding-bottom: 60px; padding-top: 10px;">{{$al->ten}}</h4>
-                                            <p><i class="fas fa-venus-mars"></i> Giới tính: {{$al->gioitinh}}</p>
-                                            <p><i class="fas fa-briefcase"></i> Ngành nghề: {{$al->nganhnghe}}</p>
-                                            <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  {{ \Carbon\Carbon::parse($al->created_at)->format('d/m/Y')}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-                    @endforeach -->
                 </div>
                 <script>
           var site_url = "{{ url('/') }}";

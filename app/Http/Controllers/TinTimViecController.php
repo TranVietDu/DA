@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class TinTimViecController extends Controller
 {
@@ -91,7 +91,7 @@ class TinTimViecController extends Controller
         }
     }
     //xoa nhieu
-    public function destroyall(Request $request)
+    public function destroyAll(Request $request)
     {
         if(TinTimViec::where('user_id', Auth::user()->id)){
             $ids = $request->ids;
@@ -102,20 +102,20 @@ class TinTimViecController extends Controller
         }
     }
     //thung rac
-    public function tintimviec_trash()
+    public function tinTimViecTrash()
     {
         $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.tintimviecs_trash', compact('tintimviecs_trash'));
     }
     //khoi phuc
-    public function tintimviec_untrash($id)
+    public function tinTimViecUnTrash($id)
     {
         $tintimviec = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->find($id);
         $tintimviec->restore();
         return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     //xoa vinh vien
-    public function tintimviec_forceDelete($id)
+    public function tinTimViecForceDelete($id)
     {
         $tintimviec = TinTimViec::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintimviec->forceDelete();
@@ -129,18 +129,18 @@ class TinTimViecController extends Controller
     }
     public function vieclamview(Request $request)
     {
-        $timviecs = DB::table('tintimviecs')->orderByDesc('id')->paginate(6);        
+        $timviecs = DB::table('tintimviecs')->where('deleted_at', NULL)->orderByDesc('id')->paginate(6);
 		$data = '';
 		if ($request->ajax()) {
 			foreach ($timviecs as $al) {
-				$data.='
-                <div class="col-md-6">
+				                    $data.='
+                <div class="col-lg-6">
                         <div class="product-item">
                             <a href="/hoso/chi-tiet-ho-so/'.$al->id.'">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
-                                            <img height="200px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
+                                            <img height="200px" style="padding: 5px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
@@ -162,10 +162,9 @@ class TinTimViecController extends Controller
 		}
         return view('hoso.hoso',compact('timviecs'));
     }
-    public function chitiethoso($id)
+    public function chiTietHoSo($id)
     {
         $data['hoso'] = TinTimViec::find($id);
-        $data['user'] = TinTimViec::find($id)->user;
         return view('hoso.chi-tiet-ho-so', $data);
     }
 

@@ -48,9 +48,9 @@
                                <th style="color:black">
                                 @sortablelink('tennguoiviet', 'Tác giả')
                                 </th>
-                               <th style="width: 150px">Nội dung</th>
-                               <th>Ảnh</th>
-                               <th colspan="2">Hành động</th>
+                               <th style="width: 500px">Nội dung</th>
+                               <th width="100px">Ảnh</th>
+                               <th colspan="2" width="20px">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,7 +65,7 @@
                                </td>
                                 <td>{{$al->tieude}}</td>
                                 <td>{{$al->tennguoiviet}}</td>
-                                <td>
+                                <td style="text-align:justify">
                                    {!!html_entity_decode($al->noidung)!!}
                                 </td>
                                 <td><img src="{{ asset('anh_blog/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>

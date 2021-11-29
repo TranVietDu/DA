@@ -136,27 +136,7 @@
       <div class="col-md-9">
         <h4 style="padding: 10px 10px; background-color: red; color: white; margin-bottom:10px" class="text-center">Tin Tuyển Dụng</h4>
         <div class="row" id="results" class="ajax-loading">
-          <!-- @foreach ($vieclams as $val)
-          <div class="col-md-4">
-            <div class="product-item">
-              <a href="vieclam/chi-tiet-viec-lam/{{$val->id}}">
-                <img src="{{ asset('anh_tintuyendung/'.$val->anh) }}" style="width:100%; height:200px; padding: 8px;" alt="">
-                <div style="height: 200px;" class="down-content">
-                  <h4 style="color: blue;">{{ $val->tieude }}</h4>
-                  <p>
-                    @if (isset($val->luong))
-                    <i class="fas fa-dollar-sign"></i> Lương: {{$val->luong }}
-                    @else
-                    {{ 'Thương lượng'}}
-                    @endif
-                  </p>
-                  <h5 style="color: black;"><small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe}} <br> <i class="fa fa-building"></i> {{ $val->tenquan }}</small></h5>
-                </div>
-              </a>
-            </div>
           </div>
-          @endforeach -->
-        </div>
 
         <!-- <div class="phantrang text-center">
           {!! $vieclams->links() !!}

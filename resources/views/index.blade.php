@@ -368,6 +368,7 @@
     </script>
   </div>
 </div>
+
 {{-- Đăng tin  --}}
 
 <div class="col-md-12">
@@ -395,7 +396,7 @@
                           </a>
                         </h4>
                         <p class="">
-                         
+
                         </p>
                       </div>
                     </div>
@@ -411,7 +412,6 @@
                           </a>
                         </h4>
                         <p class="">
-                          
                         </p>
                       </div>
                     </div>
@@ -450,7 +450,7 @@
                           </a>
                         </h4>
                         <p class="">
-                      
+
                         </p>
                       </div>
                     </div>
@@ -466,7 +466,7 @@
                           </a>
                         </h4>
                         <p class="">
-                          
+
                         </p>
                       </div>
                     </div>
@@ -487,7 +487,7 @@
   <div style="" class="container">
     <div class="row">
 
-  
+
       <div class="col-md-12">
         <div class="section-heading">
           <h2>Đọc Gì Hôm Nay?</h2>
@@ -495,10 +495,10 @@
         </div>
       </div>
       @foreach($blognoibat as $blog)
-      <div class="col-md-6"><a href="/blog/chi-tiet-blog/{{$blog->id}}"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></a></div>
-      <div class="col-md-6">
-        <h4 class="text-center">{{$blog->tieude}}</h4>
-        <p class="float-left contentblog">{!!html_entity_decode(Str::limit($blog->noidung, 800))!!}</p>
+      <div class="col-lg-6"><a href="/blog/chi-tiet-blog/{{$blog->id}}"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></a></div>
+      <div class="col-lg-6 mt-3">
+        <h4 class="text-center" style="margin-bottom: 10px">{{$blog->tieude}}</h4>
+        <p class="float-left contentblog">{!!html_entity_decode(Str::limit($blog->noidung, 800))!!} <a href="/blog/chi-tiet-blog/{{$blog->id}}">xem thêm</a></p>
         <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
       </div>
       @endforeach
@@ -521,8 +521,8 @@
       </div>
       @foreach($tintuyendungmoinhat as $tin)
       <div class="col-md-4">
-        <div style="height: 428px" class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="232px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt=""></a>
+        <div class="product-item">
+          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt="" style="padding:5px"></a>
           <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}">
@@ -556,7 +556,7 @@
       @foreach($tintimviecmoinhat as $tin)
       <div class="col-md-4">
         <div class="product-item">
-          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="220px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
+          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt="" style="padding: 5px"></a>
           <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">

@@ -26,11 +26,15 @@
                             <input type="hidden" name="_method" value="PUT">
                             <div class="row register-form">
                                 <div class="col-12">
-                                    @if (session('tb'))
-                                        <div class="alert alert-danger">
-                                            {{session('tb')}}
-                                        </div>
-                                    @endif
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
