@@ -3,7 +3,7 @@
 @section('content')
      <!-- content -->
      <div class="services">
-        <div class="container-fluid">
+        <div class="container-fluid text-justify">
       <div class="row">
         <div class="col-md-1">
         </div>

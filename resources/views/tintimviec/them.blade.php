@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="page-heading contact-heading header-text">
-    <div class="container">
+<div class="services" style="margin-top:-50px">
 <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -51,20 +50,6 @@
                                                 <option name="gioitinh" value="Nữ">Nữ</option>
                                                 <option name="gioitinh" value="Khác">Khác</option>
                                             </select>
-                                            <!-- <div class="form-control" name="gioitinh">Giới tính:
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gioitinh" value="Nam">
-                                                    <span> Nam </span>
-                                                </label>
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gioitinh" value="Nữ">
-                                                    <span> Nữ </span>
-                                                </label>
-                                                <label class="radio inline">
-                                                    <input type="radio" name="gioitinh" value="Khác">
-                                                    <span> Khác </span>
-                                                </label>
-                                            </div> -->
                                         </div>
                                         <div class="form-group">
                                         <b style="float: left;">Số điện thoại :</b>
@@ -84,7 +69,7 @@
                                                 <option>Gia sư</option>
                                             </select> -->
                                             <b style="float: left;">Ngành nghề mong muốn :</b>
-                                            <input type="text" class="form-control" placeholder="" value="{{old('nganhnghe')}}" name="nganhnghe"/>
+                                            <input type="text" class="form-control" placeholder="Ngành nghề" value="{{old('nganhnghe')}}" name="nganhnghe"/>
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control" placeholder="" value="{{ Auth::user()->id}}" name="user_id"/>
@@ -112,7 +97,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 </div>

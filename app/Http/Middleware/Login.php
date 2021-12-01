@@ -20,8 +20,7 @@ class Login
         if(Auth::check()){
             if(Auth::user()->role==1){
                 return redirect()->route('adminhome');
-            }
-            if(Auth::user()->role==2 ||Auth::user()->role==3){
+            }else{
                 return redirect('/');
         }
     }

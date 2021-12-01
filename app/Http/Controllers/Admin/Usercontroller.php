@@ -10,7 +10,6 @@ use App\Http\Requests\Register;
 use App\Http\Requests\AdminCapNhatUserRequest;
 use App\Http\Requests\CapNhatUserRequest;
 use App\Http\Requests\DoiMatKhauRequest;
-use App\Models\Blog;
 use App\Models\TinTimViec;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -161,12 +160,12 @@ class Usercontroller extends Controller
         $blog=User::find($user)->blogs;
         return view('admin.user.xembaidangtim',compact('userposttim','blog','username'));
     }
-    public function capnhatthongtin($id)
+    public function cap_nhat_thong_tin($id)
     {
         $user = User::find($id);
         return view('user.qltaikhoan',compact('user'));
     }
-    public function capnhat(CapNhatUserRequest $request, $id)
+    public function cap_nhat(CapNhatUserRequest $request, $id)
     {
         $user = User::find($id);
         $data = $request->validate(
@@ -182,12 +181,12 @@ class Usercontroller extends Controller
         return back()->with('tb','Cập Nhật Thành Công');
     }
 
-    public function doimatkhauthongtin($id)
+    public function doi_mat_khau_thong_tin($id)
     {
         $user = User::find($id);
         return view('user.doimatkhau',compact('user'));
     }
-    public function doimatkhau(DoiMatKhauRequest $request, $id)
+    public function doi_mat_khau(DoiMatKhauRequest $request, $id)
     {
         $request->validated();
 

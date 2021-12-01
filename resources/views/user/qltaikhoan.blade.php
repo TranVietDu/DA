@@ -31,16 +31,22 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control" value="{{$user->name}}" name="name" required = ""/>
                                         </div>
+                                        @if (Auth::user()->provider)
+                                        @else
                                         <div class="form-group">
                                             <input type="email" class="form-control" value="{{$user->email}}" name="email" required = ""/>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="form-group" style="margin-left: auto; margin-right:auto">
                                     <button type="submit" class="btn btn-primary">Xong</button>
                                     </div>
                                 </div>
                             </form>
+                            @if (Auth::user()->provider)
+                            @else
                             <a href="/doi-mat-khau/{{$user->id}}">Đổi mật khẩu</a>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -200,17 +200,6 @@
 .blog2{
     padding:7px 3px;
 }
-.blog2 p{
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 25px;
-    -webkit-line-clamp: 3;
-    height: 75px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    margin-bottom: 12px;
-}
  .blog2:hover{
     box-shadow: 0 5px 5px 1px grey;
 }

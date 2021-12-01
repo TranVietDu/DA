@@ -13,7 +13,6 @@
   </style>
   <div class="container">
     <h2 style="padding: 40px;color:red" class="text-center">Thông tin hồ sơ</h2>
-    <h4 style="padding-bottom: 20px;"><u>Thông tin cá nhân</u> </h4>
    <div class="row">
     <div class="col-md-8 chitietcv">
       <table width='100%'>
@@ -34,9 +33,9 @@
           <td><h6>{{$hoso->nganhnghe}}</h6></td>
         </tr>
         <tr>
-          <td><h6>Mô tả công việc mong muốn:</h6></td>
-          <td><h6>{!!html_entity_decode($hoso->mota)!!}</h6></td>
-        </tr>
+            <td><h6>Mô tả bản thân:</h6></td>
+            <td><h6>{!!html_entity_decode($hoso->mota)!!}</h6></td>
+          </tr>
         <tr>
           <td><h6>Địa chỉ liên lạc:</h6></td>
           <td><h6>{{$hoso->diachi}}</h6></td>

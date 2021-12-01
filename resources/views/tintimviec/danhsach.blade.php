@@ -75,7 +75,7 @@
                              <td>{{$al->nganhnghe}}</td>
                              <td>{{$al->diachi}}</td>
                              <td><img src="{{ asset('anh_tintimviec/'.$al->anh) }}" style="width:90px; height: 80px;" alt=""></td>
-                             <td>
+                             <td style="text-align: justify;">
                                 @if (isset($al->mota))
                                 {!!html_entity_decode($al->mota)!!}
                                 @else
