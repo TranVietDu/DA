@@ -47,8 +47,8 @@
             <h6><i style="color: red;" class="far fa-calendar-alt"></i> Ngày Đăng: {{ \Carbon\Carbon::parse($vieclam->created_at)->format('d/m/Y')}}</h6>
             <h6><i style="color: red;" class="fas fa-clock"></i> Ngày Hết Hạn: {{ \Carbon\Carbon::parse($vieclam->ngayhethan)->format('d/m/Y')}}</h6>
           </div>
-          <div class="col-12 text-justify">
-            @if (isset($vieclam->mota))
+          <div class="col-12">
+          @if (isset($vieclam->mota))
             <h6><i style="color: red;" class="fas fa-list"></i> Mô Tả Công Việc: </h6>
             <h6>{!!html_entity_decode($vieclam->mota)!!}</h6>
             @endif
@@ -68,10 +68,6 @@
               <a href=""><button type="submit" style="background-color: rgb(210, 210, 210);" class="filled-button btn-block">Hết Hạn Ứng Tuyển</button></a>
               @endif
           </div>
-          <hr>
-          <h3 class="text-center">Liên hệ</h3><br>
-          <p>- Người tuyển dụng: {{$user->name}}</p>
-          <p>- Email:<a href="mailto: {{$user->email}}"> {{$user->email}}</a></p>
         </div>
       </div>
     </div>

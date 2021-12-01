@@ -33,6 +33,10 @@
           <td><h6>{{$hoso->nganhnghe}}</h6></td>
         </tr>
         <tr>
+            <td><h6>Mô tả bản thân:</h6></td>
+            <td><h6>{!!html_entity_decode($hoso->mota)!!}</h6></td>
+          </tr>
+        <tr>
           <td><h6>Địa chỉ liên lạc:</h6></td>
           <td><h6>{{$hoso->diachi}}</h6></td>
         </tr>
@@ -48,10 +52,6 @@
           <td><h6>Ngày đăng:</h6></td>
           <td><h6>{{ \Carbon\Carbon::parse($hoso->created_at)->format('d/m/Y')}}</h6></td>
         </tr>
-        <tr>
-            <td><h6>Mô tả bản thân:</h6></td>
-            <td><h6>{!!html_entity_decode($hoso->mota)!!}</h6></td>
-          </tr>
       </table>
     </div>
     <div class="col-md-4">

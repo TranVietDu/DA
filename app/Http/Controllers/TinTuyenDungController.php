@@ -131,8 +131,8 @@ class TinTuyenDungController extends Controller
     }
     public function vieclam(Request $request)
     {
-        $vieclams = DB::table('tintuyendungs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(9);
-        $data = '';
+        $vieclams = DB::table('tintuyendungs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(9);    
+		$data = '';
 		if ($request->ajax()) {
 			foreach ($vieclams as $val) {
                     $data.='

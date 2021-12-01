@@ -164,6 +164,13 @@ Route::middleware(['admin'])->group(function () {
         Route::get('admin/user/search', 'UserController@search')->name('user.search');
         Route::get('admin/user/xembaituyen/{user}','UserController@viewposttuyendung')->name('user.viewtuyen');
         Route::get('admin/user/xembaitim/{user}','UserController@viewposttimviec')->name('user.viewtim');
+        Route::get('admin/user/destroyall','UserController@destroyall')->name('user.destroyall');
+        Route::get('admin/user/thungrac','UserController@recybin')->name('user.recybin');
+        Route::delete('admin/user/xoavinhvien/{id}','UserController@xoavinhvien')->name('user.xoavinhvien');
+        Route::get('admin/user/restore/{id}','UserController@restore')->name('user.restore');
+
+
+
         // Tintuyendung
         Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
         Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');

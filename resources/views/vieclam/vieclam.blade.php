@@ -136,11 +136,9 @@
       <div class="col-md-9">
         <h4 style="padding: 10px 10px; background-color: red; color: white; margin-bottom:10px" class="text-center">Tin Tuyển Dụng</h4>
         <div class="row" id="results" class="ajax-loading">
-          </div>
-
-        <!-- <div class="phantrang text-center">
-          {!! $vieclams->links() !!}
-        </div> -->
+          
+        </div>
+        <!--Load vieclam -->
         <script>
           var site_url = "{{ url('/') }}";
           var page = 1;
