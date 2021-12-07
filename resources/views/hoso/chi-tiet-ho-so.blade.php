@@ -64,7 +64,7 @@
         @foreach($tintimviecmoinhat as $tin)
         <div class="col-md-4">
           <div class="product-item">
-            <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
+            <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="200px" style="border-radius: 15px;" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
             <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
             <div class="down-content">
               <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">

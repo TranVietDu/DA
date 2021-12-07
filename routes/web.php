@@ -25,15 +25,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chiTietViecLam');
 
     // filter vieclam
-    Route::get('/vieclam/vieclamfilter','TinTuyenDungController@filter')->name('filter');
+    Route::get('/vieclam/vieclamfilter', 'TinTuyenDungController@filter')->name('filter');
 
     // Hoso
-    Route::get('/hoso','TinTimViecController@vieclamview')->name('hoso.view');
+    Route::get('/hoso', 'TinTimViecController@vieclamview')->name('hoso.view');
     // Chi tiet ho so
     Route::get('/hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chiTietHoSo')->name('hoso.chitiethoso');
 
     // filter hoso
-    Route::get('/hoso/timviecfilter','TinTimViecController@filter')->name('timviecfiter');
+    Route::get('/hoso/timviecfilter', 'TinTimViecController@filter')->name('timviecfiter');
 
     //Blog
     Route::get('/blog', 'BlogController@blog');
@@ -41,11 +41,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/blog/chi-tiet-blog/{id}', 'BLogController@chiTietBlog');
 
     // Lien he
-    Route::get('/lienhe','LienHeController@index');
-    Route::post('/lienhe','LienHeController@dangYKien');
+    Route::get('/lienhe', 'LienHeController@index');
+    Route::post('/lienhe', 'LienHeController@dangYKien');
 
     //tim kiem viec lam va ho so
-    Route::get('/tim-kiem','TinTuyenDungController@search');
+    Route::get('/tim-kiem', 'TinTuyenDungController@search');
 
     //cap nhat thong tin ca nhan
     Route::get('/cap-nhat-thong-tin/{id}', 'Admin\UserController@cap_nhat_thong_tin')->name('capnhatthongtin');
@@ -66,15 +66,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('dangnhap/{provider}/callback', 'AuthController@callback');
 
     // send mail
-    Route::get('mail/{id}','MailController@index')->name('mail.index')->middleware('auth');
-    Route::post('sendmail','MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+    Route::get('mail/{id}', 'MailController@index')->name('mail.index')->middleware('auth');
+    Route::post('sendmail', 'MailController@sendmail')->name('mail.sendmail')->middleware('auth');
 
     //tim kiem blog
-    Route::get('/tim-kiem-blog','BlogController@search');
+    Route::get('/tim-kiem-blog', 'BlogController@search');
 
     //binh luan blog
     Route::post('/blog/chi-tiet-blog/{id}', 'BLogController@postComment');
-
 });
 
 // Tao CV
@@ -87,7 +86,7 @@ Route::get('/cv-mau', function () {
 });
 
 // QUAN LI TIN TUYEN DUNG
-Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', 'as'=>'tintuyendung1.','middleware'=>['auth']], function () {
+Route::group(['prefix' => 'tintuyendung', 'namespace' => 'App\Http\Controllers', 'as' => 'tintuyendung1.', 'middleware' => ['auth']], function () {
     Route::get('/danhsach', 'TinTuyenDungController@list')->name('list');
     Route::get('/tao-tin-tuyen-dung', 'TinTuyenDungController@create')->name('create');
     Route::post('/tao-tin-tuyen-dung', 'TinTuyenDungController@store')->name('store');
@@ -102,7 +101,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace'=>'App\Http\Controllers', '
 });
 
 // QUAN LI TIN TIM VIEC
-Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as'=>'tintimviec1.','middleware'=>['auth']], function () {
+Route::group(['prefix' => 'tintimviec', 'namespace' => 'App\Http\Controllers', 'as' => 'tintimviec1.', 'middleware' => ['auth']], function () {
     Route::get('/danhsach', 'TinTimViecController@index')->name('list');
     Route::get('/tao-tin-tim-viec', 'TinTimViecController@create')->name('create');
     Route::post('/tao-tin-tim-viec', 'TinTimViecController@store')->name('store');
@@ -115,9 +114,8 @@ Route::group(['prefix' => 'tintimviec', 'namespace'=>'App\Http\Controllers', 'as
     Route::delete('/xoa-vinh-vien/{id}', 'TinTimViecController@tinTimViecForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tim-viec', 'TinTimViecController@restore')->name('restore');
 });
-
 // QUAN LI BLOG
-Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'blog1.','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'blog', 'namespace' => 'App\Http\Controllers', 'as' => 'blog1.', 'middleware' => 'auth'], function () {
     Route::get('/danhsach', 'BlogController@index')->name('list');
     Route::get('/viet-blog', 'BlogController@create')->name('create');
     Route::post('/viet-blog', 'BlogController@store')->name('store');
@@ -130,8 +128,6 @@ Route::group(['prefix' => 'blog', 'namespace'=>'App\Http\Controllers', 'as'=>'bl
     Route::delete('/xoa-vinh-vien/{id}', 'BlogController@blogForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-blog', 'BlogController@restore')->name('restore');
 });
-
-
 // admin
 Route::get('admin/home', function () {
     return view('admin.index');
@@ -139,12 +135,11 @@ Route::get('admin/home', function () {
 Route::get('admin/user/adduser', function () {
     return view('admin.user.adduser');
 });
-
-
 //dang nhap
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
-        return view('dangki');})->middleware('login');;
+        return view('dangki');
+    })->middleware('login');;
     Route::get('dangnhap', 'AuthController@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'AuthController@login')->name('login')->middleware('login');
     Route::post('dangki', 'AuthController@register')->name('dangki')->middleware('login');
@@ -159,46 +154,40 @@ Route::middleware(['admin'])->group(function () {
         Route::delete('admin/user/{user}', 'UserController@destroy')->name('user.destroy');
         Route::get('admin/user/create', 'UserController@create')->name('user.create');
         Route::post('admin/user', 'UserController@store')->name('user.store');
-        Route::get('admin/user/{user}/edit','UserController@edit')->name('user.edit');
-        Route::put('admin/{user}','UserController@update')->name('user.update');
+        Route::get('admin/user/{user}/edit', 'UserController@edit')->name('user.edit');
+        Route::put('admin/{user}', 'UserController@update')->name('user.update');
         Route::get('admin/user/search', 'UserController@search')->name('user.search');
-        Route::get('admin/user/xembaituyen/{user}','UserController@viewposttuyendung')->name('user.viewtuyen');
-        Route::get('admin/user/xembaitim/{user}','UserController@viewposttimviec')->name('user.viewtim');
-        Route::get('admin/user/destroyall','UserController@destroyall')->name('user.destroyall');
-        Route::get('admin/user/thungrac','UserController@recybin')->name('user.recybin');
-        Route::delete('admin/user/xoavinhvien/{id}','UserController@xoavinhvien')->name('user.xoavinhvien');
-        Route::get('admin/user/restore/{id}','UserController@restore')->name('user.restore');
-
-
-
+        Route::get('admin/user/xembaituyen/{user}', 'UserController@viewposttuyendung')->name('user.viewtuyen');
+        Route::get('admin/user/destroyall', 'UserController@destroyall')->name('user.destroyall');
+        Route::get('admin/user/thungrac', 'UserController@recybin')->name('user.recybin');
+        Route::delete('admin/user/xoavinhvien/{id}', 'UserController@xoavinhvien')->name('user.xoavinhvien');
+        Route::get('admin/user/restore/{id}', 'UserController@restore')->name('user.restore');
         // Tintuyendung
-        Route::get('admin/tintuyendung','TuyenDungController@index')->name('tintuyendung.index');
-        Route::delete('admin/tintuyendung/{tintuyendung}','TuyenDungController@destroy')->name('tintuyendung.destroy');
-        Route::get('admin/tintuyendung/{tintuyendung}/edit','TuyenDungController@edit')->name('tintuyendung.edit');
-        Route::get('admin/tintuyendung/search','TuyenDungController@search')->name('tintuyendung.search');
+        Route::get('admin/tintuyendung', 'TuyenDungController@index')->name('tintuyendung.index');
+        Route::delete('admin/tintuyendung/{tintuyendung}', 'TuyenDungController@destroy')->name('tintuyendung.destroy');
+        Route::get('admin/tintuyendung/{tintuyendung}/edit', 'TuyenDungController@edit')->name('tintuyendung.edit');
+        Route::get('admin/tintuyendung/search', 'TuyenDungController@search')->name('tintuyendung.search');
         // Tintimviec
-        Route::get('admin/tintimviec','TimViecController@index')->name('tintimviec.index');
-        Route::delete('admin/tintimviec/{tinTimViec}','TimViecController@destroy')->name('tintimviec.destroy');
-        Route::get('admin/tintimviec/search','TimViecController@search')->name('tintimviec.search');
+        Route::get('admin/tintimviec', 'TimViecController@index')->name('tintimviec.index');
+        Route::delete('admin/tintimviec/{tinTimViec}', 'TimViecController@destroy')->name('tintimviec.destroy');
+        Route::get('admin/tintimviec/search', 'TimViecController@search')->name('tintimviec.search');
         // Blogs
-        Route::get('admin/blog','BlogController@index')->name('blog.index');
-        Route::delete('admin/blog/{blog}','BlogController@destroy')->name('blog.destroy');
+        Route::get('admin/blog', 'BlogController@index')->name('blog.index');
+        Route::delete('admin/blog/{blog}', 'BlogController@destroy')->name('blog.destroy');
         // SLider
-        Route::get('admin/slider','SliderController@index')->name('slider.index');
-        Route::delete('admin/slider/{slider}','SliderController@destroy')->name('slider.destroy');
-        Route::get('admin/slider/create','SliderController@create')->name('slider.create');
-        Route::post('admin/slider','SliderController@store')->name('slider.store');
-        Route::get('admin/slider/{slider}/edit','SliderController@edit')->name('slider.edit');
-        Route::put('admin/slider/{slider}','SliderController@update')->name('slider.update');
+        Route::get('admin/slider', 'SliderController@index')->name('slider.index');
+        Route::delete('admin/slider/{slider}', 'SliderController@destroy')->name('slider.destroy');
+        Route::get('admin/slider/create', 'SliderController@create')->name('slider.create');
+        Route::post('admin/slider', 'SliderController@store')->name('slider.store');
+        Route::get('admin/slider/{slider}/edit', 'SliderController@edit')->name('slider.edit');
+        Route::put('admin/slider/{slider}', 'SliderController@update')->name('slider.update');
         // Lien He
-        Route::get('admin/lienhe','AdminLienHeController@index')->name('lienhe.index');
-        Route::get('admin/lienhe/{lienhe}/edit','AdminLienHeController@edit')->name('lienhe.edit');
-        Route::put('admin/lienhe/{lienhe}','AdminLienHeController@update')->name('lienhe.update');
-        Route::delete('admin/lienhe/{lienhe}','AdminLienHeController@destroy')->name('lienhe.destroy');
-
+        Route::get('admin/lienhe', 'AdminLienHeController@index')->name('lienhe.index');
+        Route::get('admin/lienhe/{lienhe}/edit', 'AdminLienHeController@edit')->name('lienhe.edit');
+        Route::put('admin/lienhe/{lienhe}', 'AdminLienHeController@update')->name('lienhe.update');
+        Route::delete('admin/lienhe/{lienhe}', 'AdminLienHeController@destroy')->name('lienhe.destroy');
         // Y Kien nguoi dung
-        Route::get('admin/ykien','Ykiencontroller@index')->name('ykien.index');
-        Route::delete('admin/ykien/{yKienNguoiDung}','Ykiencontroller@destroy')->name('ykien.destroy');
-
+        Route::get('admin/ykien', 'Ykiencontroller@index')->name('ykien.index');
+        Route::delete('admin/ykien/{yKienNguoiDung}', 'Ykiencontroller@destroy')->name('ykien.destroy');
     });
 });

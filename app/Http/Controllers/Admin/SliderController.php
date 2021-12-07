@@ -92,13 +92,11 @@ class SliderController extends Controller
      */
     public function update(Request $request, slider $slider)
     {
-       
             $slider->name = $request->ten;
             $slider->mota = $request->mota;
             $slider->trangthai = $request->status;
             $slider->save();
             return redirect()->route('slider.index');
-          
     }
     /**
      * Remove the specified resource from storage.

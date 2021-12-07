@@ -10,6 +10,7 @@
     padding: 1em;
     text-align: center;
     vertical-align: middle;
+
   }
   .fostrap-logo {
     width: 100px;
@@ -198,7 +199,7 @@
 
     /* blog */
 .blog2{
-    padding:7px 3px;
+    padding:15px;
 }
  .blog2:hover{
     box-shadow: 0 5px 5px 1px grey;

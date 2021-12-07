@@ -140,7 +140,7 @@ class TinTimViecController extends Controller
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
-                                            <img height="200px" style="padding: 5px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
+                                            <img height="200px" style="border-radius: 20px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">

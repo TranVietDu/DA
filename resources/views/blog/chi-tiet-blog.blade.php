@@ -2,8 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<img height="500px" width="100%" src="https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png" alt="">
-
+<img height="300px" width="100%" src="https://simplepage.vn/blog/wp-content/uploads/2021/06/huong-dan-tao-blog-website.png" alt="">
 <div class="products">
   <div class="container">
     <div class="row">
@@ -17,7 +16,7 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-8 mb-4">
-            <img width="90%" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 15px">
+            <img class="img-fluid" src="{{asset('anh_blog/'.$blog->anh)}}" alt="" style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 15px">
             <span style="text-align: justify">{!!html_entity_decode($blog->noidung)!!}</span>
             <i style="padding-top: 10px;" class="float-right"><i class="fas fa-at"></i>{{$blog->tennguoiviet}}</i>
           </div>

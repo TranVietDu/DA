@@ -33,15 +33,8 @@ class AppServiceProvider extends ServiceProvider
     {
 
         Schema::defaultStringLength(191);
-        $sliders = DB::table('Slider')->where('trangthai', '1')->get();
+        $sliders = DB::table('Slider')->orderBy('id','desc')->where('trangthai', '1')->get();
         view()->share('sliders',$sliders);
-        // Trang Việc Làm
-        // $vieclams=DB::table('tintuyendungs')->orderByDesc('id')->paginate(9);
-        // view()->share('vieclams',$vieclams);
-        // Trang Tìm Việc
-        // $timviecs=DB::table('tintimviecs')->orderByDesc('id')->paginate(6);
-        // view()->share('timviecs',$timviecs);
-        // Trang Blog
         $blogs=Blog::paginate(5);
         view()->share('blogs',$blogs);
         // ý Kiến

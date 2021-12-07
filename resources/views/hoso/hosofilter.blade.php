@@ -11,7 +11,7 @@
                         <h5>
                             <button type="submit" class="btn btn-primary btn-sm float-right">Lọc <i class="fa fa-filter" aria-hidden="true"></i></button>
                         </h5>
-                        <h6 style="margin-bottom: 16px">Giới Tính</h6>
+                        <h6 style="margin-bottom: 16px;color: red;">Giới Tính</h6>
                         <div>
                             <label>
                                 <input type="radio" name="gioitinh" value="Nam">
@@ -31,7 +31,7 @@
                             </label>
                         </div>
                         <br>
-                        <h6 style="margin-bottom: 16px">Ngành Nghề</h6>
+                        <h6 style="margin-bottom: 16px;color: red;">Ngành Nghề</h6>
 
                         <div>
                             <label>
@@ -58,8 +58,38 @@
 
                         <div>
                             <label>
-                                <input type="radio" value="Công nghệ thông tin" name="nganhnghe">
-                                <small>Công nghệ thông tin</small>
+                                <input type="radio" name="nganhnghe" value="Mẫu ảnh">
+                                <small>Mẫu ảnh</small>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="nganhnghe" value="Dịch thuật">
+                                <small>Dịch thuật</small>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="nganhnghe" value="Cộng tác viên(CTV)">
+                                <small>Cộng tác viên</small>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="nganhnghe" value="Phát tờ rơi">
+                                <small>Phát tờ rơi</small>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="nganhnghe" value="Pha chế">
+                                <small>Pha chế</small>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="nganhnghe" value="Nhân viên telesale">
+                                <small>Nhân viên telesale</small>
                             </label>
                         </div>
 
@@ -68,7 +98,7 @@
                 </form>
             </div>
             <div class="col-md-9">
-                <h5 style="padding: 10px 10px;background-color:#0091ce;color: white; margin-bottom:10px" class="text-center"><i class="fas fa-search"></i> DANH SÁCH HỒ SƠ TÌM VIỆC</h5>
+            <h4 style="padding: 10px 10px;background-color:#0091ce;color: white; margin-bottom:10px" class="text-center">Tin Tìm Việc</h4>
                 <div class="row">
                     @if($timviec->isEmpty())
                         <div style="margin-top: 10px;" class="col-md-12 text-center"> Không tìm thấy kết quả</div>
@@ -80,7 +110,7 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
-                                            <img height="200px" src="{{asset('anh_tintimviec/'.$al->anh)}}" alt="">
+                                            <img height="200px" style="border-radius: 15px;" src="{{asset('anh_tintimviec/'.$al->anh)}}" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
@@ -103,16 +133,4 @@
         </div>
     </div>
 </div>
-<!-- <script type="text/javascript">
-    $(document).ready(function() {
-
-        $('#sort').on('change', function() {
-            var url = $(this).val();
-            if (url) {
-                window.location = url;
-            }
-            return false;
-        });
-    });
-</script> -->
 @endsection

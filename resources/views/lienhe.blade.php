@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- Page Content -->
-<img width="100%" height="550px" src="https://m.economictimes.com/thumb/msid-66780622,width-1200,height-900,resizemode-4,imgsize-178035/part-timejobs-getty.jpg" alt="">
+<img width="100%" height="341px" src="https://m.economictimes.com/thumb/msid-66780622,width-1200,height-900,resizemode-4,imgsize-178035/part-timejobs-getty.jpg" alt="">
 @foreach ($lienhes as $lh)
 <div class="find-us">
     <div class="container">
@@ -22,8 +22,12 @@
           <div class="left-content">
             <h4>{{ $lh->tieude }}</h4>
             <p style="text-align:justify">{{ $lh->gioithieu }}</p>
+            <h6 style="margin-bottom: 10px;">Liên hệ với chúng tôi:</h6>
           </div>
-            <ul class="social-icons" style="">
+      
+            
+          
+            <ul class="social-icons">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -34,11 +38,10 @@
       <div class="row mt-5" style="background-color: rgba(151, 229, 233, 0.363); border: 2px dashed black; padding:20px 5px">
         <div class="col-12">
           <h5><i class="fas fa-eye"></i> <b style="color: darkturquoise;">TẦM NHÌN</b></h5>
-          <p>Trở thành 1 trang Web cung cấp các việc làm online hàng đầu và đồng hành cùng tất cả sinh viên ở Việt Nam.
+          <p>{{ $lh->tamnhin }}
           </p>
           <h5><i class="fas fa-bullseye"></i> <b style="color: rgb(204, 26, 26);">SỨ MỆNH</b></h5>
-          <p>Nghiên cứu và phát triển nhiều chức năng trang web để tạo sự thuận tiện và tăng khả năng tương tác của
-            người dùng truy cập website.</p>
+          <p>{{ $lh->sumenh }}</p>
         </div>
       </div>
     </div>

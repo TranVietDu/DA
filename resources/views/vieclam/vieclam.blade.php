@@ -22,7 +22,7 @@
 
             <br>
 
-            <h5 style="margin-bottom: 15px">Địa Điểm</h5>
+            <h5 style="margin-bottom: 15px;color: red;">Địa Điểm</h5>
 
             <div>
               <label>
@@ -69,7 +69,7 @@
 
             <br>
 
-            <h5 style="margin-bottom: 15px">Ngành Nghề</h5>
+            <h5 style="margin-bottom: 15px;color:red;">Ngành Nghề</h5>
 
             <div>
               <label>
@@ -98,14 +98,42 @@
             <div>
               <label>
                 <input type="radio" value="Pha Chế" name="nganhnghe">
-
+              
                 <small>Pha Chế</small>
               </label>
             </div>
-
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Mẫu ảnh">
+                <small>Mẫu ảnh</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Dịch thuật">
+                <small>Dịch thuật</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Cộng tác viên(CTV)">
+                <small>Cộng tác viên</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Phát tờ rơi">
+                <small>Phát tờ rơi</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Nhân viên telesale">
+                <small>Nhân viên telesale</small>
+              </label>
+            </div>
             <br>
-
-            <h5 style="margin-bottom: 15px">Thời gian</h5>
+            <h5 style="margin-bottom: 15px;color: red;">Thời gian</h5>
 
             <div>
               <label>
@@ -122,7 +150,6 @@
                 <small>Ca chiều</small>
               </label>
             </div>
-
             <div>
               <label>
                 <input type="radio" value="Ca tối" name="thoigian">
@@ -131,18 +158,68 @@
             </div>
             <br>
           </form>
+          <h5 style="margin-bottom: 20px;">Việc làm đã lưu</h5>
+          <!-- Luuvieclam -->
+          <div id="row_wishlist">
+              
+          </div>
         </div>
       </div>
       <div class="col-md-9">
         <h4 style="padding: 10px 10px; background-color: red; color: white; margin-bottom:10px" class="text-center">Tin Tuyển Dụng</h4>
         <div class="row" id="results" class="ajax-loading">
-          
         </div>
+        <!-- luu viec lam -->
+        <script>
+           function view(){
+            if(localStorage.getItem('data')!=null){
+              var data= JSON.parse(localStorage.getItem('data'));
+              data.reverse();
+              document.getElementById('row_wishlist').style.overflow="scroll";
+              document.getElementById('row_wishlist').style.height="600px";
+              for(i=0;i<data.length;i++){
+                var tieude= data[i].tieude;
+                var anh=data[i].anh;
+                var nganhnghe=data[i].nganhnghe;
+                var url=data[i].url;
+                $("#row_wishlist").append('<div style="boder: 2px soild black"><div class=""><img src="'+anh+'" width="60%" alt=""></div><div class="infor_wishlist"><p>' +tieude+'</p><p>' +nganhnghe + '</p><a href="' +url+'">Xem</a></div></div>');
+              }
+            }
+          }
+          view();
+          function add_wistlist(clicked_id) {
+            var id = clicked_id;
+            var tieude = document.getElementById('wistlish_tieude' + id).innerText;
+            var anh = document.getElementById('wistlish_anh' + id).src;
+            var nganhnghe = document.getElementById('wistlish_nghe' + id).innerText;
+            var url = document.getElementById('wistlish_url' + id).href;
+            var newItem = {
+              'id': id,
+              'anh': anh,
+              'tieude': tieude,
+              'nganhnghe': nganhnghe,
+              'url': url
+            }
+            if (localStorage.getItem('data') == null) {
+              localStorage.setItem('data', '[]')
+            }
+            var old_data = JSON.parse(localStorage.getItem('data'));
+            var matches = $.grep(old_data, function(obj) {
+              return obj.id == id;
+            })
+            if(matches.length) {
+              alert("Việc làm đã được lưu, không thể thêm");
+            } else {
+              old_data.push(newItem);
+              $("#row_wishlist").append('<div class=""><img src="'+newItem.anh+'" width="60%" alt=""></div><div class="infor_wishlist"><p>' +newItem.tieude+'</p><p>' +newItem.nganhnghe + '</p><a href="' +newItem.url+'">Xem</a></div>');
+            }
+            localStorage.setItem('data', JSON.stringify(old_data));
+          }
+        </script>
         <!--Load vieclam -->
         <script>
           var site_url = "{{ url('/') }}";
           var page = 1;
-
           load_more(page);
 
           $(window).scroll(function() {

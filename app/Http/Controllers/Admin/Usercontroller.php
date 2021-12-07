@@ -170,12 +170,8 @@ class Usercontroller extends Controller
         $user = User::find($id);
         $data = $request->validate(
             [
-                'email'=>'unique:users,email,'.$user->id,
                 'name' => 'required',
             ],
-            [
-                'email.unique'=>'Email đã tồn tại',
-            ]
             );
         $user->update($data);
         return back()->with('tb','Cập Nhật Thành Công');

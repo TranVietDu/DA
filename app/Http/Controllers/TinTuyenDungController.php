@@ -87,7 +87,7 @@ class TinTuyenDungController extends Controller
         $tintuyendung = TinTuyenDung::find($id);
         if ($tintuyendung->user_id == Auth::user()->id  || Auth::user()->role == 1) {
             TinTuyenDung::find($id)->delete();
-            return redirect()->back()->with('tb_xoa','Đã chuyển vào thùng rác');
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
         } else {
             return view('404');
         }
@@ -95,11 +95,11 @@ class TinTuyenDungController extends Controller
     //xoa nhieu
     public function destroyAll(Request $request)
     {
-        if(TinTuyenDung::where('user_id', Auth::user()->id)){
+        if (TinTuyenDung::where('user_id', Auth::user()->id)) {
             $ids = $request->ids;
             TinTuyenDung::whereIn('id', $ids)->delete();
-            return redirect()->back()->with('tb_xoa','Đã chuyển vào thùng rác');
-        }else{
+            return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
+        } else {
             return view('404');
         }
     }
@@ -131,50 +131,54 @@ class TinTuyenDungController extends Controller
     }
     public function vieclam(Request $request)
     {
-        $vieclams = DB::table('tintuyendungs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(9);    
-		$data = '';
-		if ($request->ajax()) {
-			foreach ($vieclams as $val) {
-                    $data.='
+        $vieclams = DB::table('tintuyendungs')->where('deleted_at', NULL)->orderByDesc('id')->paginate(9);
+        $data = '';
+        if ($request->ajax()) {
+            foreach ($vieclams as $val) {
+                $data .= '
                     <div class="col-lg-4">
                 <div class="product-item">
-                <a href="vieclam/chi-tiet-viec-lam/'.$val->id.'">
-                <img src="'.url('anh_tintuyendung/'.$val->anh).'" style="width:100%; height:200px; padding: 8px;" alt="">
+                <a id="wistlish_url'.$val->id.'" href="vieclam/chi-tiet-viec-lam/' . $val->id . '">
+                <img id="wistlish_anh'.$val->id.'" src="' . url('anh_tintuyendung/' . $val->anh) . '" style="width:100%; height:200px; padding: 8px;border-radius: 20px" alt="">
                 <div class="down-content">
-                  <h4 style="color: blue;">'.$val->tieude.'</h4>
+                  <h4 id="wistlish_tieude'.$val->id.'" style="color: blue;">' . $val->tieude . '</h4>
                   <p>
-                    <i class="fas fa-dollar-sign"></i> Lương: '.$val->luong.'
+                    <i class="fas fa-dollar-sign"></i> Lương: ' . $val->luong . '
                   </p>
-                  <h5 style="color: black;"><small><i class="fa fa-briefcase"></i> '.$val->nganhnghe.'<br> <i class="fa fa-building"></i> '.$val->tenquan.'</small></h5>
+                  <h5 id="wistlish_nghe'.$val->id.'" style="color: black;"><small><i class="fa fa-briefcase"></i> ' . $val->nganhnghe . '<br> <i class="fa fa-building"></i> ' . $val->tenquan . '</small></h5>
                 </div>
               </a>
-            </div>
+              <div class="text-center">
+              <button class="btn"><i style="color:red;" id="'. $val->id.'" onclick="add_wistlist(this.id)" class="far fa-save button_wishlist"> Lưu việc làm</i></button>
+                </div>
+              </div>
           </div>
                 ';
-			}
-			return $data;
-		}
-        return view('vieclam.vieclam',compact('vieclams'));
+            }
+            return $data;
+        }
+        return view('vieclam.vieclam', compact('vieclams'));
     }
 
     public function chiTietViecLam($id)
     {
-        $data['vieclam'] = TinTuyenDung::find($id);
-        $data['user'] = TinTuyenDung::find($id)->user;
-        return view('vieclam.chi-tiet-viec-lam', $data);
+        // $data['vieclam'] = TinTuyenDung::find($id);
+        // $data['user'] = TinTuyenDung::find($id)->user;
+        $vieclam = TinTuyenDung::find($id);
+        return view('vieclam.chi-tiet-viec-lam', compact('vieclam'));
     }
 
     public function search(Request $request)
     {
         $keywords = $request->keywords_submit;
-        if($keywords){
+        if ($keywords) {
             $data['search_vieclam'] = DB::table('tintuyendungs')->where('tieude', 'like', '%' . $keywords . '%')
-            ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->orWhere('thoigian', 'like', '%' . $keywords . '%')->get();
+                ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->orWhere('thoigian', 'like', '%' . $keywords . '%')->get();
             $data['search_hoso'] =  DB::table('tintimviecs')->where('ten', 'like', '%' . $keywords . '%')
-            ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->get();
+                ->orWhere('nganhnghe', 'like', '%' . $keywords . '%')->orWhere('diachi', 'like', '%' . $keywords . '%')->get();
 
-        return view('tim-kiem', $data);
-        }else{
+            return view('tim-kiem', $data);
+        } else {
             return redirect()->back();
         }
     }
@@ -182,19 +186,20 @@ class TinTuyenDungController extends Controller
     {
         return view('index');
     }
-    public function filter(Request $request){
+    public function filter(Request $request)
+    {
         $tintuyendung = TinTuyenDung::query();
 
-    if ($request->has('diadiem')) {
-        $tintuyendung->where('diachi', 'LIKE', '%' . $request->diadiem . '%');
-    }
-    if ($request->has('nganhnghe')) {
-        $tintuyendung->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
-    }
-    if ($request->has('thoigian')) {
-        $tintuyendung->where('thoigian', 'LIKE', '%' . $request->thoigian . '%');
-    }
+        if ($request->has('diadiem')) {
+            $tintuyendung->where('diachi', 'LIKE', '%' . $request->diadiem . '%');
+        }
+        if ($request->has('nganhnghe')) {
+            $tintuyendung->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
+        }
+        if ($request->has('thoigian')) {
+            $tintuyendung->where('thoigian', 'LIKE', '%' . $request->thoigian . '%');
+        }
 
-    return view('vieclam.vieclamfilter')->with('vieclam',$tintuyendung->get());
+        return view('vieclam.vieclamfilter')->with('vieclam', $tintuyendung->get());
     }
 }
