@@ -22,7 +22,7 @@ class BlogController extends Controller
     }
     public function blog()
     {
-        $blogs= BLog::paginate(7);;
+        $blogs= BLog::paginate(7);
         return View::make('blog.blogs', compact('blogs'));
     }
 

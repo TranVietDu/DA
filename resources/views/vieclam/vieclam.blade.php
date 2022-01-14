@@ -98,7 +98,7 @@
             <div>
               <label>
                 <input type="radio" value="Pha Chế" name="nganhnghe">
-              
+
                 <small>Pha Chế</small>
               </label>
             </div>
@@ -199,6 +199,13 @@
                 alert('No response from server');
               });
           }
+        </script>
+        {{-- xoa cac viec lam da luu --}}
+        <script>
+            function clearStorageExcept() {
+                localStorage.clear();
+                location.reload();
+            };
         </script>
       </div>
     </div>
