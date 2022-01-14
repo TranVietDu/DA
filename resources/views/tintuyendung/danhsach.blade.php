@@ -128,7 +128,6 @@
 
     </script>
 {{-- xoa nhieu --}}
-{{-- xoa nhieu --}}
 <script>
     $(function(e) {
         $("#chkCheckAll").click(function() {

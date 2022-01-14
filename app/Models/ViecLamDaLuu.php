@@ -2,20 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Kyslik\ColumnSortable\Sortable;
 
-class TinTimViec extends Model
+class ViecLamDaLuu extends Model
 {
     use SoftDeletes;
     use HasFactory;
     use Sortable;
     protected $dates = ['deleted_at'];
-    protected $table = 'tintimviecs';
+
+    protected $table = 'viec_lam_da_luu';
+
     protected $fillable = [
-        'id', 'user_id', 'ten', 'ngaysinh', 'gioitinh', 'sdt', 'email', 'nganhnghe', 'diachi', 'mota', 'anh'
+        'id', 'user_id', 'tieude', 'tenquan', 'diachi', 'soluong', 'nganhnghe', 'luong', 'thoigian', 'mota', 'anh', 'ngayhethan'
+
     ];
 
     public function user()

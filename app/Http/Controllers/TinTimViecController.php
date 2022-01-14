@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\TinTimViec;
+use App\Models\HoSoDaLuu;
 use App\Http\Requests\TaoTinTimViecRequest;
 use App\Http\Requests\CapNhatTinTimViecRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+
 
 class TinTimViecController extends Controller
 {
@@ -17,7 +18,7 @@ class TinTimViecController extends Controller
     //select all
     public function index()
     {
-        $tintimviecs = TinTimViec::where('user_id',Auth::id())->sortable()->paginate(10);
+        $tintimviecs = TinTimViec::where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.danhsach', compact('tintimviecs'));
     }
     //form luu
@@ -93,24 +94,24 @@ class TinTimViecController extends Controller
     //xoa nhieu
     public function destroyAll(Request $request)
     {
-        if(TinTimViec::where('user_id', Auth::user()->id)){
+        if (TinTimViec::where('user_id', Auth::user()->id)) {
             $ids = $request->ids;
             TinTimViec::whereIn('id', $ids)->delete();
             return redirect()->back()->with('tb_xoa', 'Đã chuyển vào thùng rác');
-        }else{
+        } else {
             return view('404');
         }
     }
     //thung rac
     public function tinTimViecTrash()
     {
-        $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->sortable()->paginate(10);
+        $tintimviecs_trash = TinTimViec::onlyTrashed()->where('user_id', Auth::id())->sortable()->paginate(10);
         return View::make('tintimviec.tintimviecs_trash', compact('tintimviecs_trash'));
     }
     //khoi phuc
     public function tinTimViecUnTrash($id)
     {
-        $tintimviec = TinTimViec::onlyTrashed()->where('user_id',Auth::id())->find($id);
+        $tintimviec = TinTimViec::onlyTrashed()->where('user_id', Auth::id())->find($id);
         $tintimviec->restore();
         return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
@@ -124,32 +125,40 @@ class TinTimViecController extends Controller
     //khoi phuc tat cả TinTimViec da xoa
     public function restore()
     {
-        TinTimViec::onlyTrashed()->where('user_id',Auth::id())->restore();
+        TinTimViec::onlyTrashed()->where('user_id', Auth::id())->restore();
         return redirect()->route('tintimviec1.list')->with('tb_khoiphuc', 'Khôi phục thành công');
     }
     public function vieclamview(Request $request)
     {
-        $timviecs = DB::table('tintimviecs')->where('deleted_at',NULL)->orderByDesc('id')->paginate(6);        
-		$data = '';
-		if ($request->ajax()) {
-			foreach ($timviecs as $al) {
-				                    $data.='
+        $timviecs = DB::table('tintimviecs')->where('deleted_at', NULL)->orderByDesc('id')->paginate(6);
+        $data = '';
+        if ($request->ajax()) {
+            foreach ($timviecs as $al) {
+                $data .= '
                 <div class="col-lg-6">
                         <div class="product-item">
-                            <a href="/hoso/chi-tiet-ho-so/'.$al->id.'">
+                            <a href="/vieclam/chi-tiet-viec-lam/' . $al->id . '">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
-                                            <img height="200px" style="border-radius: 20px" src="'.url('anh_tintimviec/'.$al->anh).'" alt="">
+                                            <img height="200px" style="border-radius: 20px" src="' . url('anh_tintimviec/' . $al->anh) . '" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="thongtin">
-                                            <h4 style="padding-bottom: 60px; padding-top: 10px;">'.$al->ten.'</h4>
-                                            <p><i class="fas fa-venus-mars"></i> Giới tính: '.$al->gioitinh.'</p>
-                                            <p><i class="fas fa-briefcase"></i> Ngành nghề: '.$al->nganhnghe.'</p>
-                                            <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  '.\Carbon\Carbon::parse($al->created_at)->format('d/m/Y').'</p>
+                                            <h4 style="padding-bottom: 60px; padding-top: 10px;">' . $al->ten . '</h4>
+                                            <p><i class="fas fa-venus-mars"></i> Giới tính: ' . $al->gioitinh . '</p>
+                                            <p><i class="fas fa-briefcase"></i> Ngành nghề: ' . $al->nganhnghe . '</p>
+                                            <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  ' . \Carbon\Carbon::parse($al->created_at)->format('d/m/Y') . '</p>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class=" col-12 text-center">
+                                    <form action="hoso/luu-ho-so/' . $al->id . '" method="post">
+                                    ' . csrf_field() . '
+                                        <button type="submit" class="btn btn-xs btn-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu hồ sơ</i></button>
+                                    </form>
                                     </div>
                                 </div>
                             </a>
@@ -157,10 +166,10 @@ class TinTimViecController extends Controller
                         </div>
                     </div>
                 ';
-			}
-			return $data;
-		}
-        return view('hoso.hoso',compact('timviecs'));
+            }
+            return $data;
+        }
+        return view('hoso.hoso', compact('timviecs'));
     }
     public function chiTietHoSo($id)
     {
@@ -177,10 +186,11 @@ class TinTimViecController extends Controller
 
         return view('tim-kiem')->with('search_hoso', $search_hoso);
     }
-    public function filter(Request $request){
+    public function filter(Request $request)
+    {
         $tintimviec = TinTimViec::query();
         if ($request->has('gioitinh')) {
-            $tintimviec->where('gioitinh',$request->gioitinh);
+            $tintimviec->where('gioitinh', $request->gioitinh);
         }
         if ($request->has('nganhnghe')) {
             $tintimviec->where('nganhnghe', 'LIKE', '%' . $request->nganhnghe . '%');
@@ -188,6 +198,46 @@ class TinTimViecController extends Controller
         // if ($request->has('birthday')) {
         //     $user->whereDate('birthday', $request->birthday);
         // }
-        return view('hoso.hosofilter')->with('timviec',$tintimviec->get());
+        return view('hoso.hosofilter')->with('timviec', $tintimviec->get());
+    }
+    public function luu_ho_so($id)
+    {
+        $id = request()->id;
+        $hoso = TinTimViec::find($id);
+        if (HoSoDaLuu::find($hoso->id)) {
+            return back()->with('tbloi', 'Hồ sơ này đã được lưu trước đó');
+        } else {
+            $hosoluu = new HoSoDaLuu();
+            $hosoluu->id = $hoso->id;
+            $hosoluu->user_id = Auth::user()->id;
+            $hosoluu->ten = $hoso->ten;
+            $hosoluu->ngaysinh = $hoso->ngaysinh;
+            $hosoluu->gioitinh = $hoso->gioitinh;
+            $hosoluu->sdt = $hoso->sdt;
+            $hosoluu->email = $hoso->email;
+            $hosoluu->nganhnghe = $hoso->nganhnghe;
+            $hosoluu->diachi = $hoso->diachi;
+            $hosoluu->mota = $hoso->mota;
+            $hosoluu->anh = $hoso->anh;
+            $hosoluu->save();
+
+            return redirect()->back()->with('tbluu', 'Đã lưu hồ sơ');
         }
+    }
+    public function ho_so_da_luu()
+    {
+        $data = HoSoDaLuu::where('user_id', Auth::id())->paginate(5);
+        return view('hoso.ho-so-da-luu', compact('data'));
+    }
+    //xoa
+    public function xoa_ho_so_da_luu($id)
+    {
+        $hosodaluu = HoSoDaLuu::find($id);
+        if ($hosodaluu->user_id == Auth::user()->id) {
+            HoSoDaLuu::find($id)->forceDelete();
+            return redirect()->back()->with('tb_xoa', 'Đã xóa thành công');
+        } else {
+            return view('404');
+        }
+    }
 }
