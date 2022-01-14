@@ -9,11 +9,15 @@
         <div style="background-color:rgb(255, 255, 255);" class="container-fluid px-4 ">
             <h1 style="padding: 20px 0px;" class="text-center"><i class="fas fa-tasks"></i> Quản Lí Slider</h1>
             <h4 class="text-center" style="background-color: blue; color: white; padding: 20px ;border-radius: 20px;">Update Slider</h4>
-            <form action="{{route('slider.update',[$slider->id])}}" method="post">
+            <form action="{{route('slider.update',[$slider->id])}}" method="post" enctype="multipart/form-data">
                 @csrf
                 {{method_field('put')}}
                 <!-- Name input -->
                 <img width="100%" src="{{ asset('slider/'.$slider->image)}}" alt="">
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form4Example1">Ảnh Slider</label>
+                    <input type="file" name="anh" id="form4Example1" class="form-control" />
+                </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form4Example1">Tên Slider</label>
                     <input type="text" value="{{$slider->name}}" required="" name="ten" id="form4Example1" class="form-control" />

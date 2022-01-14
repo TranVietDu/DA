@@ -158,64 +158,13 @@
             </div>
             <br>
           </form>
-          <h5 style="margin-bottom: 20px;">Việc làm đã lưu</h5>
-          <!-- Luuvieclam -->
-          <div id="row_wishlist">
-              
-          </div>
         </div>
       </div>
       <div class="col-md-9">
         <h4 style="padding: 10px 10px; background-color: red; color: white; margin-bottom:10px" class="text-center">Tin Tuyển Dụng</h4>
         <div class="row" id="results" class="ajax-loading">
+          
         </div>
-        <!-- luu viec lam -->
-        <script>
-           function view(){
-            if(localStorage.getItem('data')!=null){
-              var data= JSON.parse(localStorage.getItem('data'));
-              data.reverse();
-              document.getElementById('row_wishlist').style.overflow="scroll";
-              document.getElementById('row_wishlist').style.height="600px";
-              for(i=0;i<data.length;i++){
-                var tieude= data[i].tieude;
-                var anh=data[i].anh;
-                var nganhnghe=data[i].nganhnghe;
-                var url=data[i].url;
-                $("#row_wishlist").append('<div style="boder: 2px soild black"><div class=""><img src="'+anh+'" width="60%" alt=""></div><div class="infor_wishlist"><p>' +tieude+'</p><p>' +nganhnghe + '</p><a href="' +url+'">Xem</a></div></div>');
-              }
-            }
-          }
-          view();
-          function add_wistlist(clicked_id) {
-            var id = clicked_id;
-            var tieude = document.getElementById('wistlish_tieude' + id).innerText;
-            var anh = document.getElementById('wistlish_anh' + id).src;
-            var nganhnghe = document.getElementById('wistlish_nghe' + id).innerText;
-            var url = document.getElementById('wistlish_url' + id).href;
-            var newItem = {
-              'id': id,
-              'anh': anh,
-              'tieude': tieude,
-              'nganhnghe': nganhnghe,
-              'url': url
-            }
-            if (localStorage.getItem('data') == null) {
-              localStorage.setItem('data', '[]')
-            }
-            var old_data = JSON.parse(localStorage.getItem('data'));
-            var matches = $.grep(old_data, function(obj) {
-              return obj.id == id;
-            })
-            if(matches.length) {
-              alert("Việc làm đã được lưu, không thể thêm");
-            } else {
-              old_data.push(newItem);
-              $("#row_wishlist").append('<div class=""><img src="'+newItem.anh+'" width="60%" alt=""></div><div class="infor_wishlist"><p>' +newItem.tieude+'</p><p>' +newItem.nganhnghe + '</p><a href="' +newItem.url+'">Xem</a></div>');
-            }
-            localStorage.setItem('data', JSON.stringify(old_data));
-          }
-        </script>
         <!--Load vieclam -->
         <script>
           var site_url = "{{ url('/') }}";

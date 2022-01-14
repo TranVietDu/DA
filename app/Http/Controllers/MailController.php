@@ -48,7 +48,6 @@ class MailController extends Controller
     public function khoi_phuc_mat_khau(Request $request)
     {
         $data = $request->all();
-
         $now = Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y');
         $title_mail = "Đặt lại mật khẩu".' '.$now;
 
