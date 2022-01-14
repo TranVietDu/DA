@@ -202,10 +202,11 @@ class TinTimViecController extends Controller
     }
     public function luu_ho_so($id)
     {
-        $id = request()->id;
+        $userid = Auth::user()->id;
         $hoso = TinTimViec::find($id);
-        if (HoSoDaLuu::find($hoso->id)) {
-            return back()->with('tbloi', 'Hồ sơ này đã được lưu trước đó');
+        $vlyt = HoSoDaLuu::where('id', $id, 'and')->where('user_id', $userid)->count();
+        if ($vlyt > 0) {
+            return back()->with('tbloi', 'Bạn đã lưu hồ sơ này trước đây');
         } else {
             $hosoluu = new HoSoDaLuu();
             $hosoluu->id = $hoso->id;
@@ -233,8 +234,8 @@ class TinTimViecController extends Controller
     public function xoa_ho_so_da_luu($id)
     {
         $hosodaluu = HoSoDaLuu::find($id);
-        if ($hosodaluu->user_id == Auth::user()->id) {
-            HoSoDaLuu::find($id)->forceDelete();
+        if (HoSoDaLuu::where('user_id', Auth::id())) {
+            $hosodaluu->forceDelete();
             return redirect()->back()->with('tb_xoa', 'Đã xóa thành công');
         } else {
             return view('404');

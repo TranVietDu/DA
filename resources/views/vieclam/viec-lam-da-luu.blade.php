@@ -3,7 +3,7 @@
 @section('content')
     <div class="services">
         <div class="container">
-            <h3 style="text-align: center">Việc làm đã lưu</h3>
+            <h3 style="text-align: center; margin-top: -50px">Việc làm đã lưu</h3>
             <div class="row">
                 <div class="col-md-12 mt-3">
                     <div class="row">
@@ -28,31 +28,42 @@
                         </div>
                     @else
                         @foreach ($data as $val)
-                            <div class="col-lg-4">
+                            <div class="col-12">
                                 <div class="product-item">
                                     <a href="/vieclam/chi-tiet-viec-lam/{{ $val->id }} ">
-                                        <img src="{{ asset('anh_tintuyendung/' . $val->anh) }}"
-                                            style="width:100%; height:200px; padding: 8px;border-radius: 20px" alt="">
-                                        <div class="down-content">
-                                            <h4 style="color: blue;">
-                                                {{ $val->tieude }} </h4>
-                                            <p>
-                                                <i class="fas fa-dollar-sign"></i> Lương: {{ $val->luong }}
-                                            </p>
-                                            <h5 id="wistlish_nghe{{ $val->id }}" style="color: black;"><small><i
-                                                        class="fa fa-briefcase"></i> {{ $val->nganhnghe }} <br> <i
-                                                        class="fa fa-building"></i> {{ $val->tenquan }} </small>
-                                            </h5>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <img src="{{ asset('anh_tintuyendung/' . $val->anh) }}"
+                                                    style="width:100%; height:200px; padding: 8px;border-radius: 20px"
+                                                    alt="">
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="down-content">
+                                                    <h4 style="color: blue;">
+                                                        {{ $val->tieude }} </h4>
+                                                    <p>
+                                                        <i class="fas fa-dollar-sign"></i> Lương: {{ $val->luong }}
+                                                    </p>
+                                                    <h5 id="wistlish_nghe{{ $val->id }}" style="color: black;">
+                                                        <small><i class="fa fa-briefcase"></i> {{ $val->nganhnghe }} <br>
+                                                            <i class="fa fa-building"></i> {{ $val->tenquan }} </small>
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-2"
+                                                style="display: flex;align-items: center;justify-content: center;">
+                                                <form method="POST"
+                                                    action="{{ route('vieclamdaluu.destroy', $val->id) }}">
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button type="submit"
+                                                        class="btn btn-xs btn-danger btn-flat show_confirm"
+                                                        data-toggle="tooltip" title='Delete'><i class="fa fa-trash"
+                                                            aria-hidden="true"></i></button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </a>
-                                        <form method="POST" action="{{ route('vieclamdaluu.destroy', $val->id) }}">
-                                            @csrf
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button type="submit" class="btn btn-xs btn-danger btn-flat show_confirm"
-                                                data-toggle="tooltip" title='Delete'><i class="fa fa-trash"
-                                                    aria-hidden="true"></i></button>
-                                        </form>
-                                        </td>
                                 </div>
                             </div>
                         @endforeach

@@ -209,18 +209,20 @@ class TinTuyenDungController extends Controller
 
         return view('vieclam.vieclamfilter')->with('vieclam', $tintuyendung->get());
     }
-    public function viecLamUngTuyen(){
-        $user_id=Auth::user()->id;
-        $vieclamuts=User::find($user_id)->vieclamdaungtuyens;
-        return view('tintuyendung.vieclamdaungtuyen',compact('vieclamuts'));
+    public function viecLamUngTuyen()
+    {
+        $user_id = Auth::user()->id;
+        $vieclamuts = User::find($user_id)->vieclamdaungtuyens;
+        return view('tintuyendung.vieclamdaungtuyen', compact('vieclamuts'));
     }
 
     public function luu_viec_lam($id)
     {
-        $id = request()->id;
+        $userid = Auth::user()->id;
         $vieclam = TinTuyenDung::find($id);
-        if (ViecLamDaLuu::find($vieclam->id)) {
-            return back()->with('tbloi', 'Việc làm này đã được lưu trước đó');
+        $vlyt = ViecLamDaLuu::where('id', $id, 'and')->where('user_id', $userid)->count();
+        if ($vlyt > 0) {
+            return back()->with('tbloi', 'Bạn đã lưu công việc này trước đây');
         } else {
             $vieclamluu = new ViecLamDaLuu();
             $vieclamluu->id = $vieclam->id;
@@ -249,8 +251,8 @@ class TinTuyenDungController extends Controller
     public function xoa_viec_lam_da_luu($id)
     {
         $vieclamdaluu = ViecLamDaLuu::find($id);
-        if ($vieclamdaluu->user_id == Auth::user()->id) {
-            ViecLamDaLuu::find($id)->forceDelete();
+        if (ViecLamDaLuu::where('user_id', Auth::id())) {
+            $vieclamdaluu->forceDelete();
             return redirect()->back()->with('tb_xoa', 'Đã xóa thành công');
         } else {
             return view('404');
