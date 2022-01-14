@@ -23,6 +23,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/vieclam', 'TinTuyenDungController@vieclam');
     // các viec làm đã ứng tuyển
     Route::get('/viec-lam-da-ung-tuyen', 'TinTuyenDungController@viec_lam_da_ung_tuyen')->name('vieclamungtuyen.list');
+    //luu viec lam
+    Route::post('vieclam/luu-viec-lam/{id}', 'TinTuyenDungController@luu_viec_lam');
+    //cac viec lam da luu
+    Route::get('vieclam/viec-lam-da-luu', 'TinTuyenDungController@viec_lam_da_luu')->name('vieclamdaluu.list');
+    //xoa viec lam da luu
+    Route::delete('vieclam/xoa-viec-lam-da-luu/{id}', 'TinTuyenDungController@xoa_viec_lam_da_luu')->name('vieclamdaluu.destroy');
     // Chi Tiet Viec lam
     Route::get('/vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chiTietViecLam');
 

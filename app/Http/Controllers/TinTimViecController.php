@@ -137,7 +137,7 @@ class TinTimViecController extends Controller
                 $data .= '
                 <div class="col-lg-6">
                         <div class="product-item">
-                            <a href="/hoso/chi-tiet-ho-so/' . $al->id . '">
+                            <a href="/vieclam/chi-tiet-viec-lam/' . $al->id . '">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">

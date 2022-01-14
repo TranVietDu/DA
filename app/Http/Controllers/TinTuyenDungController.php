@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TinTuyenDung;
 use App\Http\Requests\TaoTinTuyenDungRequest;
 use App\Http\Requests\CapNhatTinTuyenDungRequest;
+use App\Models\ViecLamDaLuu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
@@ -138,19 +139,24 @@ class TinTuyenDungController extends Controller
                 $data .= '
                     <div class="col-lg-4">
                 <div class="product-item">
-                <a id="wistlish_url'.$val->id.'" href="vieclam/chi-tiet-viec-lam/' . $val->id . '">
-                <img id="wistlish_anh'.$val->id.'" src="' . url('anh_tintuyendung/' . $val->anh) . '" style="width:100%; height:200px; padding: 8px;border-radius: 20px" alt="">
+                <a id="wistlish_url' . $val->id . '" href="vieclam/chi-tiet-viec-lam/' . $val->id . '">
+                <img id="wistlish_anh' . $val->id . '" src="' . url('anh_tintuyendung/' . $val->anh) . '" style="width:100%; height:200px; padding: 8px;border-radius: 20px" alt="">
                 <div class="down-content">
-                  <h4 id="wistlish_tieude'.$val->id.'" style="color: blue;">' . $val->tieude . '</h4>
+                  <h4 id="wistlish_tieude' . $val->id . '" style="color: blue;">' . $val->tieude . '</h4>
                   <p>
                     <i class="fas fa-dollar-sign"></i> Lương: ' . $val->luong . '
                   </p>
-                  <h5 id="wistlish_nghe'.$val->id.'" style="color: black;"><small><i class="fa fa-briefcase"></i> ' . $val->nganhnghe . '<br> <i class="fa fa-building"></i> ' . $val->tenquan . '</small></h5>
+                  <h5 id="wistlish_nghe' . $val->id . '" style="color: black;"><small><i class="fa fa-briefcase"></i> ' . $val->nganhnghe . '<br> <i class="fa fa-building"></i> ' . $val->tenquan . '</small></h5>
                 </div>
               </a>
-              <div class="text-center">
-              <button class="btn"><i style="color:red;" id="'. $val->id.'" onclick="add_wistlist(this.id)" class="far fa-save button_wishlist"> Lưu việc làm</i></button>
-                </div>
+              <div class="row">
+                    <div class=" col-12 text-center">
+                        <form action="vieclam/luu-viec-lam/' . $val->id . '" method="post">
+                        ' . csrf_field() . '
+                                <button type="submit" class="btn btn-xs btn-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu việc làm</i></button>
+                        </form>
+                        </div>
+                    </div>
               </div>
           </div>
                 ';
@@ -203,9 +209,45 @@ class TinTuyenDungController extends Controller
         return view('vieclam.vieclamfilter')->with('vieclam', $tintuyendung->get());
     }
 
-    public function viec_lam_da_ung_tuyen()
+    public function luu_viec_lam($id)
     {
-        return 'hihi';
-    }
+        $id = request()->id;
+        $vieclam = TinTuyenDung::find($id);
+        if (ViecLamDaLuu::find($vieclam->id)) {
+            return back()->with('tbloi', 'Việc làm này đã được lưu trước đó');
+        } else {
+            $vieclamluu = new ViecLamDaLuu();
+            $vieclamluu->id = $vieclam->id;
+            $vieclamluu->user_id = Auth::user()->id;
+            $vieclamluu->tieude = $vieclam->tieude;
+            $vieclamluu->tenquan = $vieclam->tenquan;
+            $vieclamluu->diachi = $vieclam->diachi;
+            $vieclamluu->soluong = $vieclam->soluong;
+            $vieclamluu->nganhnghe = $vieclam->nganhnghe;
+            $vieclamluu->luong = $vieclam->luong;
+            $vieclamluu->thoigian = $vieclam->thoigian;
+            $vieclamluu->mota = $vieclam->mota;
+            $vieclamluu->anh = $vieclam->anh;
+            $vieclamluu->ngayhethan = $vieclam->ngayhethan;
+            $vieclamluu->save();
 
+            return redirect()->back()->with('tbluu', 'Đã lưu việc làm');
+        }
+    }
+    public function viec_lam_da_luu()
+    {
+        $data = ViecLamDaLuu::where('user_id', Auth::id())->paginate(5);
+        return view('vieclam.viec-lam-da-luu', compact('data'));
+    }
+    //xoa
+    public function xoa_viec_lam_da_luu($id)
+    {
+        $vieclamdaluu = ViecLamDaLuu::find($id);
+        if ($vieclamdaluu->user_id == Auth::user()->id) {
+            ViecLamDaLuu::find($id)->forceDelete();
+            return redirect()->back()->with('tb_xoa', 'Đã xóa thành công');
+        } else {
+            return view('404');
+        }
+    }
 }
