@@ -58,6 +58,7 @@
                   <a class="dropdown-item" href="{{ route('blog1.list')}}">BLOGS</a>
                   <a class="dropdown-item" href="{{ route('tintuyendung1.list')}}">TIN TUYỂN DỤNG</a>
                   <a class="dropdown-item" href="{{ route('tintimviec1.list')}}">HỒ SƠ XIN VIỆC</a>
+                  <a class="dropdown-item" href="{{ route('tintuyendung1.vieclamdaungtuyen')}}">VIỆC LÀM ĐÃ ỨNG TUYỂN</a>
                 </div>
               </div>
            </li>

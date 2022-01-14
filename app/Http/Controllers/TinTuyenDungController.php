@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TinTuyenDung;
 use App\Http\Requests\TaoTinTuyenDungRequest;
 use App\Http\Requests\CapNhatTinTuyenDungRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
@@ -201,5 +202,10 @@ class TinTuyenDungController extends Controller
         }
 
         return view('vieclam.vieclamfilter')->with('vieclam', $tintuyendung->get());
+    }
+    public function viecLamUngTuyen(){
+        $user_id=Auth::user()->id;
+        $vieclamuts=User::find($user_id)->vieclamdaungtuyens;
+        return view('tintuyendung.vieclamdaungtuyen',compact('vieclamuts'));
     }
 }

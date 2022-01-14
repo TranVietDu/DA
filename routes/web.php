@@ -67,7 +67,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // send mail
     Route::get('mail/{id}', 'MailController@index')->name('mail.index')->middleware('auth');
-    Route::post('sendmail', 'MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+    Route::post('sendmail/{id}', 'MailController@sendmail')->name('mail.sendmail')->middleware('auth');
 
     //tim kiem blog
     Route::get('/tim-kiem-blog', 'BlogController@search');
@@ -98,6 +98,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace' => 'App\Http\Controllers',
     Route::get('/khoi-phuc/{id}', 'TinTuyenDungController@tinTuyenDungUnTrash')->name('untrash');
     Route::delete('/xoa-vinh-vien/{id}', 'TinTuyenDungController@tinTuyenDungForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
+    Route::get('/vieclamut', 'TinTuyenDungController@viecLamUngTuyen')->name('vieclamdaungtuyen');
 });
 
 // QUAN LI TIN TIM VIEC

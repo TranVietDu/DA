@@ -52,6 +52,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(TinTuyenDung::class);
     }
+    public function vieclamdaungtuyens(){
+
+        return $this->belongsToMany(TinTuyenDung::class, 'viec_lam_ung_tuyens','user_id','vieclam_id');
+
+    }
 
     public function tintimviecs()
     {
