@@ -17,7 +17,7 @@ class HoSoDaLuu extends Model
     protected $table = 'ho_so_da_luu';
 
     protected $fillable = [
-        'id','user_id', 'ten', 'ngaysinh', 'gioitinh', 'sdt','email','nganhnghe','diachi', 'mota', 'anh'
+        'id', 'user_id', 'ten', 'ngaysinh', 'gioitinh', 'sdt', 'email', 'nganhnghe', 'diachi', 'mota', 'anh'
 
     ];
 
@@ -26,4 +26,3 @@ class HoSoDaLuu extends Model
         return $this->belongsTo(User::class);
     }
 }
-

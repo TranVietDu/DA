@@ -38,8 +38,6 @@ class CreateHoSoDaLuuTable extends Migration
      */
     public function down()
     {
-        Schema::table('ho_so_da_luu', function (Blueprint $table) {
-            $table->dropSoftDeletes();
-        });
+        Schema::dropIfExists('ho_so_da_luu');
     }
 }
