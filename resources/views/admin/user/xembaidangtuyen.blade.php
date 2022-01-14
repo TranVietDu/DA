@@ -105,7 +105,7 @@
                                 <td><img src="{{asset('anh_blog/'.$al->anh)}}" width="100px" class="img-flush" alt=""></td>
                                 <td>{{$al->tennguoiviet}}</td>
                                 <td>{{$al->tieude}}</td>
-                                <td>{{$al->noidung}}</td>
+                                <td>{!!html_entity_decode(Str::limit($al->noidung, 300))!!}</td>
                                 <td><a href="/blog/chi-tiet-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a></td>
                                 <td><a href="/blog/cap-nhat-blog/{{$al->id}}"><button class="btn btn-primary"><i class="fas fa-user-edit"></i></button></a></td>
                                 <td>

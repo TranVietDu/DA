@@ -22,8 +22,8 @@ class BlogController extends Controller
     }
     public function blog()
     {
-        $data['blogs'] = BLog::simplePaginate(10);
-        return View::make('blog.blogs', compact($data));
+        $blogs= BLog::paginate(7);;
+        return View::make('blog.blogs', compact('blogs'));
     }
 
     public function chiTietBlog($id)
@@ -86,7 +86,6 @@ class BlogController extends Controller
                 return redirect()->route('blog1.list');
             } else {
                 Blog::find($id)->update($data);
-
                 return redirect()->route('blog1.list');
             }
         } else {

@@ -78,17 +78,23 @@
                                 <label for="remember-me" class="label-agree-term" style="font-family: Arial, sans-serif;"><span><span></span></span>Ghi nhớ đăng nhập</label>
                                 <br> <br>
                                 <a href="/quen-mat-khau" style="font-family: Arial, sans-serif;">Quên mật khẩu</a>
+                                <span class="social-label" style="font-family: Arial, sans-serif;">hoặc đăng nhập với</span>
+                                <ul class="socials">
+                                    <li><a href=" {{ url('/auth/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                    <li><a href=" {{ url('/auth/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                                </ul>
+                                
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
                             </div>
                         </form>
                         <div class="social-login">
-                            <span class="social-label" style="font-family: Arial, sans-serif;">Hoặc đăng nhập với</span>
+                            <!-- <span class="social-label" style="font-family: Arial, sans-serif;">Hoặc đăng nhập với</span>
                             <ul class="socials">
                                 <li><a href=" {{ url('/auth/facebook') }}"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
                                 <li><a href=" {{ url('/auth/google') }}"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

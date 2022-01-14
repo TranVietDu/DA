@@ -9,7 +9,7 @@
               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
               <li><a href="#"><i class="fa fa-behance"></i></a></li>
             </ul>
-            <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+            <p class="text-center"><a href="https://www.phpjabbers.com/">PTJOBS.com</a></p>
           </div>
         </div>
       </div>

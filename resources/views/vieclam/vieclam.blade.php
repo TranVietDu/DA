@@ -22,7 +22,7 @@
 
             <br>
 
-            <h5 style="margin-bottom: 15px">Địa Điểm</h5>
+            <h5 style="margin-bottom: 15px;color: red;">Địa Điểm</h5>
 
             <div>
               <label>
@@ -69,7 +69,7 @@
 
             <br>
 
-            <h5 style="margin-bottom: 15px">Ngành Nghề</h5>
+            <h5 style="margin-bottom: 15px;color:red;">Ngành Nghề</h5>
 
             <div>
               <label>
@@ -98,14 +98,42 @@
             <div>
               <label>
                 <input type="radio" value="Pha Chế" name="nganhnghe">
-
+              
                 <small>Pha Chế</small>
               </label>
             </div>
-
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Mẫu ảnh">
+                <small>Mẫu ảnh</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Dịch thuật">
+                <small>Dịch thuật</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Cộng tác viên(CTV)">
+                <small>Cộng tác viên</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Phát tờ rơi">
+                <small>Phát tờ rơi</small>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="nganhnghe" value="Nhân viên telesale">
+                <small>Nhân viên telesale</small>
+              </label>
+            </div>
             <br>
-
-            <h5 style="margin-bottom: 15px">Thời gian</h5>
+            <h5 style="margin-bottom: 15px;color: red;">Thời gian</h5>
 
             <div>
               <label>
@@ -122,7 +150,6 @@
                 <small>Ca chiều</small>
               </label>
             </div>
-
             <div>
               <label>
                 <input type="radio" value="Ca tối" name="thoigian">
@@ -142,7 +169,6 @@
         <script>
           var site_url = "{{ url('/') }}";
           var page = 1;
-
           load_more(page);
 
           $(window).scroll(function() {

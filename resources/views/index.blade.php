@@ -6,6 +6,9 @@
 <div class="banner header-text">
 
   <script src="js/jssor.slider-28.1.0.min.js" type="text/javascript"></script>
+  <script>
+      AOS.init(); 
+ </script>
   <script type="text/javascript">
     window.jssor_1_slider_init = function() {
 
@@ -370,8 +373,8 @@
 </div>
 
 {{-- Đăng tin  --}}
-
-<div class="col-md-12">
+<div  class="dichvu">
+<div class="col-md-12 tuyendung hu">
   <div class="inner-content">
     <div class="row">
       <div class="col-lg-12">
@@ -379,13 +382,13 @@
           <div class="container-fostrap">
             <div>
               <h3 class="heading">
-                Dịch vụ tuyển dụng
+                DỊCH VỤ TUYỂN DỤNG
               </h3>
             </div>
             <div class="content" style="margin-top:50px">
               <div class="container">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6">
+                  <div data-aos="fade-right" class="col-xs-12 col-sm-6">
                     <div class="card">
                       <a class="img-card" href="tintuyendung/tao-tin-tuyen-dung">
                         <img src="https://benhvienvanhanh.com/wp-content/uploads/2020/01/2020_01_16/0805fbd5c3b499c19b7599613666a106.jpg" />
@@ -401,7 +404,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-6">
+                  <div data-aos="fade-left" class="col-xs-12 col-sm-6">
                     <div class="card">
                       <a class="img-card" href="/hoso">
                         <img src="https://quantrinhansu.vn/wp-content/uploads/2020/03/chon-trang-phuc-phu-hop-khi-di-phong-van-xin-viec.png" />
@@ -425,21 +428,21 @@
     </div>
   </div>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 tuyendung">
   <div class="inner-content">
     <div class="row">
       <div class="col-lg-12">
         <section class="wrapper">
           <div class="container-fostrap">
             <div>
-              <h3 class="heading">
-                Dịch vụ tìm việc
+              <h3 data-aos="zoom-in" class="heading">
+                DỊCH VỤ TÌM VIỆC
               </h3>
             </div>
             <div class="content" style="margin-top:50px">
               <div class="container">
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6">
+                  <div data-aos="fade-left" class="col-xs-12 col-sm-6">
                     <div class="card">
                       <a class="img-card" href="tintimviec/tao-tin-tim-viec">
                         <img src="https://cv.com.vn/blog/wp-content/uploads/2019/08/ho-so-xin-viec-la-gi-1.png" />
@@ -455,7 +458,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-12 col-sm-6">
+                  <div data-aos="fade-right" class="col-xs-12 col-sm-6">
                     <div class="card">
                       <a class="img-card" href="vieclam">
                         <img src="https://hr.jobnow.com.vn/wp-content/uploads/2019/04/cach-tim-viec-lam-nhanh-hieu-qua.jpg" />
@@ -480,27 +483,26 @@
     </div>
   </div>
 </div>
+</div>
 {{-- Blog --}}
 @if ($blognoibat->isEmpty())
 @else
-<div style="margin-top: 100px;">
-  <div style="" class="container">
+<div class="blognoibat">
+  <div class="container log">
     <div class="row">
-
-
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Đọc Gì Hôm Nay?</h2>
+          <h2 data-aos="fade-down-left">Đọc Gì Hôm Nay ?</h2>
           <a href="/blog">Xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
       @foreach($blognoibat as $blog)
-      <div class="col-lg-6"><a href="/blog/chi-tiet-blog/{{$blog->id}}"><img width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></a></div>
-      <div class="col-lg-6 mt-3">
+      <div class="col-lg-6 mt-3"  data-aos="zoom-in-right">
         <h4 class="text-center" style="margin-bottom: 10px">{{$blog->tieude}}</h4>
-        <p class="float-left contentblog">{!!html_entity_decode(Str::limit($blog->noidung, 800))!!} <a href="/blog/chi-tiet-blog/{{$blog->id}}">xem thêm</a></p>
+        <p class="float-left contentblog">{!!html_entity_decode(Str::limit($blog->noidung, 500))!!} <a href="/blog/chi-tiet-blog/{{$blog->id}}">xem thêm</a></p>
         <p class="float-right">Tác Giả: {{$blog->tennguoiviet}}</p>
       </div>
+      <div data-aos="zoom-out-down" class="col-lg-6"><a href="/blog/chi-tiet-blog/{{$blog->id}}"><img class="img-fluid" width="100%" src="{{asset('anh_blog/'.$blog->anh)}}" alt=""></a></div>
       @endforeach
     </div>
   </div>
@@ -511,31 +513,30 @@
 @if ($tintuyendungmoinhat->isEmpty())
 @else
 <div class="latest-products">
-  <div style="" class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Công Việc Mới Nhất</h2>
+          <h2 data-aos="fade-down-left">Công Việc Mới Nhất</h2>
           <a href="/vieclam">Xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
       @foreach($tintuyendungmoinhat as $tin)
       <div class="col-md-4">
-        <div class="product-item">
-          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt="" style="padding:5px"></a>
+        <div class="product-item" data-aos="flip-left">
+          <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintuyendung/'.$tin->anh) }}" alt=""></a>
           <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="vieclam/chi-tiet-viec-lam/{{$tin->id}}">
-              <h6 style="color: blue;" class="tieudevieclam">{{$tin->tieude}}</h6>
+              <h6 style="color: red;" class="tieudevieclam">{{$tin->tieude}}</h6>
             </a>
             <h6>{{$tin->tenquan}}</h6>
-            <p><i class="fas fa-dollar-sign"></i>  Lương: {{$tin->luong}}</p>
-            <p><i class="fas fa-hourglass-half"></i>  Hạn nộp: {{ \Carbon\Carbon::parse($tin->ngayhethan)->format('d/m/Y')}}</p>
+            <p><i class="fas fa-dollar-sign"></i> Lương: {{$tin->luong}}</p>
+            <p><i class="fas fa-hourglass-half"></i> Hạn nộp: {{ \Carbon\Carbon::parse($tin->ngayhethan)->format('d/m/Y')}}</p>
           </div>
         </div>
       </div>
       @endforeach
-
     </div>
   </div>
 </div>
@@ -549,21 +550,21 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2>Tin Tìm Việc Mới Nhất</h2>
+          <h2 data-aos="fade-down-left">Tin Tìm Việc Mới Nhất</h2>
           <a href="/hoso">Xem thêm <i class="fa fa-angle-right"></i></a>
         </div>
       </div>
       @foreach($tintimviecmoinhat as $tin)
       <div class="col-md-4">
-        <div class="product-item">
-          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt="" style="padding: 5px"></a>
+        <div class="product-item" data-aos="zoom-in-down">
+          <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}"><img height="300px" src="{{ asset('anh_tintimviec/'.$tin->anh) }}" alt=""></a>
           <i style="color: red;padding-right: 5px;" class="float-right"><b class="test">New</b></i>
           <div class="down-content">
             <a href="/hoso/chi-tiet-ho-so/{{$tin->id}}">
-              <h6 style="color: blue;">{{$tin->ten}}</h6>
+              <h6 style="color: red;">{{$tin->ten}}</h6>
             </a>
-            <p>Ngành nghề: {{$tin->nganhnghe}}</p>
-              <p title="Posted on"><i class="fa fa-calendar"></i> Ngày đăng: {{ \Carbon\Carbon::parse($tin->created_at)->format('d/m/Y')}}</p> &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            <p><i class="fas fa-briefcase"></i> Ngành nghề: {{$tin->nganhnghe}}</p>
+            <p title="Posted on"><i class="fa fa-calendar"></i> Ngày đăng: {{ \Carbon\Carbon::parse($tin->created_at)->format('d/m/Y')}}</p> &nbsp;&nbsp;&nbsp;&nbsp;<br>
           </div>
         </div>
       </div>
@@ -584,13 +585,11 @@
         <div class="owl-clients owl-carousel text-center">
           @foreach ($ykiens as $ykien)
           <div class="service-item">
-            <div class="icon">
-              <i class="fa fa-user"></i>
+            <div class="icon" style="border-radius: 50%;">
+              <i style="width: 100%;" class="fa fa-user">{{$ykien->ten}}</i>
             </div>
             <div class="down-content">
-              <h4>{{$ykien->ten}}</h4>
               <p><i>"{{$ykien->noidung}}"</i></p>
-
             </div>
           </div>
           @endforeach

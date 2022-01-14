@@ -5,6 +5,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 p {
 	margin-bottom: 0px;
@@ -382,7 +383,7 @@ header .navbar {
 /* Latest Produtcs */
 
 .latest-products {
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .section-heading a {
@@ -1134,4 +1135,49 @@ footer .inner-content p a {
 }
 .tieudevieclam{
 	padding-bottom: 5px;
+}
+.blognoibat{
+	background: linear-gradient(#f1f1f1, white);
+}
+.blognoibat h2{
+	text-align: center;
+	font-weight: 800;
+	color: red;
+}
+.blognoibat img{
+	height: 400px;
+	border-radius: 5px;
+}
+.blognoibat .contentblog{
+	text-align: left;
+}
+.log{
+	padding: 20px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.blognoibat p{
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+.tuyendung h3{
+	text-align: center;
+	font-weight: 800;
+	color: #f33f3f;
+}
+.latest-products img{
+	border-radius: 20px;
+}
+.product-item{
+	border-radius: 20px;
+	background-color: #f1f1f1;
+}
+.latest-products h2{
+	color: #f33f3f;
+	text-align: center;
+	font-weight: 800;
+}
+.dichvu{
+	background: linear-gradient(#19d8e6, #f1f1f1);
+	padding-top: 50px;
 }
