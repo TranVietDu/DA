@@ -98,7 +98,7 @@
             <div>
               <label>
                 <input type="radio" value="Pha Chế" name="nganhnghe">
-              
+
                 <small>Pha Chế</small>
               </label>
             </div>
@@ -158,10 +158,17 @@
             </div>
             <br>
           </form>
-          <h5 style="margin-bottom: 20px;">Việc làm đã lưu</h5>
+          <div class="row">
+              <div class="col-md-8">
+                <h5 style="margin-bottom: 20px;">Việc làm đã lưu</h5>
+              </div>
+              <div class="col-md-4">
+                <button class="btn btn-danger"onclick="clearStorageExcept()">Xóa</button>
+              </div>
+          </div>
           <!-- Luuvieclam -->
           <div id="row_wishlist">
-              
+
           </div>
         </div>
       </div>
@@ -250,6 +257,13 @@
                 alert('No response from server');
               });
           }
+        </script>
+        {{-- xoa cac viec lam da luu --}}
+        <script>
+            function clearStorageExcept() {
+                localStorage.clear();
+                location.reload();
+            };
         </script>
       </div>
     </div>

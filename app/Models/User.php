@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(YKienNguoiDung::class);
     }
+    public function hosodaluu()
+    {
+        return $this->hasMany(HoSoDaLuu::class);
+    }
 }

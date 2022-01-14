@@ -202,4 +202,10 @@ class TinTuyenDungController extends Controller
 
         return view('vieclam.vieclamfilter')->with('vieclam', $tintuyendung->get());
     }
+
+    public function viec_lam_da_ung_tuyen()
+    {
+        return 'hihi';
+    }
+
 }

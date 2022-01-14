@@ -21,19 +21,29 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // Viec lam
     Route::get('/vieclam', 'TinTuyenDungController@vieclam');
+    // các viec làm đã ứng tuyển
+    Route::get('/viec-lam-da-ung-tuyen', 'TinTuyenDungController@viec_lam_da_ung_tuyen')->name('vieclamungtuyen.list');
     // Chi Tiet Viec lam
     Route::get('/vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chiTietViecLam');
 
     // filter vieclam
     Route::get('/vieclam/vieclamfilter', 'TinTuyenDungController@filter')->name('filter');
 
-    // Hoso
-    Route::get('/hoso', 'TinTimViecController@vieclamview')->name('hoso.view');
-    // Chi tiet ho so
-    Route::get('/hoso/chi-tiet-ho-so/{id}', 'TinTimViecController@chiTietHoSo')->name('hoso.chitiethoso');
+    Route::prefix('hoso')->group(function () {
+        // Hoso
+        Route::get('/', 'TinTimViecController@vieclamview')->name('hoso.view');
+        //luu ho so
+        Route::post('/luu-ho-so/{id}', 'TinTimViecController@luu_ho_so');
+        //cac ho so da luu
+        Route::get('/ho-so-da-luu', 'TinTimViecController@ho_so_da_luu')->name('hosodaluu.list');
+        //xoa ho so da luu
+        Route::delete('/xoa-ho-so-da-luu/{id}', 'TinTimViecController@xoa_ho_so_da_luu')->name('hosodaluu.destroy');
+        // Chi tiet ho so
+        Route::get('/chi-tiet-ho-so/{id}', 'TinTimViecController@chiTietHoSo')->name('hoso.chitiethoso');
 
-    // filter hoso
-    Route::get('/hoso/timviecfilter', 'TinTimViecController@filter')->name('timviecfiter');
+        // filter hoso
+        Route::get('/timviecfilter', 'TinTimViecController@filter')->name('timviecfiter');
+    });
 
     //Blog
     Route::get('/blog', 'BlogController@blog');
@@ -139,7 +149,7 @@ Route::get('admin/user/adduser', function () {
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::get('dangki', function () {
         return view('dangki');
-    })->middleware('login');;
+    })->middleware('login');
     Route::get('dangnhap', 'AuthController@index')->name('relogin')->middleware('login');
     Route::post('dangnhap', 'AuthController@login')->name('login')->middleware('login');
     Route::post('dangki', 'AuthController@register')->name('dangki')->middleware('login');
