@@ -154,7 +154,7 @@ class TinTuyenDungController extends Controller
                     <div class=" col-12 text-center">
                         <form action="vieclam/luu-viec-lam/' . $val->id . '" method="post">
                         ' . csrf_field() . '
-                                <button type="submit" class="btn btn-xs btn-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu việc làm</i></button>
+                                <button type="submit" class="btn btn-xs btn-outline-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu việc làm</i></button>
                         </form>
                         </div>
                     </div>
