@@ -137,11 +137,19 @@ class TinTimViecController extends Controller
                 $data .= '
                 <div class="col-lg-6">
                         <div class="product-item">
-                            <a href="/vieclam/chi-tiet-viec-lam/' . $al->id . '">
+                            <a href="/hoso/chi-tiet-ho-so/' . $al->id . '">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="anhcanhan">
                                             <img height="200px" style="border-radius: 20px" src="' . url('anh_tintimviec/' . $al->anh) . '" alt="">
+                                                <div class="row mt-1">
+                                                <div class="col-12 text-center">
+                                                    <form action="hoso/luu-ho-so/' . $al->id . '" method="post">
+                                                    ' . csrf_field() . '
+                                                        <button type="submit" class="btn btn-xs btn-outline-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu hồ sơ</i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
@@ -151,14 +159,6 @@ class TinTimViecController extends Controller
                                             <p><i class="fas fa-briefcase"></i> Ngành nghề: ' . $al->nganhnghe . '</p>
                                             <p><i class="fas fa-calendar-alt"></i> Ngày đăng:  ' . \Carbon\Carbon::parse($al->created_at)->format('d/m/Y') . '</p>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class=" col-12 text-center">
-                                    <form action="hoso/luu-ho-so/' . $al->id . '" method="post">
-                                    ' . csrf_field() . '
-                                        <button type="submit" class="btn btn-xs btn-danger btn-flat" data-toggle="tooltip"><i class="far fa-save"> Lưu hồ sơ</i></button>
-                                    </form>
                                     </div>
                                 </div>
                             </a>

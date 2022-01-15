@@ -39,7 +39,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         // Hoso
         Route::get('/', 'TinTimViecController@vieclamview')->name('hoso.view');
         //luu ho so
-        Route::post('/luu-ho-so/{id}', 'TinTimViecController@luu_ho_so');
+        Route::post('/luu-ho-so/{id}', 'TinTimViecController@luu_ho_so')->name('luuhoso');
         //cac ho so da luu
         Route::get('/ho-so-da-luu', 'TinTimViecController@ho_so_da_luu')->name('hosodaluu.list');
         //xoa ho so da luu

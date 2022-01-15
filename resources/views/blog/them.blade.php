@@ -4,7 +4,7 @@
     <div class="services">
         <div class="container">
             <div class="container blog">
-                <div class="row">
+                <div class="row" style="margin-top: -50px">
                     <div class="col-md-3 blog-left">
                         <img src="https://img.favpng.com/22/20/13/paper-pen-quill-feather-clip-art-png-favpng-kpd7UpK0DFbRztTxeYhGFM5Va.jpg"
                             alt="" style="width: 100px;" />
@@ -63,7 +63,7 @@
                                             <div class="form-group">
                                                 <label for="" style="text-align: left">Nội dung:</label>
                                                 <textarea name="noidung" id="editor">
-                                                </textarea>
+                                                    </textarea>
                                                 <input type="submit" class="btnblog" value="Đăng" />
                                             </div>
                                         </div>
