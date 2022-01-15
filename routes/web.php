@@ -23,6 +23,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('/vieclam', 'TinTuyenDungController@vieclam');
     // các viec làm đã ứng tuyển
     Route::get('/viec-lam-da-ung-tuyen', 'TinTuyenDungController@viec_lam_da_ung_tuyen')->name('vieclamungtuyen.list');
+    //luu viec lam
+    Route::post('vieclam/luu-viec-lam/{id}', 'TinTuyenDungController@luu_viec_lam');
+    //cac viec lam da luu
+    Route::get('vieclam/viec-lam-da-luu', 'TinTuyenDungController@viec_lam_da_luu')->name('vieclamdaluu.list');
+    //xoa viec lam da luu
+    Route::delete('vieclam/xoa-viec-lam-da-luu/{id}', 'TinTuyenDungController@xoa_viec_lam_da_luu')->name('vieclamdaluu.destroy');
     // Chi Tiet Viec lam
     Route::get('/vieclam/chi-tiet-viec-lam/{id}', 'TinTuyenDungController@chiTietViecLam');
 
@@ -77,7 +83,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
     // send mail
     Route::get('mail/{id}', 'MailController@index')->name('mail.index')->middleware('auth');
-    Route::post('sendmail', 'MailController@sendmail')->name('mail.sendmail')->middleware('auth');
+    Route::post('sendmail/{id}', 'MailController@sendmail')->name('mail.sendmail')->middleware('auth');
 
     //tim kiem blog
     Route::get('/tim-kiem-blog', 'BlogController@search');
@@ -108,6 +114,7 @@ Route::group(['prefix' => 'tintuyendung', 'namespace' => 'App\Http\Controllers',
     Route::get('/khoi-phuc/{id}', 'TinTuyenDungController@tinTuyenDungUnTrash')->name('untrash');
     Route::delete('/xoa-vinh-vien/{id}', 'TinTuyenDungController@tinTuyenDungForceDelete')->name('forceDelete');
     Route::get('/khoi-phuc-tin-tuyen-dung', 'TinTuyenDungController@restore')->name('restore');
+    Route::get('/vieclamut', 'TinTuyenDungController@viecLamUngTuyen')->name('vieclamdaungtuyen');
 });
 
 // QUAN LI TIN TIM VIEC

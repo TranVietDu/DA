@@ -9,21 +9,35 @@ use App\Models\TinTuyenDung;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\ViecLamUngTuyen;
+use Illuminate\Support\Facades\Auth;
 
 class MailController extends Controller
 {
     public function index($id){
         $username = TinTuyenDung::find($id)->user;
-        return view('mail.form',compact('username'));
+        $vieclam=TinTuyenDung::find($id);
+        return view('mail.form',compact('username','vieclam'));
 
     }
-    public function sendmail(Request $request){
+    public function sendmail(Request $request,$id){
+        $userid=Auth::user()->id;
+        $vlyt=ViecLamUngTuyen::where('vieclam_id',$id,'and')->where('user_id',$userid)->count();
+        if($vlyt > 0){
+            return back()->with('thongbao','Bạn đã ứng tuyển công việc này trước đây');
+        }
+        else{
+        $vieclamungtuyen=new ViecLamUngTuyen();
+        $vieclamungtuyen->user_id=Auth::user()->id;
+        $vieclamungtuyen->vieclam_id=$id;
+        $vieclamungtuyen->save();
         $data=[
             'file' => $request->file('file')
         ];
         $email=$request->email;
         \Mail::to($email)->send(new Email($data));
         return back()->with('thongbao','Gửi CV Thành Công, Vui Lòng Chờ Nhà Tuyển Dụng Liên Hệ');
+    }
     }
     public function quen_mat_khau()
     {

@@ -7,7 +7,7 @@
             <div class="col-md-12 blog4">
                 <div class="text-content">
                     <h4>Gửi CV Ứng Tuyển </h4>
-                        <form class="text-center" action="{{route('mail.sendmail')}}" method="post" enctype="multipart/form-data">
+                        <form class="text-center" action="{{route('mail.sendmail',[$vieclam->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{$username->email}}" name="email" id=""><br>
                             <input type="file" name="file" id="">
